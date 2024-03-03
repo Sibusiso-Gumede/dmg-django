@@ -6,9 +6,9 @@ class Makro(Supermarket):
 	"""The Makro supermarket class implementation."""
 
 	def __init__(self):
-		self.base_address = 'https://www.makro.co.za'
-		self.name = 'makro'
-		self.page_selectors = {
+		self.__home_page = 'https://www.makro.co.za'
+		self.__name = 'makro'
+		self.__page_selectors = {
 			'product_list': '',
 			'product_id': '',
 			'product_title': '',
@@ -20,16 +20,15 @@ class Makro(Supermarket):
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""
-		return self.name
+		return self.__name
 	
-	def products_page_url(self, page_number=0) -> str:
+	def get_home_page_url(self) -> str:
 		"""Returns the absolute url of a webpage."""
-		return self.base_address
-	
-	def get_page_increment(self) -> int:
-		"""Returns the page increment of the website."""
-		return self.page_increment
+		return self.__home_page
 	
 	def get_page_selectors(self) -> dict[str]:
 		"""Returns a dictionary of CSS selectors."""
-		return self.page_selectors
+		return self.__page_selectors
+
+	def format_promotion_description(self):
+		pass

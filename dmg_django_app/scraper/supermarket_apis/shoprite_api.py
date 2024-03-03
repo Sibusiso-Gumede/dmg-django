@@ -11,12 +11,11 @@ class Shoprite(Supermarket):
 		self.__page_selectors = {
 			'product': 'div.item-product',
 			'product_id': '',
-			'product_name': 'a.product-listening-click',
+			'product_name': 'div.item-product__details > h3.item-product__name > a.product-listening-click',
 			'product_price': '',
 			'product_promo': '',
 			'product_img': '',
 			'search_bar':'#js-site-search-input',
-			'submit_button': 'body > googletagmanager:iframe > main > header > div.wrap > div.header__bottom.header__account > div.header__search.header__search--desktop.hidden-xs > div > div.searchContentHolder > div.search-component__content > form > button.js_search_button.search-component__btn-search',
 		}
 		self.__page_increment = 1		
 

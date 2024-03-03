@@ -1,11 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from supermarket_apis import Supermarket
-import selenium.webdriver.common.by as By
+from ..supermarket_apis import Supermarket
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from time import sleep
 
 class HeadlessBrowser():
-    def run_headless_browser(supermarkets: list[Supermarket], product):
+    def run(supermarkets: list[Supermarket], product: str):
         
         chromeOptions = webdriver.ChromeOptions()
         chromeOptions.add_argument('--headless')
@@ -16,13 +18,14 @@ class HeadlessBrowser():
             for supermarket in supermarkets:
                 _driver.get(supermarket.get_home_page_url())
                 search_bar = _driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['search_bar'])
-                submit_button = _driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['submit_button'])
+                search_bar.send_keys(product)
+                search_bar.submit()
 
-                actions = webdriver.ActionChains(_driver, 1000)
-                actions.move_to_element(search_bar).send_keys_to_element(product)
-                actions.click(submit_button).perform()
+                # Halt for the page to load completely.
+                sleep(5)
 
-                products = _driver.find_elements(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors['product'])
+                products = _driver.find_elements(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['product'])
                 for _product in products:
-                    product_name = _product.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['product_name']).text
-                    print(product_name)
+                    product_name = _product.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['product_name'])
+                    if product_name:
+                        print(product_name.get_attribute('title'))
