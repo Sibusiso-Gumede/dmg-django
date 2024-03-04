@@ -16,9 +16,9 @@ class Checkers(Supermarket):
 			'product_price': '',
 			'product_promo': '',
 			'product_img': '',
+			'submit_button':','
 		}
 		self.query_parameters = True
-		self.parameters = ""
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""

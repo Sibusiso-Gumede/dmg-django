@@ -1,6 +1,6 @@
 """A child class of the Supermarket base class."""
 
-from .generic_api import Supermarket, BeautifulSoup
+from .generic_api import Supermarket
 
 class PicknPay(Supermarket):
 	"""The PicknPay supermarket class implementation."""
@@ -18,7 +18,8 @@ class PicknPay(Supermarket):
 			'product_promo': '',
 			'product_img': '',
 			'attributes': {'name': 'data-cnstrc-item-name',
-							'price': 'data-cnstrc-item-price',}
+							'price': 'data-cnstrc-item-price',},
+			'search_bar': '',
 		}		
 		self.attributes = True
 

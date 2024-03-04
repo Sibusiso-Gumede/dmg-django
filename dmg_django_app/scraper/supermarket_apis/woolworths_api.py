@@ -6,17 +6,19 @@ class Woolworths(Supermarket):
     """The Woolworths supermarket class implementation."""
     
     def __init__(self):
+        super().__init__()
         self.__home_page = 'https://www.woolworths.co.za'
         self.__name = 'woolworths'
         self.__page_selectors = {
-			'product_list': '',
+			'product_list': 'div.product-list__item',
 			'product_id': '',
 			'product_title': '',
-			'product_price': '',
+			'product_price': 'strong.price',
 			'product_promo': '',
 			'product_img': '',
-			'search_bar':'',
+			'search_bar':'#fldSearch',
 		}
+        self.text_prod_details = True
 
     def get_page_selectors(self) -> dict[str]:
         return self.__page_selectors

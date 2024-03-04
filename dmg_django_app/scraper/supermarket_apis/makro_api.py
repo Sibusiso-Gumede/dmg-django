@@ -1,11 +1,12 @@
 """A child class of the Supermarket base class."""
 
-from .generic_api import Supermarket, BeautifulSoup
+from .generic_api import Supermarket
 
 class Makro(Supermarket):
 	"""The Makro supermarket class implementation."""
 
 	def __init__(self):
+		super().__init__()
 		self.__home_page = 'https://www.makro.co.za'
 		self.__name = 'makro'
 		self.__page_selectors = {

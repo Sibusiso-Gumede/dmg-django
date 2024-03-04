@@ -7,6 +7,7 @@ class Supermarket(ABC):
     def __init__(self):
         self.attributes = False
         self.query_parameters = False
+        self.text_prod_details = False
         self.parameters = {}
 
     @abstractclassmethod
