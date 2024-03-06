@@ -8,6 +8,7 @@ def map_function(self, func, container: list):
 
 if __name__ == '__main__':
     woolies = Woolworths()
-    #shoprite = Shoprite()
-    #pnp = PicknPay()
-    headless_browser(woolies, 'muffins')
+    shoprite = Shoprite()
+    pnp = PicknPay()
+    lst = [pnp]
+    headless_browser(lst, "soy sauce")

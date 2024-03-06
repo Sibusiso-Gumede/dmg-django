@@ -1,6 +1,6 @@
 """A child class of the Supermarket base class."""
 
-from .generic_api import Supermarket
+from .base_api import Supermarket
 
 class Checkers(Supermarket):
 	"""The Checkers supermarket class implementation."""

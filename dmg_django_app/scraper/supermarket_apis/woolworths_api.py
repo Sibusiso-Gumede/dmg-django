@@ -1,13 +1,13 @@
 """A child class of the Supermarket base class."""
 
-from .generic_api import Supermarket
+from .base_api import Supermarket
 
 class Woolworths(Supermarket):
     """The Woolworths supermarket class implementation."""
     
     def __init__(self):
         super().__init__()
-        self.__home_page = 'https://www.woolworths.co.za'
+        self.__home_page = 'https://www.woolworths.co.za/cat?Ntt=item&Dy=1'
         self.__name = 'woolworths'
         self.__page_selectors = {
 			'product_list': 'div.product-list__item',
@@ -16,9 +16,9 @@ class Woolworths(Supermarket):
 			'product_price': 'strong.price',
 			'product_promo': '',
 			'product_img': '',
-			'search_bar':'#fldSearch',
 		}
         self.text_prod_details = True
+        self.detailed_form = True
 
     def get_page_selectors(self) -> dict[str]:
         return self.__page_selectors

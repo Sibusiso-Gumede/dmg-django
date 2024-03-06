@@ -1,6 +1,6 @@
 """A child class of the Supermarket base class."""
 
-from .generic_api import Supermarket
+from .base_api import Supermarket
 
 class Makro(Supermarket):
 	"""The Makro supermarket class implementation."""
@@ -17,7 +17,6 @@ class Makro(Supermarket):
 			'product_promo': '',
 			'product_img': '',
 		}		
-		self.page_increment = 1
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""

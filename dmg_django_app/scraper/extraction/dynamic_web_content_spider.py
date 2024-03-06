@@ -1,4 +1,4 @@
-from supermarket_apis.generic_api import Supermarket
+from discount_my_groceries.dmg_django.dmg_django_app.scraper.supermarket_apis.base_api import Supermarket
 #from playwright.async_api import async_playwright, Route
 from supermarket_apis.woolworths_api import Woolworths
 import asyncio

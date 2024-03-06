@@ -1,19 +1,18 @@
 """A child class of the Supermarket base class."""
 
-from .generic_api import Supermarket
+from .base_api import Supermarket
 
 class PicknPay(Supermarket):
 	"""The PicknPay supermarket class implementation."""
 
 	def __init__(self):
 		super().__init__()
-		self.__home_page = 'https://www.pnp.co.za/search/'
+		self.__home_page = 'https://www.pnp.co.za/search/item'
 		self.__name = 'picknpay'
 		self.__page_selectors = {
-			'product_list': 'ui-product-grid-item',
-			#'div[class^="cx-product-container"] > div[class$="ng-star-inserted"]',
+			'product_list': 'div[class^="cx-product-container"] > div[class$="ng-star-inserted"]',
 			'product_id': '',
-			'product_title': 'div[class^="product-grid-item"]',
+			'product_title': 'div',
 			'product_price': '',
 			'product_promo': '',
 			'product_img': '',
@@ -21,7 +20,8 @@ class PicknPay(Supermarket):
 							'price': 'data-cnstrc-item-price',},
 			'search_bar': '',
 		}		
-		self.attributes = True
+		#self.text_prod_details = True
+		self.detailed_form = True
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""

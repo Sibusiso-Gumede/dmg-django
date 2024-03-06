@@ -1,23 +1,20 @@
 """A child class of the Supermarket base class."""
 
-from .generic_api import Supermarket
+from .base_api import Supermarket
 
 class Shoprite(Supermarket):
 	"""The Shoprite supermarket class implementation."""
 
 	def __init__(self):
 		super().__init__()
-		self.__home_page = 'https://www.shoprite.co.za'
+		self.__home_page = 'https://www.shoprite.co.za/search/all?q=item'
 		self.__name = 'shoprite'
 		self.__page_selectors = {
-			'product': 'div.item-product',
-			'product_id': '',
-			'product_name': 'div.item-product__details > h3.item-product__name > a.product-listening-click',
-			'product_price': '',
-			'product_promo': '',
-			'product_img': '',
-			'search_bar':'#js-site-search-input',
-		}		
+			'product_list': 'div.item-product',
+			'product_details': 'div.item-product__details',
+		}
+		self.detailed_form = True	
+		self.text_prod_details = True	
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""
