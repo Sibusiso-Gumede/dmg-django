@@ -8,8 +8,6 @@ class Supermarket(ABC):
         self.element_attributes = False
         self.query_parameters = False
         self.text_prod_details = False
-        self.detailed_form = False
-        self.parameters = {}
 
     @abstractclassmethod
     def get_supermarket_name(self) -> str:

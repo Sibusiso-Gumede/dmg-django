@@ -13,7 +13,6 @@ class Shoprite(Supermarket):
 			'product_list': 'div.item-product',
 			'product_details': 'div.item-product__details',
 		}
-		self.detailed_form = True	
 		self.text_prod_details = True	
 
 	def get_supermarket_name(self) -> str:

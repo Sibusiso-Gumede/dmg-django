@@ -18,7 +18,6 @@ class Woolworths(Supermarket):
 			'product_img': '',
 		}
         self.text_prod_details = True
-        self.detailed_form = True
 
     def get_page_selectors(self) -> dict[str]:
         return self.__page_selectors

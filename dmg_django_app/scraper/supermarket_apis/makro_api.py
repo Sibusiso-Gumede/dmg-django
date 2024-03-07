@@ -7,16 +7,17 @@ class Makro(Supermarket):
 
 	def __init__(self):
 		super().__init__()
-		self.__home_page = 'https://www.makro.co.za'
+		self.__home_page = 'https://www.makro.co.za/search/?text=item'
 		self.__name = 'makro'
 		self.__page_selectors = {
-			'product_list': '',
+			'product_list': 'div[dir="auto"]',
 			'product_id': '',
 			'product_title': '',
 			'product_price': '',
 			'product_promo': '',
 			'product_img': '',
-		}		
+		}
+		self.text_prod_details = True		
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""

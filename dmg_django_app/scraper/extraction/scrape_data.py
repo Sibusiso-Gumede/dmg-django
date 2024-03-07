@@ -1,6 +1,6 @@
 from .headless_browser import headless_browser
 from concurrent.futures import ThreadPoolExecutor
-from supermarket_apis import Woolworths, Shoprite, PicknPay
+from supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
@@ -10,5 +10,7 @@ if __name__ == '__main__':
     woolies = Woolworths()
     shoprite = Shoprite()
     pnp = PicknPay()
-    lst = [pnp]
+    checkers = Checkers()
+    makro = Makro()
+    lst = [makro]
     headless_browser(lst, "soy sauce")

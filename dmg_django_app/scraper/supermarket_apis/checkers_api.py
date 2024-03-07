@@ -7,18 +7,16 @@ class Checkers(Supermarket):
 
 	def __init__(self):
 		super().__init__()
-		self.__home_page = 'https://www.checkers.co.za'
+		self.__home_page = 'https://www.checkers.co.za/search/all?q=item'
 		self.__name = 'checkers'
 		self.__page_selectors = {
-			'product_list': '',
+			'product_list': 'div.item-product',
 			'product_id': '',
-			'product_title': '',
-			'product_price': '',
-			'product_promo': '',
+			'product_details': 'div.item-product__details',
 			'product_img': '',
-			'submit_button':','
+			'submit_button':'',
 		}
-		self.query_parameters = True
+		self.text_prod_details = True
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""
