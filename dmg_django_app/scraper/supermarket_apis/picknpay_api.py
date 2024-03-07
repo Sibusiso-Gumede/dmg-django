@@ -6,7 +6,6 @@ class PicknPay(Supermarket):
 	"""The PicknPay supermarket class implementation."""
 
 	def __init__(self):
-		super().__init__()
 		self.__home_page = 'https://www.pnp.co.za/search/item'
 		self.__name = 'picknpay'
 		self.__page_selectors = {
@@ -15,12 +14,7 @@ class PicknPay(Supermarket):
 			'product_title': '',
 			'product_price': '',
 			'product_promo': '',
-			'product_img': '',
-			'attributes': {'name': 'data-cnstrc-item-name',
-							'price': 'data-cnstrc-item-price',},
-			'search_bar': '',
 		}		
-		self.text_prod_details = True
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""

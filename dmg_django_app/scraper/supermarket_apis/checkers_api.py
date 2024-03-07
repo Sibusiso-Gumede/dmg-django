@@ -6,17 +6,14 @@ class Checkers(Supermarket):
 	"""The Checkers supermarket class implementation."""
 
 	def __init__(self):
-		super().__init__()
 		self.__home_page = 'https://www.checkers.co.za/search/all?q=item'
 		self.__name = 'checkers'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
 			'product_id': '',
 			'product_details': 'div.item-product__details',
-			'product_img': '',
-			'submit_button':'',
+			'product_promo': '',
 		}
-		self.text_prod_details = True
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""

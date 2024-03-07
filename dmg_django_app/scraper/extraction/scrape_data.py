@@ -13,4 +13,4 @@ if __name__ == '__main__':
     checkers = Checkers()
     makro = Makro()
     lst = [makro]
-    headless_browser(lst, "soy sauce")
+    headless_browser(lst, "black pepper")

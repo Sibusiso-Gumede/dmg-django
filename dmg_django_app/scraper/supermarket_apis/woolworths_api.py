@@ -15,9 +15,7 @@ class Woolworths(Supermarket):
 			'product_title': '',
 			'product_price': 'strong.price',
 			'product_promo': '',
-			'product_img': '',
 		}
-        self.text_prod_details = True
 
     def get_page_selectors(self) -> dict[str]:
         return self.__page_selectors

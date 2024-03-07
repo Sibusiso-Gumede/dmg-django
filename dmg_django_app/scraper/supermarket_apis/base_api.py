@@ -5,9 +5,7 @@ class Supermarket(ABC):
 
     @abstractclassmethod
     def __init__(self):
-        self.element_attributes = False
-        self.query_parameters = False
-        self.text_prod_details = False
+        pass
 
     @abstractclassmethod
     def get_supermarket_name(self) -> str:

@@ -6,14 +6,12 @@ class Shoprite(Supermarket):
 	"""The Shoprite supermarket class implementation."""
 
 	def __init__(self):
-		super().__init__()
 		self.__home_page = 'https://www.shoprite.co.za/search/all?q=item'
 		self.__name = 'shoprite'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
 			'product_details': 'div.item-product__details',
-		}
-		self.text_prod_details = True	
+		}	
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""
