@@ -1,4 +1,4 @@
-from .headless_browser import headless_browser
+from .headless_browser import Scraper
 from concurrent.futures import ThreadPoolExecutor
 from supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 
@@ -12,5 +12,4 @@ if __name__ == '__main__':
     pnp = PicknPay()
     checkers = Checkers()
     makro = Makro()
-    lst = [makro]
-    headless_browser(lst, "black pepper")
+    scraper = Scraper([makro])
