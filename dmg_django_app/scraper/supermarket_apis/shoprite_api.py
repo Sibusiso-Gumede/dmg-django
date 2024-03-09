@@ -6,7 +6,8 @@ class Shoprite(Supermarket):
 	"""The Shoprite supermarket class implementation."""
 
 	def __init__(self):
-		self.__home_page = 'https://www.shoprite.co.za/search/all?q=item'
+		self.__query_page = 'https://www.shoprite.co.za/search/all?q=item'
+		self.__home_page = 'https://www.shoprite.co.za'
 		self.__name = 'shoprite'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
@@ -27,3 +28,6 @@ class Shoprite(Supermarket):
 	
 	def format_promotion_description(self):
 		pass
+
+	def get_query_page_url(self) -> str:
+		return self.__query_page

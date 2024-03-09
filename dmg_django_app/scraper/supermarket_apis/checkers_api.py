@@ -6,13 +6,16 @@ class Checkers(Supermarket):
 	"""The Checkers supermarket class implementation."""
 
 	def __init__(self):
-		self.__home_page = 'https://www.checkers.co.za/search/all?q=item'
+		self.__query_page = 'https://www.checkers.co.za/search/all?q=item'
+		self.__home_page = 'https://www.checkers.co.za'
 		self.__name = 'checkers'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
 			'product_id': '',
 			'product_details': 'div.item-product__details',
 			'product_promo': '',
+			'next_button': 'ul[class^="pagination"] > li.pagination-next > a[rel="next"]',
+			'browse_nav': '#BrowseProductsNavNodeEntry > a'
 		}
 
 	def get_supermarket_name(self) -> str:
@@ -29,3 +32,6 @@ class Checkers(Supermarket):
 	
 	def format_promotion_description(self):
 		pass
+
+	def get_query_page_url(self):
+		return self.__query_page

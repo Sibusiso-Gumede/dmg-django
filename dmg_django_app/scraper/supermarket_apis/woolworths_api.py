@@ -6,8 +6,8 @@ class Woolworths(Supermarket):
     """The Woolworths supermarket class implementation."""
     
     def __init__(self):
-        super().__init__()
-        self.__home_page = 'https://www.woolworths.co.za/cat?Ntt=item&Dy=1'
+        self.__home_page = 'https://www.woolworths.co.za'
+        self.__query_page = 'https://www.woolworths.co.za/cat?Ntt=item&Dy=1'
         self.__name = 'woolworths'
         self.__page_selectors = {
 			'product_list': 'div.product-list__item',
@@ -62,3 +62,6 @@ class Woolworths(Supermarket):
             return promotions
         else:
             return promo
+        
+    def get_query_page_url(self) -> str:
+		return self.__query_page

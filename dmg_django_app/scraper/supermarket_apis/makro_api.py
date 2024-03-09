@@ -6,7 +6,8 @@ class Makro(Supermarket):
 	"""The Makro supermarket class implementation."""
 
 	def __init__(self):
-		self.__home_page = 'https://www.makro.co.za/search/?text=item'
+		self.__home_page = 'https://www.makro.co.za'
+		self.__query_page = 'https://www.makro.co.za/search/?text=item'
 		self.__name = 'makro'
 		self.__page_selectors = {
 			'product_list': 'div[dir="auto"]',
@@ -30,3 +31,6 @@ class Makro(Supermarket):
 
 	def format_promotion_description(self):
 		pass
+
+	def get_query_page_url(self) -> str:
+		return self.__query_page

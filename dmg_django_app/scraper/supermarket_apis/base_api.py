@@ -22,3 +22,7 @@ class Supermarket(ABC):
     @abstractclassmethod
     def get_page_selectors(self) -> dict[str]:
         pass
+
+    @abstractclassmethod
+    def get_query_page_url(self) -> str:
+        pass

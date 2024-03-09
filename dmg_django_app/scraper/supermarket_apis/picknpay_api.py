@@ -6,7 +6,8 @@ class PicknPay(Supermarket):
 	"""The PicknPay supermarket class implementation."""
 
 	def __init__(self):
-		self.__home_page = 'https://www.pnp.co.za/search/item'
+		self.__query_page = 'https://www.pnp.co.za/search/item'
+		self.__home_page = 'https://www.pnp.co.za'
 		self.__name = 'picknpay'
 		self.__page_selectors = {
 			'product_list': 'ui-product-grid-item',
@@ -30,3 +31,6 @@ class PicknPay(Supermarket):
 
 	def format_promotion_description(self):
 		pass
+
+	def get_query_page_url(self) -> str:
+        return self.__query_page
