@@ -14,7 +14,7 @@ class Checkers(Supermarket):
 			'product_id': '',
 			'product_details': 'div.item-product__details',
 			'product_promo': '',
-			'next_button': 'ul[class^="pagination"] > li.pagination-next > a[rel="next"]',
+			'next_button': 'ul[class="pagination pull-right"] > li.pagination-next > a',
 			'browse_nav': '#BrowseProductsNavNodeEntry > a'
 		}
 

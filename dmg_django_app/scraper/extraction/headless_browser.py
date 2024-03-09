@@ -13,6 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import StaleElementReferenceException
 from time import sleep
+from random import choice
 from supermarket_apis import Supermarket
 
 class Scraper():
@@ -25,6 +26,7 @@ class Scraper():
         
         self.__driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.__chromeOptions)
         self.__driver.maximize_window()
+        self.__WAITING_TIME_RANGE = range(1, 3)
         self.__SEARCHED_PRODUCTS = 'searched products'
         self.__ALL_DATA = 'all data'
         self.__mode = str()
@@ -48,22 +50,36 @@ class Scraper():
         self.__mode = self.__ALL_DATA
         self.__capture_products()
 
-    def __capture_products(self, poduct_name: str = None):
+    def __capture_products(self, product_name: str = None):
+        divisor_range = range(2, 6)
+        def product_list():
+            products = self.__driver.find_elements(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['product_list'])
+            for product in products:
+                try:
+                    if product.text:
+                        if supermarket.get_supermarket_name() != 'makro':
+                            print(product.text)
+                        elif self.__isRelevant(product_name, product.text):
+                            print(product.text)
+                except StaleElementReferenceException:
+                    pass
+        
         for supermarket in self.__s_list:
             if self.__mode == self.__ALL_DATA:
                 self.__driver.get(supermarket.get_home_page_url())
                 sleep(0.5)
-                self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav'])
+                self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
+                sleep(0.65)
+                product_list()
+                next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])
+                while next_button.is_enabled():
+                    next_button.click()
+                    sleep((choice(self.__WAITING_TIME_RANGE))/(choice(divisor_range)))
+                    product_list()
+                    next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])
+
             elif self.__mode == self.__SEARCHED_PRODUCTS:
                 self.__driver.get(supermarket.get_query_page_url().replace('item', self.__options['product_name']))
-                sleep(0.5)
-                products = self.__driver.find_elements(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['product_list'])
-                for product in products:
-                    try:
-                        if product.text:
-                            if supermarket.get_supermarket_name() != 'makro':
-                                print(product.text)
-                            elif self.__isRelevant(self.__options['product_name'], product.text):
-                                print(product.text)
-                    except StaleElementReferenceException:
-                        pass
+                sleep(0.7)
+
+            
