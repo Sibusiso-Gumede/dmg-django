@@ -1,7 +1,7 @@
 from django.db import models
 
 class Supermarket(models.Model):
-    """Represents a supermarket entity."""
+    """A supermarket entity."""
     supermarket_id = models.PositiveIntegerField(primary_key=True,
                                          unique=True,
                                          help_text=f"The supermarket id")
@@ -18,7 +18,7 @@ class Supermarket(models.Model):
         ordering = ["supermarket_name"]
     
 class Category(models.Model):
-    """Represents a product category entity."""
+    """A product category entity."""
     category_id = models.CharField(primary_key=True,
                                 unique=True,
                                 max_length=20,

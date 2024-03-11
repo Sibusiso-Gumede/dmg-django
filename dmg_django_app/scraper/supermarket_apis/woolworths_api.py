@@ -64,4 +64,4 @@ class Woolworths(Supermarket):
             return promo
         
     def get_query_page_url(self) -> str:
-		return self.__query_page
+        return self.__query_page

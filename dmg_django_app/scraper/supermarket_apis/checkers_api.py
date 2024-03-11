@@ -11,9 +11,9 @@ class Checkers(Supermarket):
 		self.__name = 'checkers'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
-			'product_id': '',
-			'product_details': 'div.item-product__details',
-			'product_promo': '',
+			'product_name': 'div.item-product__details > h3.item-product__name > a',
+			'product_price': 'span.now',
+			'product_promo': 'div.item-product__details > span.item-product__valid',
 			'next_button': 'ul[class="pagination pull-right"] > li.pagination-next > a',
 			'browse_nav': '#BrowseProductsNavNodeEntry > a'
 		}

@@ -1,6 +1,6 @@
 from .headless_browser import Scraper
 from concurrent.futures import ThreadPoolExecutor
-from supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
+from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
@@ -12,4 +12,5 @@ if __name__ == '__main__':
     pnp = PicknPay()
     checkers = Checkers()
     makro = Makro()
-    scraper = Scraper([makro])
+    scraper = Scraper([checkers])
+    scraper.scrape_all_data()
