@@ -11,10 +11,12 @@ class PicknPay(Supermarket):
 		self.__name = 'picknpay'
 		self.__page_selectors = {
 			'product_list': 'ui-product-grid-item',
-			'product_id': '',
-			'product_title': '',
-			'product_price': '',
-			'product_promo': '',
+			'product_name': 'div.product-grid-item__info-container > a > span',
+			'product_price': 'div.product-grid-item__info-container > div.product-grid-item__price-container',
+			'product_promo': 'div.product-grid-item__info-container > div.product-grid-item__promotion-container',
+			'next_button': 'cx-pagination > a[href$="number"]',
+			'browse_nav': 'nav.ng-tns-c330-0 > div > ul > li[class^="navigation-item"] > button',
+			'view_all': 'nav.ng-tns-c330-0 > div > ul > li[class^="navigation-item"] > div > ul > li > a > span:nth-child(2)'
 		}		
 
 	def get_supermarket_name(self) -> str:

@@ -11,7 +11,11 @@ class Shoprite(Supermarket):
 		self.__name = 'shoprite'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
-			'product_details': 'div.item-product__details',
+			'product_name': 'div.item-product__details > h3.item-product__name > a',
+			'product_price': 'span.now',
+			'product_promo': 'div.item-product__details > span.item-product__valid',
+			'next_button': 'ul[class="pagination pull-right"] > li.pagination-next > a',
+			'browse_nav': '#BrowseProductsNavNodeEntry > a'
 		}	
 
 	def get_supermarket_name(self) -> str:

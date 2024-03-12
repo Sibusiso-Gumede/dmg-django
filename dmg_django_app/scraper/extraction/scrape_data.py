@@ -12,5 +12,5 @@ if __name__ == '__main__':
     pnp = PicknPay()
     checkers = Checkers()
     makro = Makro()
-    scraper = Scraper([checkers])
+    scraper = Scraper([pnp])
     scraper.scrape_all_data()
