@@ -37,10 +37,6 @@ class Scraper():
         self.__MAKRO = 'makro'
         self.__mode = str()
 
-    def __del__(self):
-        self.__driver.close()
-        self.__driver.quit()
-
     def __isRelevant(self, item: str, result: str) -> bool:
         for substring in item.split('%20'):
             if (substring[1:] in result) or (result[0] == 'R' and result[-1].isdigit()) or (result[:3] == 'Buy'):
@@ -83,6 +79,8 @@ class Scraper():
             self.__driver.get(supermarket.get_home_page_url())
             page = 1
             sleep(0.5)
+
+            breakpoint()
             self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
             
             if supermarket.get_supermarket_name() == self.__PNP:
@@ -105,7 +103,7 @@ class Scraper():
                 sleep((choice(self.__WAITING_TIME_RANGE))/(choice(divisor_range)))
                 print(f"\nPAGE {page} OF {supermarket.get_supermarket_name()}")
                 product_list(super=supermarket)
-                breakpoint()
+                
                 if supermarket.get_supermarket_name() != self.__PNP:
                     next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])
                 elif supermarket.get_supermarket_name() == self.__PNP:

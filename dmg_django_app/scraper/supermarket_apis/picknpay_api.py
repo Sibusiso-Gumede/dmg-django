@@ -15,8 +15,8 @@ class PicknPay(Supermarket):
 			'product_price': 'div.product-grid-item__info-container > div.product-grid-item__price-container',
 			'product_promo': 'div.product-grid-item__info-container > div.product-grid-item__promotion-container',
 			'next_button': 'cx-pagination > a[href$="number"]',
-			'browse_nav': 'nav.ng-tns-c330-0 > div > ul > li[class^="navigation-item"] > button',
-			'view_all': 'nav.ng-tns-c330-0 > div > ul > li[class^="navigation-item"] > div > ul > li > a > span:nth-child(2)'
+			'browse_nav': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > button',
+			'view_all': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > div[class^="navigation-child"] > ul > li > a[class^="list"] > span[class^="action"]'
 		}		
 
 	def get_supermarket_name(self) -> str:
