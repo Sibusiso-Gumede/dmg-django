@@ -7,9 +7,13 @@ class Receipt_Renderer():
         text_font = ImageFont.truetype(f'{resources_path}/bitMatrix-A2.ttf')
         heading = 'Discount My Groceries'
         subheading = 'Supermarket Name'
-        divider = '----------'
+        divider = '-'
         list = 'item_1\t\tR0.00\nitem_2\t\tR0.00\nitem_3\t\tR0.00\n...'
         total = 'R2387.00'
         footer = 'created by\nOuter Spectrum Labs'
 
-        ImageDraw.ImageDraw.text(background, (background.size[0]*0.15, background.size[1]*0.15), heading, (0,0,0), text_font, align='center')
+        #edit = ImageDraw.ImageDraw(background)
+        receipt = background.resize((240,480))
+        edit = ImageDraw.Draw(receipt)
+        edit.text((65, 60), heading, (0,0,0), text_font, spacing=8, align='center', direction='ltr')
+        receipt.show()

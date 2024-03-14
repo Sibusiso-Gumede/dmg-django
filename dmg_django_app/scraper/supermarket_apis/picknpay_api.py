@@ -16,7 +16,8 @@ class PicknPay(Supermarket):
 			'product_promo': 'div.product-grid-item__info-container > div.product-grid-item__promotion-container',
 			'next_button': 'cx-pagination > a[href$="number"]',
 			'browse_nav': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > button',
-			'view_all': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > div[class^="navigation-child"] > ul > li > a[class^="list"] > span[class^="action"]'
+			'view_all': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > div[class^="navigation-child"] > ul > li > a[class^="list"] > span[class^="action"]',
+			'products_page': 'https://www.pnp.co.za/c/pnpbase'
 		}		
 
 	def get_supermarket_name(self) -> str:

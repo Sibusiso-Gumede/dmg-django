@@ -55,7 +55,9 @@ class Scraper():
     def __capture_products(self, product_name: str = None):
         divisor_range = range(2, 6)
 
-        def product_list(_super: Supermarket):
+        def product_list(_super: Supermarket, page: int = 0):
+            if page == 2:
+                breakpoint()
             products = self.__driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
             for product in products:
                 try:
@@ -64,7 +66,7 @@ class Scraper():
                     prod_pomo = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_promo'])
                     if prod_name and prod_price:
                         if _super.get_supermarket_name() != self.__MAKRO:
-                            print(f"{prod_name.text}\n{prod_price}")
+                            print(f"{prod_name.text}\n{prod_price.text}")
                             if prod_pomo:
                                 print(f'\n{prod_pomo.text}')
                         elif self.__isRelevant(product_name, product.text):
@@ -74,38 +76,35 @@ class Scraper():
                 except StaleElementReferenceException:
                     pass
         
-        page = 0
+        page_number = 0     # products page counter
         for supermarket in self.__s_list:
-            self.__driver.get(supermarket.get_home_page_url())
-            page = 1
-            sleep(0.5)
-
-            breakpoint()
-            self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
+            if supermarket.get_supermarket_name() != self.__PNP:
+                self.__driver.get(supermarket.get_home_page_url())
+                sleep(0.5)
+                self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
+            elif supermarket.get_supermarket_name() == self.__PNP:
+                self.__driver.get(supermarket.get_page_selectors()['products_page'])
             
-            if supermarket.get_supermarket_name() == self.__PNP:
-                self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['view_all']).click()
-            
+            page_number = 1
             sleep(0.65)
             print(f"PAGE 1 OF {supermarket.get_supermarket_name()}")
-            product_list(super=supermarket)
+            product_list(_super=supermarket)
             
             next_button: WebElement
             if supermarket.get_supermarket_name() != self.__PNP:
                 next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])
             elif supermarket.get_supermarket_name() == self.__PNP:
-                page_number = int(self.__driver.current_url[(self.__driver.current_url.find('=')+1):]) + 1
                 next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=(supermarket.get_page_selectors()['next_button']).replace('number', page_number))
-            
+
             while next_button.is_enabled():
                 next_button.click()
-                page += 1
                 sleep((choice(self.__WAITING_TIME_RANGE))/(choice(divisor_range)))
-                print(f"\nPAGE {page} OF {supermarket.get_supermarket_name()}")
-                product_list(super=supermarket)
+                print(f"\nPAGE {page_number} OF {supermarket.get_supermarket_name()}")
+                product_list(_super=supermarket, page=page_number)
                 
                 if supermarket.get_supermarket_name() != self.__PNP:
                     next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])
+                    page_number += 1
                 elif supermarket.get_supermarket_name() == self.__PNP:
                     page_number = int(self.__driver.current_url[(self.__driver.current_url.find('=')+1):]) + 1
                     next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=(supermarket.get_page_selectors()['next_button']).replace('number', page_number))
