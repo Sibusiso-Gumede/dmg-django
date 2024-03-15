@@ -7,7 +7,7 @@ class PicknPay(Supermarket):
 
 	def __init__(self):
 		self.__query_page = 'https://www.pnp.co.za/search/item'
-		self.__home_page = 'https://www.pnp.co.za'
+		self.__home_page = 'https://www.pnp.co.za/c/pnpbase'
 		self.__name = 'picknpay'
 		self.__page_selectors = {
 			'product_list': 'ui-product-grid-item',
@@ -17,7 +17,7 @@ class PicknPay(Supermarket):
 			'next_button': 'cx-pagination > a[href$="number"]',
 			'browse_nav': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > button',
 			'view_all': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > div[class^="navigation-child"] > ul > li > a[class^="list"] > span[class^="action"]',
-			'products_page': 'https://www.pnp.co.za/c/pnpbase'
+			'products_found': 'div[class="cx-sorting top"] > div > h2[class="title-with-quantity"] > span'
 		}		
 
 	def get_supermarket_name(self) -> str:

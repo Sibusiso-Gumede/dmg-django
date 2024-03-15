@@ -26,8 +26,8 @@ def map_function(self, func, container: list):
     
 def suite():
     suite = TestSuite()
-    #suite.addTest(DMGTestCase('headless_browser_test'))
-    suite.addTest(DMGTestCase('receipt_renderer_test'))
+    suite.addTest(DMGTestCase('headless_browser_test'))
+    #suite.addTest(DMGTestCase('receipt_renderer_test'))
     return suite
 
 if __name__ == '__main__':
