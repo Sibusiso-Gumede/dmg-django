@@ -11,7 +11,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.actions.pointer_input import PointerInput
+from selenium.webdriver.common.actions.wheel_input import WheelInput
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.actions.interaction import *
 from selenium.common.exceptions import StaleElementReferenceException
 from time import sleep
 from random import choice
@@ -21,21 +25,25 @@ class Scraper():
     def __init__(self, supermarkets: list[Supermarket]) -> None:
         self.__s_list = supermarkets
         
-        self.__chromeOptions = webdriver.ChromeOptions()
-        self.__chromeOptions.add_argument('--headless')
-        self.__chromeOptions.page_load_strategy = 'normal'
+        self.chromeOptions = webdriver.ChromeOptions()
+        self.chromeOptions.add_argument('--headless')
+        self.chromeOptions.page_load_strategy = 'normal'
         
-        self.__driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.__chromeOptions)
-        self.__driver.maximize_window()
-        self.__WAITING_TIME_RANGE = range(1, 3)
-        self.__SEARCHED_PRODUCTS = 'searched products'
-        self.__ALL_DATA = 'all data'
-        self.__PNP = 'picknpay'
-        self.__WOOLIES = 'woolworths'
-        self.__SHOPRITE = 'shoprite'
-        self.__CHECKERS = 'checkers'
-        self.__MAKRO = 'makro'
-        self.__mode = str()
+        self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.chromeOptions)
+        self.driver.set_window_size(1351, 598)
+        self.driver.maximize_window()
+        self.mouse_wheel = WheelInput('MouseWheel')
+        self.mouse_pointer = PointerInput(POINTER_MOUSE,'MousePointer')
+        self.actions = ActionChains(self.driver, 500, [self.mouse_pointer, self.mouse_wheel])
+        self.WAITING_TIME_RANGE = range(1, 3)
+        self.SEARCHED_PRODUCTS = 'searched products'
+        self.ALL_DATA = 'all data'
+        self.PNP = 'picknpay'
+        self.WOOLIES = 'woolworths'
+        self.SHOPRITE = 'shoprite'
+        self.CHECKERS = 'checkers'
+        self.MAKRO = 'makro'
+        self.mode = str()
 
     def __isRelevant(self, item: str, result: str) -> bool:
         for substring in item.split('%20'):
@@ -45,59 +53,71 @@ class Scraper():
 
     def scrape_searched_products(self, product_name: str):        
         product_name = product_name.replace(' ', '%20')
-        self.__mode = self.__SEARCHED_PRODUCTS
-        self.__capture_products()
+        self.mode = self.SEARCHED_PRODUCTS
+        self._capture_products()
 
     def scrape_all_data(self):
-        self.__mode = self.__ALL_DATA
-        self.__capture_products()
+        self.mode = self.ALL_DATA
+        self._capture_products()
 
-    def __product_list(self, _super: Supermarket, page: int = None):
-            if page == 2:
-                breakpoint()
-            print('product list...\n')
-            products = self.__driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
-            for product in products:
-                prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
-                prod_price = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_price'])
-                prod_pomo = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_promo'])
-                if prod_name and prod_price:
-                    if _super.get_supermarket_name() != self.__MAKRO:
-                        print(prod_name.text+'\n'+prod_price.text)
-                        if prod_pomo:
-                            print('\n'+prod_pomo.text)
-                else:
-                    print('Product Name or Product Price Not Found.')
+    def _product_list(self, _super: Supermarket, page: int = None):
+        if page == 2:
+            breakpoint()
+        print('product list...\n')
+        products = self.driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
+        breakpoint()
+        for product in products:
+            prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
+            prod_price = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_price'])
+            prod_pomo = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_promo'])
+            if prod_name is not None and prod_price is not None:
+                if _super.get_supermarket_name() != self.MAKRO:
+                    print(prod_name.text+'\n'+prod_price.text)
+                    if prod_pomo is not None:
+                        print('\n'+prod_pomo.text)
+            else:
+                print('Product Name or Product Price Not Found.')
 
-    def __capture_products(self, product_name: str = None):
-        
+    def _scroll_to_bottom_and_top(self, _super: Supermarket):
+        # scroll to the bottom of the page and back to the top.
+        self.actions.scroll_to_element(self.driver.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['footer']))
+        self.actions.perform()
+        self.actions.reset_actions()
+        self.actions.scroll_to_element(self.driver.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['header']))
+        self.actions.perform()
+        self.actions.reset_actions()
+
+    def _capture_products(self, product_name: str = None):
         divisor_range = range(2, 6)       
-        page_number = 0     # products page counter
+        page_number = 0
         
         for supermarket in self.__s_list:
-            
-            self.__driver.get(supermarket.get_home_page_url())
+            self.driver.get(supermarket.get_home_page_url())
             sleep(0.5)
             
-            if supermarket.get_supermarket_name() != self.__PNP:                
-                self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
+            if supermarket.get_supermarket_name() != self.PNP:                
+                self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                 sleep(0.65)
+            elif supermarket.get_supermarket_name() == self.PNP:
+                self._scroll_to_bottom_and_top(supermarket)
 
             page_number = 1
             print(f"PAGE {page_number} OF {supermarket.get_supermarket_name()}")
-            self.__product_list(_super=supermarket, page=page_number)
+            self._product_list(_super=supermarket, page=page_number)
+
             while True:
                 next_button: WebElement
-                if supermarket.get_supermarket_name() != self.__PNP:
-                    next_button = self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])                
+                if supermarket.get_supermarket_name() != self.PNP:
+                    next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])                
                     if next_button.is_enabled():
                         next_button.click()
                     else:
                         break
-                elif supermarket.get_supermarket_name() == self.__PNP:
-                    self.__driver.get(supermarket.get_home_page_url()+f'?currentPage={page_number}')
-                    if self.__driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['products_found']).text == '(0)':
+                elif supermarket.get_supermarket_name() == self.PNP:
+                    self.driver.get(supermarket.get_home_page_url()+f'?currentPage={page_number}')
+                    self._scroll_to_bottom_and_top(supermarket)
+                    if self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['products_found']).text == '(0)':
                         break 
-                sleep((choice(self.__WAITING_TIME_RANGE))/(choice(divisor_range)))
+                sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
                 print(f"\nPAGE {page_number} OF {supermarket.get_supermarket_name()}")
-                self.__product_list(_super=supermarket, page=page_number)
+                self._product_list(_super=supermarket, page=page_number)

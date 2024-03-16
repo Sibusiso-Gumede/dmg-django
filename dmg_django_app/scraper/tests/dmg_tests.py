@@ -11,10 +11,10 @@ class DMGTestCase(TestCase):
     def headless_browser_test(self):
         #woolies = Woolworths()
         #shoprite = Shoprite()
-        pnp = PicknPay()
-        #checkers = Checkers()
+        #pnp = PicknPay()
+        checkers = Checkers()
         #makro = Makro()
-        scraper = Scraper([pnp])
+        scraper = Scraper([checkers])
         scraper.scrape_all_data()
 
     def receipt_renderer_test(self):
