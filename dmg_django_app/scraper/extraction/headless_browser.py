@@ -65,7 +65,6 @@ class Scraper():
             breakpoint()
         print('product list...\n')
         products = self.driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
-        breakpoint()
         for product in products:
             prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
             prod_price = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_price'])
@@ -90,7 +89,8 @@ class Scraper():
     def _capture_products(self, product_name: str = None):
         divisor_range = range(2, 6)       
         page_number = 0
-        
+        next_button: WebElement
+
         for supermarket in self.__s_list:
             self.driver.get(supermarket.get_home_page_url())
             sleep(0.5)
@@ -106,18 +106,22 @@ class Scraper():
             self._product_list(_super=supermarket, page=page_number)
 
             while True:
-                next_button: WebElement
                 if supermarket.get_supermarket_name() != self.PNP:
                     next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])                
-                    if next_button.is_enabled():
+                    if page_number == 2:
+                        break
+                    elif next_button.is_enabled():
                         next_button.click()
-                    else:
+                    elif not next_button.is_enabled():
+                        print(f'End of found items in the {supermarket.get_supermarket_name()} website.')
                         break
                 elif supermarket.get_supermarket_name() == self.PNP:
                     self.driver.get(supermarket.get_home_page_url()+f'?currentPage={page_number}')
                     self._scroll_to_bottom_and_top(supermarket)
                     if self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['products_found']).text == '(0)':
                         break 
+                
+                page_number += 1
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
                 print(f"\nPAGE {page_number} OF {supermarket.get_supermarket_name()}")
                 self._product_list(_super=supermarket, page=page_number)
