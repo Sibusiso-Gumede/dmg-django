@@ -9,13 +9,13 @@ class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
     
     def headless_browser_test(self):
-        #woolies = Woolworths()
-        shoprite = Shoprite()
+        woolies = Woolworths()
+        #shoprite = Shoprite()
         #pnp = PicknPay()
-        checkers = Checkers()
+        #checkers = Checkers()
         #makro = Makro()
-        scraper = Scraper([checkers, shoprite])
-        scraper.scrape_all_data()
+        scraper = Scraper()
+        scraper.scrape_all_data([woolies])
 
     def receipt_renderer_test(self):
         Receipt_Renderer.render()

@@ -2,6 +2,7 @@ from abc import ABC, abstractclassmethod
 
 class Supermarket(ABC):
     """The base class for all supermarket classes."""
+    RESOURCES_PATH = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
 
     @abstractclassmethod
     def __init__(self):

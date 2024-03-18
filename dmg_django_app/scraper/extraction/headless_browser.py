@@ -20,11 +20,17 @@ from selenium.common.exceptions import StaleElementReferenceException
 from time import sleep
 from random import choice
 from ..supermarket_apis import Supermarket
+from os import path, makedirs
+import json
 
 class Scraper():
-    def __init__(self, supermarkets: list[Supermarket]) -> None:
-        self.__s_list = supermarkets
-        
+    PNP = 'picknpay'
+    WOOLIES = 'woolworths'
+    SHOPRITE = 'shoprite'
+    CHECKERS = 'checkers'
+    MAKRO = 'makro'
+    
+    def __init__(self) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
         self.chromeOptions.add_argument('--headless')
         self.chromeOptions.page_load_strategy = 'normal'
@@ -38,14 +44,9 @@ class Scraper():
         self.WAITING_TIME_RANGE = range(1, 3)
         self.SEARCHED_PRODUCTS = 'searched products'
         self.ALL_DATA = 'all data'
-        self.PNP = 'picknpay'
-        self.WOOLIES = 'woolworths'
-        self.SHOPRITE = 'shoprite'
-        self.CHECKERS = 'checkers'
-        self.MAKRO = 'makro'
         self.mode = str()
 
-    def __isRelevant(self, item: str, result: str) -> bool:
+    def _isRelevant(self, item: str, result: str) -> bool:
         for substring in item.split('%20'):
             if (substring[1:] in result) or (result[0] == 'R' and result[-1].isdigit()) or (result[:3] == 'Buy'):
                 return True
@@ -56,14 +57,12 @@ class Scraper():
         self.mode = self.SEARCHED_PRODUCTS
         self._capture_products()
 
-    def scrape_all_data(self):
+    def scrape_all_data(self,  supermarkets: list[Supermarket]):
         self.mode = self.ALL_DATA
-        self._capture_products()
+        self._capture_products(supermarkets)
 
     def _product_list(self, _super: Supermarket, page: int = None):
-        if page == 2:
-            breakpoint()
-        print('product list...\n')
+        print('\nPRODUCT LIST...\n')
         products = self.driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
         for product in products:
             prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
@@ -77,6 +76,28 @@ class Scraper():
             else:
                 print('Product Name or Product Price Not Found.')
 
+    def _populate_fixtures(self, _supermarket: Supermarket, products: dict):
+        # TODO: complete the operations for the database fixtures. 
+        output_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_products.json'
+        if not path.isfile(output_file):
+            makedirs(output_file)
+        with open(output_file, 'w') as o_file:
+            json.dump(products, o_file)
+
+    def _prepare_url_patterns(self, _supermarket: Supermarket) -> list[str]:
+        # TODO: Return complete url's.
+        input_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/categories.json'
+        if not path.isfile(input_file):
+            makedirs(input_file)
+        urls = list()
+        with open(input_file, 'r') as i_file:
+            categories = dict(json.load(i_file))
+            for name, id in zip(categories.keys(), categories.values()):
+                url = _supermarket.get_query_page_url().replace('name', name)
+                url = url.replace('id', id['ID'])
+                urls.append(url)
+        return urls    
+
     def _scroll_to_bottom_and_top(self, _super: Supermarket):
         # scroll to the bottom of the page and back to the top.
         self.actions.scroll_to_element(self.driver.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['footer']))
@@ -86,16 +107,22 @@ class Scraper():
         self.actions.perform()
         self.actions.reset_actions()
 
-    def _capture_products(self, product_name: str = None):
+    def _capture_products(self, supermarkets: list[Supermarket]):
         divisor_range = range(2, 6)       
         page_number = 0
         next_button: WebElement
 
-        for supermarket in self.__s_list:
-            self.driver.get(supermarket.get_home_page_url())
+        for supermarket in supermarkets:
+            # TODO: Place all the code inside the while loop?
+            if not supermarket.get_supermarket_name() == self.WOOLIES:
+                self.driver.get(supermarket.get_home_page_url())
+            elif supermarket.get_supermarket_name() == self.WOOLIES:
+                url_patterns = self._prepare_url_patterns(supermarket)
+                # TODO: Fix URL patterns.
+                breakpoint()
             sleep(0.5)
             
-            if supermarket.get_supermarket_name() != self.PNP:                
+            if supermarket.get_supermarket_name() == self.CHECKERS or supermarket.get_supermarket_name() == self.SHOPRITE:                
                 self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                 sleep(0.65)
             elif supermarket.get_supermarket_name() == self.PNP:

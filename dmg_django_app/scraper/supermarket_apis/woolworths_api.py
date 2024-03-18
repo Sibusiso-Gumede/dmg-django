@@ -7,14 +7,16 @@ class Woolworths(Supermarket):
     
     def __init__(self):
         self.__home_page = 'https://www.woolworths.co.za'
-        self.__query_page = 'https://www.woolworths.co.za/cat?Ntt=item&Dy=1'
+        self.__query_page = 'https://www.woolworths.co.za/cat/Food/name/_/id'
         self.__name = 'woolworths'
         self.__page_selectors = {
 			'product_list': 'div.product-list__item',
 			'product_id': '',
-			'product_title': '',
+			'product_name': 'div[id^="prod_details"] > div.product-card__details > div:nth-child(1) > div > a.range--title',
 			'product_price': 'strong.price',
-			'product_promo': '',
+			'product_promo': 'div[id^="promotion"] > a > div.product__special',
+            'browseNav': '#main-nav > ul > li:nth-child(1) > a > div > span',
+            'next_button': '#app > div > div > main > div > div:nth-child(3) > div.product-list__list > div > nav > div.pagination__info > li:nth-child(3) > span.icon-text'
 		}
 
     def get_page_selectors(self) -> dict[str]:
