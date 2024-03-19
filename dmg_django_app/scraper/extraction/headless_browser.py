@@ -77,7 +77,7 @@ class Scraper():
                 print('Product Name or Product Price Not Found.')
 
     def _populate_fixtures(self, _supermarket: Supermarket, products: dict):
-        # TODO: complete the operations for the database fixtures. 
+        # Populate database fixtures. 
         output_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_products.json'
         if not path.isfile(output_file):
             makedirs(output_file)
@@ -85,7 +85,7 @@ class Scraper():
             json.dump(products, o_file)
 
     def _prepare_url_patterns(self, _supermarket: Supermarket) -> list[str]:
-        # TODO: Return complete url's.
+        # Read data and return complete url's.
         input_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/categories.json'
         if not path.isfile(input_file):
             makedirs(input_file)
@@ -94,12 +94,12 @@ class Scraper():
             categories = dict(json.load(i_file))
             for name, id in zip(categories.keys(), categories.values()):
                 url = _supermarket.get_query_page_url().replace('name', name)
-                url = url.replace('id', id['ID'])
+                url = url.replace('idcode', id['ID'])
                 urls.append(url)
         return urls    
 
     def _scroll_to_bottom_and_top(self, _super: Supermarket):
-        # scroll to the bottom of the page and back to the top.
+        # Scroll to the bottom of the page and back to the top.
         self.actions.scroll_to_element(self.driver.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['footer']))
         self.actions.perform()
         self.actions.reset_actions()
@@ -110,6 +110,7 @@ class Scraper():
     def _capture_products(self, supermarkets: list[Supermarket]):
         divisor_range = range(2, 6)       
         page_number = 0
+        urls: list[str]
         next_button: WebElement
 
         for supermarket in supermarkets:
@@ -117,11 +118,8 @@ class Scraper():
             if not supermarket.get_supermarket_name() == self.WOOLIES:
                 self.driver.get(supermarket.get_home_page_url())
             elif supermarket.get_supermarket_name() == self.WOOLIES:
-                url_patterns = self._prepare_url_patterns(supermarket)
-                # TODO: Fix URL patterns.
-                breakpoint()
-            sleep(0.5)
-            
+                urls = self._prepare_url_patterns(supermarket)
+
             if supermarket.get_supermarket_name() == self.CHECKERS or supermarket.get_supermarket_name() == self.SHOPRITE:                
                 self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                 sleep(0.65)
@@ -140,7 +138,7 @@ class Scraper():
                     elif next_button.is_enabled():
                         next_button.click()
                     elif not next_button.is_enabled():
-                        print(f'End of found items in the {supermarket.get_supermarket_name()} website.')
+                        print(f'Found items completely scraped for {supermarket.get_supermarket_name()} website.')
                         break
                 elif supermarket.get_supermarket_name() == self.PNP:
                     self.driver.get(supermarket.get_home_page_url()+f'?currentPage={page_number}')
