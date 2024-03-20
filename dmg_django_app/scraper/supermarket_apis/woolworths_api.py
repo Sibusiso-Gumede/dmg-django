@@ -12,12 +12,12 @@ class Woolworths(Supermarket):
         self.__page_selectors = {
 			'product_list': 'div.product-list__item',
 			'product_id': '',
-			'product_name': 'div[id^="prod_details"] > div.product-card__details > div:nth-child(1) > div > a.range--title',
+			'product_name': 'div[id^="prod_details"] > div.product-card__details > div > div > a.range--title',
 			'product_price': 'strong.price',
 			'product_promo': 'div[id^="promotion"] > a > div.product__special',
             'browseNav': '#main-nav > ul > li:nth-child(1) > a > div > span',
-            'next_button': '#app > div > div > main > div > div:nth-child(3) > div.product-list__list > div > nav > div.pagination__info > li:nth-child(3) > span.icon-text'
-		}
+            'next_button': '#app > div > div > main > div > div:nth-child(3) > div.product-list__list > div > nav > div.pagination__info > li:nth-child(3) > span[class="icon icon--right-dark"]'
+        }
 
     def get_page_selectors(self) -> dict[str]:
         return self.__page_selectors
