@@ -16,12 +16,12 @@ from selenium.webdriver.common.actions.pointer_input import PointerInput
 from selenium.webdriver.common.actions.wheel_input import WheelInput
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.actions.interaction import *
-from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
+from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException, WebDriverException
 from time import sleep
 from random import choice
 from ..supermarket_apis import Supermarket
 from os import path, makedirs
-import json
+import json, traceback
 
 class Scraper():
     PNP = 'picknpay'
@@ -61,25 +61,34 @@ class Scraper():
         self.mode = self.ALL_DATA
         self._capture_products(supermarkets)
 
-    def _product_list(self, _super: Supermarket, page: int = None):
+    def _product_list(self, _super: Supermarket) -> dict[str]:
         print('\nPRODUCT LIST...\n')
+        _dump = dict[str]
         products = self.driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
         for product in products:
-            prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
-            prod_price = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_price'])
-            try:
+            try:    
+                prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
+                prod_price = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_price'])
                 prod_pomo = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_promo'])
-            except NoSuchElementException:
-                prod_pomo = None
-            if prod_name is not None and prod_price is not None:
+            except NoSuchElementException as error:
+                line = traceback.format_exception_only(error)[0]
+                if _super.get_page_selectors()['product_name'] in line:
+                    prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name_alternative'])
+                elif _super.get_page_selectors()['product_price'] in line:
+                    prod_price = None
+                elif _super.get_page_selectors()['product_promo'] in line:
+                    prod_pomo = None
+            finally:
                 if _super.get_supermarket_name() != self.MAKRO:
-                    print(prod_name.text+'\n'+prod_price.text)
-                    if prod_pomo is not None:
-                        print('\n'+prod_pomo.text)
-            else:
-                print('Product Name or Product Price Not Found.') 
+                    if (prod_name is not None) and (prod_price is not None) and (prod_pomo is not None):
+                        _dump.update({prod_name.text: {prod_price.text, prod_pomo.text},})
+                    elif prod_pomo is None:
+                        _dump.update({prod_name.text:{prod_price.text},})
+                    elif prod_price is None:
+                        _dump.update({prod_name.text:{},})
+        return _dump
 
-    def _populate_fixtures(self, _supermarket: Supermarket, products: dict):
+    def _populate_fixtures(self, _supermarket: Supermarket, products: dict[str]):
         # Populate database fixtures. 
         output_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_products.json'
         if not path.isfile(output_file):
@@ -120,7 +129,8 @@ class Scraper():
 
         for supermarket in supermarkets:
             home_page = True
-        
+            buffer = dict[str]
+
             if supermarket.get_supermarket_name() == self.WOOLIES:
                 urls = self._prepare_url_patterns(supermarket)
                 url_count = len(urls)
@@ -151,21 +161,25 @@ class Scraper():
                         url_count -= 1
                         home_page = False
                     elif not home_page:
-                        # TODO: fix next_button issue.
+                        # Click to the next page if it's available.
                         next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])
                         if next_button.is_enabled():
                             next_button.click()
-                        # Continue to the next category if the last page of the current category is reached.    
-                        elif (not next_button.is_enabled()) and (url_count > -1):
-                            home_page = True
-                            continue
-                        # If the final page of the last category is reached, then proceed to the next supermarket website.
-                        elif (not next_button.is_enabled()) and (url_count == -1):
-                            print(f'Found items completely scraped for {supermarket.get_supermarket_name()} website.')
-                            break
+                
                 page_number += 1
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
                 print(f"\nPAGE {page_number} OF {supermarket.get_supermarket_name()}")
-                self._product_list(_super=supermarket, page=page_number)
+                buffer.update(self._product_list(_super=supermarket))
+                
                 if page_number == 2:
-                        break
+                    break
+                # Proceed to the next category if the items are completely scraped for the current category.
+                elif (supermarket.get_supermarket_name() == self.WOOLIES) and (not next_button.is_enabled()) and (url_count > -1):
+                    home_page = True
+                # Otherwise, if the final page of the last category is reached, then proceed to the next supermarket website.
+                elif (supermarket.get_supermarket_name() == self.WOOLIES) and (not next_button.is_enabled()) and (url_count == -1):
+                    print(f'Available items completely scraped for {supermarket.get_supermarket_name()} website.')
+                    break
+            
+            # Populate supermarket database fixtures.
+            self._populate_fixtures(supermarket, buffer)

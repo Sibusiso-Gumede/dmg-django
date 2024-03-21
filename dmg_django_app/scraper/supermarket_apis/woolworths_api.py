@@ -13,6 +13,7 @@ class Woolworths(Supermarket):
 			'product_list': 'div.product-list__item',
 			'product_id': '',
 			'product_name': 'div[id^="prod_details"] > div.product-card__details > div > div > a.range--title',
+            'product_name_alternative': 'div[id^="prod_details"] > div.product-card__details > div.product--desc > a > h2',
 			'product_price': 'strong.price',
 			'product_promo': 'div[id^="promotion"] > a > div.product__special',
             'browseNav': '#main-nav > ul > li:nth-child(1) > a > div > span',
