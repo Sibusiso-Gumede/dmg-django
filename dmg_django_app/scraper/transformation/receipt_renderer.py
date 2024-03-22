@@ -5,15 +5,67 @@ class Receipt_Renderer():
         resources_path = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
         background = Image.open(f'{resources_path}/wrinkled-paper-texture-7.jpg')
         text_font = ImageFont.truetype(f'{resources_path}/bitMatrix-A2.ttf')
-        heading = 'Discount My Groceries'
-        subheading = 'Supermarket Name'
-        divider = '-'
-        list = 'item_1\t\tR0.00\nitem_2\t\tR0.00\nitem_3\t\tR0.00\n...'
-        total = 'R2387.00'
-        footer = 'created by\nOuter Spectrum Labs'
+        
+        ink = (0,0,0)
+        y_spacing = 30                  # vertical space between the entries.
+        grouped_entries_space = 12
+        vertical_cursor = 20            # vertical cursor.
+        body_lm_rm = (10, 200)          # the body's left and right margin coordinates.
+        header_lm = 45                  # header left margin coordinate.
+        footer_lm = 70                  # footer left margin coordinate.
 
-        #edit = ImageDraw.ImageDraw(background)
-        receipt = background.resize((240,480))
+        w, h = 240, 480
+        receipt = background.resize((w, h))
         edit = ImageDraw.Draw(receipt)
-        edit.text((65, 60), heading, (0,0,0), text_font, spacing=8, align='center', direction='ltr')
+
+        # Header.
+        supermarket_name = 'SUPERMARKET NAME\n'
+        cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
+        edit.multiline_text((header_lm, vertical_cursor), supermarket_name+cashier, ink, text_font, spacing=4, align='center', direction='ltr')
+
+        # Header divider.
+        vertical_cursor += y_spacing
+        divider = '--------------------------------------------'
+        edit.text((body_lm_rm[0], vertical_cursor), divider, ink, text_font, align='center', direction='ltr')
+
+        # Item names and prices.
+        vertical_cursor += (y_spacing-10)
+        price = '0.00'
+        edit.text((body_lm_rm[0], vertical_cursor), f'ITEM 1', ink, text_font, align='left', direction='ltr')
+        edit.text((body_lm_rm[1], vertical_cursor), price, ink, text_font, align='right', direction='ltr')
+        for j in range(2, 6):
+            vertical_cursor += grouped_entries_space
+            edit.text((body_lm_rm[0], vertical_cursor), f'ITEM {j}', ink, text_font, align='left', direction='ltr')
+            edit.text((body_lm_rm[1], vertical_cursor), price, ink, text_font, align='right', direction='rtl')
+
+        # Total cost.
+        vertical_cursor += grouped_entries_space
+        label = 'DUE VAT INCL'
+        total_amount = '2387.00'
+        # Made the label of the total cost begin at the footer_lm for center alignment. 
+        edit.text((footer_lm, vertical_cursor), label, ink, text_font, align='center', direction='ltr')
+        edit.text((body_lm_rm[1], vertical_cursor), total_amount, ink, text_font, align='right', direction='rtl')
+
+        # Tax invoice segment.
+        vertical_cursor += y_spacing
+        tax_inv_divider = '----------------TAX INVOICE----------------'
+        edit.text((body_lm_rm[0], vertical_cursor), tax_inv_divider, ink, text_font, align='center', direction='ltr')
+        # Calculate tax.
+        vertical_cursor += grouped_entries_space
+        vat_value = float(total_amount) * 0.15
+        taxable_value = float(total_amount) - vat_value
+        edit.text((body_lm_rm[0], vertical_cursor), 'VAT VAL', ink, text_font, align='left', direction='ltr')
+        edit.text((body_lm_rm[1], vertical_cursor), str(vat_value), ink, text_font, align='right', direction='rtl')
+        vertical_cursor += grouped_entries_space
+        edit.text((body_lm_rm[0], vertical_cursor), 'TAXABLE VAL', ink, text_font, align='left', direction='ltr')
+        edit.text((body_lm_rm[1], vertical_cursor), str(taxable_value), ink, text_font, align='right', direction='rtl')
+
+        # Footer divider.
+        vertical_cursor += y_spacing
+        edit.line([(body_lm_rm[0], vertical_cursor),(230, vertical_cursor)], fill=ink, width=0)
+
+        # Footer.
+        vertical_cursor += y_spacing    
+        footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
+        edit.multiline_text((footer_lm, vertical_cursor), footer_text, ink, text_font, spacing=4, align='center', direction='ltr')
         receipt.show()
