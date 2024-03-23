@@ -14,8 +14,8 @@ class Receipt_Renderer():
         header_lm = 45                  # header left margin coordinate.
         footer_lm = 70                  # footer left margin coordinate.
 
-        w, h = 240, 480
-        receipt = background.resize((w, h))
+        receipt_w, receipt_h = 240, 480
+        receipt = background.resize((receipt_w, receipt_h))
         edit = ImageDraw.Draw(receipt)
 
         # Header.
@@ -48,7 +48,7 @@ class Receipt_Renderer():
 
         # Tax invoice segment.
         vertical_cursor += y_spacing
-        tax_inv_divider = '----------------TAX INVOICE----------------'
+        tax_inv_divider = '-----------------TAX INVOICE----------------'
         edit.text((body_lm_rm[0], vertical_cursor), tax_inv_divider, ink, text_font, align='center', direction='ltr')
         # Calculate tax.
         vertical_cursor += grouped_entries_space
@@ -66,6 +66,12 @@ class Receipt_Renderer():
 
         # Footer.
         vertical_cursor += y_spacing    
+        # FIXME: Barcode.
+        barcode_w, barcode_h = 180, 30
+        barcode = Image.open(f'{resources_path}/barcode.png').resize((barcode_w, barcode_h))
+        receipt.paste(barcode, (footer_lm-50, vertical_cursor))
+        # Credits.
+        vertical_cursor += (grouped_entries_space + barcode_h)
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         edit.multiline_text((footer_lm, vertical_cursor), footer_text, ink, text_font, spacing=4, align='center', direction='ltr')
         receipt.show()
