@@ -6,8 +6,8 @@ class Receipt_Renderer():
         # Properties and settings.
         black_ink = (0,0,0)
         white_ink = (255,255,255)
-        black_shades = [(i,i,i) for i in range(0,128)]
-        white_shades = [(j,j,j) for j in range(128,256)]
+        black_shades = (0,127)
+        white_shades = (128,255)
         y_spacing = 30                  # vertical space between the entries.
         grouped_entries_space = 12
         vertical_cursor = 20            # vertical cursor.
@@ -72,18 +72,27 @@ class Receipt_Renderer():
         vertical_cursor += y_spacing    
         # FIXME: Barcode.
         barcode_w, barcode_h = 180, 30
-        barcode = Image.open(f'{resources_path}/barcode.png').resize((barcode_w, barcode_h)).convert('RGB')
-        pixels = barcode.getdata()
+        '''barcode = Image.open(f'{resources_path}/barcode.png').resize((barcode_w, barcode_h)).convert('RGB')
+        pixels = list(barcode.getdata())
         new_barcode = []
         for pixel in pixels:
-            # Change all shades of white pixels to black and vice versa.
-            if pixel in white_shades:
-                new_barcode.append(black_ink)
-            elif pixel in black_shades:
-                new_barcode.append(white_ink)
-        barcode.putdata(pixels)
+            buffer = [0,0,0]
+            for k in range(0,3):
+                # Change all shades of white pixels to black and vice versa.
+                if white_shades[0] <= pixel[k] <= white_shades[-1]:
+                    buffer[k] = black_ink[k]
+                elif black_shades[0] <= pixel[k] <= black_shades[-1]:
+                    buffer[k] = white_ink[k]
+                else:
+                    buffer[k] = pixel[k]
+            new_barcode.append(tuple(buffer))
+        barcode.putdata(new_barcode)
         barcode.show()
-        receipt.paste(barcode, (footer_lm-50, vertical_cursor))
+        breakpoint()
+        receipt.paste(barcode, (footer_lm-50, vertical_cursor))'''
+        barcode_sizes = [25, 10, 15, 10, 12, 8, 10, 7, 13, 20, 18, 22, 10]
+        for barcode_size in barcode_sizes:
+            edit.line([(footer_lm-50, vertical_cursor),()])
         
         # Credits.
         vertical_cursor += (grouped_entries_space + barcode_h)
