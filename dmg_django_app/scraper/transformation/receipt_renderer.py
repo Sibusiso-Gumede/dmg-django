@@ -11,6 +11,7 @@ class Receipt_Renderer():
         y_spacing = 30                  # vertical space between the entries.
         grouped_entries_space = 12
         vertical_cursor = 20            # vertical cursor.
+        horizontal_cursor = 0.00
         body_lm_rm = (10, 200)          # the body's left and right margin coordinates.
         header_lm = 45                  # header left margin coordinate.
         footer_lm = 70                  # footer left margin coordinate.
@@ -71,29 +72,23 @@ class Receipt_Renderer():
         # Footer.
         vertical_cursor += y_spacing    
         # FIXME: Barcode.
-        barcode_w, barcode_h = 180, 30
-        '''barcode = Image.open(f'{resources_path}/barcode.png').resize((barcode_w, barcode_h)).convert('RGB')
-        pixels = list(barcode.getdata())
-        new_barcode = []
-        for pixel in pixels:
-            buffer = [0,0,0]
-            for k in range(0,3):
-                # Change all shades of white pixels to black and vice versa.
-                if white_shades[0] <= pixel[k] <= white_shades[-1]:
-                    buffer[k] = black_ink[k]
-                elif black_shades[0] <= pixel[k] <= black_shades[-1]:
-                    buffer[k] = white_ink[k]
-                else:
-                    buffer[k] = pixel[k]
-            new_barcode.append(tuple(buffer))
-        barcode.putdata(new_barcode)
-        barcode.show()
-        breakpoint()
-        receipt.paste(barcode, (footer_lm-50, vertical_cursor))'''
-        barcode_sizes = [25, 10, 15, 10, 12, 8, 10, 7, 13, 20, 18, 22, 10]
-        for barcode_size in barcode_sizes:
-            edit.line([(footer_lm-50, vertical_cursor),()])
-        
+        barcode_w, barcode_h = 200, 20
+        barcode_lm, barcode_rm = 20, 220.00
+        horizontal_cursor = barcode_lm
+        barcode_sizes = [1.2, 1, 1.5, 1, 2, 1, 2.3, 1, 1.5, 1, 1.7]
+        barcode_bottom = vertical_cursor+barcode_h
+        barcode_top = vertical_cursor
+        barcode_right = horizontal_cursor
+        x, k, index_limit = 2, 0, len(barcode_sizes)-1
+        while not (horizontal_cursor > barcode_rm):
+            if x % 2 == 0:
+                edit.rectangle([(horizontal_cursor, barcode_top), (horizontal_cursor+barcode_sizes[k], barcode_bottom)], black_ink, width=0)
+            horizontal_cursor += barcode_sizes[k]
+            x += 1
+            k += 1
+            if k > index_limit:
+                k = 0
+
         # Credits.
         vertical_cursor += (grouped_entries_space + barcode_h)
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
