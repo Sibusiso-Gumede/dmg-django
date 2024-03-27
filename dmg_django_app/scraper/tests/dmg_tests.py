@@ -18,7 +18,8 @@ class DMGTestCase(TestCase):
         scraper.scrape_all_data([woolies])
 
     def receipt_renderer_test(self):
-        Receipt_Renderer.render()
+        rr = Receipt_Renderer()
+        rr.render()
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
