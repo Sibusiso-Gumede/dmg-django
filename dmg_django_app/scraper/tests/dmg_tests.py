@@ -9,17 +9,20 @@ class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
     
     def headless_browser_test(self):
-        woolies = Woolworths()
+        #woolies = Woolworths()
         #shoprite = Shoprite()
-        #pnp = PicknPay()
+        pnp = PicknPay()
         #checkers = Checkers()
         #makro = Makro()
         scraper = Scraper()
-        scraper.scrape_all_data([woolies])
+        scraper.scrape_all_data([pnp])
 
     def receipt_renderer_test(self):
+        items = {'Simba Salt and Vinegar 250g': '12.50',
+                 'Sir Juice Green Machine 1L': '39.99',
+                 'Mince Samoosas 5s': '50.00'}
         rr = Receipt_Renderer()
-        rr.render()
+        rr.render(items=items)
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
@@ -27,8 +30,8 @@ def map_function(self, func, container: list):
     
 def suite():
     suite = TestSuite()
-    #suite.addTest(DMGTestCase('headless_browser_test'))
-    suite.addTest(DMGTestCase('receipt_renderer_test'))
+    suite.addTest(DMGTestCase('headless_browser_test'))
+    #suite.addTest(DMGTestCase('receipt_renderer_test'))
     return suite
 
 if __name__ == '__main__':

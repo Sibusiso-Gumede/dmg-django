@@ -1,268 +1,98 @@
 {
-  "Meat-Poultry-Fish": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
+    "Long Life Full Cream Milk 1 L": {
+        "price": "R 18.99",
+        "promo": "NULL"
     },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
+    "Penne Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R60 EVERYDAY PASTA"
     },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
+    "Spaghetti 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R60 EVERYDAY PASTA"
+    },
+    "Long Life Low Fat Milk 1 L": {
+        "price": "R 18.99",
+        "promo": "NULL"
+    },
+    "Long Life Full Cream Milk 6 x 1 L": {
+        "price": "R 109.99",
+        "promo": "NULL"
+    },
+    "Light Brown Sugar 2 kg": {
+        "price": "R 52.99",
+        "promo": "NULL"
+    },
+    "Chickpeas in Brine 400 g": {
+        "price": "R 28.99",
+        "promo": "NULL"
+    },
+    "Light Meat Tuna Shredded in Brine 3 x 170 g": {
+        "price": "R 76.99",
+        "promo": "NULL"
+    },
+    "Diced Tomatoes 400 g": {
+        "price": "R 28.99",
+        "promo": "NULL"
+    },
+    "Nescaf\u00e9 Gold Cappuccino Sachets 10 x 18 g": {
+        "price": "R 78.99",
+        "promo": "NULL"
+    },
+    "Macaroni 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R60 EVERYDAY PASTA"
+    },
+    "Tangy Mayonnaise 750 g": {
+        "price": "R 51.99",
+        "promo": "NULL"
+    },
+    "Baked Beans 410 g": {
+        "price": "R 15.99",
+        "promo": "NULL"
+    },
+    "White Sugar 2.5 kg": {
+        "price": "R 57.99",
+        "promo": "NULL"
+    },
+    "Light Meat Tuna Shredded in Brine 170 g": {
+        "price": "R 27.99",
+        "promo": "BUY ANY 3 FOR R70 CANNED SHREDDED TUNA"
+    },
+    "Peeled and Diced Tomatoes 410 g": {
+        "price": "R 24.99",
+        "promo": "NULL"
+    },
+    "Breakfast Muesli 1 kg": {
+        "price": "R 79.99",
+        "promo": "NULL"
+    },
+    "Linguine Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R60 EVERYDAY PASTA"
+    },
+    "Long Life Fat Free Milk 1 L": {
+        "price": "R 18.99",
+        "promo": "NULL"
+    },
+    "Tomato Paste 140 g": {
+        "price": "R 35.99",
+        "promo": "NULL"
+    },
+    "Chicken and Herb Flavoured Quicksticks Noodles 75 g": {
+        "price": "R 10.99",
+        "promo": "BUY ANY 5 FOR R45 QUICKSTICKS NOODLES 75G"
+    },
+    "Tomato Paste 70 g": {
+        "price": "R 17.99",
+        "promo": "NULL"
+    },
+    "Tomato and Onion Mix 410 g": {
+        "price": "R 22.99",
+        "promo": "NULL"
+    },
+    "Tagliatelle Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R60 EVERYDAY PASTA"
     }
-  },
-  "Fruit-Vegetables-Salad": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Milk-Dairy-Eggs": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Ready-Meals": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Deli-Entertaining": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Food-To-Go": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Bakery": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Frozen-Food": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Pantry": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Chocolates-Sweets-Snacks": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Beverages-Juices": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Household": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Cleaning": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Toiletries-Health": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Flowers-Plants": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Kids": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Baby": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Pets": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  },
-  "Foodie-Gifts": {
-    " Chicken Breast Fillets Topped with Mozzarella & Spring Onion 800 g": {
-      "product price": "R 129.99",
-      "product promotion": "None"
-    },
-    " Lean Angus Beef Mince 500 g": {
-      "product price": "R 68.99",
-      "product promotion": "REDUCED PRICE SHOWN\n"
-    },
-    " BBQ Whole Rack Pork Loin Ribs Avg 1.6 kg": {
-      "product price": "R 195.49",
-      "product promotion": "None"
-    }
-  }
 }

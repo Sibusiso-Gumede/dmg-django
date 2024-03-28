@@ -5,16 +5,17 @@ class Receipt_Renderer():
         self.resources_path = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
         # Properties and settings.
         self.black_ink = (0,0,0)
-        self.y_spacing = 30                  # vertical space between the entries.
+        self.y_spacing = 30                             # vertical space between the entries.
         self.grouped_entries_space = 12
-        self.vertical_cursor = 20            # vertical cursor.
-        self.horizontal_cursor = 0.00
-        self.body_lm_rm = (10, 200)          # the body's left and right margin coordinates.
-        self.header_lm = 45                  # header left margin coordinate.
-        self.footer_lm = 70                  # footer left margin coordinate.
-        self.footer_tb = 0
-        self.footer_bb = 460
+        self.vertical_cursor: float = 20.00             # vertical cursor.
+        self.horizontal_cursor: float = 0.00
+        self.body_lm_rm = (10, 200)                     # the body's left and right margin coordinates.
+        self.header_lm = 45                             # header left margin coordinate.
+        self.footer_lm = 70                             # footer left margin coordinate.
+        self.footer_tb: float = 0.00
+        self.footer_bb: float = 460
         self.items_segment_limit = 380
+        self.next_receipt = False
         # Receipt.
         receipt_w, receipt_h = 240, 480
         self.receipt = Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((receipt_w, receipt_h))
@@ -47,7 +48,7 @@ class Receipt_Renderer():
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
         self.receipt.show()
 
-    def _items_segment(self, g_l: dict[str]):
+    def _items_segment(self, items: dict[str]):
         # Item names and prices.
         self._move_cursor(self.y_spacing-10)
         price = '0.00'
@@ -101,5 +102,7 @@ class Receipt_Renderer():
                 k = 0
 
     def _move_cursor(self, amount: float):
-        if not (self.vertical_cursor > self.footer_bb):
+        if self.vertical_cursor < self.footer_bb:
             self.vertical_cursor += amount
+        else:
+            self.next_receipt = True

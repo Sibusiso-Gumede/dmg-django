@@ -3,7 +3,6 @@
   "Deli-Entertaining": { "ID": "N-13b8g51", "Products": 72 },
   "Beverages-Juices": { "ID": "N-mnxddc", "Products": 72 },
   "Flowers-Plants": { "ID": "N-1z13rv1", "Products": 72 },
-  "Pantry": { "ID": "N-1lw4dzx", "Products": 72 },
   "Cleaning": { "ID": "N-o1v4pe", "Products": 72 },
   "Chocolates-Sweets-Snacks": { "ID": "N-1yz1i0m", "Products": 72 },
   "Baby": { "ID": "N-1rij75n", "Products": 72 },
@@ -17,5 +16,6 @@
   "Household": { "ID": "N-vvikef", "Products": 72 },
   "Toiletries-Health": { "ID": "N-1q1wl1r", "Products": 72 },
   "Kids": { "ID": "N-ymaf0z", "Products": 72 },
-  "Foodie-Gifts": { "ID": "N-18vgzb5", "Products": 72 }
+  "Foodie-Gifts": { "ID": "N-18vgzb5", "Products": 72 },
+  "Pantry": { "ID": "N-1lw4dzx", "Products": 72 }
 }

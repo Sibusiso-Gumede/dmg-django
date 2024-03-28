@@ -33,6 +33,7 @@ class Scraper():
     def __init__(self) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
         self.chromeOptions.add_argument('--headless')
+        self.chromeOptions.add_argument('--no-sandbox')
         self.chromeOptions.page_load_strategy = 'normal'
         
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.chromeOptions)
@@ -68,7 +69,7 @@ class Scraper():
             try:    
                 prod_name = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
                 prod_price = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_price'])
-                prod_pomo = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_promo'])
+                prod_promo = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_promo'])
             except NoSuchElementException as error:
                 line = traceback.format_exception_only(error)[0]
                 if _super.get_page_selectors()['product_name'] in line:
@@ -76,29 +77,31 @@ class Scraper():
                 elif _super.get_page_selectors()['product_price'] in line:
                     prod_price = None
                 elif _super.get_page_selectors()['product_promo'] in line:
-                    prod_pomo = None
+                    prod_promo = None
             finally:
                 if _super.get_supermarket_name() != self.MAKRO:
-                    if (prod_name is not None) and (prod_price is not None) and (prod_pomo is not None):
-                        product_list.update({prod_name.text: {prod_price.text, prod_pomo.text},})
-                    elif prod_pomo is None:
-                        product_list.update({prod_name.text:{prod_price.text},})
+                    if (prod_name is not None) and (prod_price is not None) and (prod_promo is not None):
+                        product_list.update({prod_name.text: {"price": prod_price.text, "promo": prod_promo.text}})
+                    elif prod_promo is None:
+                        product_list.update({prod_name.text: {"price": prod_price.text, "promo": "NULL"}})
                     elif prod_price is None:
-                        product_list.update({prod_name.text:{},})
+                        product_list.update({prod_name.text: {"price": "NULL", "promo": "NULL"}})
 
     def _populate_fixtures(self, _supermarket: Supermarket, products: dict[str]):
         # Populate database fixtures. 
-        output_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_products.json'
-        if not path.isfile(output_file):
-            makedirs(output_file)
-        with open(output_file, 'w') as o_file:
-            json.dump(products, o_file)
+        output_dir = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}'
+        output_file = f'{output_dir}/{_supermarket.get_supermarket_name()}_products.json'
+        arg = 'w'               # open file in write mode.
+        if not path.isdir(output_dir):
+            makedirs(output_dir)
+        if not path.isfile(output_dir):
+            arg = 'x'           # create file and open in write mode.
+        with open(output_file, arg) as o_file:
+            json.dump(products, o_file, indent=4)
 
     def _prepare_url_patterns(self, _supermarket: Supermarket) -> list[str]:
         # Read data and return complete url's.
         input_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/categories.json'
-        if not path.isfile(input_file):
-            makedirs(input_file)
         urls = list()
         with open(input_file, 'r') as i_file:
             categories = dict(json.load(i_file))
@@ -119,22 +122,23 @@ class Scraper():
 
     def _capture_products(self, supermarkets: list[Supermarket]):
         divisor_range = range(2, 6)       
-        page_number = 0
         url_count = 0
         urls = list[str]
-        next_button
+        next_button: WebElement
         home_page = bool
 
         for supermarket in supermarkets:
             home_page = True
-            buffer = dict[str]
+            page_number = 0
+            sleep(1.50)
+            #self.driver.start_session()
+            buffer: dict[str] = {}
 
             if supermarket.get_supermarket_name() == self.WOOLIES:
                 urls = self._prepare_url_patterns(supermarket)
                 url_count = len(urls)
 
             while True:
-                # TODO: Refactor the code in this block.
                 if supermarket.get_supermarket_name() != self.PNP:
                     if home_page:
                         if (supermarket.get_supermarket_name() == self.CHECKERS) or (supermarket.get_supermarket_name() == self.SHOPRITE):
@@ -149,7 +153,7 @@ class Scraper():
                         next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])                
                         # In the case where there are still products to be scraped, load the next page.
                         if next_button.is_enabled():
-                            next_button.click()
+                            self.driver.execute_script("arguments[0].click();", next_button)
                         # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
                         elif not next_button.is_enabled():
                             if (supermarket.get_supermarket_name() != self.WOOLIES) or ((supermarket.get_supermarket_name() == self.WOOLIES) and (url_count == -1)):
@@ -174,3 +178,4 @@ class Scraper():
                 
             # Populate supermarket database fixtures.
             self._populate_fixtures(supermarket, buffer)
+            #print(buffer)
