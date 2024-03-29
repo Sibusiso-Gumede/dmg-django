@@ -126,36 +126,39 @@ class Scraper():
         next_button: WebElement
         home_page: bool
         last_page: int = 0
+        supermarket_name: str
 
         for supermarket in supermarkets:
             home_page = True
             page_number = 0
+            supermarket_name = supermarket.get_supermarket_name()
             sleep(1.50)
             buffer: dict[str] = {}
 
-            if supermarket.get_supermarket_name() == self.WOOLIES:
+            if supermarket_name == self.WOOLIES:
                 urls = self._prepare_url_patterns(supermarket)
                 url_count = len(urls)
 
             while True:
                 page_number += 1
                 if home_page:
-                    if not (supermarket.get_supermarket_name() == self.WOOLIES):
+                    if not (supermarket_name == self.WOOLIES):
                         self.driver.get(supermarket.get_home_page_url())
-                        self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
-                        if supermarket.get_supermarket_name() == self.PNP:
-                            self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['view_all']).click()
-                            href = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'].replace('number', 'last page')).get_dom_attribute('href')
-                            last_page = int((href[href.find('='):-1])[1:-1])
-                    elif supermarket.get_supermarket_name() == self.WOOLIES:
+                        if not (supermarket_name == self.PNP):
+                            self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
+                        elif supermarket_name == self.PNP:
+                            # FIXME: last page button element selector.
+                            href: str = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'].replace('number', 'last page')).get_dom_attribute('href')
+                            last_page = int((href[href.find('='):])[1:])
+                    elif supermarket_name == self.WOOLIES:
                         self.driver.get(urls[url_count-1])
                         url_count -= 1
                     home_page = False
                 elif not home_page:
-                    selector = supermarket.get_page_selectors()['next_button']
-                    if supermarket.get_supermarket_name() == self.PNP:
+                    selector:str = supermarket.get_page_selectors()['next_button']
+                    if supermarket_name == self.PNP:
                         if page_number <= last_page:
-                            selector = supermarket.get_page_selectors()['next_button'].replace('number', page_number)
+                            selector = selector.replace('number', page_number)
                         elif page_number > last_page:
                             break
                             
@@ -167,15 +170,15 @@ class Scraper():
                         self.driver.execute_script("arguments[0].click();", next_button)
                     # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
                     elif not next_button.is_enabled():
-                        if (not (supermarket.get_supermarket_name() == self.WOOLIES)) or ((supermarket.get_supermarket_name() == self.WOOLIES) and (url_count == -1)):
-                            print(f'Available items completely scraped for {supermarket.get_supermarket_name()} website.')
+                        if (not (supermarket_name == self.WOOLIES)) or ((supermarket_name == self.WOOLIES) and (url_count == -1)):
+                            print(f'Available items completely scraped for {supermarket_name} website.')
                             break
                         # Proceed to the next category if the items are completely scraped for the current category.
-                        elif (supermarket.get_supermarket_name() == self.WOOLIES) and (url_count > -1):
+                        elif (supermarket_name == self.WOOLIES) and (url_count > -1):
                             home_page = True
                 
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
-                print(f"\nPAGE {page_number} OF {supermarket.get_supermarket_name()}")
+                print(f"\nPAGE {page_number} OF {supermarket_name}")
                 self._update_product_list(supermarket, buffer)
                 
                 if page_number == 2:

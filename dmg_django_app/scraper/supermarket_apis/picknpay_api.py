@@ -14,7 +14,7 @@ class PicknPay(Supermarket):
 			'product_name': 'div.product-grid-item__info-container > a > span',
 			'product_price': 'div.product-grid-item__info-container > div.product-grid-item__price-container',
 			'product_promo': 'div.product-grid-item__info-container > div.product-grid-item__promotion-container',
-			'next_button': 'cx-pagination[queryparam="currentPage"] > a[aria-label="page number"]',
+			'next_button': 'cx-pagination[queryparam="currentPage"] > a[aria-label="number"]',
 			'browse_nav': 'cx-page-slot[position="NavigationBar"] > cms-category-navigation[class="ng-star-inserted"] > cms-navigation-ui > nav > div:nth-child(2) > ul > li > button',
 			'view_all': 'cx-page-slot[position="NavigationBar"] > cms-category-navigation[class="ng-star-inserted"] > cms-navigation-ui > nav > div:nth-child(2) > ul > li > div > ul > li:nth-child(1) > a[class^="list"] > span[class^="action"]',
 			'footer': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > footer.mouse-focus',
