@@ -14,11 +14,9 @@ class PicknPay(Supermarket):
 			'product_name': 'div.product-grid-item__info-container > a > span',
 			'product_price': 'div.product-grid-item__info-container > div.product-grid-item__price-container',
 			'product_promo': 'div.product-grid-item__info-container > div.product-grid-item__promotion-container',
-			'next_button': 'cx-pagination > a[href$="number"]',
-			'browse_nav': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > button',
-			'view_all': 'cms-navigation-ui > nav:first-child > div:nth-child(2) > ul > li > div[class^="navigation-child"] > ul > li > a[class^="list"] > span[class^="action"]',
-			'products_found': 'body > pnp-root > div > ui-storefront > main > cx-page-layout > cx-page-slot.ProductGridSlot.has-components.ng-star-inserted > cms-product-list > div > section > div > div > div > div.cx-sorting.top > div > h2 > span',
-			#'cx-page-slot[position="ProductGridSlot"] > cms-product-list > section[class^="cx-page-section"] > div > div[class^="row"] > div[class^="col"] > div[class^="cx-sorting"] > div[class^="row"] > h2[class="title-with-quantity"] > span'
+			'next_button': 'cx-pagination[queryparam="currentPage"] > a[aria-label="page number"]',
+			'browse_nav': 'cx-page-slot[position="NavigationBar"] > cms-category-navigation[class="ng-star-inserted"] > cms-navigation-ui > nav > div:nth-child(2) > ul > li > button',
+			'view_all': 'cx-page-slot[position="NavigationBar"] > cms-category-navigation[class="ng-star-inserted"] > cms-navigation-ui > nav > div:nth-child(2) > ul > li > div > ul > li:nth-child(1) > a[class^="list"] > span[class^="action"]',
 			'footer': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > footer.mouse-focus',
 			'header': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > header.mouse-focus'
 		}		

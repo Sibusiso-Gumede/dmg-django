@@ -94,7 +94,7 @@ class Scraper():
         arg = 'w'               # open file in write mode.
         if not path.isdir(output_dir):
             makedirs(output_dir)
-        if not path.isfile(output_dir):
+        if not path.isfile(output_file):
             arg = 'x'           # create file and open in write mode.
         with open(output_file, arg) as o_file:
             json.dump(products, o_file, indent=4)
@@ -106,8 +106,7 @@ class Scraper():
         with open(input_file, 'r') as i_file:
             categories = dict(json.load(i_file))
             for name, id in zip(categories.keys(), categories.values()):
-                url = _supermarket.get_query_page_url().replace('name', name)
-                url = url.replace('idcode', id['ID'])
+                url = _supermarket.get_query_page_url().replace('name', name).replace('idcode', id['ID'])
                 urls.append(url)
         return urls    
 
@@ -121,17 +120,17 @@ class Scraper():
         self.actions.reset_actions()
 
     def _capture_products(self, supermarkets: list[Supermarket]):
-        divisor_range = range(2, 6)       
-        url_count = 0
+        divisor_range: list[int] = range(2, 6)       
+        url_count: int = 0
         urls = list[str]
         next_button: WebElement
-        home_page = bool
+        home_page: bool
+        last_page: int = 0
 
         for supermarket in supermarkets:
             home_page = True
             page_number = 0
             sleep(1.50)
-            #self.driver.start_session()
             buffer: dict[str] = {}
 
             if supermarket.get_supermarket_name() == self.WOOLIES:
@@ -139,36 +138,42 @@ class Scraper():
                 url_count = len(urls)
 
             while True:
-                if supermarket.get_supermarket_name() != self.PNP:
-                    if home_page:
-                        if (supermarket.get_supermarket_name() == self.CHECKERS) or (supermarket.get_supermarket_name() == self.SHOPRITE):
-                            self.driver.get(supermarket.get_home_page_url())
-                            self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
-                        elif supermarket.get_supermarket_name() == self.WOOLIES:
-                            self.driver.get(urls[url_count-1])
-                            url_count -= 1
-                        home_page = False
-                    elif not home_page:
-                        # Click to the next page if it's available.
-                        next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'])                
-                        # In the case where there are still products to be scraped, load the next page.
-                        if next_button.is_enabled():
-                            self.driver.execute_script("arguments[0].click();", next_button)
-                        # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
-                        elif not next_button.is_enabled():
-                            if (supermarket.get_supermarket_name() != self.WOOLIES) or ((supermarket.get_supermarket_name() == self.WOOLIES) and (url_count == -1)):
-                                print(f'Available items completely scraped for {supermarket.get_supermarket_name()} website.')
-                                break
-                            # Proceed to the next category if the items are completely scraped for the current category.
-                            elif (supermarket.get_supermarket_name() == self.WOOLIES) and (url_count > -1):
-                                home_page = True
-                elif supermarket.get_supermarket_name() == self.PNP:
-                    self.driver.get(supermarket.get_home_page_url()+f'?currentPage={page_number}')
-                    self._scroll_to_bottom_and_top(supermarket)
-                    if self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['products_found']).text == '(0)':
-                        break 
-                
                 page_number += 1
+                if home_page:
+                    if not (supermarket.get_supermarket_name() == self.WOOLIES):
+                        self.driver.get(supermarket.get_home_page_url())
+                        self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
+                        if supermarket.get_supermarket_name() == self.PNP:
+                            self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['view_all']).click()
+                            href = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['next_button'].replace('number', 'last page')).get_dom_attribute('href')
+                            last_page = int((href[href.find('='):-1])[1:-1])
+                    elif supermarket.get_supermarket_name() == self.WOOLIES:
+                        self.driver.get(urls[url_count-1])
+                        url_count -= 1
+                    home_page = False
+                elif not home_page:
+                    selector = supermarket.get_page_selectors()['next_button']
+                    if supermarket.get_supermarket_name() == self.PNP:
+                        if page_number <= last_page:
+                            selector = supermarket.get_page_selectors()['next_button'].replace('number', page_number)
+                        elif page_number > last_page:
+                            break
+                            
+                    # Click to the next page if it's available.
+                    next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=selector)                
+                    
+                    # In the case where there are still products to be scraped, load the next page.
+                    if next_button.is_enabled():
+                        self.driver.execute_script("arguments[0].click();", next_button)
+                    # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
+                    elif not next_button.is_enabled():
+                        if (not (supermarket.get_supermarket_name() == self.WOOLIES)) or ((supermarket.get_supermarket_name() == self.WOOLIES) and (url_count == -1)):
+                            print(f'Available items completely scraped for {supermarket.get_supermarket_name()} website.')
+                            break
+                        # Proceed to the next category if the items are completely scraped for the current category.
+                        elif (supermarket.get_supermarket_name() == self.WOOLIES) and (url_count > -1):
+                            home_page = True
+                
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
                 print(f"\nPAGE {page_number} OF {supermarket.get_supermarket_name()}")
                 self._update_product_list(supermarket, buffer)
@@ -178,4 +183,3 @@ class Scraper():
                 
             # Populate supermarket database fixtures.
             self._populate_fixtures(supermarket, buffer)
-            #print(buffer)
