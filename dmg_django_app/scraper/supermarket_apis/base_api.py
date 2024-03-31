@@ -25,5 +25,5 @@ class Supermarket(ABC):
         pass
 
     @abstractclassmethod
-    def get_query_page_url(self) -> str:
+    def get_category_page_url(self) -> str:
         pass

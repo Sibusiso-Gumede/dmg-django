@@ -27,7 +27,7 @@ class Scraper():
     MAKRO = 'makro'
     
     def __init__(self) -> None:
-        self.chromeOptions = webdriver.ChromeOptions()
+        '''self.chromeOptions = webdriver.ChromeOptions()
         self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
         self.chromeOptions.page_load_strategy = 'normal'
@@ -38,7 +38,8 @@ class Scraper():
         self.WAITING_TIME_RANGE = range(1, 3)
         self.SEARCHED_PRODUCTS = 'searched products'
         self.ALL_DATA = 'all data'
-        self.mode = str()
+        self.mode = str()'''
+        pass
 
     def _isRelevant(self, item: str, result: str) -> bool:
         for substring in item.split('%20'):
@@ -56,7 +57,7 @@ class Scraper():
         self._capture_products(supermarkets)
 
     def _update_product_list(self, _super: Supermarket, product_list: dict[str]):
-        print('\nPRODUCT LIST...\n')
+        print('\nSCRAPING PRODUCT LIST...')
         products = self.driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
         name: str = None
         prod_name_exception: bool = False
@@ -89,6 +90,7 @@ class Scraper():
                     product_list.update({name: {"price": price_element.text, "promo": "NULL"}})
                 elif price_element is None:
                     product_list.update({name: {"price": "NULL", "promo": "NULL"}})
+        print("DONE.")
 
     def _populate_fixtures(self, _supermarket: Supermarket, products: dict[str]):
         # Populate database fixtures. 
@@ -102,17 +104,39 @@ class Scraper():
         with open(output_file, arg) as o_file:
             json.dump(products, o_file, indent=4)
 
-    def _prepare_url_patterns(self, _supermarket: Supermarket) -> list[str]:
+    def _prepare_url_patterns(self, _supermarket: Supermarket) -> bool:
         # Read data and return complete url's.
-        input_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/categories.json'
-        urls = list()
-        with open(input_file, 'r') as i_file:
-            categories = dict(json.load(i_file))
-            for name, id in zip(categories.keys(), categories.values()):
-                url = _supermarket.get_query_page_url().replace('name', name).replace('idcode', id['ID'])
-                urls.append(url)
-        return urls
-
+        s_name = _supermarket.get_supermarket_name()
+        resources_dir = f'{_supermarket.RESOURCES_PATH}/{s_name}'
+        output_file = f'{resources_dir}/{s_name}_urls.txt'
+        if not path.isfile(output_file):
+            input_file = f'{resources_dir}/{s_name}_categories.json'
+            urls: list[str] = list()
+            url: str
+            with open(input_file, 'r') as  i_file, open(output_file, 'x', newline='\n') as urls_file:
+                categories = dict(json.load(i_file))                
+                for category, data in zip(categories.keys(), categories.values()):
+                    #breakpoint()
+                    if s_name == self.MAKRO:
+                        for subcategory, _attributes in zip(data.keys(), data.values()):
+                            url = _supermarket.get_category_page_url()
+                            url = url.replace("category", category).replace("sub", subcategory).replace("idcode", _attributes['ID'])
+                            urls.append(url+'\n')
+                    elif s_name == self.WOOLIES:
+                        url = _supermarket.get_category_page_url()
+                        url = url.replace("category", category).replace('idcode', data['ID'])
+                        urls.append(url+'\n')
+                urls_file.writelines(urls)
+        return path.isfile(output_file)
+    
+    def _retrieve_urls(self, _supermarket: Supermarket) -> list[str]:
+        urls_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_urls.txt'
+        with open(urls_file, 'rt', newline='\n') as file:
+            urls: list[str] = list()
+            for line in file.readlines():
+                urls.append(line.removesuffix('\n'))
+            return urls
+           
     def _capture_products(self, supermarkets: list[Supermarket]):
         divisor_range: list[int] = range(2, 6)       
         url_count: int = 0
@@ -130,10 +154,10 @@ class Scraper():
             sleep(1.50)
             buffer: dict[str] = {}
 
-            if supermarket_name == self.WOOLIES:
-                urls = self._prepare_url_patterns(supermarket)
+            if ((supermarket_name == self.WOOLIES) and (self._prepare_url_patterns(supermarket))) or ((supermarket_name == self.MAKRO) and (self._prepare_url_patterns(supermarket))):
+                urls = self._retrieve_urls(supermarket)
                 url_count = len(urls)
-
+            breakpoint()
             while True:
                 page_number += 1
                 if home_page:

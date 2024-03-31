@@ -7,7 +7,7 @@ class Woolworths(Supermarket):
     
     def __init__(self):
         self.__home_page = 'https://www.woolworths.co.za'
-        self.__query_page = 'https://www.woolworths.co.za/cat/Food/name/_/idcode'
+        self.__category_page = f'{self.__home_page}/cat/Food/category/_/idcode'
         self.__name = 'woolworths'
         self.__page_selectors = {
 			'product_list': 'div.product-list__item',
@@ -66,5 +66,5 @@ class Woolworths(Supermarket):
         else:
             return promo
         
-    def get_query_page_url(self) -> str:
-        return self.__query_page
+    def get_category_page_url(self) -> str:
+        return self.__category_page

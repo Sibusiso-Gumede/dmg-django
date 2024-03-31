@@ -11,11 +11,13 @@ class DMGTestCase(TestCase):
     def headless_browser_test(self):
         #woolies = Woolworths()
         #shoprite = Shoprite()
-        pnp = PicknPay()
+        #pnp = PicknPay()
         #checkers = Checkers()
-        #makro = Makro()
+        makro = Makro()
         scraper = Scraper()
-        scraper.scrape_all_data([pnp])
+        #scraper.scrape_all_data([makro])
+        if scraper._prepare_url_patterns(makro):
+            print(scraper._retrieve_urls(makro))
 
     def receipt_renderer_test(self):
         items = {'Simba Salt and Vinegar 250g': '12.50',

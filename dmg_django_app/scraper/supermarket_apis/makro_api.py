@@ -7,7 +7,7 @@ class Makro(Supermarket):
 
 	def __init__(self):
 		self.__home_page = 'https://www.makro.co.za'
-		self.__query_page = 'https://www.makro.co.za/search/?text=item'
+		self.__category_page = f'{self.__home_page}/food/category/sub/c/idcode'
 		self.__name = 'makro'
 		self.__page_selectors = {
 			'product_list': 'div[dir="auto"]',
@@ -15,6 +15,7 @@ class Makro(Supermarket):
 			'product_title': '',
 			'product_price': '',
 			'product_promo': '',
+			'footer':'',
 		}		
 
 	def get_supermarket_name(self) -> str:
@@ -32,5 +33,5 @@ class Makro(Supermarket):
 	def format_promotion_description(self):
 		pass
 
-	def get_query_page_url(self) -> str:
-		return self.__query_page
+	def get_category_page_url(self) -> str:
+		return self.__category_page
