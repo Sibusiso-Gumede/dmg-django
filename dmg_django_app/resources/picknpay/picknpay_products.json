@@ -1,0 +1,578 @@
+{
+    "No Name Live Well Shredded Tuna in Salt Water 170g": {
+        "price": "R23.99",
+        "promo": "Combo For R100.00 (Smart Price)"
+    },
+    "PnP UHT Full Cream Milk 6 x 1L": {
+        "price": "R89.99 R98.99",
+        "promo": ""
+    },
+    "PnP All Purpose Potatoes 2kg": {
+        "price": "R44.99",
+        "promo": "Buy Any 4 For R150.00 (Smart Price)"
+    },
+    "Nescafe Gold Original Cappuccino 10 Sachets": {
+        "price": "R79.99",
+        "promo": "Buy Any 2 For R125.00 (Smart Price)"
+    },
+    "PnP 2 Ply White Toilet Paper 18 Pack": {
+        "price": "R129.99",
+        "promo": "Buy 2 For R230.00 (Smart Price)"
+    },
+    "Simba Potato Chips Mrs Balls Chutney 120g": {
+        "price": "R19.99",
+        "promo": "Buy Any 3 For R43.00 (Smart Price)"
+    },
+    "No Name Frozen Chicken Braaipack 5kg": {
+        "price": "R189.00 R243.99",
+        "promo": ""
+    },
+    "Koo Baked Beans in Tomato Sauce 410g": {
+        "price": "R16.99",
+        "promo": "Buy 2 For R30.00 (Smart Price)"
+    },
+    "Nescafe Classic Coffee 200g": {
+        "price": "R114.99",
+        "promo": "Smart Price: R89.99"
+    },
+    "Coca-Cola Soft Drink 1.5L": {
+        "price": "R19.99",
+        "promo": "Buy Any 2 For R32.00 (Smart Price)"
+    },
+    "Tastic Rice 2kg": {
+        "price": "R39.99 R43.99",
+        "promo": ""
+    },
+    "Nescafe Ricoffy Coffee 750g": {
+        "price": "R119.99 R134.99",
+        "promo": "Smart Price: R126.99"
+    },
+    "PnP White Sugar 2.5kg": {
+        "price": "R56.99 R59.99",
+        "promo": ""
+    },
+    "PnP Live Well Skinless Chicken Breast 4 Pack": {
+        "price": "R62.39\nR103.99/kg",
+        "promo": ""
+    },
+    "Domestos Lemon Multipurpose Stain Removal Thick Bleach Cleaner 750ml": {
+        "price": "R34.99",
+        "promo": "Buy Any 2 For R58.00 (Smart Price)"
+    },
+    "Bakers Tennis Biscuits 200g": {
+        "price": "R27.99",
+        "promo": "Buy Any 2 For R40.00 (Smart Price)"
+    },
+    "No Name Macaroni Pasta 500g": {
+        "price": "R15.99",
+        "promo": ""
+    },
+    "Kellogg's Noodles Chicken 5 x 70g": {
+        "price": "R37.99",
+        "promo": ""
+    },
+    "Nescafe Classic Crema Jar 200g": {
+        "price": "R114.99",
+        "promo": "Smart Price: R89.99"
+    },
+    "Fatti's & Moni's Spaghetti 500g": {
+        "price": "R19.99",
+        "promo": "Buy Any 2 For R30.00 (Smart Price)"
+    },
+    "Robertsons Chicken Spice Refill 84g": {
+        "price": "R19.99",
+        "promo": "Buy Any 2 For R26.00 (Smart Price)"
+    },
+    "Nestle KitKat 4 Finger Milk Chocolate Bar 41.5g": {
+        "price": "R14.99",
+        "promo": "Buy Any 3 For R30.00 (Smart Price)"
+    },
+    "Nestle Smarties 40g": {
+        "price": "R13.99",
+        "promo": "Buy Any 3 For R30.00 (Smart Price)"
+    },
+    "Nestle Cremora Creamer 750g": {
+        "price": "R57.99 R59.99",
+        "promo": ""
+    },
+    "PnP Brown Sugar 2kg": {
+        "price": "R44.99 R56.99",
+        "promo": ""
+    },
+    "Dettol Soap Active 175g": {
+        "price": "R17.99",
+        "promo": "Buy Any 2 For R28.00 (Smart Price)"
+    },
+    "Coca-Cola Plastic 2L": {
+        "price": "R26.99",
+        "promo": ""
+    },
+    "Cadbury Dairy Milk Whole Nut Slab 80g": {
+        "price": "R23.99",
+        "promo": "Buy Any 2 For R32.00 (Smart Price)"
+    },
+    "Anchor Yeast Instant Dry Yeast 10g": {
+        "price": "R5.99",
+        "promo": "Buy 3 For R12.00 (Smart Price)"
+    },
+    "PnP Bulk Stewing Beef with Bone p/kg": {
+        "price": "R89.99/kg R99.99/kg",
+        "promo": ""
+    },
+    "Sunlight Original Dishwashing Liquid 750ml": {
+        "price": "R37.99",
+        "promo": "Buy 2 For R56.00 (Smart Price)"
+    },
+    "Crosse & Blackwell Mayonnaise 750g": {
+        "price": "R36.99 R52.99",
+        "promo": ""
+    },
+    "Jacobs Gold Instant Coffee 230g": {
+        "price": "R134.99 R164.99",
+        "promo": ""
+    },
+    "Pamper Fine Cuts Multipack Jelly 12 x 85g": {
+        "price": "R139.99",
+        "promo": "Smart Price: R109.99"
+    },
+    "Crafted Collection Single Origin Colombian Pure Freeze Dried Instant Coffee 100g": {
+        "price": "R70.00 R139.99",
+        "promo": ""
+    },
+    "Stork Country 40% Fat Spread 1kg": {
+        "price": "R45.99 R57.99",
+        "promo": ""
+    },
+    "Coca-Cola No Sugar & No Caffeine 2.25L": {
+        "price": "R21.99",
+        "promo": "Buy Any 2 For R32.00 (Smart Price)"
+    },
+    "Sprite Zero 2.25L": {
+        "price": "R21.99",
+        "promo": "Buy Any 2 For R32.00 (Smart Price)"
+    },
+    "Coca-Cola Zero 2.25L": {
+        "price": "R21.99",
+        "promo": "Buy Any 2 For R32.00 (Smart Price)"
+    },
+    "Jacobs Kronung Instant Coffee 200g": {
+        "price": "R134.99 R164.99",
+        "promo": ""
+    },
+    "Handy Andy Lemon Multipurpose Cleaning Cream 750ml": {
+        "price": "R33.99",
+        "promo": "Buy Any 2 For R50.00 (Smart Price)"
+    },
+    "Rhodes Tomato Paste Sachet 50g": {
+        "price": "R6.99",
+        "promo": "Buy 3 For R18.00 (Smart Price)"
+    },
+    "Nola Original Mayonnaise 750g": {
+        "price": "R45.99",
+        "promo": ""
+    },
+    "No Name Pasta Spaghetti 500g": {
+        "price": "R15.99",
+        "promo": ""
+    },
+    "Nestle KitKat Mini Bag Milk 180g": {
+        "price": "R53.99",
+        "promo": "Smart Price: R39.99"
+    },
+    "Dorito Sweet Chilli Pepper 145g": {
+        "price": "R22.99",
+        "promo": "Buy Any 3 For R50.00 (Smart Price)"
+    },
+    "PnP UHT Low Fat Long Life Milk 6 x 1L": {
+        "price": "R89.99 R98.99",
+        "promo": ""
+    },
+    "D'Lite Cooking Oil 2l": {
+        "price": "R69.99 R74.99",
+        "promo": "Buy 2 For R110.00 (Smart Price)"
+    },
+    "All Gold Tomato Sauce 700ml": {
+        "price": "R33.99 R42.99",
+        "promo": ""
+    },
+    "Domestos Whitening Multipurpose Stain Removal Thick Bleach Cleaner 750ml": {
+        "price": "R34.99",
+        "promo": "Buy Any 2 For R58.00 (Smart Price)"
+    },
+    "Lay's Salted Potato Chips 120g": {
+        "price": "R23.99",
+        "promo": "Buy Any 3 For R52.00 (Smart Price)"
+    },
+    "Jik Lemon Fresh Scented Bleach 1.5l": {
+        "price": "R32.99 R42.99",
+        "promo": ""
+    },
+    "Nescafe Classic Black Roast 200g": {
+        "price": "R114.99",
+        "promo": "Smart Price: R89.99"
+    },
+    "Husky Wet Chunks in Gravy Beef Steak Flavour 775g": {
+        "price": "R36.99",
+        "promo": "Buy Any 4 For R115.00 (Smart Price)"
+    },
+    "Tinkies Half & Half Chocolate Vanilla Flavoured Creamy Sponge Cake 6s": {
+        "price": "R52.99",
+        "promo": "Buy Any 2 For R65.00 (Smart Price)"
+    },
+    "PnP Large Eggs 30 Pack": {
+        "price": "R109.99",
+        "promo": ""
+    },
+    "Black Cat Smooth Peanut Butter 400g": {
+        "price": "R38.99 R49.99",
+        "promo": ""
+    },
+    "PnP Sunflower Oil 2L": {
+        "price": "R79.99",
+        "promo": ""
+    },
+    "Lux Soft Caress Cleansing Bar Soap 175g": {
+        "price": "R17.99",
+        "promo": "Buy Any 2 For R26.00 (Smart Price)"
+    },
+    "Bokomo Weet-Bix Family Pack 900g": {
+        "price": "R69.99",
+        "promo": "Smart Price: R53.99"
+    },
+    "PnP Still Spring Water 5L": {
+        "price": "R26.99",
+        "promo": ""
+    },
+    "Flora Light 40% Fat Spread 1kg": {
+        "price": "R59.99 R74.99",
+        "promo": ""
+    },
+    "No Name Mixed Chicken Portions 10 Pack": {
+        "price": "R83.53\nR77.99/kg",
+        "promo": ""
+    },
+    "Kellogg's Corn Flakes 750g": {
+        "price": "R74.99",
+        "promo": "Smart Price: R59.99"
+    },
+    "Hug in a Mug Creamy Cappuccino 24g x 8": {
+        "price": "R69.99",
+        "promo": "Buy Any 2 For R100.00 (Smart Price)"
+    },
+    "Doom Odourless Insecticide 300ml": {
+        "price": "R36.99 R45.99",
+        "promo": ""
+    },
+    "Koo Creamstyle Sweetcorn 415g": {
+        "price": "R23.99",
+        "promo": "Buy Any 2 For R36.00 (Smart Price)"
+    },
+    "Knorr Brown Onion Thickening Soup 50g": {
+        "price": "R7.49",
+        "promo": "Buy Any 3 For R18.00 (Smart Price)"
+    },
+    "Danone Ultra Mel Vanilla Flavoured Custard 1L": {
+        "price": "R24.00 R34.99",
+        "promo": "Buy Any 2 For R48.00 (Smart Price)"
+    },
+    "Kellogg's All Bran Flakes 750g": {
+        "price": "R64.99 R78.99",
+        "promo": ""
+    },
+    "Tuffy Budget Black Refuse Bags 750mm x 950mm 20 Pack": {
+        "price": "R29.99 R39.99",
+        "promo": ""
+    },
+    "Maggi Chicken 2 Minute Noodles 68g x 5": {
+        "price": "R36.99",
+        "promo": "Buy Any 2 For R60.00 (Smart Price)"
+    },
+    "Freshpak Rooibos Tagless Tea Bags 80 Pack": {
+        "price": "R49.99",
+        "promo": "Smart Price: R44.99"
+    },
+    "Nescafe Cappuccino White Chocolate 10 Sachets": {
+        "price": "R79.99",
+        "promo": "Buy Any 2 For R125.00 (Smart Price)"
+    },
+    "Liqui-Fruit Cranberry Cooler Juice 1L": {
+        "price": "R34.99",
+        "promo": "Buy Any 2 For R50.00 (Smart Price)"
+    },
+    "Simba Nik Naks Cheese Flavour 135g": {
+        "price": "R15.99",
+        "promo": ""
+    },
+    "HTH Floater + 1.6kg": {
+        "price": "R179.99",
+        "promo": ""
+    },
+    "Nescafe Gold Reduced Sugar Cappuccino 10 Sachets": {
+        "price": "R79.99",
+        "promo": "Buy Any 2 For R125.00 (Smart Price)"
+    },
+    "Nestle Tex Chocolate 40g": {
+        "price": "R13.99",
+        "promo": "Buy Any 3 For R30.00 (Smart Price)"
+    },
+    "Handy Andy Lemon Multipurpose Cleaning Cream 1.5l": {
+        "price": "R64.99",
+        "promo": ""
+    },
+    "Fanta Orange Plastic Bottle 2L": {
+        "price": "R24.99",
+        "promo": "Buy Any 2 For R40.00 (Smart Price)"
+    },
+    "Sprite Low Kilojoule Lemon Lime 2L": {
+        "price": "R22.99",
+        "promo": "Buy Any 2 For R40.00 (Smart Price)"
+    },
+    "PnP Sparkling Spring Water 500ml x 6": {
+        "price": "R40.99",
+        "promo": "Buy Any 2 For R60.00 (Smart Price)"
+    },
+    "Sunlight Regular Degreasing Dishwashing Liquid Detergent Refill 750ml": {
+        "price": "R29.99",
+        "promo": ""
+    },
+    "Beeno Flatties with Smoked Bacon 120g": {
+        "price": "R28.56",
+        "promo": "Buy Any 2 For R44.00 (Smart Price)"
+    },
+    "Bakers Red Label Lemon Creams 200g": {
+        "price": "R25.99",
+        "promo": ""
+    },
+    "Ouma Buttermilk Rusks Sliced 450g": {
+        "price": "R55.99",
+        "promo": ""
+    },
+    "Today Puff Pastry 400g": {
+        "price": "R31.99",
+        "promo": "Smart Price: R19.99"
+    },
+    "Albany Superior Best of Both White Bread 700g": {
+        "price": "R22.99",
+        "promo": ""
+    },
+    "Rhodes Jam Superfine Apricot 900g": {
+        "price": "R44.99",
+        "promo": "Smart Price: R35.99"
+    },
+    "Rama 70% Fat Spread Original 500g": {
+        "price": "R26.99 R34.49",
+        "promo": ""
+    },
+    "Nescafe Ricoffy Pouch 800g": {
+        "price": "R119.99",
+        "promo": ""
+    },
+    "Nestle Bar One Milk Chocolate Bars 52g": {
+        "price": "R13.99",
+        "promo": "Buy Any 3 For R30.00 (Smart Price)"
+    },
+    "Panado Tablets 24 Tablets": {
+        "price": "R36.99",
+        "promo": ""
+    },
+    "Blue Ribbon Classic Brown Sliced Bread 700g": {
+        "price": "R17.99",
+        "promo": ""
+    },
+    "Hug in a Mug Romany Creams 8 Pack": {
+        "price": "R69.99",
+        "promo": "Buy Any 2 For R100.00 (Smart Price)"
+    },
+    "Jacobs Kronung Instant Coffee 230g": {
+        "price": "R134.99 R164.99",
+        "promo": ""
+    },
+    "Jacobs Kronung Gold Instant Coffee 200g": {
+        "price": "R134.99 R164.99",
+        "promo": ""
+    },
+    "Nestle KitKat 4 Finger Dark Chocolate Bar 41.5g": {
+        "price": "R14.99",
+        "promo": "Buy Any 3 For R30.00 (Smart Price)"
+    },
+    "Nescafe Classic Pouch 230g": {
+        "price": "R114.99",
+        "promo": "Smart Price: R89.99"
+    },
+    "Nestle Cocoa Powder 250g": {
+        "price": "R85.99",
+        "promo": "Smart Price: R67.99"
+    },
+    "Knorr Cream of Mushroom Thickening Soup 50g": {
+        "price": "R7.49",
+        "promo": "Buy Any 3 For R18.00 (Smart Price)"
+    },
+    "Milo Cookies Sandwich N1Xi 34g": {
+        "price": "R6.99",
+        "promo": ""
+    },
+    "Snowflake Easy Mix Bran Muffin Mix 1kg": {
+        "price": "R37.99",
+        "promo": "Smart Price: R29.99"
+    },
+    "Husky Wet Dog Food Rib Flavour 775g": {
+        "price": "R36.99",
+        "promo": "Buy Any 4 For R115.00 (Smart Price)"
+    },
+    "Maynards Sweets Soft Fruity Gums 125g": {
+        "price": "R29.99",
+        "promo": "Smart Price: R21.99"
+    },
+    "PnP Live Well Maize Meal 10kg": {
+        "price": "R89.99 R94.99",
+        "promo": ""
+    },
+    "Joko Regular Tagless Tea Bags 100 Pack": {
+        "price": "R47.99 R56.99",
+        "promo": "Smart Price: R45.99"
+    },
+    "Kellogg's Noodles Durban Curry 5 Pack": {
+        "price": "R37.99",
+        "promo": ""
+    },
+    "Fatti's & Moni's Macaroni 500g": {
+        "price": "R19.99",
+        "promo": "Buy Any 2 For R30.00 (Smart Price)"
+    },
+    "Fair Cape Eco Uht Full Cream Milk 6 x 1L": {
+        "price": "R89.99 R99.99",
+        "promo": ""
+    },
+    "Jungle Oats 1kg": {
+        "price": "R46.99",
+        "promo": ""
+    },
+    "Sta-Soft Baby Fabric Softener Refill 500ml": {
+        "price": "R48.99",
+        "promo": ""
+    },
+    "Nescafe Gold Cappuccino Decaf 10 Sachets": {
+        "price": "R79.99",
+        "promo": "Buy 2 For R124.00 (Smart Price)"
+    },
+    "Kellogg's Coco Pops Original 350g": {
+        "price": "R62.99",
+        "promo": "Buy Any 2 For R80.00 (Smart Price)"
+    },
+    "Rainbow Simply Chicken Cheese Viennas 500g": {
+        "price": "R64.99",
+        "promo": ""
+    },
+    "Mccain Skinny Cut Potato Fries 1kg": {
+        "price": "R62.49",
+        "promo": "Buy Any 2 For R90.00 (Smart Price)"
+    },
+    "Omo Stain Removal Auto Washing Powder Detergent with Comfort Freshness 2kg": {
+        "price": "R104.99",
+        "promo": ""
+    },
+    "Stoney Ginger Beer Low Kilojoule & No Sugar 2.25L": {
+        "price": "R21.99",
+        "promo": "Buy Any 2 For R32.00 (Smart Price)"
+    },
+    "Flora Regular 50% Fat Spread 1kg": {
+        "price": "R59.99 R74.99",
+        "promo": ""
+    },
+    "Kellogg's Noodles Beef 5s": {
+        "price": "R37.99",
+        "promo": ""
+    },
+    "Pepsi Max Plastic Bottle 2L": {
+        "price": "R17.99",
+        "promo": "Buy Any 7 For R100.00"
+    },
+    "Butro Butter Spread 500g": {
+        "price": "R89.99",
+        "promo": "Smart Price: R79.99"
+    },
+    "Bakers Biscuits Choc-Kits 200g": {
+        "price": "R36.99",
+        "promo": ""
+    },
+    "Domestos Summer Multipurpose Stain Removal Thick Bleach Cleaner 750ml": {
+        "price": "R34.99",
+        "promo": "Buy Any 2 For R58.00 (Smart Price)"
+    },
+    "Simba Potato Chips Salt & Vinegar 120g": {
+        "price": "R19.99",
+        "promo": "Buy Any 3 For R43.00 (Smart Price)"
+    },
+    "Nescafe Gold Hazelnut Cappuccino 10 Sachets": {
+        "price": "R79.99",
+        "promo": "Buy Any 2 For R125.00 (Smart Price)"
+    },
+    "Bakers Salticrax Crackers 200g": {
+        "price": "R36.99",
+        "promo": ""
+    },
+    "Baby Soft White 2 Ply Toilet Paper 9 Pack": {
+        "price": "R89.99",
+        "promo": ""
+    },
+    "Simba Steakhouse Beef Potato Chips 120g": {
+        "price": "R19.99",
+        "promo": "Buy Any 3 For R43.00 (Smart Price)"
+    },
+    "White Star Super Maize Meal 5kg": {
+        "price": "R59.99 R76.99",
+        "promo": ""
+    },
+    "Lucky Star Pilchards in Tomato Sauce 400g": {
+        "price": "R26.99",
+        "promo": "Buy Any 2 For R52.00 (Smart Price)"
+    },
+    "Tinkies Milk Tart Flavoured Creamy Sponge Cake 6 Pack": {
+        "price": "R52.99",
+        "promo": "Buy Any 2 For R65.00 (Smart Price)"
+    },
+    "Sunlight Original Laundry Bar Soap 500g": {
+        "price": "R23.99",
+        "promo": "Buy 2 For R40.00 (Smart Price)"
+    },
+    "PnP Roller Towel White 2 Pack": {
+        "price": "R21.99",
+        "promo": ""
+    },
+    "Futurelife Smart Food Original 500g": {
+        "price": "R39.99 R52.99",
+        "promo": ""
+    },
+    "Sunlight Spring Sensations 2in1 Hand Washing Powder 2kg": {
+        "price": "R69.99",
+        "promo": "Smart Price: R59.99"
+    },
+    "Nescafe Salted Caramel 180g 10 Sachets": {
+        "price": "R79.99",
+        "promo": "Buy Any 2 For R125.00 (Smart Price)"
+    },
+    "Parmalat Yumchum Strawberry Vanilla Yoghurt 6 x 100g": {
+        "price": "R23.99",
+        "promo": ""
+    },
+    "PnP Full Cream Fresh Milk 2L": {
+        "price": "R29.99 R34.99",
+        "promo": ""
+    },
+    "Baby Soft White 2 Ply Toilet Paper 18 Pack": {
+        "price": "R169.99",
+        "promo": ""
+    },
+    "Olive Pride Extra Virgin Olive & Seed Oil 1l": {
+        "price": "R69.99 R91.99",
+        "promo": ""
+    },
+    "Mrs H.S.Ball's Original Chutney 470g": {
+        "price": "R48.99",
+        "promo": "Smart Price: R32.99"
+    },
+    "Cadbury Slab Dairy Milk 150g": {
+        "price": "R40.99",
+        "promo": ""
+    }
+}
