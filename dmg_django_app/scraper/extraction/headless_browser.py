@@ -1,10 +1,5 @@
-# A web scraping module for data extraction.
-# Different functions for specific purposes.
-# The scrape_searched_products function is for a web app that utilizes a search engine
-# model to deliver information of the required products. However, this approach is inefficient
-# in terms of processing requests/responses for some supermarket websites. It suffices to say,
-# it's suitable for low demand use cases.
-# On the other hand, the scrape_all_data function collects product data from all supermarkets
+# The extraction component of the ETL pipeline.
+# The scrape_products method collects product data from all supermarkets
 # and prepares it for database storage.
 
 from selenium import webdriver
@@ -27,7 +22,7 @@ class Scraper():
     MAKRO = 'makro'
     
     def __init__(self) -> None:
-        '''self.chromeOptions = webdriver.ChromeOptions()
+        self.chromeOptions = webdriver.ChromeOptions()
         self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
         self.chromeOptions.page_load_strategy = 'normal'
@@ -36,25 +31,12 @@ class Scraper():
         self.driver.set_window_size(1351, 598)
         self.driver.maximize_window()
         self.WAITING_TIME_RANGE = range(1, 3)
-        self.SEARCHED_PRODUCTS = 'searched products'
-        self.ALL_DATA = 'all data'
-        self.mode = str()'''
-        pass
 
     def _isRelevant(self, item: str, result: str) -> bool:
         for substring in item.split('%20'):
             if (substring[1:] in result) or (result[0] == 'R' and result[-1].isdigit()) or (result[:3] == 'Buy'):
                 return True
         return False
-
-    def scrape_searched_products(self, product_name: str):        
-        product_name = product_name.replace(' ', '%20')
-        self.mode = self.SEARCHED_PRODUCTS
-        self._capture_products()
-
-    def scrape_all_data(self,  supermarkets: list[Supermarket]):
-        self.mode = self.ALL_DATA
-        self._capture_products(supermarkets)
 
     def _update_product_list(self, _super: Supermarket, product_list: dict[str]):
         print('\nSCRAPING PRODUCT LIST...')
@@ -138,12 +120,13 @@ class Scraper():
                 urls.append(line.removesuffix('\n'))
             return urls
            
-    def _capture_products(self, supermarkets: list[Supermarket]):
+    def scrape_products(self, supermarkets: list[Supermarket]):
         divisor_range: list[int] = range(2, 6)       
         url_count: int = 0
         urls = list[str]
         next_button: WebElement
         home_page: bool
+        makro_subcategory_products_loaded = False
         last_page: int = 0
         supermarket_name: str
         script:str = r'window.scroll({top:550,left:0,behavior:"smooth",});'
@@ -160,23 +143,27 @@ class Scraper():
                 url_count = len(urls)
             
             while True:
+                #if not (supermarket_name == self.MAKRO):
                 page_number += 1
+
                 if home_page:
-                    if not ((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)):
-                        self.driver.get(supermarket.get_home_page_url())
-                        if not (supermarket_name == self.PNP):
+                    if (supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO):
+                        self.driver.get(urls[url_count-1])
+                        url_count -= 1
+                    elif not (supermarket_name == self.WOOLIES):
+                        if not (supermarket_name == self.MAKRO):
+                            self.driver.get(supermarket.get_home_page_url())
+                        if not ((supermarket_name == self.PNP) or (supermarket_name == self.MAKRO)):
                             self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
-                        elif supermarket_name == self.PNP:
+                        elif (supermarket_name == self.PNP) or (supermarket_name == self.MAKRO):
                             # Scroll to the bottom of the page.
                             sleep(5)
                             for y in range(0, 8):
                                 self.driver.execute_script(script=script)
                             sleep(5)
-                            href: str = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
-                            last_page = int((href[href.find('='):])[1:])
-                    elif (supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO):
-                        self.driver.get(urls[url_count-1])
-                        url_count -= 1
+                            if supermarket_name == self.PNP:
+                                href: str = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
+                                last_page = int((href[href.find('='):])[1:])
                     home_page = False
                 elif not home_page:
                     selector:str = supermarket.get_page_selectors()['next_button']
@@ -192,25 +179,32 @@ class Scraper():
                     # In the case where there are still products to be scraped, load the next page.
                     if next_button.is_enabled():
                         self.driver.execute_script("arguments[0].click();", next_button)
-                        if supermarket_name == self.PNP:
+                        if (supermarket_name == self.PNP) or (supermarket_name == self.MAKRO):
                             sleep(5)
                             for y in range(0, 8):
                                 self.driver.execute_script(script=script)
                             sleep(5)
                     # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
                     elif not next_button.is_enabled():
-                        if ((supermarket_name == self.SHOPRITE) or (supermarket_name == self.CHECKERS)) or ((supermarket_name == self.WOOLIES) and (url_count == -1)):
+                        if ((supermarket_name == self.SHOPRITE) or (supermarket_name == self.CHECKERS)) or (((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)) and (url_count == -1)):
                             print(f'Available items completely scraped for {supermarket_name} website.')
                             break
                         # Proceed to the next category if the items are completely scraped for the current category.
-                        elif (supermarket_name == self.WOOLIES) and (url_count > -1):
+                        elif ((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)) and (url_count > -1):
                             home_page = True
+                            if supermarket_name == self.MAKRO:
+                                makro_subcategory_products_loaded = True
                 
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
-                print(f"\nPAGE {page_number} OF {supermarket_name}")
-                self._update_product_list(supermarket, buffer)
-                
-                if page_number == 2:
+
+                if not (supermarket_name == self.MAKRO):
+                    print(f"\nPAGE {page_number} OF {supermarket_name}")
+                    self._update_product_list(supermarket, buffer)
+                    if page_number == 2:
+                        break
+                elif (supermarket_name == self.MAKRO) and (page_number == 2):#(makro_subcategory_products_loaded):
+                    self._update_product_list(supermarket, buffer)
+                    #makro_subcategory_products_loaded = False
                     break
                 
             # Populate supermarket database fixtures.

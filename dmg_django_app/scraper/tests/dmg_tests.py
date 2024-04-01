@@ -15,7 +15,7 @@ class DMGTestCase(TestCase):
         #checkers = Checkers()
         makro = Makro()
         scraper = Scraper()
-        #scraper.scrape_all_data([makro])
+        #scraper.scrape_products([makro])
         if scraper._prepare_url_patterns(makro):
             print(scraper._retrieve_urls(makro))
 
