@@ -10,12 +10,13 @@ class Makro(Supermarket):
 		self.__category_page = f'{self.__home_page}/food/category/sub/c/idcode'
 		self.__name = 'makro'
 		self.__page_selectors = {
-			'product_list': 'div[dir="auto"]',
+			'product_list': 'div[data-testid="plp_flat_list"] > div > div.css-1dbjc4n',
 			'product_id': '',
-			'product_title': '',
-			'product_price': '',
-			'product_promo': '',
+			'product_title': 'div > div > div:nth-child(2) > div:last-child > div > div > div:last-child > div:last-child > div:last-child > div > a > div[dir="auto"]',
+			'product_price': 'div > div > div:nth-child(2) > div:last-child > div > div > div[style="display: flex;"] > div[dir="auto"]',
+			'product_promo': 'div > div > div[dir="auto"]',
 			'footer':'',
+			'next_button': 'div[data-testid="button-LoadMore"]'
 		}		
 
 	def get_supermarket_name(self) -> str:

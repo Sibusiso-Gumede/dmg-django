@@ -64,6 +64,7 @@ class Scraper():
         name_element: WebElement = None
         price_element: WebElement = None
         promo_element: WebElement = None
+        # TODO: Write makro's product scraping algorithm.
         for product in products:
             try:    
                 name_element = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
@@ -154,14 +155,14 @@ class Scraper():
             sleep(1.50)
             buffer: dict[str] = {}
 
-            if ((supermarket_name == self.WOOLIES) and (self._prepare_url_patterns(supermarket))) or ((supermarket_name == self.MAKRO) and (self._prepare_url_patterns(supermarket))):
+            if ((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)) and (self._prepare_url_patterns(supermarket)):
                 urls = self._retrieve_urls(supermarket)
                 url_count = len(urls)
-            breakpoint()
+            
             while True:
                 page_number += 1
                 if home_page:
-                    if not (supermarket_name == self.WOOLIES):
+                    if not ((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)):
                         self.driver.get(supermarket.get_home_page_url())
                         if not (supermarket_name == self.PNP):
                             self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
@@ -173,7 +174,7 @@ class Scraper():
                             sleep(5)
                             href: str = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
                             last_page = int((href[href.find('='):])[1:])
-                    elif supermarket_name == self.WOOLIES:
+                    elif (supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO):
                         self.driver.get(urls[url_count-1])
                         url_count -= 1
                     home_page = False
