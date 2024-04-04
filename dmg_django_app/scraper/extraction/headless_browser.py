@@ -110,8 +110,10 @@ class Scraper():
                         url = url.replace("category", category).replace('idcode', data['ID'])
                         urls.append(url+'\n')
                 urls_file.writelines(urls)
-        return path.isfile(output_file)
-    
+            return path.isfile(output_file)
+        else:
+            return True
+        
     def _retrieve_urls(self, _supermarket: Supermarket) -> list[str]:
         urls_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_urls.txt'
         with open(urls_file, 'rt', newline='\n') as file:

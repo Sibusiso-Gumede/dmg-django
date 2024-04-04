@@ -15,9 +15,7 @@ class DMGTestCase(TestCase):
         #checkers = Checkers()
         makro = Makro()
         scraper = Scraper()
-        #scraper.scrape_products([makro])
-        if scraper._prepare_url_patterns(makro):
-            print(scraper._retrieve_urls(makro))
+        scraper.scrape_products([makro])
 
     def receipt_renderer_test(self):
         items = {'Simba Salt and Vinegar 250g': '12.50',
@@ -32,8 +30,13 @@ def map_function(self, func, container: list):
     
 def suite():
     suite = TestSuite()
-    suite.addTest(DMGTestCase('headless_browser_test'))
-    #suite.addTest(DMGTestCase('receipt_renderer_test'))
+    _test:str = '2. receipt_renderer_test'
+    test:str = '1. headless_browser_test'
+    r = input(f'{test}/n{_test}\n>>>')
+    if r == '1':
+        suite.addTest(DMGTestCase('headless_browser_test'))
+    elif r == '2':
+        suite.addTest(DMGTestCase('receipt_renderer_test'))
     return suite
 
 if __name__ == '__main__':
