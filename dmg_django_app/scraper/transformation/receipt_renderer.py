@@ -84,7 +84,7 @@ class Receipt_Renderer():
         # Footer.
         self._move_cursor(self.y_spacing)    
         # Barcode.
-        barcode_h = 20
+        barcode_h: float = 20
         barcode_lm: float = 20
         barcode_rm: float = 220
         horizontal_cursor = barcode_lm
