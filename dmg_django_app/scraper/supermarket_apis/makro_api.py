@@ -14,7 +14,7 @@ class Makro(Supermarket):
 			'product_id': '',
 			'product_name': 'div > div > div:nth-child(2) > div:last-child > div > div > div:last-child > div:last-child > div:last-child > div > a > div[dir="auto"]',
 			'product_price': 'div > div > div:nth-child(2) > div:last-child > div > div > div[style="display: flex;"] > div[dir="auto"]',
-			'product_promo': 'div.css-1dbjc4n > div > div[dir="auto"]',
+			'product_promo': 'div.css-1dbjc4n > div.css-1dbjc4n > div > div[dir="auto"]',
 			'footer':'',
 			'next_button': 'div[data-testid="plpScreen"] > div > div > div > div[class="css-1dbjc4n r-14lw9ot r-1jgb5lz r-3w0k23 r-1atloto r-13qz1uu"] > div:nth-child(2) > div:nth-child(2) > div > div[class="css-1dbjc4n r-1awozwy r-1777fci"] > div[data-testid="button-LoadMore"]'
 		}		
