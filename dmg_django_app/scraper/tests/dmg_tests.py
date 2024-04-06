@@ -32,7 +32,7 @@ def suite():
     suite = TestSuite()
     _test:str = '2. receipt_renderer_test'
     test:str = '1. headless_browser_test'
-    r = input(f'{test}/n{_test}\n>>>')
+    r = input(f'{test}\n{_test}\n>>>')
     if r == '1':
         suite.addTest(DMGTestCase('headless_browser_test'))
     elif r == '2':
