@@ -6,6 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains, KeyInput, PointerInput, WheelInput
+from selenium.webdriver.common.actions.interaction import POINTER_MOUSE, KEY, WHEEL
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 from time import sleep
@@ -23,13 +25,14 @@ class Scraper():
     
     def __init__(self) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
-        self.chromeOptions.add_argument('--headless')
+        #self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
         self.chromeOptions.page_load_strategy = 'normal'
         
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.chromeOptions)
         self.driver.set_window_size(1351, 598)
         self.driver.maximize_window()
+        self.actions = ActionChains(self.driver, devices=[WheelInput(WHEEL), PointerInput(POINTER_MOUSE,POINTER_MOUSE), KeyInput(KEY)])
         self.WAITING_TIME_RANGE = range(1, 3)
 
     def _isRelevant(self, item: str, result: str) -> bool:
@@ -108,7 +111,6 @@ class Scraper():
             with open(input_file, 'r') as  i_file, open(output_file, 'x', newline='\n') as urls_file:
                 categories = dict(json.load(i_file))                
                 for category, data in zip(categories.keys(), categories.values()):
-                    #breakpoint()
                     if s_name == self.MAKRO:
                         for subcategory, _attributes in zip(data.keys(), data.values()):
                             url = _supermarket.get_category_page_url()
@@ -140,7 +142,7 @@ class Scraper():
         makro_subcategory_products_loaded = False
         last_page: int = 0
         supermarket_name: str
-        script:str = r'window.scroll({top:550,left:0,behavior:"smooth",});'
+        #script:str = r'window.scroll({top:550,left:0,behavior:"smooth",});'
 
         for supermarket in supermarkets:
             home_page = True
@@ -167,13 +169,20 @@ class Scraper():
                         if not ((supermarket_name == self.PNP) or (supermarket_name == self.MAKRO)):
                             self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                         elif (supermarket_name == self.PNP) or (supermarket_name == self.MAKRO):
+                            if supermarket_name == self.MAKRO:
+                                # Focus on the body segment of the page.
+                                self.driver.execute_script("arguments[0].click();",
+                                                           self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
                             # Scroll to the bottom of the page.
+                            self.actions.scroll_by_amount(0, 550)
                             sleep(5)
                             for y in range(0, 8):
-                                self.driver.execute_script(script=script)
+                                self.actions.perform()
                             sleep(5)
+                            self.actions.reset_actions()
                             if supermarket_name == self.PNP:
-                                href: str = self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
+                                href: str = self.driver.find_element(By.CSS_SELECTOR, 
+                                                                     supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
                                 last_page = int((href[href.find('='):])[1:])
                     home_page = False
                 elif not home_page:
@@ -184,41 +193,35 @@ class Scraper():
                         elif page_number > last_page:
                             break
                                                 
-                    while True:
-                        # If the next button element is stale, reload the element and retry the operations.
-                        # Otherwise, exit the loop and continue.
-                        try:
-                            # Click to the next page if it's available.
-                            next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=selector)                
+                    # Click to the next page if it's available.
+                    next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=selector)                
 
-                            # In the case where there are still products to be scraped, load the next page.
-                            if next_button.is_enabled():
-                                self.driver.execute_script("arguments[0].click();", next_button)
-                                if (supermarket_name == self.PNP) or (supermarket_name == self.MAKRO):
-                                    sleep(5)
-                                    for y in range(0, 8):
-                                        self.driver.execute_script(script=script)
-                                    sleep(5)
-                            # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
-                            elif not next_button.is_enabled():
-                                if ((supermarket_name == self.SHOPRITE) or (supermarket_name == self.CHECKERS)) or (((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)) and (url_count == -1)):
-                                    print(f'Available items completely scraped for {supermarket_name} website.')
-                                    break
-                                # Proceed to the next category if the items are completely scraped for the current category.
-                                elif ((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)) and (url_count > -1):
-                                    home_page = True
-                                    if supermarket_name == self.MAKRO:
-                                        makro_subcategory_products_loaded = True
-                        except StaleElementReferenceException:
-                            self.driver.execute_script(r'window.scroll({top:-550,left:0,behavior:"smooth",});')
-                            sleep(1)
-                            self.driver.execute_script(r'window.scroll({top:550,left:0,behavior:"smooth",});')
-                            sleep(1)
-                        else:
+                    # In the case where there are still products to be scraped, load the next page.
+                    if next_button.is_enabled():
+                        self.driver.execute_script("arguments[0].click();", next_button)
+                        
+                        if (supermarket_name == self.PNP) or (supermarket_name == self.MAKRO):
+                            self.actions.scroll_by_amount(0, 550)
+                            sleep(5)
+                            for y in range(0, 8):
+                                self.actions.perform()
+                            sleep(5)
+                            self.actions.reset_actions()
+                            breakpoint()
+                    # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
+                    elif not next_button.is_enabled():
+                        if ((supermarket_name == self.SHOPRITE) or (supermarket_name == self.CHECKERS)) or (((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)) and (url_count == -1)):
+                            print(f'Available items completely scraped for {supermarket_name} website.')
                             break
+                        # Proceed to the next category if the items are completely scraped for the current category.
+                        elif ((supermarket_name == self.WOOLIES) or (supermarket_name == self.MAKRO)) and (url_count > -1):
+                            home_page = True
+                            if supermarket_name == self.MAKRO:
+                                makro_subcategory_products_loaded = True
 
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
 
+                # Update product list.
                 if not (supermarket_name == self.MAKRO):
                     print(f"\nPAGE {page_number} OF {supermarket_name}")
                     self._update_product_list(supermarket, buffer)
