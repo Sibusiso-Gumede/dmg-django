@@ -1,4 +1,4 @@
-from PIL import Image, ImageFont, ImageDraw, ImageColor
+from PIL import Image, ImageFont, ImageDraw
 
 class Receipt_Renderer():
     def __init__(self):

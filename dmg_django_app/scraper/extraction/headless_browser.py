@@ -139,7 +139,7 @@ class Scraper():
         urls = list[str]
         next_button: WebElement
         home_page: bool
-        makro_subcategory_products_loaded = False
+        makro_subcategory_products_loaded: bool = False
         last_page: int = 0
         supermarket_name: str
         #script:str = r'window.scroll({top:550,left:0,behavior:"smooth",});'
@@ -170,7 +170,7 @@ class Scraper():
                             self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                         elif (supermarket_name == self.PNP) or (supermarket_name == self.MAKRO):
                             if supermarket_name == self.MAKRO:
-                                # Focus on the body segment of the page.
+                                # Move the focus to the body segment of the page.
                                 self.driver.execute_script("arguments[0].click();",
                                                            self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
                             # Scroll to the bottom of the page.
