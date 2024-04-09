@@ -3,6 +3,8 @@
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
+import pandas as pd
+import json
    
 def store_content(content: bytes, path_: str, content_name: str) -> bool:
     """Stores the content of the response in bytes.
@@ -77,7 +79,24 @@ def retrieve_image(images_dir: str):
 
 def resize_image(image: Image):
     '''Resizes an image.'''
-
     width, height = image.size
-
     return image.crop((width/2, 0.5, width, height))
+
+def file_data_to_table(file: str):
+    if not path.isfile(file):
+        raise FileNotFoundError
+
+    organized: dict[str] = {}
+    items:dict = {}
+    count:int = 0
+    f = open(file, 'r')
+    items = json.load(f)
+    f.close()
+
+    for item_name, item_attributes in zip(items.keys(), items.values()):
+        organized.update({count:{"name": item_name, "price": item_attributes['price'], "promo": item_attributes['promo']}})
+        count += 1
+    
+    f = open(f'{file[:-6]}_copy_{file[-5:]}', 'w')
+    json.dump(organized, f, indent=4)
+    f.close()

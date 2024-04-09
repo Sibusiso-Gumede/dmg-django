@@ -1,6 +1,7 @@
 from ..extraction import Scraper
 from ..transformation import Receipt_Renderer
 from concurrent.futures import ThreadPoolExecutor
+from ..transformation import file_data_to_table
 from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 
 from unittest import TestCase, TextTestRunner, TestSuite
@@ -9,10 +10,10 @@ class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
     
     def headless_browser_test(self):
-        #woolies = Woolworths()
-        #shoprite = Shoprite()
-        #pnp = PicknPay()
-        #checkers = Checkers()
+        woolies = Woolworths()
+        shoprite = Shoprite()
+        pnp = PicknPay()
+        checkers = Checkers()
         makro = Makro()
         scraper = Scraper()
         scraper.scrape_products([makro])
@@ -23,6 +24,9 @@ class DMGTestCase(TestCase):
                  'Mince Samoosas 5s': '50.00'}
         rr = Receipt_Renderer()
         rr.render(items=items)
+    
+    def organize_file_data_test(self):
+        file_data_to_table(f'{Makro().RESOURCES_PATH}/{Makro().get_supermarket_name()}/{Makro().get_supermarket_name()}_products.json')
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
@@ -30,13 +34,16 @@ def map_function(self, func, container: list):
     
 def suite():
     suite = TestSuite()
+    _test_:str = '3. organize_file_data_test'
     _test:str = '2. receipt_renderer_test'
     test:str = '1. headless_browser_test'
-    r = input(f'{test}\n{_test}\n>>>')
+    r = input(f'{test}\n{_test}\n{_test_}\n>>>')
     if r == '1':
         suite.addTest(DMGTestCase('headless_browser_test'))
     elif r == '2':
         suite.addTest(DMGTestCase('receipt_renderer_test'))
+    elif r == '3':
+        suite.addTest(DMGTestCase('organize_file_data_test'))
     return suite
 
 if __name__ == '__main__':
