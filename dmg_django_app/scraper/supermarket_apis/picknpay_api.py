@@ -6,6 +6,7 @@ class PicknPay(Supermarket):
 	"""The PicknPay supermarket class implementation."""
 
 	def __init__(self):
+		super().__init__()
 		self.__query_page = 'https://www.pnp.co.za/search/item'
 		self.__home_page = 'https://www.pnp.co.za/c/pnpbase'
 		self.__name = 'picknpay'

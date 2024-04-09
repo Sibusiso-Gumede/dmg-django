@@ -6,6 +6,7 @@ class Shoprite(Supermarket):
 	"""The Shoprite supermarket class implementation."""
 
 	def __init__(self):
+		super().__init__()
 		self.__query_page = 'https://www.shoprite.co.za/search/all?q=item'
 		self.__home_page = 'https://www.shoprite.co.za'
 		self.__name = 'shoprite'

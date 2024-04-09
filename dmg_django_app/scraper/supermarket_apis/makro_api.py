@@ -6,6 +6,7 @@ class Makro(Supermarket):
 	"""The Makro supermarket class implementation."""
 
 	def __init__(self):
+		super().__init__()
 		self.__home_page = 'https://www.makro.co.za'
 		self.__category_page = f'{self.__home_page}/food/category/sub/c/idcode'
 		self.__name = 'makro'

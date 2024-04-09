@@ -6,6 +6,7 @@ class Supermarket(ABC):
 
     @classmethod
     def __init__(self):
+        self.products:int = 0
         pass
 
     @classmethod
@@ -27,3 +28,9 @@ class Supermarket(ABC):
     @classmethod
     def get_category_page_url(self) -> str:
         pass
+
+    def increase_product_count(self) -> None:
+        self.products += 1
+
+    def get_product_count(self) -> int:
+        return self.products

@@ -71,9 +71,8 @@ class Scraper():
                     name = name_element.get_attribute("data-cnstrc-item-name")
                 else:
                     name = name_element.text
-
+                    
                 price = price_element.text
-
                 if _super.get_supermarket_name() == self.MAKRO:
                     price = f'{price[:-2]}.{price[-2:]}'
                 
@@ -84,7 +83,8 @@ class Scraper():
                         promo = promo_element.text
                 elif promo_element is None:
                     promo = "NULL"
-                product_list.update({name: {"price": price, "promo": promo}})    
+                _super.increase_product_count()
+                product_list.update({_super.get_product_count(): {"name": name, "price": price, "promo": promo}})    
         print("DONE.")
 
     def _populate_fixtures(self, _supermarket: Supermarket, products: dict[str]):
@@ -146,7 +146,7 @@ class Scraper():
 
         for supermarket in supermarkets:
             home_page = True
-            page_number = 0
+            page_number:int = 0
             supermarket_name = supermarket.get_supermarket_name()
             sleep(1.50)
             buffer: dict[str] = {}

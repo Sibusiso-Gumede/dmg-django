@@ -6,6 +6,7 @@ class Checkers(Supermarket):
 	"""The Checkers supermarket class implementation."""
 
 	def __init__(self):
+		super().__init__()
 		self.__query_page = 'https://www.checkers.co.za/search/all?q=item'
 		self.__home_page = 'https://www.checkers.co.za'
 		self.__name = 'checkers'
