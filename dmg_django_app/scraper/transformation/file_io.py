@@ -86,17 +86,8 @@ def file_data_to_table(file: str):
     if not path.isfile(file):
         raise FileNotFoundError
 
-    organized: dict[str] = {}
     items:dict = {}
-    count:int = 0
-    f = open(file, 'r')
-    items = json.load(f)
-    f.close()
-
-    for item_name, item_attributes in zip(items.keys(), items.values()):
-        organized.update({count:{"name": item_name, "price": item_attributes['price'], "promo": item_attributes['promo']}})
-        count += 1
-    
-    f = open(f'{file[:-6]}_copy_{file[-5:]}', 'w')
-    json.dump(organized, f, indent=4)
-    f.close()
+    with open(file, 'r') as f:
+        items = json.load(f)
+        data = pd.DataFrame.from_dict(items, orient='index', columns=['nr.', 'name', 'price', 'promo'])
+        print(data)
