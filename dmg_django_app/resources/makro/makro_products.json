@@ -1,192 +1,91 @@
 {
-    "0": {
-        "name": "Pasta Grande Macaroni (1 x 500g)",
-        "price": "R 16.95",
-        "promo": "5 for R75"
-    },
-    "1": {
-        "name": "Fatti's & Moni's Spaghetti (1 x 500g)",
-        "price": "R 13.95",
-        "promo": "NULL"
-    },
-    "2": {
-        "name": "Spekko Parboiled Rice (1 x 500g)",
-        "price": "R 11.95",
-        "promo": "NULL"
-    },
-    "3": {
-        "name": "Pasta Grande Spaghetti (1 x 500g)",
-        "price": "R 16.95",
-        "promo": "5 for R75"
-    },
-    "4": {
-        "name": "Fatti's & Moni's Macaroni (1 x 500g)",
-        "price": "R 13.95",
-        "promo": "NULL"
-    },
-    "5": {
-        "name": "Tastic Parboiled Rice (1 x 10kg)",
-        "price": "R 199.95",
-        "promo": "NULL"
-    },
-    "6": {
-        "name": "Excella Parboiled Rice (1 x 2kg)",
-        "price": "R 37.95",
-        "promo": "2 for R70"
-    },
-    "7": {
-        "name": "Tastic Parboiled Rice (1 x 2kg)",
-        "price": "R 41.95",
-        "promo": "NULL"
-    },
-    "8": {
-        "name": "White Star Super Maize Meal (1 x 10kg)",
-        "price": "R 99.95",
-        "promo": "NULL"
-    },
-    "9": {
-        "name": "Tastic Parboiled Rice (1 x 5kg)",
-        "price": "R 109.95",
-        "promo": "NULL"
-    },
-    "10": {
-        "name": "Iwisa Super Maize Meal (1 x 10kg)",
-        "price": "R 84.95",
-        "promo": "NULL"
-    },
-    "11": {
-        "name": "Granoro 1 x 500g Pasta",
-        "price": "R 29.95",
-        "promo": "NULL"
-    },
-    "12": {
-        "name": "White Star Super Maize Meal (1 x 5kg)",
-        "price": "R 64.95",
-        "promo": "NULL"
-    },
-    "13": {
-        "name": "Lion Superpop Popcorn (10 x 500g)",
-        "price": "R 158.76",
-        "promo": "NULL"
-    },
-    "14": {
-        "name": "Excella 1 x 5kg Rice",
-        "price": "R 89.95",
-        "promo": "NULL"
-    },
-    "15": {
-        "name": "Lion Red Speckled Beans (1 x 500g)",
-        "price": "R 23.95",
-        "promo": "NULL"
-    },
-    "16": {
-        "name": "Iwisa Super Maize Meal (1 x 12.5kg)",
-        "price": "R 104.95",
-        "promo": "NULL"
-    },
-    "17": {
-        "name": "Pasta Grande Macaroni (1 x 3kg)",
-        "price": "R 94.95",
-        "promo": "NULL"
-    },
-    "18": {
-        "name": "Fatti's & Moni's Spaghetti (1 x 1kg)",
-        "price": "R 33.95",
-        "promo": "NULL"
-    },
-    "19": {
-        "name": "Pasta Grande Screws (1 x 500g)",
-        "price": "R 17.95",
-        "promo": "NULL"
-    },
-    "20": {
-        "name": "Fatti's & Moni's Macaroni (3 kg)",
-        "price": "R 105.95",
-        "promo": "NULL"
-    },
-    "21": {
-        "name": "Spekko Parboiled Rice (1 x 2kg)",
-        "price": "R 46.95",
-        "promo": "NULL"
-    },
-    "22": {
-        "name": "Pasta Grande Spaghetti (1 x 1kg)",
-        "price": "R 31.95",
-        "promo": "NULL"
-    },
-    "23": {
-        "name": "ACE Super Maize Meal (1 x 10kg)",
-        "price": "R 116.95",
-        "promo": "NULL"
-    },
-    "24": {
-        "name": "White Star Super Maize Meal (1 x 12.5kg)",
-        "price": "R 119.95",
-        "promo": "NULL"
-    },
-    "25": {
-        "name": "Tastic Basmati Rice (1 x 2kg)",
-        "price": "R 119.95",
-        "promo": "NULL"
-    },
-    "26": {
-        "name": "Simba Popcorn White Cheddar (1 x 90g)",
-        "price": "R 10.75",
-        "promo": "NULL"
-    },
-    "27": {
-        "name": "Tastic Long Grain Rice Brown Wholegrain (1 x 2kg)",
-        "price": "R 42.95",
-        "promo": "NULL"
-    },
-    "28": {
-        "name": "Iwisa Super Maize Meal (1 x 2.5kg)",
-        "price": "R 29.95",
-        "promo": "NULL"
-    },
-    "29": {
-        "name": "Royco Regular Pasta Sauce Cheese, Ham and Mushroom (1 x 45g)",
-        "price": "R 20.25",
-        "promo": "NULL"
-    },
-    "30": {
-        "name": "Iwisa Samp (1 x 1kg)",
-        "price": "R 13.95",
-        "promo": "NULL"
-    },
-    "31": {
-        "name": "Tastic Long Grain Rice White Soft And Absorbing (1 x 2kg)",
-        "price": "R 44.95",
-        "promo": "NULL"
-    },
-    "32": {
-        "name": "ACE Samp (1 x 10kg)",
-        "price": "R 121.95",
-        "promo": "NULL"
-    },
-    "33": {
-        "name": "Fatti's & Moni's Macaroni (1 x 1kg)",
-        "price": "R 33.95",
-        "promo": "NULL"
-    },
-    "34": {
-        "name": "Spekko Parboiled Rice (1 x 10kg)",
-        "price": "R 209.95",
-        "promo": "NULL"
-    },
-    "35": {
-        "name": "Imbo Brown Lentils (1 x 500g)",
-        "price": "R 22.95",
-        "promo": "NULL"
-    },
-    "36": {
-        "name": "White Star Super Maize Meal (1 x 2.5kg)",
-        "price": "R 33.95",
-        "promo": "NULL"
-    },
-    "37": {
-        "name": "Granoro Pasta Fettuccine Nidi (1 x 500g)",
-        "price": "R 33.95",
-        "promo": "NULL"
-    }
+  "Pasta Grande Macaroni (1 x 500g)": {
+    "price": "R 16.95",
+    "promo": "5 for R75"
+  },
+  "Fatti's & Moni's Spaghetti (1 x 500g)": {
+    "price": "R 13.95",
+    "promo": "NULL"
+  },
+  "Spekko Parboiled Rice (1 x 500g)": { "price": "R 11.95", "promo": "NULL" },
+  "Pasta Grande Spaghetti (1 x 500g)": {
+    "price": "R 16.95",
+    "promo": "5 for R75"
+  },
+  "Fatti's & Moni's Macaroni (1 x 500g)": {
+    "price": "R 13.95",
+    "promo": "NULL"
+  },
+  "Tastic Parboiled Rice (1 x 10kg)": { "price": "R 199.95", "promo": "NULL" },
+  "Excella Parboiled Rice (1 x 2kg)": {
+    "price": "R 37.95",
+    "promo": "2 for R70"
+  },
+  "Tastic Parboiled Rice (1 x 2kg)": { "price": "R 41.95", "promo": "NULL" },
+  "White Star Super Maize Meal (1 x 10kg)": {
+    "price": "R 99.95",
+    "promo": "NULL"
+  },
+  "Tastic Parboiled Rice (1 x 5kg)": { "price": "R 109.95", "promo": "NULL" },
+  "Iwisa Super Maize Meal (1 x 10kg)": { "price": "R 84.95", "promo": "NULL" },
+  "Granoro 1 x 500g Pasta": { "price": "R 29.95", "promo": "NULL" },
+  "White Star Super Maize Meal (1 x 5kg)": {
+    "price": "R 64.95",
+    "promo": "NULL"
+  },
+  "Lion Superpop Popcorn (10 x 500g)": { "price": "R 158.76", "promo": "NULL" },
+  "Excella 1 x 5kg Rice": { "price": "R 89.95", "promo": "NULL" },
+  "Lion Red Speckled Beans (1 x 500g)": { "price": "R 23.95", "promo": "NULL" },
+  "Iwisa Super Maize Meal (1 x 12.5kg)": {
+    "price": "R 104.95",
+    "promo": "NULL"
+  },
+  "Pasta Grande Macaroni (1 x 3kg)": { "price": "R 94.95", "promo": "NULL" },
+  "Fatti's & Moni's Spaghetti (1 x 1kg)": {
+    "price": "R 33.95",
+    "promo": "NULL"
+  },
+  "Pasta Grande Screws (1 x 500g)": { "price": "R 17.95", "promo": "NULL" },
+  "Fatti's & Moni's Macaroni (3 kg)": { "price": "R 105.95", "promo": "NULL" },
+  "Spekko Parboiled Rice (1 x 2kg)": { "price": "R 46.95", "promo": "NULL" },
+  "Pasta Grande Spaghetti (1 x 1kg)": { "price": "R 31.95", "promo": "NULL" },
+  "ACE Super Maize Meal (1 x 10kg)": { "price": "R 116.95", "promo": "NULL" },
+  "White Star Super Maize Meal (1 x 12.5kg)": {
+    "price": "R 119.95",
+    "promo": "NULL"
+  },
+  "Tastic Basmati Rice (1 x 2kg)": { "price": "R 119.95", "promo": "NULL" },
+  "Simba Popcorn White Cheddar (1 x 90g)": {
+    "price": "R 10.75",
+    "promo": "NULL"
+  },
+  "Tastic Long Grain Rice Brown Wholegrain (1 x 2kg)": {
+    "price": "R 42.95",
+    "promo": "NULL"
+  },
+  "Iwisa Super Maize Meal (1 x 2.5kg)": { "price": "R 29.95", "promo": "NULL" },
+  "Royco Regular Pasta Sauce Cheese, Ham and Mushroom (1 x 45g)": {
+    "price": "R 20.25",
+    "promo": "NULL"
+  },
+  "Iwisa Samp (1 x 1kg)": { "price": "R 13.95", "promo": "NULL" },
+  "Tastic Long Grain Rice White Soft And Absorbing (1 x 2kg)": {
+    "price": "R 44.95",
+    "promo": "NULL"
+  },
+  "ACE Samp (1 x 10kg)": { "price": "R 121.95", "promo": "NULL" },
+  "Fatti's & Moni's Macaroni (1 x 1kg)": {
+    "price": "R 33.95",
+    "promo": "NULL"
+  },
+  "Spekko Parboiled Rice (1 x 10kg)": { "price": "R 209.95", "promo": "NULL" },
+  "Imbo Brown Lentils (1 x 500g)": { "price": "R 22.95", "promo": "NULL" },
+  "White Star Super Maize Meal (1 x 2.5kg)": {
+    "price": "R 33.95",
+    "promo": "NULL"
+  },
+  "Granoro Pasta Fettuccine Nidi (1 x 500g)": {
+    "price": "R 33.95",
+    "promo": "NULL"
+  }
 }

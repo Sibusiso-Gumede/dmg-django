@@ -31,6 +31,3 @@ class Supermarket(ABC):
 
     def increase_product_count(self) -> None:
         self.products += 1
-
-    def get_product_count(self) -> int:
-        return self.products

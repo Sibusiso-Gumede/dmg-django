@@ -92,13 +92,26 @@ def serialize_data(s: Supermarket):
     with open(file, 'r') as f:
         items:dict = json.load(f)
         data:list = []
-        for item_name, attrs in zip(items.keys(), items.values()):
-            if not (s_name == 'makro'):
-                data.append({
-                    "model": "dmg_django_app.supermarket",
-                    "fields": {
-                        "supermarket_id": s.identifier,
-                        "supermarket_name": s_name,
-
+        item_names:list = list(items.keys())
+        count:int = 0
+        if s_name == 'makro':
+            item_names = list
+        for item_name, attrs in zip(item_names, items.values()):
+            count += 1
+            data.append({
+                "model": "dmg_django_app.product",
+                "fields": {
+                    "product_id": int(f'{s.identifier}{count}'),
+                    "product_name": item_name,
+                    "price": attrs['price'],
+                    "promotion": attrs['promo'],
+                    "supermarket": {
+                        "model": "dmg_django_app.supermarket",
+                        "fields": {
+                            "supermarket_id": s.identifier,
+                            "supermarket_name": s_name,
+                            "num_of_products": len(item_names)
+                        }
                     }
-                })
+                }
+            })

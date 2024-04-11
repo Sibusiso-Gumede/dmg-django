@@ -1,11 +1,11 @@
+from django.test import TestCase, runner
+
 from ..extraction import Scraper
 from ..transformation import Receipt_Renderer
 from concurrent.futures import ThreadPoolExecutor
 from ..transformation import serialize_data
 from ..supermarket_apis import Supermarket, Woolworths, Shoprite, Makro, PicknPay, Checkers
 from ...models import Supermarket, Product
-
-from unittest import TestCase, TextTestRunner, TestSuite
 
 class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
@@ -33,24 +33,30 @@ class DMGTestCase(TestCase):
         for supermarket in self.supermarkets.values():
             serialize_data(s=supermarket)
 
+    def add_supermarket_models_test(self):
+        for s in self.supermarkets.values():
+            obj = Supermarket()
+
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
         return execute.map(func, container)
     
 def suite():
-    suite = TestSuite()
-    _test_:str = '3. organize_file_data_test'
-    _test:str = '2. receipt_renderer_test'
-    test:str = '1. headless_browser_test'
-    r = input(f'{test}\n{_test}\n{_test_}\n>>>')
+    a_test:str = '4. add_supermarket_models_test'
+    o_test:str = '3. organize_file_data_test'
+    r_test:str = '2. receipt_renderer_test'
+    h_test:str = '1. headless_browser_test'
+
+    r = input(f'{h_test}\n{r_test}\n{o_test}\n{a_test}\n>>>')
+    _suite:list = []
     if r == '1':
-        suite.addTest(DMGTestCase('headless_browser_test'))
+        _suite.append('DMGTestCase.headless_browser_test')
     elif r == '2':
-        suite.addTest(DMGTestCase('receipt_renderer_test'))
+        _suite.append('DMGTestCase.receipt_renderer_test')
     elif r == '3':
-        suite.addTest(DMGTestCase('organize_file_data_test'))
-    return suite
+        _suite.append('DMGTestCase.organize_file_data_test')
+    return _suite
 
 if __name__ == '__main__':
-    runner = TextTestRunner()
-    runner.run(suite())
+    _runner = runner.DiscoverRunner(keepdb=True)
+    _runner.run_suite(_runner.build_suite(suite()))
