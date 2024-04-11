@@ -7,6 +7,7 @@ class PicknPay(Supermarket):
 
 	def __init__(self):
 		super().__init__()
+		self.identifier = 30
 		self.__query_page = 'https://www.pnp.co.za/search/item'
 		self.__home_page = 'https://www.pnp.co.za/c/pnpbase'
 		self.__name = 'picknpay'

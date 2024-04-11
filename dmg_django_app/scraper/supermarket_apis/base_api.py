@@ -7,7 +7,7 @@ class Supermarket(ABC):
     @classmethod
     def __init__(self):
         self.products:int = 0
-        pass
+        self.identifier:int = 0
 
     @classmethod
     def get_supermarket_name(self) -> str:

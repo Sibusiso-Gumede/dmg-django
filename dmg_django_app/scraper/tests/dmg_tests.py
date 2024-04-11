@@ -1,22 +1,26 @@
 from ..extraction import Scraper
 from ..transformation import Receipt_Renderer
 from concurrent.futures import ThreadPoolExecutor
-from ..transformation import file_data_to_table
-from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
+from ..transformation import serialize_data
+from ..supermarket_apis import Supermarket, Woolworths, Shoprite, Makro, PicknPay, Checkers
+from ...models import Supermarket, Product
 
 from unittest import TestCase, TextTestRunner, TestSuite
 
 class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
-    
+    def __init__(self):
+        self.supermarkets = {
+        "woolies": Woolworths(),
+        "shoprite": Shoprite(),
+        "pnp": PicknPay(),
+        "checkers": Checkers(),
+        "makro": Makro()
+        }
+
     def headless_browser_test(self):
-        woolies = Woolworths()
-        shoprite = Shoprite()
-        pnp = PicknPay()
-        checkers = Checkers()
-        makro = Makro()
         scraper = Scraper()
-        scraper.scrape_products([makro])
+        scraper.scrape_products([self.supermarkets["makro"]])
 
     def receipt_renderer_test(self):
         items = {'Simba Salt and Vinegar 250g': '12.50',
@@ -25,8 +29,9 @@ class DMGTestCase(TestCase):
         rr = Receipt_Renderer()
         rr.render(items=items)
     
-    def organize_file_data_test(self):
-        file_data_to_table(f'{Makro().RESOURCES_PATH}/{Makro().get_supermarket_name()}/{Makro().get_supermarket_name()}_products.json')
+    def serialize_data_test(self):
+        for supermarket in self.supermarkets.values():
+            serialize_data(s=supermarket)
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:

@@ -7,6 +7,7 @@ class Woolworths(Supermarket):
     
     def __init__(self):
         super().__init__()
+        self.identifier = 50
         self.__home_page = 'https://www.woolworths.co.za'
         self.__category_page = f'{self.__home_page}/cat/Food/category/_/idcode'
         self.__name = 'woolworths'

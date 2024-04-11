@@ -7,6 +7,7 @@ class Makro(Supermarket):
 
 	def __init__(self):
 		super().__init__()
+		self.identifier = 20
 		self.__home_page = 'https://www.makro.co.za'
 		self.__category_page = f'{self.__home_page}/food/category/sub/c/idcode'
 		self.__name = 'makro'

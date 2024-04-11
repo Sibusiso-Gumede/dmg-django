@@ -3,6 +3,7 @@
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
+from ..supermarket_apis import Supermarket
 import pandas as pd
 import json
    
@@ -82,12 +83,22 @@ def resize_image(image: Image):
     width, height = image.size
     return image.crop((width/2, 0.5, width, height))
 
-def file_data_to_table(file: str):
+def serialize_data(s: Supermarket):
+    s_name = s.get_supermarket_name()
+    file = f'{s.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
     if not path.isfile(file):
         raise FileNotFoundError
 
-    items:dict = {}
     with open(file, 'r') as f:
-        items = json.load(f)
-        data = pd.DataFrame.from_dict(items, orient='index', columns=['nr.', 'name', 'price', 'promo'])
-        print(data)
+        items:dict = json.load(f)
+        data:list = []
+        for item_name, attrs in zip(items.keys(), items.values()):
+            if not (s_name == 'makro'):
+                data.append({
+                    "model": "dmg_django_app.supermarket",
+                    "fields": {
+                        "supermarket_id": s.identifier,
+                        "supermarket_name": s_name,
+
+                    }
+                })

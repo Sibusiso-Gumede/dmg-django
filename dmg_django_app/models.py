@@ -39,7 +39,7 @@ class Product(models.Model):
     product_id = models.PositiveIntegerField(primary_key=True,
         unique=True, help_text="Product ID")
     product_name = models.CharField(max_length=100, help_text="The name of each product.")
-    price = models.DecimalField(max_digits=5, decimal_places=2, default=000.00)
+    price = models.CharField(max_length=10, default="R 000.00")
     promotion = models.CharField(max_length=40, default="None")
     supermarket = models.ForeignKey(Supermarket, on_delete=models.CASCADE)
 
