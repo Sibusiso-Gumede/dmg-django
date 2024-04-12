@@ -1,4 +1,4 @@
-# File input/output module for managing data.
+# Transformation and loading module for managing data.
 
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
@@ -94,8 +94,7 @@ def serialize_data(s: Supermarket):
         data:list = []
         item_names:list = list(items.keys())
         count:int = 0   
-        if s_name == 'makro':
-            item_names = list
+
         for item_name, attrs in zip(item_names, items.values()):
             count += 1
             data.append({

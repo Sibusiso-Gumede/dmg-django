@@ -45,10 +45,22 @@
     "price": "R 33.95",
     "promo": "NULL"
   },
-  "Pasta Grande Screws (1 x 500g)": { "price": "R 17.95", "promo": "NULL" },
-  "Fatti's & Moni's Macaroni (3 kg)": { "price": "R 105.95", "promo": "NULL" },
-  "Spekko Parboiled Rice (1 x 2kg)": { "price": "R 46.95", "promo": "NULL" },
-  "Pasta Grande Spaghetti (1 x 1kg)": { "price": "R 31.95", "promo": "NULL" },
+  "Pasta Grande Screws (1 x 500g)": {
+    "price": "R 17.95",
+    "promo": "NULL"
+  },
+  "Fatti's & Moni's Macaroni (3 kg)": {
+    "price": "R 105.95",
+    "promo": "NULL"
+  },
+  "Spekko Parboiled Rice (1 x 2kg)": {
+    "price": "R 46.95",
+    "promo": "NULL"
+  },
+  "Pasta Grande Spaghetti (1 x 1kg)": {
+    "price": "R 31.95",
+    "promo": "NULL"
+  },
   "ACE Super Maize Meal (1 x 10kg)": { "price": "R 116.95", "promo": "NULL" },
   "White Star Super Maize Meal (1 x 12.5kg)": {
     "price": "R 119.95",
@@ -63,17 +75,26 @@
     "price": "R 42.95",
     "promo": "NULL"
   },
-  "Iwisa Super Maize Meal (1 x 2.5kg)": { "price": "R 29.95", "promo": "NULL" },
+  "Iwisa Super Maize Meal (1 x 2.5kg)": {
+    "price": "R 29.95",
+    "promo": "NULL"
+  },
   "Royco Regular Pasta Sauce Cheese, Ham and Mushroom (1 x 45g)": {
     "price": "R 20.25",
     "promo": "NULL"
   },
-  "Iwisa Samp (1 x 1kg)": { "price": "R 13.95", "promo": "NULL" },
+  "Iwisa Samp (1 x 1kg)": {
+    "price": "R 13.95",
+    "promo": "NULL"
+  },
   "Tastic Long Grain Rice White Soft And Absorbing (1 x 2kg)": {
     "price": "R 44.95",
     "promo": "NULL"
   },
-  "ACE Samp (1 x 10kg)": { "price": "R 121.95", "promo": "NULL" },
+  "ACE Samp (1 x 10kg)": {
+    "price": "R 121.95",
+    "promo": "NULL"
+  },
   "Fatti's & Moni's Macaroni (1 x 1kg)": {
     "price": "R 33.95",
     "promo": "NULL"
