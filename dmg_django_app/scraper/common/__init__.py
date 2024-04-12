@@ -1,0 +1,1 @@
+from .supermarket_names import SupermarketNames

@@ -93,7 +93,7 @@ def serialize_data(s: Supermarket):
         items:dict = json.load(f)
         data:list = []
         item_names:list = list(items.keys())
-        count:int = 0
+        count:int = 0   
         if s_name == 'makro':
             item_names = list
         for item_name, attrs in zip(item_names, items.values()):

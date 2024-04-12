@@ -5,7 +5,7 @@ from ..transformation import Receipt_Renderer
 from concurrent.futures import ThreadPoolExecutor
 from ..transformation import serialize_data
 from ..supermarket_apis import Supermarket, Woolworths, Shoprite, Makro, PicknPay, Checkers
-from ...models import Supermarket, Product
+from ...models import Product, Supermarket as supermarket_model
 
 class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
@@ -33,16 +33,19 @@ class DMGTestCase(TestCase):
         for supermarket in self.supermarkets.values():
             serialize_data(s=supermarket)
 
-    def add_supermarket_models_test(self):
+    def supermarket_models_test(self):
         for s in self.supermarkets.values():
-            obj = Supermarket()
+            obj = supermarket_model(supermarket_id=s.identifier,
+                                    supermarket_name=s.get_supermarket_name(),
+                                    num_of_products=s.products)
+            
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
         return execute.map(func, container)
     
 def suite():
-    a_test:str = '4. add_supermarket_models_test'
+    a_test:str = '4. supermarket_models_test'
     o_test:str = '3. organize_file_data_test'
     r_test:str = '2. receipt_renderer_test'
     h_test:str = '1. headless_browser_test'
@@ -55,6 +58,8 @@ def suite():
         _suite.append('DMGTestCase.receipt_renderer_test')
     elif r == '3':
         _suite.append('DMGTestCase.organize_file_data_test')
+    elif r == '4':
+        suite.append('DMGTestCase.supermarket_models_test')
     return _suite
 
 if __name__ == '__main__':
