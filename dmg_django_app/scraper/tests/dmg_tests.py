@@ -1,11 +1,9 @@
 from django.test import TestCase, runner
 
 from ..extraction import Scraper
-from ..transformation import Receipt_Renderer
+from ..transformation import Receipt_Renderer, store_records_in_database
 from concurrent.futures import ThreadPoolExecutor
-from ..transformation import serialize_data
-from ..supermarket_apis import Supermarket, Woolworths, Shoprite, Makro, PicknPay, Checkers
-from ...models import Product, Supermarket as supermarket_model
+from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 
 class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
@@ -28,29 +26,20 @@ class DMGTestCase(TestCase):
                  'Mince Samoosas 5s': '50.00'}
         rr = Receipt_Renderer()
         rr.render(items=items)
-    
-    def serialize_data_test(self):
-        for supermarket in self.supermarkets.values():
-            serialize_data(s=supermarket)
 
-    def supermarket_models_test(self):
-        for s in self.supermarkets.values():
-            obj = supermarket_model(supermarket_id=s.identifier,
-                                    supermarket_name=s.get_supermarket_name(),
-                                    num_of_products=s.products)
-            
+    def models_test(self):
+        store_records_in_database(self.supermarkets)
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
         return execute.map(func, container)
     
 def suite():
-    a_test:str = '4. supermarket_models_test'
-    o_test:str = '3. organize_file_data_test'
+    m_test:str = '3. models_test'
     r_test:str = '2. receipt_renderer_test'
     h_test:str = '1. headless_browser_test'
 
-    r = input(f'{h_test}\n{r_test}\n{o_test}\n{a_test}\n>>>')
+    r = input(f'{h_test}\n{r_test}\n{m_test}\n>>>')
     _suite:list = []
     if r == '1':
         _suite.append('DMGTestCase.headless_browser_test')

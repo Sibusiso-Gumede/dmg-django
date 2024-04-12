@@ -4,6 +4,7 @@ from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
 from ..supermarket_apis import Supermarket
+from ...models import Product, Supermarket as Supermarket_Model
 import pandas as pd
 import json
    
@@ -81,36 +82,27 @@ def retrieve_image(images_dir: str):
 def resize_image(image: Image):
     '''Resizes an image.'''
     width, height = image.size
-    return image.crop((width/2, 0.5, width, height))
+    return image.crop((width/2, 0.5, width, height))     
 
-def serialize_data(s: Supermarket):
-    s_name = s.get_supermarket_name()
-    file = f'{s.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
-    if not path.isfile(file):
-        raise FileNotFoundError
+def store_records_in_database(s:list[Supermarket]):
 
-    with open(file, 'r') as f:
-        items:dict = json.load(f)
-        data:list = []
-        item_names:list = list(items.keys())
-        count:int = 0   
-
-        for item_name, attrs in zip(item_names, items.values()):
-            count += 1
-            data.append({
-                "model": "dmg_django_app.product",
-                "fields": {
-                    "product_id": int(f'{s.identifier}{count}'),
-                    "product_name": item_name,
-                    "price": attrs['price'],
-                    "promotion": attrs['promo'],
-                    "supermarket": {
-                        "model": "dmg_django_app.supermarket",
-                        "fields": {
-                            "supermarket_id": s.identifier,
-                            "supermarket_name": s_name,
-                            "num_of_products": len(item_names)
-                        }
-                    }
-                }
-            })
+    for _supermarket in s:
+        with open(file, 'r') as f:
+            items:dict = json.load(f)
+            item_names:list = list(items.keys())
+            _supermarket.products = len(item_names)            
+            s_name = _supermarket.get_supermarket_name()
+            file = f'{_supermarket.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
+            if not path.isfile(file):
+                raise FileNotFoundError    
+            supermarket_record = Supermarket_Model(supermarket_id=_supermarket.identifier,
+                                                supermarket_name=_supermarket.get_supermarket_name(),
+                                                num_of_products=_supermarket.products)
+            count:int = 0
+            for item_name, attrs in zip(item_names, items.values()):
+                count += 1
+                product_record = Product(product_id=int(f'{s.identifier}{count}'),
+                                        product_name=item_name,
+                                        price=attrs['price'],
+                                        promotion=attrs['promo'],
+                                        _supermarket=supermarket_record)
