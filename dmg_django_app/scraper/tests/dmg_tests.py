@@ -1,9 +1,6 @@
 from django.test import TestCase, runner
 from concurrent.futures import ThreadPoolExecutor
-import os
-
 from ..extraction import Scraper
-from ..transformation import Receipt_Renderer, store_supermarket_records, store_product_records
 from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 from ..common import SupermarketNames
 
@@ -54,5 +51,8 @@ def suite():
     return _suite
 
 if __name__ == '__main__':
+    import django
+    django.setup()
+    from ..transformation import Receipt_Renderer, store_supermarket_records, store_product_records
     _runner = runner.DiscoverRunner(keepdb=True)
     _runner.run_suite(_runner.build_suite(suite()))
