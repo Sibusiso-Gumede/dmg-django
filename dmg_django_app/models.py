@@ -2,10 +2,10 @@ from django.db import models
 
 class Supermarket(models.Model):
     """A supermarket entity."""
-    supermarket_id = models.PositiveIntegerField(primary_key=True,
+    id = models.PositiveIntegerField(primary_key=True,
                                          unique=True,
                                          help_text="The supermarket id")
-    supermarket_name = models.CharField(unique=True,
+    name = models.CharField(unique=True,
                                         max_length=50,
                                         help_text="The supermarket name")
     num_of_products = models.PositiveIntegerField(
@@ -15,7 +15,7 @@ class Supermarket(models.Model):
         return f"{self.supermarket_name}"
     
     class Meta:
-        ordering = ["supermarket_name"]
+        ordering = ["name"]
     
 class Category(models.Model):
     """A product category entity."""
@@ -36,15 +36,15 @@ class Category(models.Model):
 
 class Product(models.Model):
     """A product entity.""" 
-    product_id = models.PositiveIntegerField(primary_key=True,
+    id = models.PositiveIntegerField(primary_key=True,
         unique=True, help_text="Product ID")
-    product_name = models.CharField(max_length=100, help_text="The name of each product.")
+    name = models.CharField(max_length=100, help_text="The name of each product.")
     price = models.CharField(max_length=10, default="R 000.00")
     promotion = models.CharField(max_length=40, default="None")
     supermarket = models.ForeignKey(Supermarket, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return f"{self.product_name}"
+        return f"{self.name}"
     
     class Meta:
-        ordering = ["product_name"]
+        ordering = ["name"]

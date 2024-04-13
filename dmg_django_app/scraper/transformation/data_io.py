@@ -1,12 +1,13 @@
 # Transformation and loading module for managing data.
 
+import json
+
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
+from django.core.files.base import File
 from os import path, listdir, makedirs
 from ..supermarket_apis import Supermarket
-from ...models import Product, Supermarket as Supermarket_Model
-import pandas as pd
-import json
+from ...models import Supermarket as SupermarketModel, Product
    
 def store_content(content: bytes, path_: str, content_name: str) -> bool:
     """Stores the content of the response in bytes.
@@ -84,25 +85,25 @@ def resize_image(image: Image):
     width, height = image.size
     return image.crop((width/2, 0.5, width, height))     
 
-def store_supermarket_records(s:dict[Supermarket]) -> dict:
-    for _supermarket in s.values():
-        s_name = _supermarket.get_supermarket_name()
-        file = f'{_supermarket.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
-        if not path.isfile(file):
-            raise FileNotFoundError   
-        with open(file, 'r') as f:
-            items:dict = json.load(f)
-            _supermarket.products = len(list(items.keys()))                         
-            supermarket_record = Supermarket_Model(supermarket_id=_supermarket.identifier,
-                                                supermarket_name=_supermarket.get_supermarket_name(),
-                                                num_of_products=_supermarket.products)
-            supermarket_record.save()
+def store_supermarket_records(s:Supermarket) -> File:
+    s_name = s.get_supermarket_name()
+    file = f'{s.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
+    if not path.isfile(file):
+        raise FileNotFoundError   
+    with open(file, 'r') as f:
+        items:dict = json.load(f)                          
+        supermarket_record = SupermarketModel(id=s.identifier,
+                                            name=s.get_supermarket_name(),
+                                            num_of_products=len(list(items.keys())))
+        supermarket_record.save()
+        return File(f)
 
-def store_product_records(supermarket:Supermarket, products:dict):
+def store_product_records(supermarket_name: str, file: File) -> None:
+    supermarket_record = SupermarketModel.objects.get(supermarket_name=supermarket_name)
     count:int = 0
-    for name, data in products.items():
+    for name, data in dict(json.load(file)).items():
         count += 1
-        product_record = Product(product_id=int(f'{data['supermarket_id']}{count}'),
-                                product_name=name, price=data['price'], promotion=data['promo'],
-                                _supermarket=Supermarket_Model.objects.get(supermarket_name=supermarket.get_supermarket_name()))
+        product_record = Product(id=int(f'{supermarket_record.id}{count}'),
+                                name=name, price=data['price'], promotion=data['promo'],
+                                supermarket=supermarket_record)
         product_record.save()
