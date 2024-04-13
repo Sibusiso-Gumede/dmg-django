@@ -84,25 +84,25 @@ def resize_image(image: Image):
     width, height = image.size
     return image.crop((width/2, 0.5, width, height))     
 
-def store_records_in_database(s:list[Supermarket]):
-
-    for _supermarket in s:
+def store_supermarket_records(s:dict[Supermarket]) -> dict:
+    for _supermarket in s.values():
+        s_name = _supermarket.get_supermarket_name()
+        file = f'{_supermarket.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
+        if not path.isfile(file):
+            raise FileNotFoundError   
         with open(file, 'r') as f:
             items:dict = json.load(f)
-            item_names:list = list(items.keys())
-            _supermarket.products = len(item_names)            
-            s_name = _supermarket.get_supermarket_name()
-            file = f'{_supermarket.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
-            if not path.isfile(file):
-                raise FileNotFoundError    
+            _supermarket.products = len(list(items.keys()))                         
             supermarket_record = Supermarket_Model(supermarket_id=_supermarket.identifier,
                                                 supermarket_name=_supermarket.get_supermarket_name(),
                                                 num_of_products=_supermarket.products)
-            count:int = 0
-            for item_name, attrs in zip(item_names, items.values()):
-                count += 1
-                product_record = Product(product_id=int(f'{s.identifier}{count}'),
-                                        product_name=item_name,
-                                        price=attrs['price'],
-                                        promotion=attrs['promo'],
-                                        _supermarket=supermarket_record)
+            supermarket_record.save()
+
+def store_product_records(supermarket:Supermarket, products:dict):
+    count:int = 0
+    for name, data in products.items():
+        count += 1
+        product_record = Product(product_id=int(f'{data['supermarket_id']}{count}'),
+                                product_name=name, price=data['price'], promotion=data['promo'],
+                                _supermarket=Supermarket_Model.objects.get(supermarket_name=supermarket.get_supermarket_name()))
+        product_record.save()

@@ -1,7 +1,7 @@
 from django.test import TestCase, runner
 
 from ..extraction import Scraper
-from ..transformation import Receipt_Renderer, store_records_in_database
+from ..transformation import Receipt_Renderer, store_supermarket_records, store_product_records
 from concurrent.futures import ThreadPoolExecutor
 from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 
@@ -28,7 +28,7 @@ class DMGTestCase(TestCase):
         rr.render(items=items)
 
     def models_test(self):
-        store_records_in_database(self.supermarkets)
+        store_supermarket_records(self.supermarkets)
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
