@@ -2,12 +2,14 @@ from django.test import TestCase, runner
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
 from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
+from ..transformation import Receipt_Renderer, store_supermarket_records, store_product_records
 from ..common import SupermarketNames
 
 class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
-    def __init__(self):
-        self.supermarkets = {
+    @classmethod
+    def setUpTestData(cls):
+        cls.supermarkets = {
         SupermarketNames.WOOLIES: Woolworths(),
         SupermarketNames.SHOPRITE: Shoprite(),
         SupermarketNames.PNP: PicknPay(),
@@ -35,24 +37,25 @@ def map_function(self, func, container: list):
         return execute.map(func, container)
     
 def suite():
-
     m_test:str = '3. models_test'
     r_test:str = '2. receipt_renderer_test'
     h_test:str = '1. headless_browser_test'
 
     r = input(f'{h_test}\n{r_test}\n{m_test}\n>>>')
+    module_class_dir:str = 'dmg_django_app.scraper.tests.dmg_tests.DMGTestCase.'
     _suite:list = []
     if r == '1':
-        _suite.append('DMGTestCase.headless_browser_test')
+        _suite.append(f'{module_class_dir}headless_browser_test')
     elif r == '2':
-        _suite.append('DMGTestCase.receipt_renderer_test')
+        _suite.append(f'{module_class_dir}receipt_renderer_test')
     elif r == '3':
-        suite.append('DMGTestCase.supermarket_models_test')
+        _suite.append(f'{module_class_dir}models_test')
     return _suite
 
 if __name__ == '__main__':
+    import os
     import django
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmg_django.settings")
     django.setup()
-    from ..transformation import Receipt_Renderer, store_supermarket_records, store_product_records
     _runner = runner.DiscoverRunner(keepdb=True)
     _runner.run_suite(_runner.build_suite(suite()))

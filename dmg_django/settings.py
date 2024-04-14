@@ -79,18 +79,14 @@ WSGI_APPLICATION = 'dmg_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        "OPTIONS": {
-            "read_default_file": '/etc/mysql/my.cnf'
+        'OPTIONS': {
+            'read_default_file': '/etc/mysql/my.cnf'
+        },
+        'TEST': {
+            'NAME': 'testdatabase',
         }, 
     }
 }
-
-FIXTURE_DIRS = ['/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/checkers_products.json',
-                '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/makro/makro_products.json',
-                '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/picknpay_products.json',
-                '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/shoprite_products.json',
-                '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/woolworths_products.json']
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

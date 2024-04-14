@@ -1,4 +1,4 @@
-from abc import ABC#, classmethod
+from abc import ABC
 
 class Supermarket(ABC):
     """The base class for all supermarket classes."""
