@@ -99,7 +99,8 @@ def store_supermarket_records(s:Supermarket) -> File:
         return File(f)
 
 def store_product_records(supermarket_name: str, file: File) -> None:
-    supermarket_record = SupermarketModel.objects.get(supermarket_name=supermarket_name)
+    supermarket_record = SupermarketModel.objects.get(name=supermarket_name)
+    f = file.open()
     count:int = 0
     for name, data in dict(json.load(file)).items():
         count += 1
@@ -107,3 +108,4 @@ def store_product_records(supermarket_name: str, file: File) -> None:
                                 name=name, price=data['price'], promotion=data['promo'],
                                 supermarket=supermarket_record)
         product_record.save()
+    f.close()
