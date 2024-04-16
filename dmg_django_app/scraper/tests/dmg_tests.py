@@ -2,7 +2,7 @@ from django.test import TestCase, runner
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
 from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
-from ..transformation import Receipt_Renderer, store_supermarket_records, store_product_records
+from ..transformation import Receipt_Renderer, File, store_supermarket_records, store_product_records
 from ..common import SupermarketNames
 
 class DMGTestCase(TestCase):
@@ -29,8 +29,12 @@ class DMGTestCase(TestCase):
         rr.render(items=items)
 
     def models_test(self):
-        for name, supermarket in self.supermarkets.items():   
-            store_product_records(name, store_supermarket_records(supermarket))
+        files: dict = {}
+        for name, supermarket in self.supermarkets.items():
+            _file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json','r')                
+            store_supermarket_records(supermarket, _file)   
+            store_product_records(name, _file)
+            _file.close()
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:

@@ -85,22 +85,14 @@ def resize_image(image: Image):
     width, height = image.size
     return image.crop((width/2, 0.5, width, height))     
 
-def store_supermarket_records(s:Supermarket) -> File:
-    s_name = s.get_supermarket_name()
-    file = f'{s.RESOURCES_PATH}/{s_name}/{s_name}_products.json'
-    if not path.isfile(file):
-        raise FileNotFoundError   
-    with open(file, 'r') as f:
-        items:dict = json.load(f)                          
-        supermarket_record = SupermarketModel(id=s.identifier,
-                                            name=s.get_supermarket_name(),
-                                            num_of_products=len(list(items.keys())))
-        supermarket_record.save()
-        return File(f)
+def store_supermarket_records(s:Supermarket, file) -> None:                          
+    supermarket_record = SupermarketModel(id=s.identifier,
+                                        name=s.get_supermarket_name(),
+                                        num_of_products=len(list(dict(json.load(file)).keys())))
+    supermarket_record.save()
 
-def store_product_records(supermarket_name: str, file: File) -> None:
+def store_product_records(supermarket_name: str, file) -> None:
     supermarket_record = SupermarketModel.objects.get(name=supermarket_name)
-    f = file.open()
     count:int = 0
     for name, data in dict(json.load(file)).items():
         count += 1
@@ -108,4 +100,3 @@ def store_product_records(supermarket_name: str, file: File) -> None:
                                 name=name, price=data['price'], promotion=data['promo'],
                                 supermarket=supermarket_record)
         product_record.save()
-    f.close()
