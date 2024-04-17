@@ -1,14 +1,16 @@
-from django.test import TestCase, runner
+from django.test import TransactionTestCase, runner
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
 from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
-from ..transformation import Receipt_Renderer, File, store_supermarket_records, store_product_records
+from ..transformation import Receipt_Renderer, store_supermarket_record, store_product_records
 from ..common import SupermarketNames
 
-class DMGTestCase(TestCase):
+class DMGTestCase(TransactionTestCase):
     """Test cases for the discount_my_groceries application."""
+    
     @classmethod
-    def setUpTestData(cls):
+    def setUpClass(cls):
+        super().setUpClass()
         cls.supermarkets = {
         SupermarketNames.WOOLIES: Woolworths(),
         SupermarketNames.SHOPRITE: Shoprite(),
@@ -17,6 +19,13 @@ class DMGTestCase(TestCase):
         SupermarketNames.MAKRO: Makro()
         }
 
+    def tearDown(self) -> None:
+        pass
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        pass
+    
     def headless_browser_test(self):
         scraper = Scraper()
         scraper.scrape_products([self.supermarkets[SupermarketNames.MAKRO]])
@@ -29,11 +38,10 @@ class DMGTestCase(TestCase):
         rr.render(items=items)
 
     def models_test(self):
-        files: dict = {}
         for name, supermarket in self.supermarkets.items():
             _file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json','r')                
-            store_supermarket_records(supermarket, _file)   
-            store_product_records(name, _file)
+            _products = store_supermarket_record(supermarket, _file)   
+            store_product_records(name, _products)
             _file.close()
 
 def map_function(self, func, container: list):

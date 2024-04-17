@@ -2,9 +2,8 @@
 
 import json
 
-from io import BytesIO
+from io import BytesIO, TextIOWrapper
 from PIL import Image, UnidentifiedImageError
-from django.core.files.base import File
 from os import path, listdir, makedirs
 from ..supermarket_apis import Supermarket
 from ...models import Supermarket as SupermarketModel, Product
@@ -85,18 +84,20 @@ def resize_image(image: Image):
     width, height = image.size
     return image.crop((width/2, 0.5, width, height))     
 
-def store_supermarket_records(s:Supermarket, file) -> None:                          
-    supermarket_record = SupermarketModel(id=s.identifier,
+def store_supermarket_record(s:Supermarket, file:TextIOWrapper) -> dict[str]:
+    products: dict[str] = dict(json.load(file))
+    supermarket_record = SupermarketModel.objects.create(id=s.identifier,
                                         name=s.get_supermarket_name(),
-                                        num_of_products=len(list(dict(json.load(file)).keys())))
+                                        num_of_products=len(list(products.keys())))
     supermarket_record.save()
+    return products
 
-def store_product_records(supermarket_name: str, file) -> None:
+def store_product_records(supermarket_name: str, products: dict[str]) -> None:
     supermarket_record = SupermarketModel.objects.get(name=supermarket_name)
     count:int = 0
-    for name, data in dict(json.load(file)).items():
+    for name, data in products.items():
         count += 1
-        product_record = Product(id=int(f'{supermarket_record.id}{count}'),
+        product_record = Product.objects.create(id=int(f'{supermarket_record.id}{count}'),
                                 name=name, price=data['price'], promotion=data['promo'],
                                 supermarket=supermarket_record)
         product_record.save()
