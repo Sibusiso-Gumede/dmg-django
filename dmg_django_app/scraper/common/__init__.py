@@ -1,1 +1,1 @@
-from .supermarket_names import SupermarketNames
+from .supermarkets import Supermarkets

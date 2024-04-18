@@ -1,23 +1,16 @@
-from django.test import TransactionTestCase, runner
+from django.test import TestCase, runner
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
-from ..supermarket_apis import Woolworths, Shoprite, Makro, PicknPay, Checkers
 from ..transformation import Receipt_Renderer, store_supermarket_record, store_product_records
-from ..common import SupermarketNames
+from ..common import Supermarkets
 
-class DMGTestCase(TransactionTestCase):
+class DMGTestCase(TestCase):
     """Test cases for the discount_my_groceries application."""
     
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.supermarkets = {
-        SupermarketNames.WOOLIES: Woolworths(),
-        SupermarketNames.SHOPRITE: Shoprite(),
-        SupermarketNames.PNP: PicknPay(),
-        SupermarketNames.CHECKERS: Checkers(),
-        SupermarketNames.MAKRO: Makro()
-        }
+        cls.supermarkets = Supermarkets()
 
     def tearDown(self) -> None:
         pass
@@ -28,7 +21,7 @@ class DMGTestCase(TransactionTestCase):
     
     def headless_browser_test(self):
         scraper = Scraper()
-        scraper.scrape_products([self.supermarkets[SupermarketNames.MAKRO]])
+        scraper.scrape_products([self.supermarkets[self.supermarkets.MAKRO]])
 
     def receipt_renderer_test(self):
         items = {'Simba Salt and Vinegar 250g': '12.50',
@@ -38,7 +31,7 @@ class DMGTestCase(TransactionTestCase):
         rr.render(items=items)
 
     def models_test(self):
-        for name, supermarket in self.supermarkets.items():
+        for name, supermarket in self.supermarkets.SUPERMARKETS.items():
             _file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json','r')                
             _products = store_supermarket_record(supermarket, _file)   
             store_product_records(name, _products)

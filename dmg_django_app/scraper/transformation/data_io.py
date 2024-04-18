@@ -5,7 +5,8 @@ import json
 from io import BytesIO, TextIOWrapper
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
-from ..supermarket_apis import Supermarket
+from ..supermarket_apis import BaseSupermarket
+from ..common import Supermarkets
 from ...models import Supermarket as SupermarketModel, Product
    
 def store_content(content: bytes, path_: str, content_name: str) -> bool:
@@ -84,11 +85,12 @@ def resize_image(image: Image):
     width, height = image.size
     return image.crop((width/2, 0.5, width, height))     
 
-def store_supermarket_record(s:Supermarket, file:TextIOWrapper) -> dict[str]:
+def store_supermarket_record(s:BaseSupermarket, file:TextIOWrapper) -> dict[str]:
     products: dict[str] = dict(json.load(file))
     supermarket_record = SupermarketModel.objects.create(id=s.identifier,
                                         name=s.get_supermarket_name(),
-                                        num_of_products=len(list(products.keys())))
+                                        num_of_products=len(list(products.keys())),
+                                        products_fixture=f"{s.RESOURCES_PATH})/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json")
     supermarket_record.save()
     return products
 
@@ -101,3 +103,11 @@ def store_product_records(supermarket_name: str, products: dict[str]) -> None:
                                 name=name, price=data['price'], promotion=data['promo'],
                                 supermarket=supermarket_record)
         product_record.save()
+
+def createProductsFixtures() -> None:
+    for name, supermarket in Supermarkets.SUPERMARKETS.items():
+        file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json', 'r')
+        products = store_supermarket_record(supermarket, file)
+        data:dict[str] = {}
+        for name, data in products.items():
+            pass
