@@ -82,9 +82,9 @@ DATABASES = {
         'OPTIONS': {
             'read_default_file': '/etc/mysql/my.cnf'
         },
-        #'TEST': {
-        #    'NAME': 'testdatabase',
-        #}, 
+        'TEST': {
+            'NAME': 'testdatabase',
+        }, 
     }
 }
 

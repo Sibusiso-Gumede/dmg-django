@@ -92,15 +92,18 @@ def resize_image(image: Image):
 
 def store_supermarket_record(s:BaseSupermarket, file:TextIOWrapper) -> dict[str]:
     products: dict[str] = dict(json.load(file))
-    #breakpoint()
-    supermarket_record = SupermarketModel(id=s.identifier,
-                                        name=s.get_supermarket_name(),
-                                        num_of_products=len(list(products.keys())))
-                                        #products_fixture=f"{s.RESOURCES_PATH})/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json")
-    supermarket_record.save()
+    _choice = input("\nStore supermarket records...Y/N\n>>>")
+    if _choice == 'Y':
+        print("\nStoring supermarket records...")
+        supermarket_record = SupermarketModel(id=s.identifier,
+                                            name=s.get_supermarket_name(),
+                                            num_of_products=len(list(products.keys())))
+                                            #products_fixture=f"{s.RESOURCES_PATH})/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json")
+        supermarket_record.save()
     return products
 
 def store_product_records(supermarket_name: str, products: dict[str]) -> None:
+    print("\nStoring product records...")
     supermarket_record = SupermarketModel.objects.get(name=supermarket_name)
     count:int = 0
     for name, data in products.items():
@@ -123,11 +126,13 @@ def createProductsFixtures() -> None:
             # TODO: ...
 
 def store_supermarket_records() -> None:
+    print("Storage of records initiated...")
     for name, supermarket in Supermarkets.SUPERMARKETS.items():
         _file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json','r')                
         _products = store_supermarket_record(supermarket, _file)   
-        #store_product_records(name, _products)
+        store_product_records(name, _products)
         _file.close()
+    print("\nStorage of records completed.")
 
 if __name__ == '__main__':
     store_supermarket_records()
