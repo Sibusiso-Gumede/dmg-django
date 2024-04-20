@@ -1,8 +1,8 @@
 """A child class of the Supermarket base class."""
 
-from .base_api import Supermarket
+from .base_api import BaseSupermarket
 
-class PicknPay(Supermarket):
+class PicknPay(BaseSupermarket):
 	"""The PicknPay supermarket class implementation."""
 
 	def __init__(self):

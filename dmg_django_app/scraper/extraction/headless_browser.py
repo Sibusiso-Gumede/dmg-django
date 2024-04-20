@@ -12,8 +12,8 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 from time import sleep
 from random import choice
-from ..supermarket_apis import Supermarket
-from ..common import SupermarketNames
+from ..supermarket_apis import BaseSupermarket
+from ..common import Supermarkets
 from os import path, makedirs
 import json, traceback
 
@@ -37,7 +37,7 @@ class Scraper():
                 return True
         return False
 
-    def _update_product_list(self, _super: Supermarket, product_list: dict[str]):
+    def _update_product_list(self, _super: BaseSupermarket, product_list: dict[str]):
         print('\nSCRAPING PRODUCT LIST...')
         products = self.driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
         name: str = None
@@ -63,27 +63,27 @@ class Scraper():
                 elif _super.get_page_selectors()['product_promo'] in line:
                     promo_element = None
             finally:
-                if (_super.get_supermarket_name() == SupermarketNames.PNP) and (prod_name_exception):
+                if (_super.get_supermarket_name() == Supermarkets.PNP) and (prod_name_exception):
                     name = name_element.get_attribute("data-cnstrc-item-name")
                 else:
                     name = name_element.text
                     
                 price = price_element.text
-                if _super.get_supermarket_name() == SupermarketNames.MAKRO:
+                if _super.get_supermarket_name() == Supermarkets.MAKRO:
                     price = f'{price[:-2]}.{price[-2:]}'
                 
                 if promo_element is not None:
-                    if (_super.get_supermarket_name() == SupermarketNames.MAKRO) and ('for' not in promo_element.text):
+                    if (_super.get_supermarket_name() == Supermarkets.MAKRO) and ('for' not in promo_element.text):
                         promo = "NULL"
                     else:
                         promo = promo_element.text
                 elif promo_element is None:
                     promo = "NULL"
                 _super.increase_product_count()
-                product_list.update({_super.get_product_count(): {"name": name, "price": price, "promo": promo}})    
+                product_list.update({_super.products: {"name": name, "price": price, "promo": promo}})    
         print("DONE.")
 
-    def _populate_fixtures(self, _supermarket: Supermarket, products: dict[str]):
+    def _populate_fixtures(self, _supermarket: BaseSupermarket, products: dict[str]):
         # Populate database fixtures. 
         output_dir = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}'
         output_file = f'{output_dir}/{_supermarket.get_supermarket_name()}_products.json'
@@ -95,7 +95,7 @@ class Scraper():
         with open(output_file, arg) as o_file:
             json.dump(products, o_file, indent=4)
 
-    def _prepare_url_patterns(self, _supermarket: Supermarket) -> bool:
+    def _prepare_url_patterns(self, _supermarket: BaseSupermarket) -> bool:
         # Read data and return complete url's.
         s_name = _supermarket.get_supermarket_name()
         resources_dir = f'{_supermarket.RESOURCES_PATH}/{s_name}'
@@ -107,12 +107,12 @@ class Scraper():
             with open(input_file, 'r') as  i_file, open(output_file, 'x', newline='\n') as urls_file:
                 categories = dict(json.load(i_file))                
                 for category, data in zip(categories.keys(), categories.values()):
-                    if s_name == SupermarketNames.MAKRO:
+                    if s_name == Supermarkets.MAKRO:
                         for subcategory, _attributes in zip(data.keys(), data.values()):
                             url = _supermarket.get_category_page_url()
                             url = url.replace("category", category).replace("sub", subcategory).replace("idcode", _attributes['ID'])
                             urls.append(url+'\n')
-                    elif s_name == SupermarketNames.WOOLIES:
+                    elif s_name == Supermarkets.WOOLIES:
                         url = _supermarket.get_category_page_url()
                         url = url.replace("category", category).replace('idcode', data['ID'])
                         urls.append(url+'\n')
@@ -121,7 +121,7 @@ class Scraper():
         else:
             return True
         
-    def _retrieve_urls(self, _supermarket: Supermarket) -> list[str]:
+    def _retrieve_urls(self, _supermarket: BaseSupermarket) -> list[str]:
         urls_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_urls.txt'
         with open(urls_file, 'rt', newline='\n') as file:
             urls: list[str] = list()
@@ -129,7 +129,7 @@ class Scraper():
                 urls.append(line.removesuffix('\n'))
             return urls
            
-    def scrape_products(self, supermarkets: list[Supermarket]):
+    def scrape_products(self, supermarkets: list[BaseSupermarket]):
         divisor_range: list[int] = range(2, 6)       
         url_count: int = 0
         urls = list[str]
@@ -147,25 +147,25 @@ class Scraper():
             sleep(1.50)
             buffer: dict[str] = {}
 
-            if ((supermarket_name == SupermarketNames.WOOLIES) or (supermarket_name == SupermarketNames.MAKRO)) and (self._prepare_url_patterns(supermarket)):
+            if ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)) and (self._prepare_url_patterns(supermarket)):
                 urls = self._retrieve_urls(supermarket)
                 url_count = len(urls)
             
             while True:
-                #if not (supermarket_name == SupermarketNames.MAKRO):
+                #if not (supermarket_name == Supermarkets.MAKRO):
                 page_number += 1
 
                 if home_page:
-                    if (supermarket_name == SupermarketNames.WOOLIES) or (supermarket_name == SupermarketNames.MAKRO):
+                    if (supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO):
                         self.driver.get(urls[url_count-1])
                         url_count -= 1
-                    elif not (supermarket_name == SupermarketNames.WOOLIES):
-                        if not (supermarket_name == SupermarketNames.MAKRO):
+                    elif not (supermarket_name == Supermarkets.WOOLIES):
+                        if not (supermarket_name == Supermarkets.MAKRO):
                             self.driver.get(supermarket.get_home_page_url())
-                        if not ((supermarket_name == SupermarketNames.PNP) or (supermarket_name == SupermarketNames.MAKRO)):
+                        if not ((supermarket_name == Supermarkets.PNP) or (supermarket_name == Supermarkets.MAKRO)):
                             self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
-                        elif (supermarket_name == SupermarketNames.PNP) or (supermarket_name == SupermarketNames.MAKRO):
-                            if supermarket_name == SupermarketNames.MAKRO:
+                        elif (supermarket_name == Supermarkets.PNP) or (supermarket_name == Supermarkets.MAKRO):
+                            if supermarket_name == Supermarkets.MAKRO:
                                 # Move the focus to the body segment of the page.
                                 self.driver.execute_script("arguments[0].click();",
                                                            self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
@@ -176,14 +176,14 @@ class Scraper():
                                 self.actions.perform()
                             sleep(5)
                             self.actions.reset_actions()
-                            if supermarket_name == SupermarketNames.PNP:
+                            if supermarket_name == Supermarkets.PNP:
                                 href: str = self.driver.find_element(By.CSS_SELECTOR, 
                                                                      supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
                                 last_page = int((href[href.find('='):])[1:])
                     home_page = False
                 elif not home_page:
                     selector:str = supermarket.get_page_selectors()['next_button']
-                    if supermarket_name == SupermarketNames.PNP:
+                    if supermarket_name == Supermarkets.PNP:
                         if page_number <= last_page:
                             selector = selector.replace('number', f'{page_number}')
                         elif page_number > last_page:
@@ -196,7 +196,7 @@ class Scraper():
                     if next_button.is_enabled():
                         self.driver.execute_script("arguments[0].click();", next_button)
                         
-                        if (supermarket_name == SupermarketNames.PNP) or (supermarket_name == SupermarketNames.MAKRO):
+                        if (supermarket_name == Supermarkets.PNP) or (supermarket_name == Supermarkets.MAKRO):
                             self.actions.scroll_by_amount(0, 550)
                             sleep(5)
                             for y in range(0, 8):
@@ -206,24 +206,24 @@ class Scraper():
                             breakpoint()
                     # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
                     elif not next_button.is_enabled():
-                        if ((supermarket_name == SupermarketNames.SHOPRITE) or (supermarket_name == SupermarketNames.CHECKERS)) or (((supermarket_name == SupermarketNames.WOOLIES) or (supermarket_name == SupermarketNames.MAKRO)) and (url_count == -1)):
+                        if ((supermarket_name == Supermarkets.SHOPRITE) or (supermarket_name == Supermarkets.CHECKERS)) or (((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)) and (url_count == -1)):
                             print(f'Available items completely scraped for {supermarket_name} website.')
                             break
                         # Proceed to the next category if the items are completely scraped for the current category.
-                        elif ((supermarket_name == SupermarketNames.WOOLIES) or (supermarket_name == SupermarketNames.MAKRO)) and (url_count > -1):
+                        elif ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)) and (url_count > -1):
                             home_page = True
-                            if supermarket_name == SupermarketNames.MAKRO:
+                            if supermarket_name == Supermarkets.MAKRO:
                                 makro_subcategory_products_loaded = True
 
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
 
                 # Update product list.
-                if not (supermarket_name == SupermarketNames.MAKRO):
+                if not (supermarket_name == Supermarkets.MAKRO):
                     print(f"\nPAGE {page_number} OF {supermarket_name}")
                     self._update_product_list(supermarket, buffer)
                     if page_number == 2:
                         break
-                elif (supermarket_name == SupermarketNames.MAKRO) and (page_number == 2):#(makro_subcategory_products_loaded):
+                elif (supermarket_name == Supermarkets.MAKRO) and (page_number == 2):#(makro_subcategory_products_loaded):
                     self._update_product_list(supermarket, buffer)
                     #makro_subcategory_products_loaded = False
                     break

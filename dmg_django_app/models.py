@@ -11,7 +11,7 @@ class Supermarket(models.Model):
     num_of_products = models.PositiveIntegerField(
         help_text="The total number of different products sold")
 
-    products_fixture = models.FilePathField(name="products_fixture")
+    #products_fixture = models.FilePathField(name="products_fixture")
 
     def __str__(self) -> str:
         return f"{self.name}"
@@ -34,7 +34,7 @@ class Category(models.Model):
         return f"{self.name}"
     
     class Meta:
-        ordering = ["category_name"]
+        ordering = ["name"]
 
 class Product(models.Model):
     """A product entity.""" 

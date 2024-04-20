@@ -1,8 +1,8 @@
 """A child class of the Supermarket base class."""
 
-from .base_api import Supermarket
+from .base_api import BaseSupermarket
 
-class Shoprite(Supermarket):
+class Shoprite(BaseSupermarket):
 	"""The Shoprite supermarket class implementation."""
 
 	def __init__(self):

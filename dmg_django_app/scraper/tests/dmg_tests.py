@@ -36,6 +36,7 @@ class DMGTestCase(TestCase):
             _products = store_supermarket_record(supermarket, _file)   
             store_product_records(name, _products)
             _file.close()
+        #breakpoint()
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:

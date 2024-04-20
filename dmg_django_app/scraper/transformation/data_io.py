@@ -1,6 +1,11 @@
 # Transformation and loading module for managing data.
 
+import os
 import json
+import django
+
+os.environ["DJANGO_SETTINGS_MODULE"] = 'dmg_django.settings'
+django.setup()
 
 from io import BytesIO, TextIOWrapper
 from PIL import Image, UnidentifiedImageError
@@ -87,10 +92,11 @@ def resize_image(image: Image):
 
 def store_supermarket_record(s:BaseSupermarket, file:TextIOWrapper) -> dict[str]:
     products: dict[str] = dict(json.load(file))
-    supermarket_record = SupermarketModel.objects.create(id=s.identifier,
+    #breakpoint()
+    supermarket_record = SupermarketModel(id=s.identifier,
                                         name=s.get_supermarket_name(),
-                                        num_of_products=len(list(products.keys())),
-                                        products_fixture=f"{s.RESOURCES_PATH})/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json")
+                                        num_of_products=len(list(products.keys())))
+                                        #products_fixture=f"{s.RESOURCES_PATH})/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json")
     supermarket_record.save()
     return products
 
@@ -99,7 +105,7 @@ def store_product_records(supermarket_name: str, products: dict[str]) -> None:
     count:int = 0
     for name, data in products.items():
         count += 1
-        product_record = Product.objects.create(id=int(f'{supermarket_record.id}{count}'),
+        product_record = Product(id=f'{supermarket_record.id}{count}',
                                 name=name, price=data['price'], promotion=data['promo'],
                                 supermarket=supermarket_record)
         product_record.save()
@@ -108,6 +114,20 @@ def createProductsFixtures() -> None:
     for name, supermarket in Supermarkets.SUPERMARKETS.items():
         file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json', 'r')
         products = store_supermarket_record(supermarket, file)
-        data:dict[str] = {}
+        fixture:dict[str] = {}
         for name, data in products.items():
-            pass
+            fixture.update({"model": "dmg_django_app.product",
+                            "fields": {
+                                "id":"", 
+                            }})
+            # TODO: ...
+
+def store_supermarket_records() -> None:
+    for name, supermarket in Supermarkets.SUPERMARKETS.items():
+        _file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json','r')                
+        _products = store_supermarket_record(supermarket, _file)   
+        #store_product_records(name, _products)
+        _file.close()
+
+if __name__ == '__main__':
+    store_supermarket_records()
