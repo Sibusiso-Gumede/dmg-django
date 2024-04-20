@@ -18,7 +18,6 @@ from os import path, makedirs
 import json, traceback
 
 class Scraper():
-    
     def __init__(self) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
         #self.chromeOptions.add_argument('--headless')

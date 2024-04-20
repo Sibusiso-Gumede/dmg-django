@@ -1,3 +1,9 @@
+import os
+import django
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmg_django.settings")
+django.setup()
+
 from django.test import TestCase, runner
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
@@ -36,7 +42,6 @@ class DMGTestCase(TestCase):
             _products = store_supermarket_record(supermarket, _file)   
             store_product_records(name, _products)
             _file.close()
-        #breakpoint()
 
 def map_function(self, func, container: list):
     with ThreadPoolExecutor() as execute:
@@ -59,9 +64,5 @@ def suite():
     return _suite
 
 if __name__ == '__main__':
-    import os
-    import django
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dmg_django.settings")
-    django.setup()
     _runner = runner.DiscoverRunner(keepdb=True)
     _runner.run_suite(_runner.build_suite(suite()))
