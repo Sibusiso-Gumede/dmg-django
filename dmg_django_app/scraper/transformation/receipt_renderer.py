@@ -1,6 +1,7 @@
 from PIL import Image, ImageFont, ImageDraw
 
 class Receipt_Renderer():
+    
     def __init__(self):
         self.resources_path = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
         # Properties and settings.

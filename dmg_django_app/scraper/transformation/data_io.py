@@ -1,13 +1,7 @@
 # Transformation and loading module for managing data.
 
-import os
 import json
-import django
-
-os.environ["DJANGO_SETTINGS_MODULE"] = 'dmg_django.settings'
-django.setup()
-
-from io import BytesIO, TextIOWrapper
+from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket

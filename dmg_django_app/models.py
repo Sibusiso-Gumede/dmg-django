@@ -41,7 +41,8 @@ class Product(models.Model):
     id = models.PositiveIntegerField(primary_key=True,
         unique=True, help_text="Product ID")
     name = models.CharField(max_length=100, help_text="The name of each product.")
-    price = models.CharField(max_length=50, default="R 000.00")
+    price = models.CharField(max_length=50, default="R0.00")
+    discounted_price = models.CharField(max_length=10, default="R0.00")
     promotion = models.CharField(max_length=100, default="None")
     supermarket = models.ForeignKey(Supermarket, on_delete=models.CASCADE)
 
