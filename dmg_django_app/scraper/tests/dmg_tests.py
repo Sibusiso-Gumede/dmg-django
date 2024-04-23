@@ -7,7 +7,7 @@ django.setup()
 from unittest import TestSuite, TextTestRunner, TestCase
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
-from ..transformation import Receipt_Renderer, store_supermarket_record, store_product_records
+from ..transformation import Receipt_Renderer, query_items, store_supermarket_record, store_product_records
 from ..common import Supermarkets
 
 class DMGTestCase(TestCase):
@@ -23,9 +23,7 @@ class DMGTestCase(TestCase):
         scraper.scrape_products([self.supermarkets[self.supermarkets.MAKRO]])
 
     def receipt_renderer_test(self):
-        items = {'Simba Salt and Vinegar 250g': '12.50',
-                 'Sir Juice Green Machine 1L': '39.99',
-                 'Mince Samoosas 5s': '50.00'}
+        items:dict[str] = query_items()
         rr = Receipt_Renderer()
         rr.render(items=items)
 

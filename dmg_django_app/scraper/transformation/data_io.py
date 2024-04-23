@@ -12,7 +12,7 @@ def store_content(content: bytes, path_: str, content_name: str) -> bool:
     """Stores the content of the response in bytes.
         Returns a true/false to confirm if the content
         is successfully stored."""
-    
+
     write_bytes = BytesIO(content)
     path_ += f"/{content_name}.bin"
     
@@ -127,3 +127,15 @@ def store_supermarket_records() -> None:
         store_product_records(name, _products)
         _file.close()
     print("\nStorage of records completed.")
+
+def clean_data() -> None:
+    for s in Supermarkets.SUPERMARKETS:
+        file = open(f'{s.RESOURCES_PATH}/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json', "rw")
+        prods = dict(json.load(file))
+        buffer: dict = {}
+        for name, data in prods.items():
+            if data.get('price').count('R') > 1:
+                pass
+def query_items() -> dict[str]:
+    id = SupermarketModel.objects.filter(name="checkers").id
+    return Product.objects.filter(supermarket_id=id)

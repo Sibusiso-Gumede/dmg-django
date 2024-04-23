@@ -5,6 +5,7 @@ class Receipt_Renderer():
     def __init__(self):
         self.resources_path = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
         # Properties and settings.
+        self.items: dict[str] = {}
         self.black_ink = (0,0,0)
         self.y_spacing = 30                             # vertical space between the entries.
         self.grouped_entries_space = 12
@@ -16,14 +17,15 @@ class Receipt_Renderer():
         self.footer_tb: float = 0.00
         self.footer_bb: float = 460
         self.items_segment_limit = 380
-        self.next_receipt = False
+        self.extend_receipt = False
         # Receipt.
         receipt_w, receipt_h = 240, 480
         self.receipt = Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((receipt_w, receipt_h))
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
         self.edit = ImageDraw.Draw(self.receipt)
 
-    def render(self, items: dict[str]):
+    def render(self, _items: dict[str]):
+        self.__set_items(_items)
         # Header.
         supermarket_name = 'SUPERMARKET LOGO\n'
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
@@ -34,7 +36,8 @@ class Receipt_Renderer():
         divider = '--------------------------------------------'
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), divider, self.black_ink, self.text_font, align='center', direction='ltr')
 
-        self._items_segment(items)
+        # Populate items to the receipt.
+        self._items_segment()
 
         # Footer divider.
         self._move_cursor(self.y_spacing)
@@ -49,20 +52,25 @@ class Receipt_Renderer():
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
         self.receipt.show()
 
-    def _items_segment(self, items: dict[str]):
+    def _items_segment(self):
         # Item names and prices.
         self._move_cursor(self.y_spacing-10)
-        price = '0.00'
-        for j in range(1, 6):
-            if j > 1:
+        total_amount:float = 0.00
+        count: int = 0
+        for name, price in self.items.items():
+            count += 1
+            if count > 1:
                 self._move_cursor(self.grouped_entries_space)
-            self.edit.text((self.body_lm_rm[0], self.vertical_cursor), f'ITEM {j}', self.black_ink, self.text_font, align='left', direction='ltr')
+            elif count > 5:
+                break
+            self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
             self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price, self.black_ink, self.text_font, align='right', direction='rtl')
+            total_amount += float(price.removesuffix('R'))
 
         # Total cost.
         self._move_cursor(self.grouped_entries_space)
         label = 'DUE VAT INCL'
-        total_amount = '2387.00'
+        
         # Made the label of the total cost begin at the footer_lm for center alignment. 
         self.edit.text((self.footer_lm, self.vertical_cursor), label, self.black_ink, self.text_font, align='center', direction='ltr')
         self.edit.text((self.body_lm_rm[1], self.vertical_cursor), total_amount, self.black_ink, self.text_font, align='right', direction='rtl')
@@ -73,8 +81,8 @@ class Receipt_Renderer():
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), tax_inv_divider, self.black_ink, self.text_font, align='center', direction='ltr')
         # Calculate tax.
         self._move_cursor(self.grouped_entries_space)
-        vat_value = float(total_amount) * 0.15
-        taxable_value = float(total_amount) - vat_value
+        vat_value = total_amount * 0.15
+        taxable_value = total_amount - vat_value
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'VAT VAL', self.black_ink, self.text_font, align='left', direction='ltr')
         self.edit.text((self.body_lm_rm[1], self.vertical_cursor), str(vat_value), self.black_ink, self.text_font, align='right', direction='rtl')
         self._move_cursor(self.grouped_entries_space)
@@ -106,4 +114,7 @@ class Receipt_Renderer():
         if self.vertical_cursor < self.footer_bb:
             self.vertical_cursor += amount
         else:
-            self.next_receipt = True
+            self.extend_receipt = True
+
+    def __set_items(self, _items: dict[str]):
+        self.items = _items

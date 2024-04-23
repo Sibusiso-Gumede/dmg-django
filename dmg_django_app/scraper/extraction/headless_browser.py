@@ -14,6 +14,7 @@ from time import sleep
 from random import choice
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
+from ...models import Supermarket as SupermarketModel
 from os import path, makedirs
 import json, traceback
 
@@ -82,17 +83,23 @@ class Scraper():
                 product_list.update({_super.products: {"name": name, "price": price, "promo": promo}})    
         print("DONE.")
 
-    def _populate_fixtures(self, _supermarket: BaseSupermarket, products: dict[str]):
-        # Populate database fixtures. 
-        output_dir = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}'
-        output_file = f'{output_dir}/{_supermarket.get_supermarket_name()}_products.json'
-        arg = 'w'               # open file in write mode.
-        if not path.isdir(output_dir):
-            makedirs(output_dir)
-        if not path.isfile(output_file):
-            arg = 'x'           # create file and open in write mode.
-        with open(output_file, arg) as o_file:
-            json.dump(products, o_file, indent=4)
+    def _populate_update_fixtures(self, _supermarket: BaseSupermarket, products: dict[str]):
+        response = input("1. Populate fixtures\n2. Update database products\n>>>")
+        if response == '1':
+            # Populate database fixtures. 
+            output_dir = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}'
+            output_file = f'{output_dir}/{_supermarket.get_supermarket_name()}_products.json'
+            arg = 'w'               # open file in write mode.
+            if not path.isdir(output_dir):
+                makedirs(output_dir)
+            if not path.isfile(output_file):
+                arg = 'x'           # create file and open in write mode.
+            with open(output_file, arg) as o_file:
+                json.dump(products, o_file, indent=4)
+        elif response == '2':
+            # update supermarket products list.
+            _model = SupermarketModel.objects.get(name=_supermarket.get_supermarket_name())
+            _model.products = products
 
     def _prepare_url_patterns(self, _supermarket: BaseSupermarket) -> bool:
         # Read data and return complete url's.
@@ -228,4 +235,4 @@ class Scraper():
                     break
                 
             # Populate supermarket database fixtures.
-            self._populate_fixtures(supermarket, buffer)
+            self._populate_update_fixtures(supermarket, buffer)
