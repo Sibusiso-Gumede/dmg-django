@@ -28,7 +28,8 @@ class DMGTestCase(TestCase):
         rr.render(items=items)
 
     def models_test(self):
-        pass
+        for q in query_items():
+            print(f'{q}\n')
 
 def map_function(func, container: list):
     with ThreadPoolExecutor() as execute:

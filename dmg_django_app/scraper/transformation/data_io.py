@@ -134,8 +134,11 @@ def clean_data() -> None:
         prods = dict(json.load(file))
         buffer: dict = {}
         for name, data in prods.items():
+            # if there's more than one price in the same field,
+            # move the lesser price to the discounted_price field.
             if data.get('price').count('R') > 1:
                 pass
+
 def query_items() -> dict[str]:
-    id = SupermarketModel.objects.filter(name="checkers").id
+    id = SupermarketModel.objects.get(name="checkers").id
     return Product.objects.filter(supermarket_id=id)
