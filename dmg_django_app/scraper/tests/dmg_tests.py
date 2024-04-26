@@ -7,7 +7,7 @@ django.setup()
 from unittest import TestSuite, TextTestRunner, TestCase
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
-from ..transformation import Receipt_Renderer, query_items, store_supermarket_record, store_product_records
+from ..transformation import Receipt_Renderer, query_items, clean_data, store_supermarket_record, store_product_records
 from ..common import Supermarkets
 
 class DMGTestCase(TestCase):
@@ -16,11 +16,11 @@ class DMGTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.supermarkets = Supermarkets()
+        #cls.supermarkets = Supermarkets()
     
     def headless_browser_test(self):
         scraper = Scraper()
-        scraper.scrape_products([self.supermarkets[self.supermarkets.MAKRO]])
+        scraper.scrape_products([Supermarkets.SUPERMARKETS[Supermarkets.MAKRO]])
 
     def receipt_renderer_test(self):
         items:dict[str] = query_items()
@@ -28,8 +28,7 @@ class DMGTestCase(TestCase):
         rr.render(items=items)
 
     def models_test(self):
-        for q in query_items():
-            print(f'{q}\n')
+        query_items()
 
 def map_function(func, container: list):
     with ThreadPoolExecutor() as execute:

@@ -2,7 +2,8 @@
 from ..supermarket_apis import Shoprite, Checkers, PicknPay, Makro, Woolworths
 
 class Supermarkets():
-    """Group of supermarket names."""
+    """Supermarket objects, grouped in a single container - 
+    for ease of access and package navigation."""
     
     PNP = 'picknpay'
     WOOLIES = 'woolworths'
@@ -10,10 +11,10 @@ class Supermarkets():
     CHECKERS = 'checkers'
     MAKRO = 'makro'
 
-    SUPERMARKETS: dict[str] = {
+    SUPERMARKETS: dict = {
         WOOLIES: Woolworths(),
         SHOPRITE: Shoprite(),
         PNP: PicknPay(),
         CHECKERS: Checkers(),
         MAKRO: Makro()
-        }
+    }

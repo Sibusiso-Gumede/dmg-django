@@ -3,6 +3,7 @@
 import json
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
+from django.db import connection
 from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
@@ -101,7 +102,7 @@ def store_product_records(supermarket_name: str, products: dict[str]) -> None:
         count += 1
         product_record = Product(id=f'{supermarket_record.id}{count}',
                                 name=name, price=data['price'], promotion=data['promo'],
-                                supermarket=supermarket_record)
+                                supermarket=supermarket_record, discounted_price=data['discounted_price'])
         product_record.save()
 
 def createProductsFixtures() -> None:
@@ -128,17 +129,51 @@ def store_supermarket_records() -> None:
         _file.close()
     print("\nStorage of records completed.")
 
-def clean_data() -> None:
-    for s in Supermarkets.SUPERMARKETS:
-        file = open(f'{s.RESOURCES_PATH}/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json', "rw")
+def seperate_prices(price: str) -> list[str]:
+    '''Extracts a list of prices contained within a single string
+        and returns a list of the seperated prices.
+        e.g. "R99.99 R89.99" -> ["R99.99", "R89.99"]'''
+    
+    prices:list[str] = []
+    _price:str = ''
+    previous:str = '' 
+    for x in price:
+        if (x == 'R') and (previous.isdigit() or (previous == ' ')):
+            prices.append(_price)
+            _price = ''
+        if not ((x == ' ') or (x == '/') or (x == 'k') or (x == 'g')):
+            _price += x      
+            previous = x
+    prices.append(_price)
+    #breakpoint()        
+    return prices
+
+def organize_prices(_list:list[str]) -> dict[str]:
+    if float(_list[0].removeprefix('R')) < float(_list[1].removeprefix('R')):
+        return {"discounted":_list[0], "price": _list[1]}
+    else:
+        return {"discounted":_list[1], "price": _list[0]}
+
+def clean_data(s: BaseSupermarket) -> dict[str]:
+    with open(f'{s.RESOURCES_PATH}/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json', "+r") as file:
         prods = dict(json.load(file))
         buffer: dict = {}
         for name, data in prods.items():
             # if there's more than one price in the same field,
             # move the lesser price to the discounted_price field.
             if data.get('price').count('R') > 1:
-                pass
+                sorted:dict[str] = organize_prices(seperate_prices(data.get('price')))
+                buffer.update({name: {"price": sorted.get('price'),
+                                        "discounted_price": sorted.get('discounted'),
+                                        "promo": data.get('promo')}})
+            else:
+                buffer.update({name: {"price": data.get('price'),
+                                        "discounted_price": None,
+                                        "promo": data.get('promo')}})
+        json.dump(buffer, file)
+        return buffer
 
-def query_items() -> dict[str]:
-    id = SupermarketModel.objects.get(name="checkers").id
-    return Product.objects.filter(supermarket_id=id)
+def query_items() -> None:
+    with connection.cursor() as cursor:
+        for name, data in Supermarkets.SUPERMARKETS.items():
+            cursor.execute("UPDATE Supermarkets SET products = ")
