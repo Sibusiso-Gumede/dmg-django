@@ -2,8 +2,10 @@
 
 import json
 from io import BytesIO
+from pathlib import Path
 from PIL import Image, UnidentifiedImageError
 from django.db import connection
+from django.core.files import File
 from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
@@ -174,6 +176,9 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
         return buffer
 
 def query_items() -> None:
-    with connection.cursor() as cursor:
-        for name, data in Supermarkets.SUPERMARKETS.items():
-            cursor.execute("UPDATE Supermarkets SET products = ")
+    for _name, data in Supermarkets.SUPERMARKETS.items():
+        _path = Path(f'{data.RESOURCES_PATH}/{_name}/{_name}_products.json')
+        s = SupermarketModel.objects.get(name=_name)
+        with _path.open(mode='rb') as file:    
+            s.products = File(file, _path.name)
+            s.save()

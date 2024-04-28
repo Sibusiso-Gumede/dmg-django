@@ -16,9 +16,10 @@ class Receipt_Renderer():
         self.footer_lm = 70                             # footer left margin coordinate.
         self.footer_tb: float = 0.00
         self.footer_bb: float = 460
-        self.items_segment_limit = 380
-        self.extend_receipt = False
-        # Receipt.
+        self.items_segment_limit = 380                  # segment limit.
+        self.extend_receipt = False                     # if the segment limit is exceeded, we extend the receipt.
+        
+        # Receipt properties.
         receipt_w, receipt_h = 240, 480
         self.receipt = Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((receipt_w, receipt_h))
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
@@ -79,6 +80,7 @@ class Receipt_Renderer():
         self._move_cursor(self.y_spacing)
         tax_inv_divider = '-----------------TAX INVOICE----------------'
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), tax_inv_divider, self.black_ink, self.text_font, align='center', direction='ltr')
+        
         # Calculate tax.
         self._move_cursor(self.grouped_entries_space)
         vat_value = total_amount * 0.15

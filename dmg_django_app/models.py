@@ -10,7 +10,6 @@ class Supermarket(models.Model):
                             help_text="The supermarket name")
     num_of_products = models.PositiveIntegerField(
         help_text="The total number of different products sold")
-    products = models.JSONField(null=True)
 
     def __str__(self) -> str:
         return f"{self.name}"
