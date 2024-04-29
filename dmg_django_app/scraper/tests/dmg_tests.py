@@ -28,7 +28,7 @@ class DMGTestCase(TestCase):
         rr.render(items=items)
 
     def models_test(self):
-        query_items()
+        query_items('Nescafe')
 
 def map_function(func, container: list):
     with ThreadPoolExecutor() as execute:

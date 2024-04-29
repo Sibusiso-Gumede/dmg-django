@@ -1,7 +1,7 @@
 {
     "Long Life Full Cream Milk 1 L": {
         "price": "R 18.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Penne Pasta 500 g": {
         "price": "R 22.99",
@@ -13,31 +13,31 @@
     },
     "Long Life Low Fat Milk 1 L": {
         "price": "R 18.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Long Life Full Cream Milk 6 x 1 L": {
         "price": "R 109.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Light Brown Sugar 2 kg": {
         "price": "R 52.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Chickpeas in Brine 400 g": {
         "price": "R 28.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Light Meat Tuna Shredded in Brine 3 x 170 g": {
         "price": "R 76.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Diced Tomatoes 400 g": {
         "price": "R 28.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Nescaf\u00e9 Gold Cappuccino Sachets 10 x 18 g": {
         "price": "R 78.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Macaroni 500 g": {
         "price": "R 22.99",
@@ -45,15 +45,15 @@
     },
     "Tangy Mayonnaise 750 g": {
         "price": "R 51.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Baked Beans 410 g": {
         "price": "R 15.99",
-        "promo": "NULL"
+        "promo": null
     },
     "White Sugar 2.5 kg": {
         "price": "R 57.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Light Meat Tuna Shredded in Brine 170 g": {
         "price": "R 27.99",
@@ -61,11 +61,11 @@
     },
     "Peeled and Diced Tomatoes 410 g": {
         "price": "R 24.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Breakfast Muesli 1 kg": {
         "price": "R 79.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Linguine Pasta 500 g": {
         "price": "R 22.99",
@@ -73,11 +73,11 @@
     },
     "Long Life Fat Free Milk 1 L": {
         "price": "R 18.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Tomato Paste 140 g": {
         "price": "R 35.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Chicken and Herb Flavoured Quicksticks Noodles 75 g": {
         "price": "R 10.99",
@@ -85,11 +85,11 @@
     },
     "Tomato Paste 70 g": {
         "price": "R 17.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Tomato and Onion Mix 410 g": {
         "price": "R 22.99",
-        "promo": "NULL"
+        "promo": null
     },
     "Tagliatelle Pasta 500 g": {
         "price": "R 22.99",

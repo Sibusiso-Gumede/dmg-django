@@ -44,8 +44,8 @@ class Product(models.Model):
         unique=True, help_text="Product ID")
     name = models.CharField(max_length=100, help_text="The name of each product.")
     price = models.CharField(max_length=50, default="R0.00")
-    discounted_price = models.CharField(max_length=10, default="R0.00")
-    promotion = models.CharField(max_length=100, default="None")
+    discounted_price = models.CharField(max_length=10, default=None)
+    promotion = models.CharField(max_length=100, default=None)
     supermarket = models.ForeignKey(Supermarket, on_delete=models.CASCADE)
 
     def __str__(self) -> str:

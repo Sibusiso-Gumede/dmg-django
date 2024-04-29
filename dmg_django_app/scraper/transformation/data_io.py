@@ -175,10 +175,13 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
         json.dump(buffer, file)
         return buffer
 
-def query_items() -> None:
-    for _name, data in Supermarkets.SUPERMARKETS.items():
-        _path = Path(f'{data.RESOURCES_PATH}/{_name}/{_name}_products.json')
-        s = SupermarketModel.objects.get(name=_name)
-        with _path.open(mode='rb') as file:    
-            s.products = File(file, _path.name)
-            s.save()
+def query_items(query: str) -> dict[str] | None:   
+    products = Product.objects.filter(name__icontains="Nescafe")
+    buffer: dict[str] = {}
+    for p in products:
+        buffer.update({p.name: {"price": p.price, "discounted": p.discounted_price}})
+    return buffer
+
+def shorten_string(s:str) -> str:
+    _s = s.split(" ")
+    return _s[0]+_s[1]+_s[-1]
