@@ -178,10 +178,30 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
 def query_items(query: str) -> dict[str] | None:   
     products = Product.objects.filter(name__icontains="Nescafe")
     buffer: dict[str] = {}
+    name: str = ""
     for p in products:
-        buffer.update({p.name: {"price": p.price, "discounted": p.discounted_price}})
+        if not (len(p.name) <= 30):
+            name = shorten_string(p.name)
+        else:
+            name = p.name
+        if not (p.discounted_price == 'R0.00'):
+            buffer.update({name: {"price": p.discounted_price}})
+        else:
+            buffer.update({name: {"price": p.price}})   
     return buffer
 
 def shorten_string(s:str) -> str:
-    _s = s.split(" ")
-    return _s[0]+_s[1]+_s[-1]
+    ''' Returns a string alias of the complete string.
+        includes the first two words and the last.
+    '''
+    formatted: str = ""
+    count: int = 0
+    # find the first digit in the string.
+    while count < len(s):
+        if s[count].isdigit():
+            break
+        count += 1
+    # split the string: add a newline character before the 
+    # first digit found in the string.
+    formatted = f'{s[:count-1]}\n{s[count:]}'
+    return formatted

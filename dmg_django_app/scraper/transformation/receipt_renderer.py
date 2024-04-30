@@ -1,6 +1,6 @@
 from PIL import Image, ImageFont, ImageDraw
 
-class Receipt_Renderer():
+class ReceiptRenderer():
     
     def __init__(self):
         self.resources_path = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
@@ -62,19 +62,22 @@ class Receipt_Renderer():
             count += 1
             if count > 1:
                 self._move_cursor(self.grouped_entries_space)
-            elif count > 5:
-                break
+            # item name
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
-            self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price, self.black_ink, self.text_font, align='right', direction='rtl')
-            total_amount += float(price.removesuffix('R'))
+            if '\n' in name:
+                self._move_cursor(self.grouped_entries_space)
+            # item price
+            self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='rtl')
+            total_amount += float(price.get('price')[1:]) # remove R
 
         # Total cost.
         self._move_cursor(self.grouped_entries_space)
         label = 'DUE VAT INCL'
-        
-        # Made the label of the total cost begin at the footer_lm for center alignment. 
+        str_total_amount = 'R'+str(round(total_amount, 2))
+
+        # let the label of the total cost begin at the footer_lm for center alignment. 
         self.edit.text((self.footer_lm, self.vertical_cursor), label, self.black_ink, self.text_font, align='center', direction='ltr')
-        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), total_amount, self.black_ink, self.text_font, align='right', direction='rtl')
+        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='rtl')
 
         # Tax invoice segment.
         self._move_cursor(self.y_spacing)
@@ -83,8 +86,8 @@ class Receipt_Renderer():
         
         # Calculate tax.
         self._move_cursor(self.grouped_entries_space)
-        vat_value = total_amount * 0.15
-        taxable_value = total_amount - vat_value
+        vat_value = round(total_amount * 0.15, 2)
+        taxable_value = round(total_amount - vat_value, 2)
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'VAT VAL', self.black_ink, self.text_font, align='left', direction='ltr')
         self.edit.text((self.body_lm_rm[1], self.vertical_cursor), str(vat_value), self.black_ink, self.text_font, align='right', direction='rtl')
         self._move_cursor(self.grouped_entries_space)

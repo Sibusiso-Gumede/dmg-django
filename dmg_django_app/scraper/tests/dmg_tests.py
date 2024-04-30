@@ -7,7 +7,7 @@ django.setup()
 from unittest import TestSuite, TextTestRunner, TestCase
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
-from ..transformation import Receipt_Renderer, query_items, clean_data, store_supermarket_record, store_product_records
+from ..transformation import ReceiptRenderer, query_items, clean_data, store_supermarket_record, store_product_records
 from ..common import Supermarkets
 
 class DMGTestCase(TestCase):
@@ -23,9 +23,9 @@ class DMGTestCase(TestCase):
         scraper.scrape_products([Supermarkets.SUPERMARKETS[Supermarkets.MAKRO]])
 
     def receipt_renderer_test(self):
-        items:dict[str] = query_items()
-        rr = Receipt_Renderer()
-        rr.render(items=items)
+        items:dict[str] = query_items('Nescafe')
+        rr = ReceiptRenderer()
+        rr.render(items)
 
     def models_test(self):
         query_items('Nescafe')
