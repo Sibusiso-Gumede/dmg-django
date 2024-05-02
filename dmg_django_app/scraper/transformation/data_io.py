@@ -211,15 +211,20 @@ def shorten_string(s:str) -> str:
             break
         count += 1
     
-    # split the string: remove the rest starting from the first
-    # digit found. then proceed to ensure that the string is not
-    # longer than 30 characters.
-    formatted = s[:count-1]
-    while not (len(formatted) <= TITLE_LENGTH):
+    # remove the rest of the string starting from the first digit found.
+    if digit_found:
+        last_char = s[count-1]
+        if last_char is not ' ':
+            formatted = s[:count-1]
+        elif last_char == ' ':
+            formatted = s[:count-2]
+    elif not ((len(formatted) <= TITLE_LENGTH) and digit_found):
         # if no digit was found, split string to less than 30 characters.
-        if not digit_found:
-            formatted = formatted[:TITLE_LENGTH-1]
-            formatted
-        else:
-            formatted = formatted[:formatted.rfind(' ')]
+        prepositions:set[str] = ["with", "in", "on"]
+        ascii_totals:list[int] = []
+        terms:list[str] = []
+        
+        formatted = formatted[:TITLE_LENGTH-1]
+        formatted = formatted[:formatted.rfind(' ')-1]
+    
     return formatted
