@@ -64,8 +64,6 @@ class ReceiptRenderer():
                 self._move_cursor(self.grouped_entries_space)
             # item name
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
-            if '\n' in name:
-                self._move_cursor(self.grouped_entries_space)
             # item price
             self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='rtl')
             total_amount += float(price.get('price')[1:]) # remove R
@@ -89,10 +87,10 @@ class ReceiptRenderer():
         vat_value = round(total_amount * 0.15, 2)
         taxable_value = round(total_amount - vat_value, 2)
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'VAT VAL', self.black_ink, self.text_font, align='left', direction='ltr')
-        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), str(vat_value), self.black_ink, self.text_font, align='right', direction='rtl')
+        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), 'R'+str(vat_value), self.black_ink, self.text_font, align='right', direction='rtl')
         self._move_cursor(self.grouped_entries_space)
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'TAXABLE VAL', self.black_ink, self.text_font, align='left', direction='ltr')
-        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), str(taxable_value), self.black_ink, self.text_font, align='right', direction='rtl')
+        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), 'R'+str(taxable_value), self.black_ink, self.text_font, align='right', direction='rtl')
 
     def _footer_segment(self):
         # Footer.

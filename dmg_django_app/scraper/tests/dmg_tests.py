@@ -23,7 +23,8 @@ class DMGTestCase(TestCase):
         scraper.scrape_products([Supermarkets.SUPERMARKETS[Supermarkets.MAKRO]])
 
     def receipt_renderer_test(self):
-        items:dict[str] = query_items('Nescafe')
+        q:str = input('Search item:\n>>>')
+        items:dict[str] = query_items(q)
         rr = ReceiptRenderer()
         rr.render(items)
 

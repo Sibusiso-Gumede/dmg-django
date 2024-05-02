@@ -10,7 +10,9 @@ from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
 from ...models import Supermarket as SupermarketModel, Product
-   
+
+TITLE_LENGTH: int = 30
+
 def store_content(content: bytes, path_: str, content_name: str) -> bool:
     """Stores the content of the response in bytes.
         Returns a true/false to confirm if the content
@@ -176,11 +178,16 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
         return buffer
 
 def query_items(query: str) -> dict[str] | None:   
-    products = Product.objects.filter(name__icontains="Nescafe")
+    products = Product.objects.filter(name__icontains=query)
+    try:
+        assert not (products == None)
+    except AssertionError:
+        print("Product not found.")
+
     buffer: dict[str] = {}
     name: str = ""
     for p in products:
-        if not (len(p.name) <= 30):
+        if not (len(p.name) <= TITLE_LENGTH):
             name = shorten_string(p.name)
         else:
             name = p.name
@@ -196,12 +203,23 @@ def shorten_string(s:str) -> str:
     '''
     formatted: str = ""
     count: int = 0
-    # find the first digit in the string.
+    digit_found: bool = False
+    # find the position of the first digit in the string.
     while count < len(s):
         if s[count].isdigit():
+            digit_found = True
             break
         count += 1
-    # split the string: add a newline character before the 
-    # first digit found in the string.
-    formatted = f'{s[:count-1]}\n{s[count:]}'
+    
+    # split the string: remove the rest starting from the first
+    # digit found. then proceed to ensure that the string is not
+    # longer than 30 characters.
+    formatted = s[:count-1]
+    while not (len(formatted) <= TITLE_LENGTH):
+        # if no digit was found, split string to less than 30 characters.
+        if not digit_found:
+            formatted = formatted[:TITLE_LENGTH-1]
+            formatted
+        else:
+            formatted = formatted[:formatted.rfind(' ')]
     return formatted
