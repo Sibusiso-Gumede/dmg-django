@@ -222,9 +222,34 @@ def shorten_string(s:str) -> str:
         # if no digit was found, split string to less than 30 characters.
         prepositions:set[str] = ["with", "in", "on"]
         ascii_totals:list[int] = []
-        terms:list[str] = []
+        formatted_terms:list[str] = formatted.split(" ")
         
+        accumulator:int = 0
+        for term in formatted_terms:
+            for character in term:
+                accumulator += ord(character)
+            ascii_totals.append(accumulator)
+            accumulator = 0
+
         formatted = formatted[:TITLE_LENGTH-1]
         formatted = formatted[:formatted.rfind(' ')-1]
-    
+
+        # find the last term of the formatted string.
+        # ascertain that it meets the required format constraints.
+        while True:
+            formatted_terms = formatted.split(" ")
+            if (formatted_terms[-1] in prepositions):
+                formatted_terms.pop()
+                formatted = ' '.join(formatted_terms)
+                break
+            else:
+                shortened_terms:list[str] = formatted.split(" ")
+                difference:int = (len(formatted_terms)-len(shortened_terms))
+                if difference > 0:
+                    last_term = (formatted_terms[:-difference-1])[-1]
+                    # drop the last term if its partial.
+                    if shortened_terms[-1] is not last_term:
+                        shortened_terms.pop()
+                        formatted = ' '.join(shortened_terms)
+
     return formatted
