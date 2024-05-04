@@ -216,9 +216,8 @@ def shorten_string(s:str) -> str:
     # slice formatted string if it's longer than 30 characters.
     if len(formatted) > TITLE_LENGTH:
         formatted = formatted[:TITLE_LENGTH-1]
-        #formatted = formatted[:formatted.rfind(' ')-1]
 
-    prepositions:set[str] = ["with", "in", "on"]
+    restricted:set[str] = ["with", "in", "on", "No", "&"]
     formatted_terms:list[str] = []
     formatted_terms = formatted.split(' ')
 
@@ -227,9 +226,10 @@ def shorten_string(s:str) -> str:
     # the constraints are: a string should not end with a 
     # prepostion or it's last term should not be partial.
     while True:
-        if (formatted_terms[-1] in prepositions) or (not (formatted_terms[-1] == s.split(' ')[len(formatted_terms)-1])):
+        if (formatted_terms[-1] in restricted) or (not (formatted_terms[-1] == s.split(' ')[len(formatted_terms)-1])):
             formatted_terms.pop()
             formatted = ' '.join(formatted_terms)
+        else:
             break            
     
     return formatted
