@@ -203,53 +203,42 @@ def shorten_string(s:str) -> str:
     '''
     formatted: str = ""
     count: int = 0
-    digit_found: bool = False
     # find the position of the first digit in the string.
     while count < len(s):
         if s[count].isdigit():
-            digit_found = True
             break
         count += 1
-    
-    # remove the rest of the string starting from the first digit found.
-    if digit_found:
-        last_char = s[count-1]
-        if last_char is not ' ':
-            formatted = s[:count-1]
-        elif last_char == ' ':
-            formatted = s[:count-2]
-    elif not ((len(formatted) <= TITLE_LENGTH) and digit_found):
-        # if no digit was found, split string to less than 30 characters.
-        prepositions:set[str] = ["with", "in", "on"]
-        ascii_totals:list[int] = []
-        formatted_terms:list[str] = formatted.split(" ")
-        
-        accumulator:int = 0
-        for term in formatted_terms:
-            for character in term:
-                accumulator += ord(character)
-            ascii_totals.append(accumulator)
-            accumulator = 0
 
+    # remove the rest of the string starting from the first 
+    # digit found.
+    formatted = s[:count]
+
+    # slice formatted string if it's longer than 30 characters.
+    if len(formatted) > TITLE_LENGTH:
         formatted = formatted[:TITLE_LENGTH-1]
-        formatted = formatted[:formatted.rfind(' ')-1]
+        #formatted = formatted[:formatted.rfind(' ')-1]
 
-        # find the last term of the formatted string.
-        # ascertain that it meets the required format constraints.
-        while True:
-            formatted_terms = formatted.split(" ")
-            if (formatted_terms[-1] in prepositions):
-                formatted_terms.pop()
-                formatted = ' '.join(formatted_terms)
-                break
-            else:
-                shortened_terms:list[str] = formatted.split(" ")
-                difference:int = (len(formatted_terms)-len(shortened_terms))
-                if difference > 0:
-                    last_term = (formatted_terms[:-difference-1])[-1]
-                    # drop the last term if its partial.
-                    if shortened_terms[-1] is not last_term:
-                        shortened_terms.pop()
-                        formatted = ' '.join(shortened_terms)
+    prepositions:set[str] = ["with", "in", "on"]
+    formatted_terms:list[str] = []
+    formatted_terms = formatted.split(' ')
 
+    # find the last term of the formatted string.
+    # ascertain that it meets the required format constraints.
+    # the constraints are: a string should not end with a 
+    # prepostion or it's last term should not be partial.
+    while True:
+        if (formatted_terms[-1] in prepositions) or (not (formatted_terms[-1] == s.split(' ')[len(formatted_terms)-1])):
+            formatted_terms.pop()
+            formatted = ' '.join(formatted_terms)
+            break            
+    
     return formatted
+
+def string_ascii_total(string:str) -> str:
+    accumulator:int = 0
+    ascii_totals:list[int] = []
+    for term in string.split(" "):
+        for character in term:
+            accumulator += ord(character)
+        ascii_totals.append(accumulator)
+        accumulator = 0
