@@ -17,13 +17,14 @@ class ReceiptRenderer():
         self.footer_tb: float = 0.00
         self.footer_bb: float = 460
         self.items_segment_limit = 380                  # segment limit.
-        self.extend_receipt = False                     # if the segment limit is exceeded, we extend the receipt.
-        
+        self.extend_receipt = False                     # if the segment limit is exceeded, extend the receipt.
+        self.receipts:list[Image.Image] = []
+
         # Receipt properties.
-        receipt_w, receipt_h = 240, 480
-        self.receipt = Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((receipt_w, receipt_h))
+        self.receipt_w, self.receipt_h = 240, 480
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
-        self.edit = ImageDraw.Draw(self.receipt)
+        self.__create_canvas()
+        self.edit = ImageDraw.Draw(self.receipts[0])
 
     def render(self, _items: dict[str]):
         self.__set_items(_items)
@@ -47,11 +48,11 @@ class ReceiptRenderer():
         self._footer_segment()
 
         # Credits.
-        #self.vertical_cursor += (self.grouped_entries_space + barcode_h)
         credits_top_border = 424
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
-        self.receipt.show()
+        for receipt in self.receipts:
+            receipt.show()
 
     def _items_segment(self):
         # Item names and prices.
@@ -101,8 +102,8 @@ class ReceiptRenderer():
         barcode_rm: float = 220
         horizontal_cursor = barcode_lm
         barcode_sizes = [1, 1.2, 1.5, 1.6, 2, 1.8, 1.4, 2, 1.5, 1.2, 1.7]
-        barcode_top = 400 #self.vertical_cursor
-        barcode_bottom = barcode_top+barcode_h #self.vertical_cursor
+        barcode_top = 400
+        barcode_bottom = barcode_top+barcode_h
         x, k, index_limit = 2, 0, len(barcode_sizes)-1
         while not (horizontal_cursor > barcode_rm):
             if x % 2 == 0:
@@ -121,3 +122,6 @@ class ReceiptRenderer():
 
     def __set_items(self, _items: dict[str]):
         self.items = _items
+
+    def __create_canvas(self):
+        self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((self.receipt_w, self.receipt_h)))

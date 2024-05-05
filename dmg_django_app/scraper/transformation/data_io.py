@@ -137,7 +137,6 @@ def seperate_prices(price: str) -> list[str]:
     '''Extracts a list of prices contained within a single string
         and returns a list of the seperated prices.
         e.g. "R99.99 R89.99" -> ["R99.99", "R89.99"]'''
-    
     prices:list[str] = []
     _price:str = ''
     previous:str = '' 
@@ -148,8 +147,7 @@ def seperate_prices(price: str) -> list[str]:
         if not ((x == ' ') or (x == '/') or (x == 'k') or (x == 'g')):
             _price += x      
             previous = x
-    prices.append(_price)
-    #breakpoint()        
+    prices.append(_price)       
     return prices
 
 def organize_prices(_list:list[str]) -> dict[str]:
@@ -231,7 +229,6 @@ def shorten_string(s:str) -> str:
             formatted = ' '.join(formatted_terms)
         else:
             break            
-    
     return formatted
 
 def string_ascii_total(string:str) -> str:
