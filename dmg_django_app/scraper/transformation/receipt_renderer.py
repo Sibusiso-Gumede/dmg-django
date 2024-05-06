@@ -51,6 +51,7 @@ class ReceiptRenderer():
         credits_top_border = 424
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
+    
         for receipt in self.receipts:
             receipt.show()
 
@@ -63,11 +64,12 @@ class ReceiptRenderer():
             count += 1
             if count > 1:
                 self._move_cursor(self.grouped_entries_space)
-            # item name
-            self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
-            # item price
-            self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='rtl')
-            total_amount += float(price.get('price')[1:]) # remove R
+            # TODO: find a solution to extend the receipt only if a specific part is exceeded.
+                # item name
+                self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
+                # item price
+                self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='rtl')
+                total_amount += float(price.get('price')[1:]) # remove R
 
         # Total cost.
         self._move_cursor(self.grouped_entries_space)
@@ -125,3 +127,6 @@ class ReceiptRenderer():
 
     def __create_canvas(self):
         self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((self.receipt_w, self.receipt_h)))
+
+    def __reset_cursor(self):
+        self.vertical_cursor = 20.00
