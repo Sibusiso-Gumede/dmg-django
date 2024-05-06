@@ -17,14 +17,13 @@ class ReceiptRenderer():
         self.footer_tb: float = 0.00
         self.footer_bb: float = 460
         self.items_segment_limit = 380                  # segment limit.
-        self.extend_receipt = False                     # if the segment limit is exceeded, extend the receipt.
         self.receipts:list[Image.Image] = []
 
         # Receipt properties.
         self.receipt_w, self.receipt_h = 240, 480
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
-        self.__create_canvas()
-        self.edit = ImageDraw.Draw(self.receipts[0])
+        self.edit: ImageDraw.ImageDraw
+        self.__create_new_canvas()
 
     def render(self, _items: dict[str]):
         self.__set_items(_items)
@@ -43,12 +42,13 @@ class ReceiptRenderer():
 
         # Footer divider.
         self._move_cursor(self.y_spacing)
-        self.edit.line([(self.body_lm_rm[0], 390), (230, 390)], fill=self.black_ink, width=0)
+        self.edit.line([(self.body_lm_rm[0], self.vertical_cursor), (230, self.vertical_cursor)], fill=self.black_ink, width=0)
 
         self._footer_segment()
 
         # Credits.
-        credits_top_border = 424
+        self._move_cursor(self.y_spacing)
+        credits_top_border = self.vertical_cursor
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
     
@@ -65,11 +65,14 @@ class ReceiptRenderer():
             if count > 1:
                 self._move_cursor(self.grouped_entries_space)
             # TODO: find a solution to extend the receipt only if a specific part is exceeded.
-                # item name
-                self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
-                # item price
-                self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='rtl')
-                total_amount += float(price.get('price')[1:]) # remove R
+            if self.vertical_cursor > self.items_segment_limit:
+                self.__reset_cursor()
+                self.__create_new_canvas()
+            # item name
+            self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
+            # item price
+            self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='rtl')
+            total_amount += float(price.get('price')[1:]) # remove R
 
         # Total cost.
         self._move_cursor(self.grouped_entries_space)
@@ -97,14 +100,14 @@ class ReceiptRenderer():
 
     def _footer_segment(self):
         # Footer.
-        self._move_cursor(self.y_spacing)    
+        self._move_cursor(self.grouped_entries_space)    
         # Barcode.
         barcode_h: float = 20
         barcode_lm: float = 20
         barcode_rm: float = 220
         horizontal_cursor = barcode_lm
         barcode_sizes = [1, 1.2, 1.5, 1.6, 2, 1.8, 1.4, 2, 1.5, 1.2, 1.7]
-        barcode_top = 400
+        barcode_top = self.vertical_cursor
         barcode_bottom = barcode_top+barcode_h
         x, k, index_limit = 2, 0, len(barcode_sizes)-1
         while not (horizontal_cursor > barcode_rm):
@@ -117,16 +120,15 @@ class ReceiptRenderer():
                 k = 0
 
     def _move_cursor(self, amount: float):
-        if self.vertical_cursor < self.footer_bb:
-            self.vertical_cursor += amount
-        else:
-            self.extend_receipt = True
+        self.vertical_cursor += amount
 
     def __set_items(self, _items: dict[str]):
         self.items = _items
 
-    def __create_canvas(self):
+    def __create_new_canvas(self):
         self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((self.receipt_w, self.receipt_h)))
+        count = len(self.receipts)
+        self.edit = ImageDraw.Draw(self.receipts[count-1])
 
     def __reset_cursor(self):
         self.vertical_cursor = 20.00
