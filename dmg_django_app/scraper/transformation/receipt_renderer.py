@@ -25,12 +25,11 @@ class ReceiptRenderer():
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
 
-    def render(self, _items: dict[str]):
+    def render(self, _items: dict[str], supermarket_logo: str = 'COMBINED\n'):
         self.__set_items(_items)
         # Header.
-        supermarket_name = 'SUPERMARKET LOGO\n'
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
-        self.edit.multiline_text((self.header_lm, self.vertical_cursor), supermarket_name+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
+        self.edit.multiline_text((self.header_lm, self.vertical_cursor), supermarket_logo+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
         # Header divider.
         self._move_cursor(self.y_spacing)
@@ -71,7 +70,7 @@ class ReceiptRenderer():
             # item name
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
             # item price
-            self.edit.text((self.body_lm_rm[1], self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='rtl')
+            self.edit.text((self.__get_price_margin(price.get('price')), self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='ltr')
             total_amount += float(price.get('price')[1:]) # remove R
 
         # Total cost.
@@ -81,7 +80,7 @@ class ReceiptRenderer():
 
         # let the label of the total cost begin at the footer_lm for center alignment. 
         self.edit.text((self.footer_lm, self.vertical_cursor), label, self.black_ink, self.text_font, align='center', direction='ltr')
-        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='rtl')
+        self.edit.text((self.__get_price_margin(str_total_amount), self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='ltr')
 
         # Tax invoice segment.
         self._move_cursor(self.y_spacing)
@@ -91,12 +90,12 @@ class ReceiptRenderer():
         # Calculate tax.
         self._move_cursor(self.grouped_entries_space)
         vat_value = round(total_amount * 0.15, 2)
-        taxable_value = round(total_amount - vat_value, 2)
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'VAT VAL', self.black_ink, self.text_font, align='left', direction='ltr')
-        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), 'R'+str(vat_value), self.black_ink, self.text_font, align='right', direction='rtl')
+        self.edit.text((self.__get_price_margin('R'+str(vat_value)), self.vertical_cursor), 'R'+str(vat_value), self.black_ink, self.text_font, align='right', direction='ltr')
         self._move_cursor(self.grouped_entries_space)
+        taxable_value = round(total_amount - vat_value, 2)
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'TAXABLE VAL', self.black_ink, self.text_font, align='left', direction='ltr')
-        self.edit.text((self.body_lm_rm[1], self.vertical_cursor), 'R'+str(taxable_value), self.black_ink, self.text_font, align='right', direction='rtl')
+        self.edit.text((self.__get_price_margin('R'+str(taxable_value)), self.vertical_cursor), 'R'+str(taxable_value), self.black_ink, self.text_font, align='right', direction='ltr')
 
     def _footer_segment(self):
         # Footer.
@@ -132,3 +131,13 @@ class ReceiptRenderer():
 
     def __reset_cursor(self):
         self.vertical_cursor = 20.00
+
+    def __get_price_margin(self, _price:str) -> float:
+        price_margin = self.body_lm_rm[1]
+        units = len(_price[:_price.find('.')])
+        # draw price from right to left.
+        if units == 4:
+            price_margin -= 5
+        elif units == 5:
+            price_margin -= 10
+        return price_margin

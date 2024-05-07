@@ -94,8 +94,6 @@ def store_supermarket_record(s:BaseSupermarket, nr_of_prods:int) -> None:
     supermarket_record = SupermarketModel(id=s.identifier,
                                         name=s.get_supermarket_name(),
                                         num_of_products=nr_of_prods)
-                                        # TODO: store product data in the database instead of the file system.
-                                        #products_fixture=f"{s.RESOURCES_PATH})/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json")
     supermarket_record.save()
 
 def store_product_records(supermarket_name: str, products: dict[str]) -> None:
@@ -175,8 +173,16 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
         json.dump(buffer, file)
         return buffer
 
-def query_items(query: str) -> dict[str] | None:   
-    products = Product.objects.filter(name__icontains=query)
+def query_items(query: str, supermarket_name: str | None) -> dict[str] | None:
+    supermarket = None
+    products = None
+    if not (supermarket_name == None):
+        supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
+        products = Product.objects.filter(supermarket_id=supermarket.id)
+        products = products.filter(name__icontains=query)
+    else:
+        products = Product.objects.filter(name__icontains=query)
+        
     try:
         assert not (products == None)
     except AssertionError:

@@ -16,17 +16,23 @@ class DMGTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        #cls.supermarkets = Supermarkets()
     
     def headless_browser_test(self):
         scraper = Scraper()
         scraper.scrape_products([Supermarkets.SUPERMARKETS[Supermarkets.MAKRO]])
 
     def receipt_renderer_test(self):
-        q:str = input('Search item:\n>>>')
-        items:dict[str] = query_items(q)
+        items:dict[str] = {}
         rr = ReceiptRenderer()
-        rr.render(items)
+        q:str = input('Search item:\n>>>')
+        r:str = input('\nFilter?')
+        if r == 'Y':
+            s:str = input('\nType supermarket name\n>>>')
+            items = query_items(q, s)
+            rr.render(items, s)
+        else:
+            items = query_items(q)
+            rr.render(items)
 
     def models_test(self):
         query_items('Nescafe')
