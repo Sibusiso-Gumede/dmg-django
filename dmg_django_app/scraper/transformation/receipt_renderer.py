@@ -25,11 +25,11 @@ class ReceiptRenderer():
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
 
-    def render(self, _items: dict[str], supermarket_logo: str = 'COMBINED\n'):
+    def render(self, _items: dict[str], supermarket_logo: str = 'COMBINED'):
         self.__set_items(_items)
         # Header.
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
-        self.edit.multiline_text((self.header_lm, self.vertical_cursor), supermarket_logo+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
+        self.edit.multiline_text((self.header_lm, self.vertical_cursor), supermarket_logo+'\n'+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
         # Header divider.
         self._move_cursor(self.y_spacing)
