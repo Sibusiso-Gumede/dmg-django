@@ -173,14 +173,14 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
         json.dump(buffer, file)
         return buffer
 
-def query_items(query: str, supermarket_name: str | None) -> dict[str] | None:
+def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
     supermarket = None
     products = None
     if not (supermarket_name == None):
         supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
         products = Product.objects.filter(supermarket_id=supermarket.id)
         products = products.filter(name__icontains=query)
-    else:
+    elif supermarket_name == None:
         products = Product.objects.filter(name__icontains=query)
         
     try:
