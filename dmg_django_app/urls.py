@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     # Home page
-    path(r'', views.groceryItemsForm, name='home'),
+    path(r'', views.groceryItemsForm, name='index'),
     # Grocery slips page.
     path(r'grocery_slips/', views.generateSlips, name='generateSlips'),
     # Best discounted products.
