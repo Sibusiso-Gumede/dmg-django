@@ -124,6 +124,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT =  f'{BASE_DIR.as_posix()}/static'
+STATICFILES_DIRS = [
+    f'{BASE_DIR.as_posix()}/static/app_assets/bare_gh'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

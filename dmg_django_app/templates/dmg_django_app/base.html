@@ -2,47 +2,17 @@
 <html>
     <head>
         <title>DMG: Budget shopping made easy.</title>
-        {% load bootstrap5 %}
-        {% bootstrap_css %}
-        {% bootstrap_javascript %}
+        {% extends dmg_django_app/template_tags.html %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style type="text/css">
-            h1 {
-                text-align: center;
-            } 
-            h3 {
-                text-align: center;
-            }
-            #item-form {
-                margin: auto;
-                display: grid;
-                grid-column: auto;
-                margin-left: auto;
-                margin-right: auto;
-                width: 300px;
-                height: 44px;
-            }
-            #item-name-box {
-                /*background-color: #fff;*/
-                border-radius: 0.5px;
-                /*border: black;*/
-                border-style: solid;
-                height: 30%;
-                width: 100%;
-                padding: 6px 10px;
-                text-align: center;
-                align-self: center;
-            }
-            #add-button {
-                width: 50%;
-            }
-        </style>    
     </head>
     <header>
         <a href="{% url 'dmg_django_app:home' %}">
-            <h1>DiScoUnt My GrOceRieS</h1>
+            <h1>Discount My Groceries</h1>
         </a>
     </header>
+    <body>
     {% block content %}{% endblock content %}
+    </body>
+    <footer></footer>
 </html>
