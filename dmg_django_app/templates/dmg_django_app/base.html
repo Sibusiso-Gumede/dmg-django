@@ -11,9 +11,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     
         <link href="{% static 'dist/dist_css/bootstrap.min.css' %}" rel="stylesheet" />
-        <link href="{% static 'app_js/sidebars.js' %}" rel="stylesheet" />
+        <link href="{% static 'app_css/sidebars.css' %}" rel="stylesheet" />
     </head>
-    <header>
+    <body>
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
             <symbol id="home" viewBox="0 0 16 16">
                 <path
@@ -37,61 +37,65 @@
                     d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
                 />
             </symbol>
-        </svg>      
-        <div class="container-fluid pt-5">
-            <div class="d-flex flex-nowrap" id="navigationBar">
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
-                        <div
-                        class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-                        style="width: 280px"
-                        >
-                            <hr />
-                            <ul class="nav nav-pills flex-column mb-auto">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link active" aria-current="page">
-                                    <svg class="bi pe-none me-2" width="16" height="16">
-                                        <use xlink:href="#home" />
-                                    </svg>
-                                    Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link text-white">
-                                    <svg class="bi pe-none me-2" width="16" height="16">
-                                        <use xlink:href="#table" />
-                                    </svg>
-                                    Receipts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link text-white">
+        </svg> 
+        <main class="d-flex flex-nowrap">     
+            <div class="container-fluid pt-2 px-4">
+                <div class="row" id="navigationBar">
+                    <ul class="nav nav-pills mb-auto">
+                        <li class="nav-item dropdown">
+                            <a class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            aria-expanded="false" data-bs-toggle="dropdown">Menu</a>
+                            <div
+                            class="p-3 text-bg-dark"
+                            style="width: 280px">
+                                <ul class="nav nav-pills flex-column mb-auto">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active" aria-current="page">
                                         <svg class="bi pe-none me-2" width="16" height="16">
-                                            <use xlink:href="#grid" />
+                                            <use xlink:href="#home" />
                                         </svg>
-                                    Near Me
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link text-white">
+                                        Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link text-white">
                                         <svg class="bi pe-none me-2" width="16" height="16">
-                                            <use xlink:href="#people-circle" />
+                                            <use xlink:href="#table" />
                                         </svg>
-                                    Supermarkets
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                                        Receipts
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link text-white">
+                                            <svg class="bi pe-none me-2" width="16" height="16">
+                                                <use xlink:href="#grid" />
+                                            </svg>
+                                        Near Me
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link text-white">
+                                            <svg class="bi pe-none me-2" width="16" height="16">
+                                                <use xlink:href="#people-circle" />
+                                            </svg>
+                                        Supermarkets
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>    
+                </div>
+                
+                <div class="row" id="webAppLogo">
+                    <a href="{% url 'dmg_django_app:home' %}">
+                        <img src="dmg_logo.png" alt="Discount My Groceries" style="width: auto;height: auto;">
+                    </a>
                 </div>
             </div>
-            <div class="row" id="webAppLogo">
-                <a href="{% url 'dmg_django_app:home' %}">
-                    <img src="dmg_logo.png" alt="Discount My Groceries" style="width: auto;height: auto;">
-                </a>
-            </div>
-        </div>
-    </header>
+        </main>
+        <script src="{% static 'dist/dist_js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'app_js/sidebars.js' %}"></script>    
+    </body>
     {% block content %}{% endblock content %}
 </html>
