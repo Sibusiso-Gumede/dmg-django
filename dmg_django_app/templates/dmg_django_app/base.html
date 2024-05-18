@@ -11,6 +11,9 @@
         <title>DMG: Grocery price comparison made easy.</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Keywords" content="Groceries, Grocery, Discounts, Price Discounts, Compare, Cheap Prices, Website, Receipt, Products, Food, Low Price">
+        <meta name="Description" content="Easily compare the prices of grocery products across multiple supermarkets including Shoprite, Checkers, Makro, PicknPay and Woolworths.">
+        <meta name="theme" content="#ffffff">
     
         <link href="{% static 'app_css/ui_styles.css' %}" rel="stylesheet" />
         <!--<link href="{% static 'dist/dist_css/bootstrap.min.css' %}" rel="stylesheet" />
@@ -42,67 +45,53 @@
                 />
             </symbol>
         </svg>-->
-        <!--Navigation bar with a dropdown menu      
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">    
-            <div class="container pt-2 px-4">
-                <div class="collapse navbar-collapse" id="navigationBar">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown"
-                            aria-expanded="false" data-bs-toggle="dropdown" role="button">Menu</a>
-                            <div
-                            class="p-3 text-bg-dark"
-                            style="width: 280px">
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a href="#" class="dropdown-item text-white" aria-current="page">
-                                    <svg class="bi pe-none me-2" width="16" height="16">
-                                        <use xlink:href="#home" />
-                                    </svg>
-                                    Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item text-white">
-                                    <svg class="bi pe-none me-2" width="16" height="16">
-                                        <use xlink:href="#table" />
-                                    </svg>
-                                    Receipts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item text-white">
-                                        <svg class="bi pe-none me-2" width="16" height="16">
-                                            <use xlink:href="#grid" />
-                                        </svg>
-                                    Near Me
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item text-white">
-                                        <svg class="bi pe-none me-2" width="16" height="16">
-                                            <use xlink:href="#people-circle" />
-                                        </svg>
-                                    Supermarkets
-                                    </a>
-                                </li>
-                            </ul>
-                            </div>
-                        </li>
-                    </ul>    
-                </div>
+        <!-- Navigation bar with a dropdown menu. -->
+        <div class="header">         
+            <div class="dropdown-container">
+                <button class="dropbtn">
+                    <i class="fa fa-caret-down"></i>Menu
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'dmg_django_app:home' %}" class="dropdown-item" aria-current="page">
+                    <!--<svg class="bi pe-none me-2" width="16" height="16">
+                        <use xlink:href="#home" />
+                    </svg>-->
+                    Home
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                    <!--<svg class="bi pe-none me-2" width="16" height="16">
+                            <use xlink:href="#table" />
+                        </svg>-->
+                    Receipts
+                    </a>
+                
+                    <a href="#" class="dropdown-item">
+                        <!--<svg class="bi pe-none me-2" width="16" height="16">
+                            <use xlink:href="#grid" />
+                        </svg>-->
+                    Near Me
+                    </a>
+                
+                    <a href="#" class="dropdown-item">
+                        <!--<svg class="bi pe-none me-2" width="16" height="16">
+                            <use xlink:href="#people-circle" />
+                        </svg>-->
+                    Supermarkets
+                    </a>
+                </div>   
             </div>
-        </nav>
-        <!-- Web Application Logo. -->
-        <div class="row" id="webAppLogo">
-            <a href="{% url 'dmg_django_app:home' %}">
-                <img src="dmg_logo.png" id="AppLogo" alt="Discount My Groceries Logo">
-            </a>
+            <!-- Web Application Logo. -->
+            <div class="app-logo-container">
+                <a href="{% url 'dmg_django_app:home' %}">
+                    <img src="dmg_logo.png" id="AppLogo" alt="Discount My Groceries Logo">
+                </a>
+            </div>
         </div>
 
         <!--<script src="{% static 'dist/dist_js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'bare_js/scripts.js' %}"></script>
-        <script src="{% static 'app_js/sidebars.js' %}"></script>-->    
+        <script src="{% static 'app_js/sidebars.js' %}"></script>-->
+        {% block content %}{% endblock content %}    
     </body>
-    {% block content %}{% endblock content %}
 </html>
