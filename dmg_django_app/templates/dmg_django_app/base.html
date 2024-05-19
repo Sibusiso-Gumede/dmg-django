@@ -15,15 +15,14 @@
         <meta name="Description" content="Easily compare the prices of grocery products across multiple supermarkets including Shoprite, Checkers, Makro, PicknPay and Woolworths.">
         <meta name="theme" content="#ffffff">
     
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'bare_gh/assets/favicon.ico' %}" />
         <link href="{% static 'app_css/ui_styles.css' %}" rel="stylesheet" />
-        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />-->
-        <link href="{% static 'app_css/font-awesome.min.css' %}" rel="stylesheet" />
-        <!--<link href="{% static 'dist/dist_css/bootstrap.min.css' %}" rel="stylesheet" />
-        <link href="{% static 'app_css/sidebars.css' %}" rel="stylesheet" />
-        <link href="{% static 'bare_gh/bare_css/styles.css' %}" rel="stylesheet" />-->
+        <!--<link href="{% static 'app_css/font-awesome.min.css' %}" rel="stylesheet" />-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     </head>
     <body>
-        <!--<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
             <symbol id="home" viewBox="0 0 16 16">
                 <path
                     d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"
@@ -46,7 +45,7 @@
                     d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
                 />
             </symbol>
-        </svg>-->
+        </svg>
         <!-- Navigation bar with a dropdown menu. -->
         <div class="header">         
             <div class="dropdown">
@@ -55,43 +54,45 @@
                 </button>
                 <div class="dropdown-content" id="dropdownBox">
                     <a href="{% url 'dmg_django_app:home' %}" class="dropdown-item" aria-current="page">
-                    <!--<svg class="bi pe-none me-2" width="16" height="16">
+                    <svg class="bi pe-none me-2" width="16" height="16">
                         <use xlink:href="#home" />
-                    </svg>-->
+                    </svg>
                     Home
                     </a>
                     <a href="#" class="dropdown-item">
-                    <!--<svg class="bi pe-none me-2" width="16" height="16">
+                    <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#table" />
-                        </svg>-->
+                        </svg>
                     Receipts
                     </a>
                     <a href="#" class="dropdown-item">
-                        <!--<svg class="bi pe-none me-2" width="16" height="16">
+                        <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#grid" />
-                        </svg>-->
+                        </svg>
                     Near Me
                     </a>
                     <a href="#" class="dropdown-item">
-                        <!--<svg class="bi pe-none me-2" width="16" height="16">
+                        <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#people-circle" />
-                        </svg>-->
+                        </svg>
                     Supermarkets
                     </a>
                 </div>   
             </div>
             <!-- Web Application Logo. -->
-            <!--<div class="app-logo-container">
+            <div class="app-logo-container">
                 <a href="{% url 'dmg_django_app:home' %}">
                     <img src="dmg_logo.png" id="appLogo" alt="Discount My Groceries Logo">
                 </a>
-            </div>-->
+            </div>
+        </div>
+        <div class="form">
+            <input type="text" id="searchBox" name="searchBox" placeholder="search item..."><br/>
+            <button type="button" class="search-button">Search</button>
         </div>
 
-        <!--<script src="{% static 'dist/dist_js/bootstrap.bundle.min.js' %}"></script>
-        <script src="{% static 'bare_js/scripts.js' %}"></script>
-        <script src="{% static 'app_js/sidebars.js' %}"></script>-->
-        <script src="{% static 'app_js/ui_scripts.js' %}" type="text/javascript"></script>
-        {% block content %}{% endblock content %}    
+        {% block content %}{% endblock content %}
+
+        <script src="{% static 'app_js/ui_scripts.js' %}" type="text/javascript"></script>    
     </body>
 </html>
