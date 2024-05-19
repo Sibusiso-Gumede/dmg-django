@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 
 {% load static %}
-{% load bootstrap5 %}
+<!--{% load bootstrap5 %}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
+{% bootstrap_javascript %}-->
 
-<html lang="en" data-bs-theme="auto">
+<html lang="en">
     <head>
         <!--<script src="{% static 'app_js/color-modes.js' %}"></script>-->
         <title>DMG: Grocery price comparison made easy.</title>
@@ -16,6 +16,8 @@
         <meta name="theme" content="#ffffff">
     
         <link href="{% static 'app_css/ui_styles.css' %}" rel="stylesheet" />
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />-->
+        <link href="{% static 'app_css/font-awesome.min.css' %}" rel="stylesheet" />
         <!--<link href="{% static 'dist/dist_css/bootstrap.min.css' %}" rel="stylesheet" />
         <link href="{% static 'app_css/sidebars.css' %}" rel="stylesheet" />
         <link href="{% static 'bare_gh/bare_css/styles.css' %}" rel="stylesheet" />-->
@@ -47,32 +49,29 @@
         </svg>-->
         <!-- Navigation bar with a dropdown menu. -->
         <div class="header">         
-            <div class="dropdown-container">
-                <button class="dropbtn">
-                    <i class="fa fa-caret-down"></i>Menu
+            <div class="dropdown">
+                <button class="dropbtn" onclick="showMenu()">Menu
+                    <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="dropdownBox">
                     <a href="{% url 'dmg_django_app:home' %}" class="dropdown-item" aria-current="page">
                     <!--<svg class="bi pe-none me-2" width="16" height="16">
                         <use xlink:href="#home" />
                     </svg>-->
                     Home
                     </a>
-
                     <a href="#" class="dropdown-item">
                     <!--<svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#table" />
                         </svg>-->
                     Receipts
                     </a>
-                
                     <a href="#" class="dropdown-item">
                         <!--<svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#grid" />
                         </svg>-->
                     Near Me
                     </a>
-                
                     <a href="#" class="dropdown-item">
                         <!--<svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#people-circle" />
@@ -82,16 +81,17 @@
                 </div>   
             </div>
             <!-- Web Application Logo. -->
-            <div class="app-logo-container">
+            <!--<div class="app-logo-container">
                 <a href="{% url 'dmg_django_app:home' %}">
-                    <img src="dmg_logo.png" id="AppLogo" alt="Discount My Groceries Logo">
+                    <img src="dmg_logo.png" id="appLogo" alt="Discount My Groceries Logo">
                 </a>
-            </div>
+            </div>-->
         </div>
 
         <!--<script src="{% static 'dist/dist_js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'bare_js/scripts.js' %}"></script>
         <script src="{% static 'app_js/sidebars.js' %}"></script>-->
+        <script src="{% static 'app_js/ui_scripts.js' %}" type="text/javascript"></script>
         {% block content %}{% endblock content %}    
     </body>
 </html>
