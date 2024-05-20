@@ -1,53 +1,37 @@
-#appLogo {
-    width: 150px;
-    height: 150px;
-}
-
-.d-none {
-    display: none;
-}
-
-.app-logo-container {
-    float: center;
-    align-items: center;
-    margin: auto;
-    background-color: rgba(85, 177, 77, 0.2);
-}
-
-/* Dropdown and App Logo container. */
-.header {
+/* Layout header. */
+.sidebar1 {
     padding: 10px 16px;
     overflow: hidden;
     text-align: center;
-    background-color: rgb(192, 191, 191);
+    background-color: none;
     font-family: 'Franklin Gothic Medium';
 }
 
 /* Dropdown container. */
-.dropdown {
+.dropdown-container {
     float: left;
-    overflow: hidden;
+    padding: 14px 16px;
+    position: relative;
 }
 
 /* Dropdown button. */
-.dropdown > .dropbtn {
+.dropdown-container > .dropbtn {
     cursor: pointer;
     font-size: 20px;    
     border: none;
     outline: none;
     color: black;
-    padding: 14px 16px;
-    background-color: rgb(255, 255, 255);
+    background-color: none;
     font-family: inherit;
-    margin: 0;
-    min-width: 160px;
+    margin: 8px 0;
+    min-width: 200px;
 }
 
 /* Dropdown content (hidden). */
 .dropdown-content {
     display: none;
     position: relative;
-    background-color: inherit;
+    background-color: none;
     min-width: inherit;
     box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -71,20 +55,37 @@
     display: block;
 }
 
-.form {
-    padding: 14px 16px;
-    align-content: center;
-    overflow: hidden;
-    margin: auto;
+#appLogo {
+    width: auto;
+    height: 300px;
 }
 
-#searchBox, .search-button {
-    position: relative;
+.d-none {
+    display: none;
+}
+
+.app-logo-container {
     float: center;
+    text-align: center;
+    margin: 2px 0 2px 0;
+    background-color: none;
+}
+
+.search-container, .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
 }
 
 #searchBox {
+    padding: 12px 20px;
     width: 720px;
-    height: 25px;
+    height: 15px;
     text-align: center;
+}
+
+.search-button {
+    width: 200px;
+    height: 25px
 }

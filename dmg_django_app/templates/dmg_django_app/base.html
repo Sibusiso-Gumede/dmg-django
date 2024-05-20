@@ -46,52 +46,65 @@
                 />
             </symbol>
         </svg>
-        <!-- Navigation bar with a dropdown menu. -->
-        <div class="header">         
-            <div class="dropdown">
-                <button class="dropbtn" onclick="showMenu()">Menu
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content" id="dropdownBox">
-                    <a href="{% url 'dmg_django_app:home' %}" class="dropdown-item" aria-current="page">
-                    <svg class="bi pe-none me-2" width="16" height="16">
-                        <use xlink:href="#home" />
-                    </svg>
-                    Home
-                    </a>
-                    <a href="#" class="dropdown-item">
-                    <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#table" />
-                        </svg>
-                    Receipts
-                    </a>
-                    <a href="#" class="dropdown-item">
+
+        <div class="row">
+            <!-- Left sidebar with a dropdown menu. -->
+            <div class="sidebar1 col-*-3">
+                <div class="dropdown-container">         
+                    <button class="dropbtn" onclick="showMenu()">Menu
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="dropdownBox">
+                        <a href="{% url 'dmg_django_app:home' %}" class="dropdown-item" aria-current="page">
                         <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#grid" />
+                            <use xlink:href="#home" />
                         </svg>
-                    Near Me
-                    </a>
-                    <a href="#" class="dropdown-item">
+                        Home
+                        </a>
+                        <a href="#" class="dropdown-item">
                         <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#people-circle" />
-                        </svg>
-                    Supermarkets
-                    </a>
+                                <use xlink:href="#table" />
+                            </svg>
+                        Receipts
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <svg class="bi pe-none me-2" width="16" height="16">
+                                <use xlink:href="#grid" />
+                            </svg>
+                        Near Me
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <svg class="bi pe-none me-2" width="16" height="16">
+                                <use xlink:href="#people-circle" />
+                            </svg>
+                        Supermarkets
+                        </a>
+                    </div>
                 </div>   
             </div>
-            <!-- Web Application Logo. -->
-            <div class="app-logo-container">
-                <a href="{% url 'dmg_django_app:home' %}">
-                    <img src="dmg_logo.png" id="appLogo" alt="Discount My Groceries Logo">
-                </a>
+
+            <!-- Logo and search section. -->
+            <div class="logo-search col-*-6">
+                <!-- Web Application Logo. -->
+                <div class="app-logo-container">
+                    <a href="{% url 'dmg_django_app:home' %}">
+                        <img src="{% static 'dmg_logo.png' %}" id="appLogo" alt="Discount My Groceries Logo">
+                    </a>
+                </div>
+                <!-- Search container. -->
+                <div class="search-container">
+                    <input type="text" id="searchBox" name="searchBox" placeholder="search item..."><br/>
+                    <div class="button-container">
+                        <button type="button" class="search-button">Search</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form">
-            <input type="text" id="searchBox" name="searchBox" placeholder="search item..."><br/>
-            <button type="button" class="search-button">Search</button>
-        </div>
+
+            <!-- Right sidebar for easy layout formatting. -->
+            <div class="sidebar2 col-*-3"></div>
 
         {% block content %}{% endblock content %}
+        </div>
 
         <script src="{% static 'app_js/ui_scripts.js' %}" type="text/javascript"></script>    
     </body>
