@@ -47,9 +47,9 @@
             </symbol>
         </svg>
 
-        <div class="row">
+        <div class="container">
             <!-- Left sidebar with a dropdown menu. -->
-            <div class="sidebar1 col-*-3">
+            <div class="col-*-3" id="sidebar1">
                 <div class="dropdown-container">         
                     <button class="dropbtn" onclick="showMenu()">Menu
                         <i class="fa fa-caret-down"></i>
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Logo and search section. -->
-            <div class="logo-search col-*-6">
+            <div class="col-*-6" id="logoSearch">
                 <!-- Web Application Logo. -->
                 <div class="app-logo-container">
                     <a href="{% url 'dmg_django_app:home' %}">
@@ -93,15 +93,17 @@
                 </div>
                 <!-- Search container. -->
                 <div class="search-container">
-                    <input type="text" id="searchBox" name="searchBox" placeholder="search item..."><br/>
-                    <div class="button-container">
-                        <button type="button" class="search-button">Search</button>
+                    <div class="center">
+                        <input type="text" id="searchBox" name="searchBox" placeholder="search item..."><br/>
+                        <div class="button-wrapper">    
+                            <button type="button" class="search-button">Search</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Right sidebar for easy layout formatting. -->
-            <div class="sidebar2 col-*-3"></div>
+            <div class="col-*-3" id="sidebar2"></div>
 
         {% block content %}{% endblock content %}
         </div>

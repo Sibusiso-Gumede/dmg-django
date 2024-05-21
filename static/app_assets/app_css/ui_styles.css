@@ -1,5 +1,20 @@
-/* Layout header. */
-.sidebar1 {
+html, body {
+    height: 100%
+}
+
+/* SVG icon definitions(hidden). */
+.d-none {
+    display: none;
+    position: relative;
+}
+
+/* Layout container. */
+.container {
+    display: flex;
+    height: 100%;
+}
+
+#sidebar1, #sidebar2 {
     padding: 10px 16px;
     overflow: hidden;
     text-align: center;
@@ -55,37 +70,54 @@
     display: block;
 }
 
-#appLogo {
+/* Logo and search container. */
+#logoSearch {
+    display: block;
+    position: relative;
+    float: center;
     width: auto;
-    height: 300px;
-}
-
-.d-none {
-    display: none;
+    height: auto;
+    padding: 0px 40px;
 }
 
 .app-logo-container {
-    float: center;
-    text-align: center;
-    margin: 2px 0 2px 0;
-    background-color: none;
-}
-
-.search-container, .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px;
+    padding: 30px;
+}
+
+#appLogo {
+    width: auto;
+    height: 300px;
+    position: relative;
+}
+
+.search-container {
+    height: auto;
+    position: relative;
+}
+
+.center {
+    display: block;
+    position: inherit;
 }
 
 #searchBox {
     padding: 12px 20px;
-    width: 720px;
+    width: 620px;
     height: 15px;
     text-align: center;
 }
 
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 .search-button {
     width: 200px;
-    height: 25px
+    height: 25px;
 }
