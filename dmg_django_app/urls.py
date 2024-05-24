@@ -5,9 +5,9 @@ from . import views
 
 urlpatterns = [
     # Home page
-    path(r'', views.groceryItemsForm, name='home'),
+    path('', views.homepage, name='home'),
     # Grocery slips page.
-    path(r'grocery_slips/', views.generateSlips, name='generateSlips'),
+    path('home/receiptify', views.receiptify, name='receiptify'),
     # Best discounted products.
-    path(r'best_discounted_products/', views.bestDiscountedProducts, name='bestdiscounted'),
+    path('home/discounted_products/', views.discounted_products, name='discountedproducts'),
 ]

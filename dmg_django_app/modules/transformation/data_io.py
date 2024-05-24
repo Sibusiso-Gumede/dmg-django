@@ -172,35 +172,7 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
                                         "promo": data.get('promo')}})
         json.dump(buffer, file)
         return buffer
-
-def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
-    supermarket = None
-    products = None
-    if not (supermarket_name == None):
-        supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
-        products = Product.objects.filter(supermarket_id=supermarket.id)
-        products = products.filter(name__icontains=query)
-    elif supermarket_name == None:
-        products = Product.objects.filter(name__icontains=query)
-        
-    try:
-        assert not (products == None)
-    except AssertionError:
-        print("Product not found.")
-
-    buffer: dict[str] = {}
-    name: str = ""
-    for p in products:
-        if not (len(p.name) <= TITLE_LENGTH):
-            name = shorten_string(p.name)
-        else:
-            name = p.name
-        if not (p.discounted_price == 'R0.00'):
-            buffer.update({name: {"price": p.discounted_price}})
-        else:
-            buffer.update({name: {"price": p.price}})   
-    return buffer
-
+    
 def shorten_string(s:str) -> str:
     ''' Returns a string alias of the complete string.
         includes the first two words and the last.
@@ -236,6 +208,35 @@ def shorten_string(s:str) -> str:
         else:
             break            
     return formatted
+
+def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
+    supermarket = None
+    products = None
+    # In the case where a supermarket name is specified.
+    if not (supermarket_name == None):
+        supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
+        products = Product.objects.filter(supermarket_id=supermarket.id)
+        products = products.filter(name__icontains=query)
+    elif supermarket_name == None:
+        products = Product.objects.filter(name__icontains=query)
+        
+    if products == None:
+        return None
+    else:
+        buffer: dict[str] = {}
+        name: str = ""
+        s_name: str = ""
+        for p in products:
+            if not (len(p.name) <= TITLE_LENGTH):
+                name = shorten_string(p.name)
+                s_name = p.supermarket.name
+            else:
+                name = p.name
+            if not (p.discounted_price == 'R0.00'):
+                buffer.update({name: {"price": p.discounted_price, "supermarket_name": s_name}})
+            else:
+                buffer.update({name: {"price": p.price, "supermarket_name": s_name}})   
+        return buffer
 
 def string_ascii_total(string:str) -> str:
     accumulator:int = 0
