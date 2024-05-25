@@ -6,8 +6,10 @@ from . import views
 urlpatterns = [
     # Home page
     path('', views.homepage, name='home'),
-    # Grocery slips page.
+    # Receipt renderer page.
     path('home/receiptify', views.receiptify, name='receiptify'),
-    # Best discounted products.
-    path('home/discounted_products/', views.discounted_products, name='discountedproducts'),
+    # Discounted products page.
+    path('home/discounted_products/', views.discounted_products, name='discounted_products'),
+    # Nearby supermarkets page.
+    path('home/near_me', views.near_me, name='near_me')
 ]
