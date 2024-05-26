@@ -55,7 +55,7 @@
                         <ul class="nav col-12 my-2 justify-content-center my-md-0 text-small">
                     {% endif %}
                             <li class="nav-item" id="homeLink">
-                            {% if '/discounted_products' in request.path or '/receiptify' in request.path %}
+                            {% if '/discounted_products' in request.path or '/receiptify' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
                                 <a href="{% url 'dmg_django_app:home' %}" class="nav-link text-white">
                             {% else %}
                                 <a href="{% url 'dmg_django_app:home' %}" class="nav-link text-secondary">
@@ -76,9 +76,9 @@
                             </li>
                             <li class="nav-item">
                             {% if '/near_me' in request.path %}
-                                <a href="#" class="nav-link text-secondary">
+                                <a href="{% url 'dmg_django_app:near_me' %}" class="nav-link text-secondary">
                             {% else %}
-                                <a href="#" class="nav-link text-white">
+                                <a href="{% url 'dmg_django_app:near_me' %}" class="nav-link text-white">
                             {% endif %}
                                     <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
                                     Near Me
