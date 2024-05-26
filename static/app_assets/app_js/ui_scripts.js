@@ -1,14 +1,11 @@
-// When the user clicks the button, toggle between hiding and showing the dropdown content.
-function showMenu() {
-    document.getElementById("dropdownBox").classList.toggle('show');
-}
+$('input[type="submit"]').click(function(e) {
+    e.preventDefault();
+});
 
-// Close dropdown if user clicks outside of it.
-window.onclick = function(e) {
-    if(!e.target.matches('.dropbtn')) {
-        var dropdownBox = document.getElementById("dropdownBox");
-        if(dropdownBox.classList.contains('show'))  {
-            dropdownBox.classList.remove('show');
-        }
-    }
-}
+$(document).ready(function nearMeMap() {
+    var mapProperties = {
+        center: new google.maps.LatLng(-26.097576141357422, 28.050621032714844),
+        zoom: 14,
+    };
+    var map = new google.maps.Map($('#nearMeMap'), mapProperties);
+});

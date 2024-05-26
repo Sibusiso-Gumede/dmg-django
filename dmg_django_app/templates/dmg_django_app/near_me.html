@@ -1,9 +1,16 @@
 {% extends "dmg_django_app/base.html" %}
 
-<!--{% load static %}-->
+{% load static %}
+
 {% block content %}
 <div class="p-4 bg-success rounded">
     <h1 class="text-body-emphasis">Supermarket Locator</h1>
     <p>Out of the five supermarkets, find out which ones are near your location.</p>
 </div>
+
+<div class="p-4" id="nearMeMap"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9Z5g2DBBYk_Ie5sBLL74YhMSoibvnM8&callback=nearMeMap&libraries=maps,marker&v=beta"></script>
 {% endblock %}
