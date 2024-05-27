@@ -8,9 +8,14 @@
     <p>Out of the five supermarkets, find out which ones are near your location.</p>
 </div>
 
-<div class="p-4" id="nearMeMap"></div>
-{% endblock %}
+<iframe
+    class="p-4"
+    width="1000"
+    height="600"
+    frameborder="0"
+    referrerpolicy="no-referrer-when-downgrade"
+    src="{{ source }}"
+    allowfullscreen>
+</iframe>
 
-{% block scripts %}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9Z5g2DBBYk_Ie5sBLL74YhMSoibvnM8&callback=nearMeMap&libraries=maps,marker&v=beta"></script>
 {% endblock %}
