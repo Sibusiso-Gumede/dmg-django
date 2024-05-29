@@ -19,3 +19,7 @@
 iframe {
     border:0;
 }
+
+.receipt-rendering-container {
+    height: 100vh;
+}

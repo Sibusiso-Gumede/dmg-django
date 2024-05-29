@@ -8,4 +8,36 @@
     <p>Forget doing the mental math while you are at grocery aisles. Simply enter your grocery list below
     and know for certain how much your groceries cost before proceeding to the supermarket counter.</p>
 </div>
+
+<!-- Renderer form container. -->
+<div class="p-2 bg-light receipt-rendering-container">
+    <form method="get" action="">
+        <div class="supermarket-choices-wrapper pt-5 px-2 text-center">
+            <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
+            <div class="form-check-form form-check-inline" id="supermarket-choice">
+                <input class="form-check-input" type="radio" value="Woolworths" id="Woolworths" name="supermarket-choice">
+                <label class="form-check-label" for="Woolworths">Woolworths</label>
+            </div>
+            <div class="form-check-form form-check-inline" id="supermarket-choice">
+                <input class="form-check-input" type="radio" value="PicknPay" id="PicknPay" name="supermarket-choice">
+                <label class="form-check-label" for="PicknPay">PicknPay</label>
+            </div>
+            <div class="form-check-form form-check-inline" id="supermarket-choice">
+                <input class="form-check-input" type="radio" value="Shoprite" id="Shoprite" name="supermarket-choice" checked>
+                <label class="form-check-label" for="Shoprite">Shoprite</label>
+            </div>
+            <div class="form-check-form form-check-inline" id="supermarket-choice">
+                <input class="form-check-input" type="radio" value="Makro" id="Makro" name="supermarket-choice">
+                <label class="form-check-label" for="Makro">Makro</label>
+            </div>
+            <div class="form-check-form form-check-inline" id="supermarket-choice">
+                <input class="form-check-input" type="radio" value="Checkers" id="Checkers" name="supermarket-choice">
+                <label class="form-check-label" for="Checkers">Checkers</label>
+            </div>
+        </div>
+        <div class="pt-4 type-to-add-wrapper">
+            <input class="form-control typeahead text-center mx-auto border-2" type="text" id="typeToAddProduct" name="typeToAddProduct" placeholder="Type to add product..." style="width:450px">
+        </div>
+    </form>
+</div>
 {% endblock %}

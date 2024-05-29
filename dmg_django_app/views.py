@@ -9,8 +9,12 @@ def homepage(request):
 
 def receiptify(request):
     """Generates slips of the listed products."""
+    names:list[str] = []
 
-    context = {}
+    for supermarket in Supermarkets.SUPERMARKETS.values():
+        names.append(supermarket.get_supermarket_name().capitalize())
+    context = {"supermarket_names": names}
+
     return render(request, 'dmg_django_app/receiptify.html', context)
 
 def discounted_products(request, **kwargs):

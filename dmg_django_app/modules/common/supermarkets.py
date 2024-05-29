@@ -5,11 +5,11 @@ class Supermarkets():
     """Supermarket objects, grouped in a single container - 
     for ease of access and package navigation."""
     
-    PNP = 'picknpay'
-    WOOLIES = 'woolworths'
-    SHOPRITE = 'shoprite'
-    CHECKERS = 'checkers'
-    MAKRO = 'makro'
+    PNP = 'Picknpay'
+    WOOLIES = 'Woolworths'
+    SHOPRITE = 'Shoprite'
+    CHECKERS = 'Checkers'
+    MAKRO = 'Makro'
 
     SUPERMARKETS: dict = {
         WOOLIES: Woolworths(),
