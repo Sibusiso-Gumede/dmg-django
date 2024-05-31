@@ -5,7 +5,7 @@ class Supermarkets():
     """Supermarket objects, grouped in a single container - 
     for ease of access and package navigation."""
     
-    PNP = 'Picknpay'
+    PNP = 'PicknPay'
     WOOLIES = 'Woolworths'
     SHOPRITE = 'Shoprite'
     CHECKERS = 'Checkers'

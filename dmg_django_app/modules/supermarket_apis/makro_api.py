@@ -10,7 +10,7 @@ class Makro(BaseSupermarket):
 		self.identifier = 20
 		self.__home_page = 'https://www.makro.co.za'
 		self.__category_page = f'{self.__home_page}/food/category/sub/c/idcode'
-		self.__name = 'makro'
+		self.__name = 'Makro'
 		self.__page_selectors = {
 			'product_list': 'div[data-testid="plp_flat_list"] > div > div.css-1dbjc4n',
 			'product_id': '',

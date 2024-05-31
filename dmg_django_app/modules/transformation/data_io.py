@@ -209,7 +209,7 @@ def shorten_string(s:str) -> str:
             break            
     return formatted
 
-def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
+def query_items(query: str, supermarket_name: str = None, receiptify: bool = False) -> dict[str] | None:
     supermarket = None
     products = None
     # In the case where a supermarket name is specified.
@@ -225,17 +225,15 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
     else:
         buffer: dict[str] = {}
         name: str = ""
-        s_name: str = ""
         for p in products:
-            if not (len(p.name) <= TITLE_LENGTH):
+            if receiptify and (not (len(p.name) <= TITLE_LENGTH)):
                 name = shorten_string(p.name)
-                s_name = p.supermarket.name
             else:
                 name = p.name
             if not (p.discounted_price == 'R0.00'):
-                buffer.update({name: {"price": p.discounted_price, "supermarket_name": s_name}})
+                buffer.update({name: {"price": p.discounted_price, "supermarket_name": p.supermarket.name}})
             else:
-                buffer.update({name: {"price": p.price, "supermarket_name": s_name}})   
+                buffer.update({name: {"price": p.price, "supermarket_name": p.supermarket.name}})   
         return buffer
 
 def string_ascii_total(string:str) -> str:

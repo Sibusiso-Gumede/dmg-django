@@ -14,29 +14,23 @@
     <form method="get" action="">
         <div class="supermarket-choices-wrapper pt-5 px-2 text-center">
             <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
+        {% for s_name in supermarket_names %}
             <div class="form-check-form form-check-inline" id="supermarket-choice">
-                <input class="form-check-input" type="radio" value="Woolworths" id="Woolworths" name="supermarket-choice">
-                <label class="form-check-label" for="Woolworths">Woolworths</label>
+            {% if query and s_choice == s_name %}
+                <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" checked>
+            {% elif not query and s_name == "Shoprite" %}
+                <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" checked>
+            {% else %}    
+                <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice">    
+            {% endif %}
+                <label class="form-check-label" for="{{ s_name }}">{{ s_name }}</label>
             </div>
-            <div class="form-check-form form-check-inline" id="supermarket-choice">
-                <input class="form-check-input" type="radio" value="PicknPay" id="PicknPay" name="supermarket-choice">
-                <label class="form-check-label" for="PicknPay">PicknPay</label>
-            </div>
-            <div class="form-check-form form-check-inline" id="supermarket-choice">
-                <input class="form-check-input" type="radio" value="Shoprite" id="Shoprite" name="supermarket-choice" checked>
-                <label class="form-check-label" for="Shoprite">Shoprite</label>
-            </div>
-            <div class="form-check-form form-check-inline" id="supermarket-choice">
-                <input class="form-check-input" type="radio" value="Makro" id="Makro" name="supermarket-choice">
-                <label class="form-check-label" for="Makro">Makro</label>
-            </div>
-            <div class="form-check-form form-check-inline" id="supermarket-choice">
-                <input class="form-check-input" type="radio" value="Checkers" id="Checkers" name="supermarket-choice">
-                <label class="form-check-label" for="Checkers">Checkers</label>
-            </div>
+        {% endfor %}
         </div>
         <div class="pt-4 type-to-add-wrapper">
-            <input class="form-control typeahead text-center mx-auto border-2" type="text" id="typeToAddProduct" name="typeToAddProduct" placeholder="Type to add product..." style="width:450px">
+            <input class="form-control typeahead text-center mx-auto border-2" type="text" id="typeToAddProduct" 
+            name="typeToAddProduct" placeholder="Type to add product..." style="width:450px"
+            required="required" minlength="4">
         </div>
     </form>
 </div>

@@ -10,7 +10,7 @@ class Shoprite(BaseSupermarket):
 		self.identifier = 40
 		self.__query_page = 'https://www.shoprite.co.za/search/all?q=item'
 		self.__home_page = 'https://www.shoprite.co.za'
-		self.__name = 'shoprite'
+		self.__name = 'Shoprite'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
 			'product_name': 'div.item-product__details > h3.item-product__name > a',

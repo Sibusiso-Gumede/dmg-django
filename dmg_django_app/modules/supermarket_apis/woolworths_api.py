@@ -10,7 +10,7 @@ class Woolworths(BaseSupermarket):
         self.identifier = 50
         self.__home_page = 'https://www.woolworths.co.za'
         self.__category_page = f'{self.__home_page}/cat/Food/category/_/idcode'
-        self.__name = 'woolworths'
+        self.__name = 'Woolworths'
         self.__page_selectors = {
 			'product_list': 'div.product-list__item',
 			'product_id': '',

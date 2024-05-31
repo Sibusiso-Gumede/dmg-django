@@ -9,15 +9,24 @@ def homepage(request):
 
 def receiptify(request):
     """Generates slips of the listed products."""
-    names:list[str] = []
-
+    
+    context: dict = {}
+    s_names: list[str] = []
+    s_choice: str = ""
+    
     for supermarket in Supermarkets.SUPERMARKETS.values():
-        names.append(supermarket.get_supermarket_name().capitalize())
-    context = {"supermarket_names": names}
+        s_names.append(supermarket.get_supermarket_name())
+    
+    context.update({'supermarket_names': s_names, 'query': False})
+
+    if not (request.META.get('QUERY_STRING') == ''):
+        s_choice = request.GET.get('supermarket-choice')
+        context['query'] = True
+        context.update({'products': query_items(request.GET.get('typeToAddProduct'), s_choice)})
 
     return render(request, 'dmg_django_app/receiptify.html', context)
 
-def discounted_products(request, **kwargs):
+def discounted_products(request):
     """Generate content for the different products their prices."""
 
     context = {}

@@ -10,7 +10,7 @@ class Checkers(BaseSupermarket):
 		self.identifier = 10
 		self.__query_page = 'https://www.checkers.co.za/search/all?q=item'
 		self.__home_page = 'https://www.checkers.co.za'
-		self.__name = 'checkers'
+		self.__name = 'Checkers'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
 			'product_name': 'div.item-product__details > h3.item-product__name > a',
