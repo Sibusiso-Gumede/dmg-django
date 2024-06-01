@@ -1,7 +1,20 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from dmg_django_app.modules.transformation.data_io import query_items
 from dmg_django.settings import GOOGLE_API_KEY
 from dmg_django_app.modules.common import Supermarkets
+
+context = {"supermarket_names": [
+    Supermarkets.CHECKERS, Supermarkets.MAKRO,
+    Supermarkets.PNP, Supermarkets.SHOPRITE,
+    Supermarkets.WOOLIES
+]}
+
+def product_auto_suggestion(request):
+    products: list[str] = []
+    for item in query_items(request.GET.get('term'), request.GET.get('supermarket-choice')):
+        products.append(item)
+    return JsonResponse(products, safe=False)
 
 def homepage(request):
     """The home page for the dmg_django_app."""
@@ -9,33 +22,15 @@ def homepage(request):
 
 def receiptify(request):
     """Generates slips of the listed products."""
-    
-    context: dict = {}
-    s_names: list[str] = []
-    s_choice: str = ""
-    
-    for supermarket in Supermarkets.SUPERMARKETS.values():
-        s_names.append(supermarket.get_supermarket_name())
-    
-    context.update({'supermarket_names': s_names, 'query': False})
-
-    if not (request.META.get('QUERY_STRING') == ''):
-        s_choice = request.GET.get('supermarket-choice')
-        context['query'] = True
-        context.update({'products': query_items(request.GET.get('typeToAddProduct'), s_choice)})
-
     return render(request, 'dmg_django_app/receiptify.html', context)
 
 def discounted_products(request):
     """Generate content for the different products their prices."""
-
-    context = {}
     return render(request, 'dmg_django_app/discounted_products.html', context)
 
 def near_me(request):
     """Displays supermarkets near the user."""
     query_substring:str = ""
-    for supermarket in Supermarkets.SUPERMARKETS.values():
-        query_substring += supermarket.get_supermarket_name()+'+'
-    context = {"source": f"https://www.google.com/maps/embed/v1/search?key={GOOGLE_API_KEY}&q={query_substring}in+Standerton,+Mpumalanga"}
-    return render(request, 'dmg_django_app/near_me.html', context)
+    for supermarket in context.get('supermarket_names'):
+        query_substring += supermarket+'+'
+    return render(request, 'dmg_django_app/near_me.html', {"source": f"https://www.google.com/maps/embed/v1/search?key={GOOGLE_API_KEY}&q={query_substring}in+Standerton,+Mpumalanga"})

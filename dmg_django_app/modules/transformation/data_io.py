@@ -212,6 +212,7 @@ def shorten_string(s:str) -> str:
 def query_items(query: str, supermarket_name: str = None, receiptify: bool = False) -> dict[str] | None:
     supermarket = None
     products = None
+
     # In the case where a supermarket name is specified.
     if not (supermarket_name == None):
         supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   

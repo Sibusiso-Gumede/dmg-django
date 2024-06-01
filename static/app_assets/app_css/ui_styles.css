@@ -20,6 +20,6 @@ iframe {
     border:0;
 }
 
-.receipt-rendering-container {
+.content-container, .receipt-rendering-container, .type-to-add-wrapper {
     height: 100vh;
 }

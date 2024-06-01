@@ -1,15 +1,17 @@
 """Defines URL patterns for dmg_django_app."""
 
 from django.urls import include, path
-from . import views
+from .views import *
 
 urlpatterns = [
     # Home page
-    path('', views.homepage, name='home'),
+    path('', homepage, name='home'),
     # Receipt renderer page.
-    path('receiptify', views.receiptify, name='receiptify'),
+    path('receiptify/', receiptify, name='receiptify'),
     # Discounted products page.
-    path('home/discounted_products/', views.discounted_products, name='discounted_products'),
+    path('home/discounted_products/', discounted_products, name='discounted_products'),
     # Nearby supermarkets page.
-    path('near_me', views.near_me, name='near_me')
+    path('near_me/', near_me, name='near_me'),
+    # Autosuggestions pattern.
+    path('autosuggestion/', product_auto_suggestion, name='product_autosuggestion'),
 ]
