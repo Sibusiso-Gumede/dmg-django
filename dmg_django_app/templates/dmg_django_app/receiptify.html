@@ -29,19 +29,26 @@
             <input class="form-control text-center mx-auto border-2" type="text" id="typeToAddProduct" 
             placeholder="Type to add product..." style="width:600px;" required="required" minlength="3">
         </div>
+        <div class="p-4 product-list-wrapper table-responsive">
+            <!--<table class="product-list table-borderless">
+                <tr>
+
+                </tr>
+            </table>-->
+        </div>
     </form>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    $("#typeToAddProduct").autocomplete({
+    $.widget("custom.productAutocomplete", $.ui.autocomplete, {});
+    $("#typeToAddProduct").productAutocomplete({
         source: "{% url 'dmg_django_app:product_autosuggestion' %}",
         minLength: 3,
-        appendTo: $(".type-to-add-wrapper"),
-        select: function(event, ui){
-            console.log("selected item,\n"+ui.item.value);
-        },
+        select: function(event, custom){
+            event.preventDefault();
+        }
     });
 </script>
 {% endblock %}

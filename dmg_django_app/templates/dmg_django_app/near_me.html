@@ -7,15 +7,16 @@
     <h1 class="text-body-emphasis">Supermarket Locator</h1>
     <p>Out of the five supermarkets, find out which ones are near your location.</p>
 </div>
-
-<iframe
-    class="p-4"
-    width="1000"
-    height="600"
-    frameborder="0"
-    referrerpolicy="no-referrer-when-downgrade"
-    src="{{ source }}"
-    allowfullscreen>
-</iframe>
+<div class="map-wrapper align-content-center">
+    <iframe
+        class="py-3 mx-auto"
+        width="1000"
+        height="600"
+        frameborder="0"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="{{ source }}"
+        allowfullscreen>
+    </iframe>
+</div>
 
 {% endblock %}
