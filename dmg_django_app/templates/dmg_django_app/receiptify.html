@@ -11,7 +11,7 @@
 
 <!-- Renderer form container. -->
 <div class="p-2 bg-light receipt-rendering-container">
-    <form method="get" action="">
+    <form method="get" action="" id="form">
         <div class="supermarket-choices-wrapper pt-5 px-2 text-center">
             <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
         {% for s_name in supermarket_names %}
@@ -38,17 +38,4 @@
         </div>
     </form>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script>
-    $.widget("custom.productAutocomplete", $.ui.autocomplete, {});
-    $("#typeToAddProduct").productAutocomplete({
-        source: "{% url 'dmg_django_app:product_autosuggestion' %}",
-        minLength: 3,
-        select: function(event, custom){
-            event.preventDefault();
-        }
-    });
-</script>
 {% endblock %}

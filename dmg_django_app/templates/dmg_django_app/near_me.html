@@ -20,3 +20,20 @@
 </div>
 
 {% endblock %}
+
+{% block scripts %}
+<script>
+    function getLocation() {
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(relayPosition);
+        }
+        else {
+            console.log("Geolocation is not supported by the browser.");
+        }
+    }
+
+    function relayPosition(position) {
+        console.log("Current Latitude: "+position.coords.latitude);
+        console.log("Current longitude: "+position.coords.longitude);
+    }
+</script>
