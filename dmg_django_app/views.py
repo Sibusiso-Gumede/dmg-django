@@ -33,4 +33,5 @@ def near_me(request):
     query_substring:str = ""
     for supermarket in context.get('supermarket_names'):
         query_substring += supermarket+'+'
-    return render(request, 'dmg_django_app/near_me.html', {"source": f"https://www.google.com/maps/embed/v1/search?key={GOOGLE_API_KEY}&q={query_substring}in+Standerton,+Mpumalanga"})
+    query_substring = query_substring[:-2] #remove trailing plus sign.
+    return render(request, 'dmg_django_app/near_me.html', {"source": f"https://www.google.com/maps/embed/v1/search?key={GOOGLE_API_KEY}&q={query_substring}"})

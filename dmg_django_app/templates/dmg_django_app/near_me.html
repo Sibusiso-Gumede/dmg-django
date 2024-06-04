@@ -1,5 +1,4 @@
 {% extends "dmg_django_app/base.html" %}
-
 {% load static %}
 
 {% block content %}
@@ -18,22 +17,27 @@
         allowfullscreen>
     </iframe>
 </div>
-
 {% endblock %}
 
 {% block scripts %}
 <script>
-    function getLocation() {
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(relayPosition);
+    function getLocation(nav, c) {
+        if(nav.geolocation) {
+            nav.geolocation.getCurrentPosition(relayPosition, handleError, {enableHighAccuracy:true});
         }
         else {
             console.log("Geolocation is not supported by the browser.");
         }
     }
-
     function relayPosition(position) {
-        console.log("Current Latitude: "+position.coords.latitude);
-        console.log("Current longitude: "+position.coords.longitude);
+        appendCoordinates(document.querySelector('iframe'), String(position.coords.latitude+", "+position.coords.longitude));
     }
+    function appendCoordinates(elem, c) {
+        elem.src = elem.src+"&center="+c+"&zoom=15";
+    }
+    function handleError(error) {
+        console.log("Encountered geolocation error");
+    }
+    getLocation(window.navigator);
 </script>
+{% endblock %}
