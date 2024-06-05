@@ -27,7 +27,7 @@
         </div>
         <div class="pt-4 type-to-add-wrapper">
             <input class="form-control text-center mx-auto border-2" type="text" id="typeToAddProduct" 
-            placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" autocomplete="on">
+            placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autoSuggest(this.value)">
         </div>
         <div class="p-4 product-list-wrapper table-responsive">
             <!--<table class="product-list table-borderless">
@@ -38,4 +38,42 @@
         </div>
     </form>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function autoSuggest(input_value) {
+        var choice;
+        if(input_value.length >= 3) {
+            const radios = document.querySelectorAll('.form-check-input');
+            
+            for(let i = 0; i < radios.length; i++) {
+                if(radios[i].hasAttribute('checked'))
+                    choice = radios[i].id;
+            }
+            
+            var queryParams = {"term": input_value, "supermarket_choice": choice};
+            var url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
+            
+            for(let i in queryParams)
+                url.searchParams.append(i, queryParams[i])
+            
+            const request = new Request(url, {method: "GET"});
+
+            const getJSON = async () => {
+                const response = await fetch(request);
+                if (response.ok) {
+                    return response.body;
+                }
+                else {
+                    throw new Error("Response error.");
+                }
+            };
+
+            getJSON()
+            .then((result) => console.log(result))
+            .catch((error) => console.error(error));
+        }
+    }
+</script>
 {% endblock %}

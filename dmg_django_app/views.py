@@ -10,11 +10,14 @@ context = {"supermarket_names": [
     Supermarkets.WOOLIES
 ]}
 
-def product_auto_suggestion(request):
-    products: list[str] = []
-    for item in query_items(request.GET.get('term'), request.GET.get('supermarket-choice')):
-        products.append(item)
-    return JsonResponse(products, safe=False)
+def product_autosuggestion(request):
+    products: dict[str] = {}
+    item_n: int = 1
+    for item in query_items(request.GET.get('term'), request.GET.get('supermarket_choice')):
+        print(item)
+        products.update({item_n: item})
+        item_n = item_n + 1
+    return JsonResponse(products, safe=True)
 
 def homepage(request):
     """The home page for the dmg_django_app."""

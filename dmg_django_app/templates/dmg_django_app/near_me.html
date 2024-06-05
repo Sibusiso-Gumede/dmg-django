@@ -30,14 +30,13 @@
         }
     }
     function relayPosition(position) {
-        appendCoordinates(document.querySelector('iframe'), String(position.coords.latitude+", "+position.coords.longitude));
-    }
-    function appendCoordinates(elem, c) {
-        elem.src = elem.src+"&center="+c+"&zoom=15";
+        elem = document.querySelector('iframe');
+        elem.src = elem.src+"&center="+String(position.coords.latitude+", "+position.coords.longitude)+"&zoom=15";
     }
     function handleError(error) {
         console.log("Encountered geolocation error");
     }
+    
     getLocation(window.navigator);
 </script>
 {% endblock %}

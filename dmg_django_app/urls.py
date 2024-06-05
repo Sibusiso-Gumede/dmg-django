@@ -13,5 +13,5 @@ urlpatterns = [
     # Nearby supermarkets page.
     path('near_me/', near_me, name='near_me'),
     # Autosuggestions pattern.
-    path('autosuggestion/', product_auto_suggestion, name='product_autosuggestion'),
+    path('autosuggestion/', product_autosuggestion, name='product_autosuggestion'),
 ]
