@@ -28,7 +28,7 @@ class DMGTestCase(TestCase):
         r:str = input('\nFilter?')
         if r == 'Y':
             s:str = input('\nType supermarket name\n>>>')
-            items = query_items(q, s)
+            items = query_items(q, s, True)
             rr.render(items, s)
         else:
             items = query_items(q)
