@@ -24,9 +24,12 @@
                 <label class="form-check-label" for="{{ s_name }}">{{ s_name }}</label>
             </div>
         {% endfor %}
-            <div class="pt-4 type-to-add-wrapper" name="type_to_add_container"></div>
-                <input class="form-control text-center mx-auto border-2" type="text" id="typeToAddProduct" name="type-to-add"
-                placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="auto_suggest(this)">
+            <div class="card pt-4 type-to-add-wrapper" name="type_to_add_container">
+                <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false"
+                placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
+                <div class="collapse" id="autosuggestion">
+                    <div class="card card-body"></div>
+                </div>
             </div>
         </div>        
         <div class="p-4 product-list-wrapper table-responsive">
@@ -48,14 +51,28 @@
     });
 
     var current_choice = "Shoprite";
+    var autosuggestion = document.querySelector("#autosuggestion");
+    var autosuggestion_body = document.querySelector(".card-body");
+    //var autosuggestion_is_collapsed = false;
 
-    function update_choice(radio_button) {
+    /*autosuggestion.on("show.bs.collapse", function () {
+        autosuggestion_is_collapsed = true;
+    })
+
+    autosuggestion.on("hide.bs.collapse", function () {
+        autosuggestion_is_collapsed = false;
+    })*/
+
+    async function update_choice(radio_button) {
         current_choice = radio_button.value;
     }
 
-    function auto_suggest(input_field) {
+    async function autosuggest(input_field) {
+        autosuggestion.className = "collapse";
         const input_value = input_field.value;
-        if(input_value.length >= 3) {            
+        var suggested_items = [];
+
+        if(input_value.length > 2) {            
             var queryParams = {"type-to-add": input_value, "supermarket-choice": current_choice};
             var url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
             
@@ -64,7 +81,7 @@
             
             const request = new Request(url, {method: "GET"});
 
-            fetch(request)
+            await fetch(request)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -73,28 +90,30 @@
                     throw new Error("Response error.");
                 }
             })
-            .then((response) => {
-                response;
+            .then((buffer) => {
+                for(let i in buffer)
+                    suggested_items.push(buffer[i]);
             })
             .catch((error) => {
                 console.log(error);
             });
+
+            if(suggested_items.length > 0) {
+                if(autosuggestion_body.hasChildNodes())
+                    autosuggestion_body.innerHTML = "";
+                show_autosuggestion(suggested_items);
+            }
         }
     }
 
-    function show_autosuggestion(widget, items){
-        for(let i in items) {
+    async function show_autosuggestion(items) {
+        for(let i = 0; i < items.length; i++) {
             var option = document.createElement("button");
-            option.setAttribute("class", "dropdown-item");
-            option.setAttribute("type", "button");
-            option.setAttribute("data-target");
-            option.innerText = i;
-            widget.append(option);
+            option.setAttribute("class", "btn btn-link");
+            option.innerText = items[i];
+            autosuggestion_body.append(option);
         }
-
-        document.type_to_add_container.append(widget);
+        autosuggestion.className = "collapse show";
     }
-
-    function hide_autosuggestion(){}
 </script>
 {% endblock %}
