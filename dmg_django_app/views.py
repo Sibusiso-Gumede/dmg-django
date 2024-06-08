@@ -13,9 +13,8 @@ context = {"supermarket_names": [
 def product_autosuggestion(request):
     products: dict[str] = {}
     item_n: int = 1
-    for item in query_items(request.GET.get('type-to-add'), request.GET.get('supermarket-choice')):
-        products.update({item_n: item})
-        item_n = item_n + 1
+    for item, data in query_items(request.GET.get('type-to-add'), request.GET.get('supermarket-choice')).items():
+        products.update({item: data.get('price')})
     return JsonResponse(products, safe=True)
 
 def homepage(request):

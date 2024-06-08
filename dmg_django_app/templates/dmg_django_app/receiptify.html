@@ -15,7 +15,7 @@
         <div class="choices-and-add-wrapper pt-5 px-2 text-center">
             <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
         {% for s_name in supermarket_names %}
-            <div class="form-check-form form-check-inline" id="supermarket-choice">
+            <div class="form-check-form form-check-inline pb-3" id="supermarket-choice">
             {% if s_name == "Shoprite" %}
                 <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" checked onclick="update_choice(this)">
             {% else %}    
@@ -24,11 +24,11 @@
                 <label class="form-check-label" for="{{ s_name }}">{{ s_name }}</label>
             </div>
         {% endfor %}
-            <div class="card pt-4 type-to-add-wrapper" name="type_to_add_container">
+            <div class="card type-to-add-wrapper mx-auto" style="width: 600px;" name="type_to_add_container">
                 <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false"
                 placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
-                <div class="collapse" id="autosuggestion">
-                    <div class="card card-body"></div>
+                <div class="collapse align-content-center" id="autosuggestion" name="autosuggestion" style="width:610px;">
+                    <div class="list-group card card-body mx-auto p-1" role="tablist" style="width:600px;"></div>
                 </div>
             </div>
         </div>        
@@ -45,7 +45,7 @@
 
 {% block scripts %}
 <script>
-    document.form.addEventListener("keydown", function(event){
+    document.form.addEventListener("onsubmit", function(event){
         if(event.key === "Enter")
             event.preventDefault();
     });
@@ -53,24 +53,32 @@
     var current_choice = "Shoprite";
     var autosuggestion = document.querySelector("#autosuggestion");
     var autosuggestion_body = document.querySelector(".card-body");
-    //var autosuggestion_is_collapsed = false;
+    var type_to_add = document.querySelector("#type-to-add");
 
-    /*autosuggestion.on("show.bs.collapse", function () {
-        autosuggestion_is_collapsed = true;
-    })
+    type_to_add.addEventListener("keydown", function(event) {
+        if(event.key === "ArrowDown" && autosuggestion.className === "collapse show" && autosuggestion_body.hasChildNodes())
+            autosuggestion_body.firstChild.focus();
+    });
+    
+    autosuggestion.addEventListener("keydown", function(event) {
+        let move_to = null;
+        if(event.key === "ArrowDown")
+            move_to = document.activeElement.nextElementSibling;
+        else if(event.key === "ArrowUp")
+            move_to = document.activeElement.previousElementSibling;
+        
+        if(move_to)
+            move_to.focus();
+    });
 
-    autosuggestion.on("hide.bs.collapse", function () {
-        autosuggestion_is_collapsed = false;
-    })*/
-
-    async function update_choice(radio_button) {
+    function update_choice(radio_button) {
         current_choice = radio_button.value;
     }
 
     async function autosuggest(input_field) {
         autosuggestion.className = "collapse";
         const input_value = input_field.value;
-        var suggested_items = [];
+        var suggested_items = new Map();
 
         if(input_value.length > 2) {            
             var queryParams = {"type-to-add": input_value, "supermarket-choice": current_choice};
@@ -92,28 +100,30 @@
             })
             .then((buffer) => {
                 for(let i in buffer)
-                    suggested_items.push(buffer[i]);
+                    suggested_items.set(i, buffer[i]);
             })
             .catch((error) => {
                 console.log(error);
             });
 
-            if(suggested_items.length > 0) {
-                if(autosuggestion_body.hasChildNodes())
-                    autosuggestion_body.innerHTML = "";
-                show_autosuggestion(suggested_items);
+            autosuggestion_body.innerHTML = "";
+            var suggestion_entry;
+            if(suggested_items.size > 0) {
+                for(let name of suggested_items.keys()) {
+                    suggestion_entry = document.createElement("button");
+                    suggestion_entry.setAttribute("class", "list-group-item list-group-item-action");
+                    suggestion_entry.setAttribute("type", "button");
+                    suggestion_entry.setAttribute("role", "tab");
+                    suggestion_entry.innerText = name;
+                    autosuggestion_body.append(suggestion_entry);
+                }
             }
+            else {
+                suggestion_entry = document.createTextNode("No item found.");
+                autosuggestion_body.appendChild(suggestion_entry);
+            }
+            autosuggestion.className = "collapse show";
         }
-    }
-
-    async function show_autosuggestion(items) {
-        for(let i = 0; i < items.length; i++) {
-            var option = document.createElement("button");
-            option.setAttribute("class", "btn btn-link");
-            option.innerText = items[i];
-            autosuggestion_body.append(option);
-        }
-        autosuggestion.className = "collapse show";
     }
 </script>
 {% endblock %}
