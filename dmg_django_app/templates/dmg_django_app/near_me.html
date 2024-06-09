@@ -21,22 +21,25 @@
 
 {% block scripts %}
 <script>
+    var notifier = document.querySelector('iframe');
+
     function getLocation(nav, c) {
         if(nav.geolocation) {
             nav.geolocation.getCurrentPosition(relayPosition, handleError, {enableHighAccuracy:true});
         }
         else {
-            console.log("Geolocation is not supported by the browser.");
+            notifier.setAttribute("src", "Geolocation is not supported by the browser.");
         }
     }
+
     function relayPosition(position) {
         elem = document.querySelector('iframe');
         elem.src = elem.src+"&center="+String(position.coords.latitude+", "+position.coords.longitude)+"&zoom=15";
     }
+
     function handleError(error) {
-        console.log("Encountered geolocation error");
+        notifier.setAttribute("src", "Encountered geolocation error");
     }
-    
     getLocation(window.navigator);
 </script>
 {% endblock %}
