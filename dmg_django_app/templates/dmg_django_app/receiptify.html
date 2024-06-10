@@ -32,8 +32,10 @@
                 </div>
             </div>
         </div>        
-        <div class="p-4 product-list-wrapper table-responsive">
-            <table class="product-list table-borderless"></table>
+        <div class="grocery-list-wrapper">
+            <div class="title">
+                Grocery List
+            </div><br/>
         </div>
     </form>
 </div>
@@ -52,7 +54,7 @@
     var autosuggestion_body = document.querySelector(".card-body");
     var type_to_add = document.querySelector("#type-to-add");
     var suggested_items = new Map();
-    var product_list = document.querySelector('.product-list');
+    var grocery_list = document.querySelector('.grocery-list-wrapper');
 
     type_to_add.addEventListener("keydown", function(event) {
         if(event.key === "ArrowDown" && autosuggestion.className === "collapse show" && autosuggestion_body.hasChildNodes())
@@ -128,28 +130,54 @@
         
     function add_to_list(event, item) {
         if(event.key === "Enter" || event.type === "click") {
-            let tr = document.createElement("tr");
-            let td_name = document.createElement("td");
-            let td_price = document.createElement("td");
-            let td_action = document.createElement("td");
-            let anchor = document.createElement("a");
+            let item_div = create_tag("div", {class: "item container"});
+            let item_description = create_tag("div", {class: "description"});
+            item_description.innerText = item.innerText;
+            let item_total_price = create_tag("div", {class: "price", innerText: suggested_items.get(item.innerText)});
             
-            td_name.innerText = item.innerText;
-            td_price.innerText = suggested_items.get(item.innerText);
-            anchor.innerText = "Remove";
-            anchor.setAttribute("href","javascript:remove_item(this);");
-            td_action.append(anchor);
+            let item_delete_button_wrapper = create_tag("div", {class: "action-button"});
+            //"style:'width: 1em; height:1em; padding-inline: .25em; color: black;'+'background: url("")'"
+            let item_delete_button = create_tag("button", {class: "btn-close", "aria-label": "Close", type: "button", "data-bs-dismiss": "item"});
 
-            for(let cell of [td_name, td_price, td_action])
-                tr.append(cell);
-            product_list.append(tr);
+            let item_quantity = create_tag("div", {class: "quantity"});
+            let item_quantity_minus_button = create_tag("button", {class: "minus-btn btn btn-outline-secondary", type:"button"});
+            let item_quantity_minus_button_svg = create_tag("svg", {width: "16", height: "16"});
+            let item_quantity_minus_button_svg_use_tag = create_tag("use", {"xlink:href": "#minus-sign"});
+            let item_quantity_input = create_tag("input", {type:"text", name: "quantity-input", value: "1"});
+            let item_quantity_plus_button = create_tag("button", {class: "plus-btn btn btn-outline-secondary", type: "button"});
+            let item_quantity_plus_button_svg = create_tag("svg", {width: "16", height: "16"});
+            let item_quantity_plus_button_svg_use_tag = create_tag("use", {"xlink:href": "#plus-sign"});            
+
+            item_delete_button_wrapper.append(item_delete_button);
+            item_quantity_minus_button_svg.append(item_quantity_minus_button_svg_use_tag);
+            item_quantity_minus_button.append(item_quantity_minus_button_svg);
+            item_quantity_plus_button_svg.append(item_quantity_plus_button_svg_use_tag);
+            item_quantity_plus_button.append(item_quantity_plus_button_svg);
+
+            item_quantity.append(item_quantity_minus_button);
+            item_quantity.append(item_quantity_input);
+            item_quantity.append(item_quantity_plus_button);
+
+            item_div.append(item_description);
+            item_div.append(item_quantity);
+            item_div.append(item_total_price)
+            item_div.append(item_delete_button_wrapper);
+
+            grocery_list.append(item_div);
         }
     }
 
     function remove_item(item) {
-        let action_cell = item.parentElement;
-        //let row = action_cell.parentElement;
-        action_cell.innerHTML = "";
+        item.parentNode.parentNode.remove();
+        return false;
+    }
+
+    function create_tag(tag, options) {
+        //add attributes using element.attributes
+        let element_ = document.createElement(tag);
+        for(let attribute of options)
+            element_.setAttribute(attribute, options[attribute]);
+        return element_;
     }
 
 </script>
