@@ -86,7 +86,7 @@
             var queryParams = {"type-to-add": input_value, "supermarket-choice": current_choice};
             var url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
             
-            for(let i in queryParams)
+            for(const i in queryParams)
                 url.searchParams.append(i, queryParams[i])
             
             const request = new Request(url, {method: "GET"});
@@ -101,7 +101,7 @@
                 }
             })
             .then((buffer) => {
-                for(let i in buffer)
+                for(const i in buffer)
                     suggested_items.set(i, buffer[i]);
             })
             .catch((error) => {
@@ -109,9 +109,10 @@
             });
 
             autosuggestion_body.innerHTML = "";
+
             if(suggested_items.size > 0) {
-                for(let name of suggested_items.keys()) {
-                    suggestion_entry = document.createElement("button");
+                for(const name of suggested_items.keys()) {
+                    let suggestion_entry = document.createElement("button");
                     suggestion_entry.setAttribute("class", "list-group-item list-group-item-action");
                     suggestion_entry.setAttribute("type", "button");
                     suggestion_entry.setAttribute("role", "tab");
@@ -130,23 +131,55 @@
         
     function add_to_list(event, item) {
         if(event.key === "Enter" || event.type === "click") {
-            let item_div = create_tag("div", {class: "item container"});
-            let item_description = create_tag("div", {class: "description"});
-            item_description.innerText = item.innerText;
-            let item_total_price = create_tag("div", {class: "price", innerText: suggested_items.get(item.innerText)});
+            let item_div = document.createElement("div");
+            item.setAttribute("class", "item container");
             
-            let item_delete_button_wrapper = create_tag("div", {class: "action-button"});
+            let item_description = document.createElement("div");
+            item_description.setAttribute("class", "description");
+            item_description.innerText = item.innerText;
+            
+            let item_total_price = document.createElement("div");
+            item_total_price.setAttribute("class", "price");
+            item_total_price.innerText = suggested_items.get(item.innerText);
+            
+            let item_delete_button_wrapper = document.createElement("div");
+            item_delete_button_wrapper.setAttribute("class", "action-button");
             //"style:'width: 1em; height:1em; padding-inline: .25em; color: black;'+'background: url("")'"
-            let item_delete_button = create_tag("button", {class: "btn-close", "aria-label": "Close", type: "button", "data-bs-dismiss": "item"});
+            let item_delete_button = document.createElement("button");
+            item_delete_button.setAttribute("class", "btn-close");
+            item_delete_button.setAttribute("aria-label", "Close");
+            item_delete_button.setAttribute("type", "button");
+            item_delete_button.setAttribute("data-bs-dismiss", "item");
 
-            let item_quantity = create_tag("div", {class: "quantity"});
-            let item_quantity_minus_button = create_tag("button", {class: "minus-btn btn btn-outline-secondary", type:"button"});
-            let item_quantity_minus_button_svg = create_tag("svg", {width: "16", height: "16"});
-            let item_quantity_minus_button_svg_use_tag = create_tag("use", {"xlink:href": "#minus-sign"});
-            let item_quantity_input = create_tag("input", {type:"text", name: "quantity-input", value: "1"});
-            let item_quantity_plus_button = create_tag("button", {class: "plus-btn btn btn-outline-secondary", type: "button"});
-            let item_quantity_plus_button_svg = create_tag("svg", {width: "16", height: "16"});
-            let item_quantity_plus_button_svg_use_tag = create_tag("use", {"xlink:href": "#plus-sign"});            
+            let item_quantity = document.createElement("div");
+            item_quantity.setAttribute("class", "quantity");
+            
+            let item_quantity_minus_button = document.createElement("button");
+            item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-outline-secondary");
+            item_quantity_minus_button.setAttribute("type", "button");
+            
+            let item_quantity_minus_button_svg = document.createElement("svg");
+            item_quantity_minus_button_svg.setAttribute("width", "16");
+            item_quantity_minus_button_svg.setAttribute("height", "16");
+            
+            let item_quantity_minus_button_svg_use_tag = document.createElement("use");
+            item_quantity_minus_button_svg_use_tag.setAttribute("xlink:href", "#minus-sign");
+            
+            let item_quantity_input = document.createElement("input");
+            item_quantity_input.setAttribute("type", "text");
+            item_quantity_input.setAttribute("name", "quantity-input")
+            item_quantity_input.setAttribute("value", "1");
+            
+            let item_quantity_plus_button = document.createElement("button");
+            item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-outline-secondary");
+            item_quantity_plus_button.setAttribute("type", "button");
+            
+            let item_quantity_plus_button_svg = document.createElement("svg");
+            item_quantity_plus_button_svg.setAttribute("width", "16");
+            item_quantity_minus_button_svg.setAttribute("height", "16");
+            
+            let item_quantity_plus_button_svg_use_tag = document.createElement("use");
+            item_quantity_minus_button_svg_use_tag.setAttribute("xlink:href", "#plus-sign");            
 
             item_delete_button_wrapper.append(item_delete_button);
             item_quantity_minus_button_svg.append(item_quantity_minus_button_svg_use_tag);
@@ -170,14 +203,6 @@
     function remove_item(item) {
         item.parentNode.parentNode.remove();
         return false;
-    }
-
-    function create_tag(tag, options) {
-        //add attributes using element.attributes
-        let element_ = document.createElement(tag);
-        for(let attribute of options)
-            element_.setAttribute(attribute, options[attribute]);
-        return element_;
     }
 
 </script>
