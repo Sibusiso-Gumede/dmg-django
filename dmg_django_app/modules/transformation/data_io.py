@@ -214,20 +214,18 @@ def query_items(query: str, supermarket_name: str = None, receiptify: bool = Fal
     products = None
 
     # In the case where a supermarket name is specified.
-    if not (supermarket_name == None):
+    if supermarket_name:
         supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
         products = Product.objects.filter(supermarket_id=supermarket.id)
         products = products.filter(name__icontains=query)
     elif supermarket_name == None:
         products = Product.objects.filter(name__icontains=query)
         
-    if products == None:
-        return None
-    else:
+    if products:
         buffer: dict[str] = {}
         name: str = ""
         for p in products:
-            if receiptify and (not (len(p.name) <= TITLE_LENGTH)):
+            if (receiptify) and (not (len(p.name) <= TITLE_LENGTH)):
                 name = shorten_string(p.name)
             else:
                 name = p.name
@@ -236,6 +234,8 @@ def query_items(query: str, supermarket_name: str = None, receiptify: bool = Fal
             else:
                 buffer.update({name: {"price": p.price, "supermarket_name": p.supermarket.name}})   
         return buffer
+    else:
+        return None
 
 def string_ascii_total(string:str) -> str:
     accumulator:int = 0

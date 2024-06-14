@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>        
-        <div class="grocery-list-wrapper">
+        <div class="grocery-list-wrapper container-fluid">
             <div class="title">
                 Grocery List
             </div><br/>
@@ -132,19 +132,18 @@
     function add_to_list(event, item) {
         if(event.key === "Enter" || event.type === "click") {
             let item_div = document.createElement("div");
-            item.setAttribute("class", "item container");
+            item_div.setAttribute("class", "item d-flex fex-row w-100");
             
             let item_description = document.createElement("div");
-            item_description.setAttribute("class", "description");
+            item_description.setAttribute("class", "description w-50");
             item_description.innerText = item.innerText;
             
             let item_total_price = document.createElement("div");
-            item_total_price.setAttribute("class", "price");
+            item_total_price.setAttribute("class", "price w-10");
             item_total_price.innerText = suggested_items.get(item.innerText);
             
             let item_delete_button_wrapper = document.createElement("div");
-            item_delete_button_wrapper.setAttribute("class", "action-button");
-            //"style:'width: 1em; height:1em; padding-inline: .25em; color: black;'+'background: url("")'"
+            item_delete_button_wrapper.setAttribute("class", "action-button w-10");
             let item_delete_button = document.createElement("button");
             item_delete_button.setAttribute("class", "btn-close");
             item_delete_button.setAttribute("aria-label", "Close");
@@ -152,10 +151,10 @@
             item_delete_button.setAttribute("data-bs-dismiss", "item");
 
             let item_quantity = document.createElement("div");
-            item_quantity.setAttribute("class", "quantity");
+            item_quantity.setAttribute("class", "item-quantity w-30");
             
             let item_quantity_minus_button = document.createElement("button");
-            item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-outline-secondary");
+            item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-outline-secondary w-5");
             item_quantity_minus_button.setAttribute("type", "button");
             
             let item_quantity_minus_button_svg = document.createElement("svg");
@@ -166,12 +165,13 @@
             item_quantity_minus_button_svg_use_tag.setAttribute("xlink:href", "#minus-sign");
             
             let item_quantity_input = document.createElement("input");
+            item_quantity_input.setAttribute("class", "text-center fst-normal fw-normal w-20");
             item_quantity_input.setAttribute("type", "text");
-            item_quantity_input.setAttribute("name", "quantity-input")
+            item_quantity_input.setAttribute("aria-label", "item-quantity");
             item_quantity_input.setAttribute("value", "1");
             
             let item_quantity_plus_button = document.createElement("button");
-            item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-outline-secondary");
+            item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-outline-secondary w-5");
             item_quantity_plus_button.setAttribute("type", "button");
             
             let item_quantity_plus_button_svg = document.createElement("svg");
@@ -197,6 +197,8 @@
             item_div.append(item_delete_button_wrapper);
 
             grocery_list.append(item_div);
+            
+            autosuggestion.className = "collapse";
         }
     }
 

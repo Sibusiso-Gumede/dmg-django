@@ -16,6 +16,11 @@
     height: 400px;
 }
 
+.list-group button:focus {
+    background-color: #0d6efd;
+    outline: none;
+}
+
 .list-group button:hover {
     background-color: #0d6efd;
 }

@@ -13,8 +13,10 @@ context = {"supermarket_names": [
 def product_autosuggestion(request):
     products: dict[str] = {}
     item_n: int = 1
-    for item, data in query_items(request.GET.get('type-to-add'), request.GET.get('supermarket-choice')).items():
-        products.update({item: data.get('price')})
+    items_:dict[str] = query_items(request.GET.get('type-to-add'), request.GET.get('supermarket-choice'))
+    if items_:
+        for item, data in items_.items():
+            products.update({item: data.get('price')})
     return JsonResponse(products, safe=True)
 
 def homepage(request):

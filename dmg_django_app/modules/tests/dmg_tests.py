@@ -25,13 +25,13 @@ class DMGTestCase(TestCase):
         items:dict[str] = {}
         rr = ReceiptRenderer()
         q:str = input('Search item:\n>>>')
-        r:str = input('\nFilter?')
-        if r == 'Y':
+        f:str = input('\nFilter?')
+        if f == 'Y' or f == 'Yes':
             s:str = input('\nType supermarket name\n>>>')
-            items = query_items(q, s, True)
+            items = query_items(query=q, supermarket_name=s, receiptify=True)
             rr.render(items, s)
         else:
-            items = query_items(q)
+            items = query_items(q, receiptify=True)
             rr.render(items)
 
     def models_test(self):
