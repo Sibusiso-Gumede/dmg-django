@@ -24,3 +24,11 @@
 .list-group button:hover {
     background-color: #0d6efd;
 }
+
+.description {
+    width: 70%;
+}
+
+.item-right-column {
+    width: 30%;
+}
