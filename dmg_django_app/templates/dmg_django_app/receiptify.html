@@ -17,9 +17,9 @@
         {% for s_name in supermarket_names %}
             <div class="form-check-form form-check-inline pb-3" id="supermarket-choice">
             {% if s_name == "Shoprite" %}
-                <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" checked onclick="update_choice(this)">
+                <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" checked onclick="update_choice(event, this)">
             {% else %}    
-                <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" onclick="update_choice(this)">    
+                <input class="form-check-input" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" onclick="update_choice(event, this)">    
             {% endif %}
                 <label class="form-check-label" for="{{ s_name }}">{{ s_name }}</label>
             </div>
@@ -66,8 +66,7 @@
     var autosuggestion_body = document.querySelector(".card-body");
     var type_to_add = document.querySelector("#type-to-add");
     var suggested_items = new Map();
-    var selected_items = new Map();
-    var total_selected_items = 0;
+    var selected_items = [];
     var grocery_list_body = document.querySelector('.selected-items');
 
     type_to_add.addEventListener("keydown", function(event) {
@@ -87,22 +86,29 @@
             move_to.focus();
     });
 
-    function update_choice(radio_button) {
-        current_choice = radio_button.value;
+    function update_choice(event, option) {
+        if(selected_items.length === 0) {
+            current_choice = option.value;
+        }
+        else if(selected_items.length > 0) {
+            event.preventDefault();
+            alert("Please clear the currently selected items\n"+
+                "on the grocery list before changing a supermarket option.");
+        }
     }
 
     async function autosuggest(input_field) {
         autosuggestion.className = "collapse";
-        const input_value = input_field.value;
-        suggested_items.clear();
 
-        if(input_value.length > 2) {            
-            var queryParams = {"type-to-add": input_value, "supermarket-choice": current_choice};
+        if(input_field.value.length > 2) {
+            suggested_items.clear();
+
+            var queryParams = {"type-to-add": input_field.value, "supermarket-choice": current_choice};
             var url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
             
             for(const i in queryParams)
                 url.searchParams.append(i, queryParams[i]);
-            
+
             const request = new Request(url, {method: "GET"});
 
             await fetch(request)
@@ -144,15 +150,15 @@
     }
         
     function add_to_list(event, item) {
-        if(event.key === "Enter" || event.type === "click") {
-            total_selected_items = total_selected_items + 1;
+        if(!selected_items.includes(item.innerText)) {
+            selected_items.push(item.innerText);
 
             let item_row = document.createElement("tr");
             item_row.setAttribute("class", item.innerText);
             
             let item_number_field = document.createElement("th");
             item_number_field.setAttribute("scope", "row");
-            item_number_field.append(total_selected_items);
+            item_number_field.append(selected_items.length);
             
             let item_name_field = document.createElement("td");
             item_name_field.append(item.innerText);
@@ -164,7 +170,7 @@
             item_delete_button.setAttribute("class", "btn-close");
             item_delete_button.setAttribute("aria-label", "Close");
             item_delete_button.setAttribute("type", "button");
-            item_delete_button.setAttribute("data-bs-dismiss", item.innerText);
+            item_delete_button.setAttribute("onclick", "remove_item(this)");
 
             let item_delete_button_field = document.createElement("td");
             item_delete_button_field.append(item_delete_button);
@@ -222,15 +228,24 @@
             item_row.append(item_delete_button_field);
 
             grocery_list_body.append(item_row);
-            
-            autosuggestion.className = "collapse";
         }
+        autosuggestion.className = "collapse";
     }
 
     function remove_item(item) {
-        item.parentNode.parentNode.remove();
+        let parent = item.parentNode.parentNode;
+        
+        selected_items.splice(selected_items.indexOf(parent.className), 1);
+        parent.remove();
+
+        let number_fields = document.querySelectorAll('th[scope="row"]');
+        let count = 0;
+
+        for(let num_field of number_fields){
+            count = count + 1;
+            num_field.innerText = count;
+        }
         return false;
     }
-
 </script>
 {% endblock %}
