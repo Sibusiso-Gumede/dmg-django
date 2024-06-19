@@ -12,7 +12,7 @@
 <!-- Renderer form container. -->
 <div class="p-2 bg-light receipt-rendering-container">
     <form method="get" action="{% url 'dmg_django_app:product_autosuggestion' %}" name="form"> 
-        <div class="choices-and-add-wrapper pt-5 px-2 text-center">
+        <div class="choices-and-add-wrapper py-5 px-2 text-center">
             <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
         {% for s_name in supermarket_names %}
             <div class="form-check-form form-check-inline pb-3" id="supermarket-choice">
@@ -32,10 +32,22 @@
                 </div>
             </div>
         </div>        
-        <div class="grocery-list-wrapper d-flex flex-column border border-dark py-4" style="height:400px">
-            <div class="grocery-list-title border border-dark mb-3 mx-auto" style="width:400px;height:50px">
+        <div class="grocery-list-wrapper d-flex flex-column py-4" style="height:400px">
+            <div class="grocery-list-title mb-3 mx-auto" style="width:400px;height:50px">
                 <p class="display-6 text-center">Grocery List</p>
             </div>
+            <table class="table grocery-list">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody class="selected-items"></tbody>
+            </table>
         </div>
     </form>
 </div>
@@ -54,7 +66,9 @@
     var autosuggestion_body = document.querySelector(".card-body");
     var type_to_add = document.querySelector("#type-to-add");
     var suggested_items = new Map();
-    var grocery_list = document.querySelector('.grocery-list-wrapper');
+    var selected_items = new Map();
+    var total_selected_items = 0;
+    var grocery_list_body = document.querySelector('.selected-items');
 
     type_to_add.addEventListener("keydown", function(event) {
         if(event.key === "ArrowDown" && autosuggestion.className === "collapse show" && autosuggestion_body.hasChildNodes())
@@ -87,7 +101,7 @@
             var url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
             
             for(const i in queryParams)
-                url.searchParams.append(i, queryParams[i])
+                url.searchParams.append(i, queryParams[i]);
             
             const request = new Request(url, {method: "GET"});
 
@@ -131,34 +145,32 @@
         
     function add_to_list(event, item) {
         if(event.key === "Enter" || event.type === "click") {
-            let item_div = document.createElement("div");
-            item_div.setAttribute("class", "item d-flex align-items-center");
-            
-            let item_description_wrapper = document.createElement("div");
-            item_description_wrapper.setAttribute("class", "description text-center");
-            
-            let item_description = document.createElement("p");
-            item_description.setAttribute("class", "item-description text-center");
-            item_description.innerText = item.innerText;
-            
-            let item_right_column = document.createElement("div");
-            item_right_column.setAttribute("class", "item-right-cloumn d-flex");
+            total_selected_items = total_selected_items + 1;
 
-            let item_total_price = document.createElement("div");
-            item_total_price.setAttribute("class", "price text-center ps-4");
-            item_total_price.innerText = suggested_items.get(item.innerText);
+            let item_row = document.createElement("tr");
+            item_row.setAttribute("class", item.innerText);
             
-            let item_delete_button_wrapper = document.createElement("div");
-            item_delete_button_wrapper.setAttribute("class", "action-button ps-4");
+            let item_number_field = document.createElement("th");
+            item_number_field.setAttribute("scope", "row");
+            item_number_field.append(total_selected_items);
             
+            let item_name_field = document.createElement("td");
+            item_name_field.append(item.innerText);
+
+            let item_total_price_field = document.createElement("td");
+            item_total_price_field.innerText = suggested_items.get(item.innerText);
+
             let item_delete_button = document.createElement("button");
             item_delete_button.setAttribute("class", "btn-close");
             item_delete_button.setAttribute("aria-label", "Close");
             item_delete_button.setAttribute("type", "button");
-            item_delete_button.setAttribute("data-bs-dismiss", "item");
+            item_delete_button.setAttribute("data-bs-dismiss", item.innerText);
 
-            let item_quantity = document.createElement("div");
-            item_quantity.setAttribute("class", "item-quantity d-inline-flex ps-4");
+            let item_delete_button_field = document.createElement("td");
+            item_delete_button_field.append(item_delete_button);
+
+            let item_quantity_wrapper = document.createElement("div");
+            item_quantity_wrapper.setAttribute("class", "item-quantity d-inline-flex ps-4");
             
             let item_quantity_minus_button = document.createElement("button");
             item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-outline-secondary");
@@ -166,14 +178,11 @@
             
             let item_quantity_minus_button_svg = document.createElement("svg");
             item_quantity_minus_button_svg.setAttribute("class", "bi bi-dash");
-            item_quantity_minus_button_svg.setAttribute("width", "8");
-            item_quantity_minus_button_svg.setAttribute("height", "8");
+            item_quantity_minus_button_svg.setAttribute("width", "4");
+            item_quantity_minus_button_svg.setAttribute("height", "4");
             
             let item_quantity_minus_button_svg_use_tag = document.createElement("use");
             item_quantity_minus_button_svg_use_tag.setAttribute("xlink:href", "#minus-sign");
-            
-            let item_quantity_input_wrapper = document.createElement("div");
-            item_quantity_input_wrapper.setAttribute("class", "item-input-wrapper");
             
             let item_quantity_input = document.createElement("input");
             item_quantity_input.setAttribute("class", "fst-normal fw-normal text-center mx-auto");
@@ -188,34 +197,31 @@
             
             let item_quantity_plus_button_svg = document.createElement("svg");
             item_quantity_plus_button_svg.setAttribute("class", "bi bi-plus");
-            item_quantity_plus_button_svg.setAttribute("width", "8");
-            item_quantity_plus_button_svg.setAttribute("height", "8");
+            item_quantity_plus_button_svg.setAttribute("width", "4");
+            item_quantity_plus_button_svg.setAttribute("height", "4");
             
             let item_quantity_plus_button_svg_use_tag = document.createElement("use");
             item_quantity_plus_button_svg_use_tag.setAttribute("xlink:href", "#plus-sign");            
 
-            item_delete_button_wrapper.append(item_delete_button);
+            let item_quantity_field = document.createElement("td");
             item_quantity_minus_button_svg.append(item_quantity_minus_button_svg_use_tag);
             item_quantity_minus_button.append(item_quantity_minus_button_svg);
-            item_quantity_input_wrapper.append(item_quantity_input);
             item_quantity_plus_button_svg.append(item_quantity_plus_button_svg_use_tag);
             item_quantity_plus_button.append(item_quantity_plus_button_svg);
 
-            item_quantity.append(item_quantity_minus_button);
-            item_quantity.append(item_quantity_input_wrapper);
-            item_quantity.append(item_quantity_plus_button);
+            item_quantity_wrapper.append(item_quantity_minus_button);
+            item_quantity_wrapper.append(item_quantity_input);
+            item_quantity_wrapper.append(item_quantity_plus_button);
             
-            item_description_wrapper.append(item_description);
-            
-            item_right_column.append(item_quantity);
-            item_right_column.append(item_total_price);
-            item_right_column.append(item_delete_button_wrapper);
-            
-            item_div.append(item_description_wrapper);
-            item_div.append(item_right_column);
+            item_quantity_field.append(item_quantity_wrapper);
 
+            item_row.append(item_number_field);
+            item_row.append(item_name_field);
+            item_row.append(item_quantity_field);
+            item_row.append(item_total_price_field);
+            item_row.append(item_delete_button_field);
 
-            grocery_list.append(item_div);
+            grocery_list_body.append(item_row);
             
             autosuggestion.className = "collapse";
         }
