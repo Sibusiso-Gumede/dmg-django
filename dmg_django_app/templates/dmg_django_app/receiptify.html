@@ -88,6 +88,8 @@
 
     function update_choice(event, option) {
         if(selected_items.length === 0) {
+            if(autosuggestion.className === "collapse show")
+                autosuggestion.className = "collapse";
             current_choice = option.value;
         }
         else if(selected_items.length > 0) {
