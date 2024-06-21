@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>        
-        <div class="grocery-list-wrapper d-flex flex-column py-4" style="height:400px">
+        <div class="grocery-list-wrapper d-flex flex-column py-4" style="min-height:400px">
             <div class="grocery-list-title mb-3 mx-auto" style="width:400px;height:50px">
                 <p class="display-6 text-center">Grocery List</p>
             </div>
@@ -48,6 +48,7 @@
                 </thead>
                 <tbody class="selected-items"></tbody>
             </table>
+            <button type="button" class="btn btn-dark text-white d-none" id="get-receipts-button" style="width:200px;">Get Receipt(s)</button>
         </div>
     </form>
 </div>
@@ -56,11 +57,6 @@
 {% block scripts %}
 <script type="text/javascript">
 
-    document.form.addEventListener("onsubmit", function(event){
-        if(event.key === "Enter")
-            event.preventDefault();
-    });
-
     var current_choice = "Shoprite";
     var autosuggestion = document.querySelector("#autosuggestion");
     var autosuggestion_body = document.querySelector(".card-body");
@@ -68,6 +64,12 @@
     var suggested_items = new Map();
     var selected_items = [];
     var grocery_list_body = document.querySelector('.selected-items');
+    var get_receipts_button = document.getElementById('get-receipts-button');
+
+    document.form.addEventListener("onsubmit", function(event){
+        if(event.key === "Enter")
+            event.preventDefault();
+    });
 
     type_to_add.addEventListener("keydown", function(event) {
         if(event.key === "ArrowDown" && autosuggestion.className === "collapse show" && autosuggestion_body.hasChildNodes())
@@ -86,10 +88,14 @@
             move_to.focus();
     });
 
+    document.addEventListener("onclick", function(event) {
+        if(autosuggestion.className === "collapse show")
+            autosuggestion.className = "collapse";
+    });
+
     function update_choice(event, option) {
         if(selected_items.length === 0) {
-            if(autosuggestion.className === "collapse show")
-                autosuggestion.className = "collapse";
+            autosuggestion.className = "collapse";
             current_choice = option.value;
         }
         else if(selected_items.length > 0) {
@@ -100,10 +106,10 @@
     }
 
     async function autosuggest(input_field) {
-        autosuggestion.className = "collapse";
 
         if(input_field.value.length > 2) {
             suggested_items.clear();
+            //autosuggestion.className = "collapse";
 
             var queryParams = {"type-to-add": input_field.value, "supermarket-choice": current_choice};
             var url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
@@ -152,7 +158,7 @@
     }
         
     function add_to_list(event, item) {
-        if(!selected_items.includes(item.innerText)) {
+        if((event.key === "Enter" || event.type === "click") && !selected_items.includes(item.innerText)) {
             selected_items.push(item.innerText);
 
             let item_row = document.createElement("tr");
@@ -230,8 +236,11 @@
             item_row.append(item_delete_button_field);
 
             grocery_list_body.append(item_row);
+
+            if(selected_items.length > 0)
+                get_receipts_button.className = "btn btn-dark text-white d-block mx-auto";
         }
-        autosuggestion.className = "collapse";
+        //autosuggestion.className = "collapse";
     }
 
     function remove_item(item) {
@@ -243,11 +252,13 @@
         let number_fields = document.querySelectorAll('th[scope="row"]');
         let count = 0;
 
-        for(let num_field of number_fields){
+        for(let num_field of number_fields) {
             count = count + 1;
             num_field.innerText = count;
         }
-        return false;
+
+        if(selected_items.length === 0)
+            get_receipts_button.className = "btn btn-dark text-white d-none";
     }
 </script>
 {% endblock %}
