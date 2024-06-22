@@ -62,7 +62,7 @@
     var autosuggestion_body = document.querySelector(".card-body");
     var type_to_add = document.querySelector("#type-to-add");
     var suggested_items = new Map();
-    var selected_items = [];
+    var selected_items = new Map();
     var grocery_list_body = document.querySelector('.selected-items');
     var get_receipts_button = document.getElementById('get-receipts-button');
 
@@ -89,11 +89,11 @@
     });
 
     function update_choice(event, option) {
-        if(selected_items.length === 0) {
+        if(selected_items.size === 0) {
             autosuggestion.className = "collapse";
             current_choice = option.value;
         }
-        else if(selected_items.length > 0) {
+        else if(selected_items.size > 0) {
             event.preventDefault();
             alert("Please clear the currently selected items\n"+
                 "on the grocery list before changing a supermarket option.");
@@ -153,21 +153,21 @@
     }
         
     function add_to_list(event, item) {
-        if((event.key === "Enter" || event.type === "click") && !selected_items.includes(item.innerText)) {
-            selected_items.push(item.innerText);
+        if((event.key === "Enter" || event.type === "click") && !selected_items.has(item.innerText)) {
+            selected_items.set(item.innerText, suggested_items.get(item.innerText));
 
             let item_row = document.createElement("tr");
             item_row.setAttribute("class", item.innerText);
             
             let item_number_field = document.createElement("th");
             item_number_field.setAttribute("scope", "row");
-            item_number_field.append(selected_items.length);
+            item_number_field.append(selected_items.size);
             
             let item_name_field = document.createElement("td");
             item_name_field.append(item.innerText);
 
             let item_total_price_field = document.createElement("td");
-            item_total_price_field.innerText = suggested_items.get(item.innerText);
+            item_total_price_field.innerText = selected_items.get(item.innerText);
 
             let item_delete_button = document.createElement("button");
             item_delete_button.setAttribute("class", "btn-close");
@@ -218,7 +218,7 @@
 
             grocery_list_body.append(item_row);
 
-            if(selected_items.length > 0)
+            if(selected_items.size > 0)
                 get_receipts_button.className = "btn btn-dark text-white d-block mx-auto";
         }
         //autosuggestion.className = "collapse";
@@ -227,7 +227,7 @@
     function remove_item(item) {
         let parent = item.parentNode.parentNode;
         
-        selected_items.splice(selected_items.indexOf(parent.className), 1);
+        selected_items.delete(parent.className);
         parent.remove();
 
         let number_fields = document.querySelectorAll('th[scope="row"]');
@@ -238,19 +238,27 @@
             num_field.innerText = count;
         }
 
-        if(selected_items.length === 0)
+        if(selected_items.size === 0)
             get_receipts_button.className = "btn btn-dark text-white d-none";
     }
 
     function change_product_quantity(button) {
+        let price = button.parentNode.parentNode.nextSibling;
         if(button.className.includes("minus")) {
             const quantity = Number(button.nextSibling.value);
-            if(quantity > 1)
+            if(quantity > 1) {
                 button.nextSibling.value = quantity - 1;
+                price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(button.nextSibling.value)).toFixed(2);
+            }
         }
         else if(button.className.includes("plus")) {
             button.previousSibling.value = Number(button.previousSibling.value) + 1;
+            price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(button.previousSibling.value)).toFixed(2);
         }
+    }
+
+    function get_receipts() {
+        
     }
 
 </script>
