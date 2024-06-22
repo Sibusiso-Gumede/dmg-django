@@ -185,7 +185,8 @@
             let item_quantity_minus_button = document.createElement("button");
             item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-danger");
             item_quantity_minus_button.setAttribute("type", "button");
-            item_quantity_minus_button.setAttribute("style", "width:40px")
+            item_quantity_minus_button.setAttribute("style", "width:40px");
+            item_quantity_minus_button.setAttribute("onclick", "change_product_quantity(this)");
             item_quantity_minus_button.innerText = "-";
             
             let item_quantity_input = document.createElement("input");
@@ -199,6 +200,7 @@
             item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-success");
             item_quantity_plus_button.setAttribute("type", "button"); 
             item_quantity_plus_button.setAttribute("style", "width:40px");
+            item_quantity_plus_button.setAttribute("onclick", "change_product_quantity(this)");
             item_quantity_plus_button.innerText = "+";           
 
             item_quantity_wrapper.append(item_quantity_minus_button);
@@ -239,5 +241,17 @@
         if(selected_items.length === 0)
             get_receipts_button.className = "btn btn-dark text-white d-none";
     }
+
+    function change_product_quantity(button) {
+        if(button.className.includes("minus")) {
+            const quantity = Number(button.nextSibling.value);
+            if(quantity > 1)
+                button.nextSibling.value = quantity - 1;
+        }
+        else if(button.className.includes("plus")) {
+            button.previousSibling.value = Number(button.previousSibling.value) + 1;
+        }
+    }
+
 </script>
 {% endblock %}
