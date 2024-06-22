@@ -88,11 +88,6 @@
             move_to.focus();
     });
 
-    document.addEventListener("onclick", function(event) {
-        if(autosuggestion.className === "collapse show")
-            autosuggestion.className = "collapse";
-    });
-
     function update_choice(event, option) {
         if(selected_items.length === 0) {
             autosuggestion.className = "collapse";
@@ -184,19 +179,14 @@
             item_delete_button_field.append(item_delete_button);
 
             let item_quantity_wrapper = document.createElement("div");
-            item_quantity_wrapper.setAttribute("class", "item-quantity d-inline-flex ps-4");
+            item_quantity_wrapper.setAttribute("class", "item-quantity border border-black d-inline-flex");
+            item_quantity_wrapper.setAttribute("style", "width:130px");
             
             let item_quantity_minus_button = document.createElement("button");
-            item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-outline-secondary");
+            item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-danger");
             item_quantity_minus_button.setAttribute("type", "button");
-            
-            let item_quantity_minus_button_svg = document.createElement("svg");
-            item_quantity_minus_button_svg.setAttribute("class", "bi bi-dash");
-            item_quantity_minus_button_svg.setAttribute("width", "4");
-            item_quantity_minus_button_svg.setAttribute("height", "4");
-            
-            let item_quantity_minus_button_svg_use_tag = document.createElement("use");
-            item_quantity_minus_button_svg_use_tag.setAttribute("xlink:href", "#minus-sign");
+            item_quantity_minus_button.setAttribute("style", "width:40px")
+            item_quantity_minus_button.innerText = "-";
             
             let item_quantity_input = document.createElement("input");
             item_quantity_input.setAttribute("class", "fst-normal fw-normal text-center mx-auto");
@@ -206,27 +196,16 @@
             item_quantity_input.setAttribute("style", "width:50px");
             
             let item_quantity_plus_button = document.createElement("button");
-            item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-outline-secondary");
-            item_quantity_plus_button.setAttribute("type", "button");
-            
-            let item_quantity_plus_button_svg = document.createElement("svg");
-            item_quantity_plus_button_svg.setAttribute("class", "bi bi-plus");
-            item_quantity_plus_button_svg.setAttribute("width", "4");
-            item_quantity_plus_button_svg.setAttribute("height", "4");
-            
-            let item_quantity_plus_button_svg_use_tag = document.createElement("use");
-            item_quantity_plus_button_svg_use_tag.setAttribute("xlink:href", "#plus-sign");            
-
-            let item_quantity_field = document.createElement("td");
-            item_quantity_minus_button_svg.append(item_quantity_minus_button_svg_use_tag);
-            item_quantity_minus_button.append(item_quantity_minus_button_svg);
-            item_quantity_plus_button_svg.append(item_quantity_plus_button_svg_use_tag);
-            item_quantity_plus_button.append(item_quantity_plus_button_svg);
+            item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-success");
+            item_quantity_plus_button.setAttribute("type", "button"); 
+            item_quantity_plus_button.setAttribute("style", "width:40px");
+            item_quantity_plus_button.innerText = "+";           
 
             item_quantity_wrapper.append(item_quantity_minus_button);
             item_quantity_wrapper.append(item_quantity_input);
             item_quantity_wrapper.append(item_quantity_plus_button);
             
+            let item_quantity_field = document.createElement("td");
             item_quantity_field.append(item_quantity_wrapper);
 
             item_row.append(item_number_field);
