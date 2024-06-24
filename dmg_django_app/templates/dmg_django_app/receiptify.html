@@ -3,6 +3,24 @@
 {% load static %}
 
 {% block content %}
+<div class="modal fade" id="resultsWidget">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="resultsWidgetLabel">Receipt(s)</h1>
+                <button typ="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid"></div>
+            </div>
+            <div class="modal-footer">
+                <p class="info" id="downloadFormatLabel">Download Format</p>
+                <button type="button" class="btn btn-success" id="jpegFormatButton">JPEG</button>
+                <button type="button" class="btn btn-success" id="pdfFormatButton">PDF</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="p-4 bg-primary text-black rounded">
     <h1 class="text-body-emphasis">Receipt Renderer</h1>
     <p>Forget doing the mental math while you are at grocery aisles. Simply enter your grocery list below
