@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from dmg_django_app.modules.transformation.data_io import query_items
 from dmg_django.settings import GOOGLE_API_KEY
 from dmg_django_app.modules.common import Supermarkets
@@ -25,7 +25,8 @@ def homepage(request):
 
 def receiptify(request):
     """Generates slips of the listed products."""
-    return render(request, 'dmg_django_app/receiptify.html', context)
+    
+    return HttpResponse()
 
 def discounted_products(request):
     """Generate content for the different products their prices."""
