@@ -72,6 +72,8 @@
 </div>
 {% endblock %}
 
+{% csrf_token %}
+
 {% block scripts %}
 <script type="text/javascript">
 
@@ -286,17 +288,26 @@
         let items = new Map();
 
         for(const entry of grocery_list_body.childNodes) {
-            items.set(entry.className,  entry.querySelector(".quantity").value);
+            let info = new Map();
+            info.set("quantity", entry.querySelector(".quantity").value);
+            info.set("price", entry.querySelector(".price").innerText);
+            items.set(entry.className, info);
         }
 
         data.set(current_choice, items);
 
-        await fetch("/get_receipts", {
-            method: "POST", 
-            body: data,
-        }).then((response) => {
+        const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const request = new Request("/get_receipts/",
+            {
+                method: "POST", 
+                headers: {'X-CSRFToken': csrf_token},
+                body: data,
+                mode: "same-origin"
+            });
+
+        await fetch(request).then((response) => {
             if (response.ok) {
-                return 
+                return response.body;
             }
         });
     }
