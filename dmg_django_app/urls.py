@@ -12,6 +12,8 @@ urlpatterns = [
     path('home/discounted_products/', discounted_products, name='discounted_products'),
     # Nearby supermarkets page.
     path('near_me/', near_me, name='near_me'),
-    # Autosuggestions pattern.
+    # Autosuggestions url.
     path('autosuggestion/', product_autosuggestion, name='product_autosuggestion'),
+    # Receipt rendering url.
+    path('get_receipts/', get_receipts, name='get_receipts'),
 ]

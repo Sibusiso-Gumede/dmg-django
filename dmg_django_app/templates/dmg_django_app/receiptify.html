@@ -185,6 +185,7 @@
             item_name_field.append(item.innerText);
 
             let item_total_price_field = document.createElement("td");
+            item_total_price_field.className = "total-price"
             item_total_price_field.innerText = selected_items.get(item.innerText);
 
             let item_delete_button = document.createElement("button");
@@ -208,11 +209,12 @@
             item_quantity_minus_button.innerText = "-";
             
             let item_quantity_input = document.createElement("input");
-            item_quantity_input.setAttribute("class", "fst-normal fw-normal text-center mx-auto");
+            item_quantity_input.setAttribute("class", "quantity fst-normal fw-normal text-center mx-auto");
             item_quantity_input.setAttribute("type", "text");
             item_quantity_input.setAttribute("aria-label", "item-quantity");
             item_quantity_input.setAttribute("value", "1");
             item_quantity_input.setAttribute("style", "width:50px");
+            item_quantity_input.setAttribute("onchange", "change_total_price(this)");
             
             let item_quantity_plus_button = document.createElement("button");
             item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-success");
@@ -260,29 +262,36 @@
     }
 
     function change_product_quantity(button) {
-        let price = button.parentNode.parentNode.nextSibling;
+        
         if(button.className.includes("minus")) {
             const quantity = Number(button.nextSibling.value);
             if(quantity > 1) {
                 button.nextSibling.value = quantity - 1;
-                price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(button.nextSibling.value)).toFixed(2);
+                change_total_price(button.nextSibling);
             }
         }
         else if(button.className.includes("plus")) {
             button.previousSibling.value = Number(button.previousSibling.value) + 1;
-            price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(button.previousSibling.value)).toFixed(2);
+            change_total_price(button.previousSibling);
         }
+    }
+
+    function change_total_price(node) {
+        let price = node.parentNode.parentNode.nextSibling;
+        price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(node.value)).toFixed(2);
     }
 
     async function get_receipts() {
         let data = new FormData();
-        data.set("supermarket", current_choice);
+        let items = new Map();
 
         for(const entry of grocery_list_body.childNodes) {
-            data.set(entry.className,  entry.querySelector("td > div > input").value);
+            items.set(entry.className,  entry.querySelector(".quantity").value);
         }
 
-        await fetch("/receiptify", {
+        data.set(current_choice, items);
+
+        await fetch("/get_receipts", {
             method: "POST", 
             body: data,
         }).then((response) => {

@@ -63,7 +63,7 @@ class ReceiptRenderer():
             count += 1
             if count > 1:
                 self._move_cursor(self.grouped_entries_space)
-            # TODO: find a solution to extend the receipt only if a specific part is exceeded.
+            # extend the receipt if a specific margin is exceeded.
             if self.vertical_cursor > self.items_segment_limit:
                 self.__reset_cursor()
                 self.__create_new_canvas()

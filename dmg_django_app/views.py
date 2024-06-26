@@ -24,12 +24,11 @@ def homepage(request):
     return render(request, 'dmg_django_app/home.html')
 
 def receiptify(request):
-    """Generates slips of the listed products."""
-    
-    return HttpResponse()
+    """Display an interface for the user to choose products."""
+    return render(request, 'dmg_django_app/receiptify.html', context)
 
 def discounted_products(request):
-    """Generate content for the different products their prices."""
+    """Generate the product content of the searched product across all supermarkets."""
     return render(request, 'dmg_django_app/discounted_products.html', context)
 
 def near_me(request):
@@ -39,3 +38,7 @@ def near_me(request):
         query_substring += supermarket+'+'
     query_substring = query_substring[:-2] #remove trailing plus sign.
     return render(request, 'dmg_django_app/near_me.html', {"source": f"https://www.google.com/maps/embed/v1/search?key={GOOGLE_API_KEY}&q={query_substring}"})
+
+def get_receipts(request):
+    """Generates slips of the listed products."""
+    return HttpResponse()
