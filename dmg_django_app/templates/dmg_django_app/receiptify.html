@@ -121,7 +121,7 @@
         }
     }
 
-    async function autosuggest(input_field) {
+    function autosuggest(input_field) {
 
         if(input_field.value.length > 2) {
             suggested_items.clear();
@@ -134,7 +134,7 @@
 
             const request = new Request(url, {method: "GET"});
 
-            await fetch(request)
+            fetch(request)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -283,7 +283,7 @@
         price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(node.value)).toFixed(2);
     }
 
-    async function get_receipts() {
+    function get_receipts() {
         let data = new FormData();
         let items = new Map();
 
@@ -300,15 +300,27 @@
         const request = new Request("/get_receipts/",
             {
                 method: "POST", 
-                headers: {'X-CSRFToken': csrf_token},
-                body: data,
+                headers: {
+                    'X-CSRFToken': csrf_token,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
                 mode: "same-origin"
             });
 
-        await fetch(request).then((response) => {
+        fetch(request).then((response) => {
             if (response.ok) {
                 return response.body;
             }
+            else {
+                throw new Error("Response error.");
+            }
+        })
+        .then((buffer) => {
+            
+        })
+        .catch((error) => {
+
         });
     }
 

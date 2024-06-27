@@ -4,12 +4,12 @@ import json
 from io import BytesIO
 from pathlib import Path
 from PIL import Image, UnidentifiedImageError
-from django.db import connection
 from django.core.files import File
 from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
 from ...models import Supermarket as SupermarketModel, Product
+from .receipt_renderer import ReceiptRenderer
 
 TITLE_LENGTH: int = 30
 
@@ -236,6 +236,12 @@ def query_items(query: str, supermarket_name: str = None, receiptify: bool = Fal
         return buffer
     else:
         return None
+    
+def get_receipt(data: dict[str]) -> list[Image.Image] | Image.Image:
+    receiptifier = ReceiptRenderer()
+    for i in data.keys():
+        buffer = i
+    return receiptifier.render(data, buffer)
 
 def string_ascii_total(string:str) -> str:
     accumulator:int = 0

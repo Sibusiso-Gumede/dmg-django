@@ -59,19 +59,27 @@ class ReceiptRenderer():
         self._move_cursor(self.y_spacing-10)
         total_amount:float = 0.00
         count: int = 0
-        for name, price in self.items.items():
+        for (name, data) in self.items.items():
             count += 1
             if count > 1:
                 self._move_cursor(self.grouped_entries_space)
+            
             # extend the receipt if a specific margin is exceeded.
             if self.vertical_cursor > self.items_segment_limit:
                 self.__reset_cursor()
                 self.__create_new_canvas()
+            
             # item name
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
+            
+            # item quantity
+            if data.get('quantity') is not '1':
+                self._move_cursor(self.grouped_entries_space)
+                self.edit.text((100.00, self.vertical_cursor), f"@{data.get('quantity')}", self.black_ink, self.text_font, align='center', direction='ltr')
+            
             # item price
-            self.edit.text((self.__get_price_margin(price.get('price')), self.vertical_cursor), price.get('price'), self.black_ink, self.text_font, align='right', direction='ltr')
-            total_amount += float(price.get('price')[1:]) # remove R
+            self.edit.text((self.__get_price_margin(data.get('price')), self.vertical_cursor), data.get('price'), self.black_ink, self.text_font, align='right', direction='ltr')
+            total_amount += float(data.get('price')[1:]) # remove R
 
         # Total cost.
         self._move_cursor(self.grouped_entries_space)
@@ -122,7 +130,7 @@ class ReceiptRenderer():
         self.vertical_cursor += amount
 
     def __set_items(self, _items: dict[str]):
-        self.items = _items
+        self.items = _items.values()
 
     def __create_new_canvas(self):
         self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((self.receipt_w, self.receipt_h)))
