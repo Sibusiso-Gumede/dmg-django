@@ -289,8 +289,11 @@
 
         for(const entry of grocery_list_body.childNodes) {
             let info = new Map();
-            info.set("quantity", entry.querySelector(".quantity").value);
-            info.set("price", entry.querySelector(".price").innerText);
+            const quantity = entry.querySelector(".quantity").value;
+            info.set("quantity", quantity);
+            info.set("total_price", entry.querySelector(".price").innerText);
+            if(quantity != '1')
+                info.set("cost_of_item", selected_items.get(entry.className));
             items.set(entry.className, info);
         }
 

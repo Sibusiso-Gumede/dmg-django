@@ -237,11 +237,10 @@ def query_items(query: str, supermarket_name: str = None, receiptify: bool = Fal
     else:
         return None
     
-def get_receipt(data: dict[str]) -> list[Image.Image] | Image.Image:
+def get_receipt(data: dict[str]) -> list[Image.Image] | Image.Image | None:
     receiptifier = ReceiptRenderer()
-    for i in data.keys():
-        buffer = i
-    return receiptifier.render(data, buffer)
+    receiptifier.render(data)
+    return
 
 def string_ascii_total(string:str) -> str:
     accumulator:int = 0

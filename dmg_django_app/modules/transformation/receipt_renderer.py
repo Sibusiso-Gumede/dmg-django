@@ -17,6 +17,7 @@ class ReceiptRenderer():
         self.footer_tb: float = 0.00
         self.footer_bb: float = 460
         self.items_segment_limit = 380                  # segment limit.
+        self.supermarket_logo: str = ""
         self.receipts:list[Image.Image] = []
 
         # Receipt properties.
@@ -25,11 +26,11 @@ class ReceiptRenderer():
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
 
-    def render(self, _items: dict[str], supermarket_logo: str = 'COMBINED'):
+    def render(self, _items: dict[str]):
         self.__set_items(_items)
         # Header.
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
-        self.edit.multiline_text((self.header_lm, self.vertical_cursor), supermarket_logo+'\n'+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
+        self.edit.multiline_text((self.header_lm, self.vertical_cursor), self.supermarket_logo+'\n'+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
         # Header divider.
         self._move_cursor(self.y_spacing)
@@ -69,17 +70,17 @@ class ReceiptRenderer():
                 self.__reset_cursor()
                 self.__create_new_canvas()
             
-            # item name
-            self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
-            
-            # item quantity
+            # item quantity and name
             if data.get('quantity') is not '1':
+                self.edit.text((self.body_lm_rm[0] + 25.00, self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
                 self._move_cursor(self.grouped_entries_space)
-                self.edit.text((100.00, self.vertical_cursor), f"@{data.get('quantity')}", self.black_ink, self.text_font, align='center', direction='ltr')
-            
+                self.edit.text((100.00, self.vertical_cursor), f"{data.get('quantity')} @ {data.get('cost_of_item')}", self.black_ink, self.text_font, align='center', direction='ltr')
+            else:
+                self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
+
             # item price
-            self.edit.text((self.__get_price_margin(data.get('price')), self.vertical_cursor), data.get('price'), self.black_ink, self.text_font, align='right', direction='ltr')
-            total_amount += float(data.get('price')[1:]) # remove R
+            self.edit.text((self.__get_price_margin(data.get('total_price')), self.vertical_cursor), data.get('total_price'), self.black_ink, self.text_font, align='right', direction='ltr')
+            total_amount += float(data.get('total_price')[1:]) # remove R
 
         # Total cost.
         self._move_cursor(self.grouped_entries_space)
@@ -130,7 +131,9 @@ class ReceiptRenderer():
         self.vertical_cursor += amount
 
     def __set_items(self, _items: dict[str]):
-        self.items = _items.values()
+        for (name, products) in _items.items():
+            self.supermarket_logo = name
+            self.items = products
 
     def __create_new_canvas(self):
         self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((self.receipt_w, self.receipt_h)))
