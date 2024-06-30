@@ -71,12 +71,10 @@ class ReceiptRenderer():
                 self.__create_new_canvas()
             
             # item quantity and name
+            self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
             if data.get('quantity') is not '1':
-                self.edit.text((self.body_lm_rm[0] + 25.00, self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
                 self._move_cursor(self.grouped_entries_space)
-                self.edit.text((100.00, self.vertical_cursor), f"{data.get('quantity')} @ {data.get('cost_of_item')}", self.black_ink, self.text_font, align='center', direction='ltr')
-            else:
-                self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
+                self.edit.text((80.00, self.vertical_cursor), f"{data.get('quantity')} @ {data.get('cost_of_item')}", self.black_ink, self.text_font, align='center', direction='ltr')
 
             # item price
             self.edit.text((self.__get_price_margin(data.get('total_price')), self.vertical_cursor), data.get('total_price'), self.black_ink, self.text_font, align='right', direction='ltr')
@@ -116,8 +114,8 @@ class ReceiptRenderer():
         horizontal_cursor = barcode_lm
         barcode_sizes = [1, 1.2, 1.5, 1.6, 2, 1.8, 1.4, 2, 1.5, 1.2, 1.7]
         barcode_top = self.vertical_cursor
-        barcode_bottom = barcode_top+barcode_h
-        x, k, index_limit = 2, 0, len(barcode_sizes)-1
+        barcode_bottom = barcode_top + barcode_h
+        x, k, index_limit = 2, 0, len(barcode_sizes) - 1
         while not (horizontal_cursor > barcode_rm):
             if x % 2 == 0:
                 self.edit.rectangle([(horizontal_cursor, barcode_top), (horizontal_cursor+barcode_sizes[k], barcode_bottom)], self.black_ink, width=0)
