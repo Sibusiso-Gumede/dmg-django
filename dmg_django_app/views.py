@@ -1,7 +1,8 @@
+import json
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-from dmg_django_app.modules.transformation.data_io import query_items
 from dmg_django.settings import GOOGLE_API_KEY
+from dmg_django_app.modules.transformation.data_io import query_items, receipt
 from dmg_django_app.modules.common import Supermarkets
 
 context = {"supermarket_names": [
@@ -11,13 +12,7 @@ context = {"supermarket_names": [
 ]}
 
 def product_autosuggestion(request):
-    products: dict[str] = {}
-    item_n: int = 1
-    items_:dict[str] = query_items(request.GET.get('type-to-add'), request.GET.get('supermarket-choice'))
-    if items_:
-        for item, data in items_.items():
-            products.update({item: data.get('price')})
-    return JsonResponse(products, safe=True)
+    return JsonResponse(query_items(request.GET.get('type-to-add'), request.GET.get('supermarket-choice')), safe=True)
 
 def homepage(request):
     """The home page for the dmg_django_app."""
@@ -35,11 +30,11 @@ def near_me(request):
     """Displays supermarkets near the user."""
     query_substring:str = ""
     for supermarket in context.get('supermarket_names'):
-        query_substring += supermarket+'+'
+        query_substring += supermarket + '+'
     query_substring = query_substring[:-2] #remove trailing plus sign.
     return render(request, 'dmg_django_app/near_me.html', {"source": f"https://www.google.com/maps/embed/v1/search?key={GOOGLE_API_KEY}&q={query_substring}"})
 
-def get_receipts(request):
+def get_receipt(request):
     """Generates slips of the listed products."""
-    
+    receipt(json.loads(request.body))
     return HttpResponse()

@@ -29,7 +29,7 @@
 
 <!-- Renderer form container. -->
 <div class="p-2 bg-light receipt-rendering-container">
-    <form method="get" action="{% url 'dmg_django_app:product_autosuggestion' %}" name="form"> 
+    <form method="get" action="{% url 'dmg_django_app:product_autosuggestion' %}" name="form"> {% csrf_token %} 
         <div class="choices-and-add-wrapper py-5 px-2 text-center">
             <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
         {% for s_name in supermarket_names %}
@@ -66,26 +66,26 @@
                 </thead>
                 <tbody class="selected-items"></tbody>
             </table>
-            <button type="button" class="btn btn-dark text-white d-none" id="get-receipts-button" style="width:200px;">Get Receipt(s)</button>
+            <button type="button" class="btn btn-dark text-white d-none" id="get-receipt-button" style="width:200px;"
+            onclick="get_receipt()">Get Receipt</button>
         </div>
     </form>
 </div>
 {% endblock %}
 
-{% csrf_token %}
-
 {% block scripts %}
 <script type="text/javascript">
 
     var current_choice = "Shoprite";
-    var autosuggestion = document.querySelector("#autosuggestion");
+    var autosuggestion = document.getElementById("autosuggestion");
     var autosuggestion_body = document.querySelector(".card-body");
-    var type_to_add = document.querySelector("#type-to-add");
+    var type_to_add = document.getElementById("type-to-add");
     var suggested_items = new Map();
     var selected_items = new Map();
     var grocery_list_body = document.querySelector('.selected-items');
-    var get_receipts_button = document.getElementById('get-receipts-button');
+    var get_receipt_button = document.getElementById('get-receipt-button');
     var results_widget_body = document.querySelector('.modal-body > .container-fluid');
+    const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
     document.form.addEventListener("onsubmit", function(event){
         if(event.key === "Enter")
@@ -121,8 +121,7 @@
         }
     }
 
-    function autosuggest(input_field) {
-
+    async function autosuggest(input_field) {
         if(input_field.value.length > 2) {
             suggested_items.clear();
 
@@ -134,7 +133,7 @@
 
             const request = new Request(url, {method: "GET"});
 
-            fetch(request)
+            await fetch(request)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -241,7 +240,7 @@
             grocery_list_body.append(item_row);
 
             if(selected_items.size > 0)
-                get_receipts_button.className = "btn btn-dark text-white d-block mx-auto";
+                get_receipt_button.className = "btn btn-dark text-white d-block mx-auto";
         }
     }
 
@@ -260,11 +259,10 @@
         }
 
         if(selected_items.size === 0)
-            get_receipts_button.className = "btn btn-dark text-white d-none";
+            get_receipt_button.className = "btn btn-dark text-white d-none";
     }
 
     function change_product_quantity(button) {
-        
         if(button.className.includes("minus")) {
             const quantity = Number(button.nextSibling.value);
             if(quantity > 1) {
@@ -283,24 +281,23 @@
         price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(node.value)).toFixed(2);
     }
 
-    function get_receipts() {
-        let data = new FormData();
-        let items = new Map();
+    async function get_receipt() {
+        let data = new Object();
+        let items = new Object();
 
         for(const entry of grocery_list_body.childNodes) {
-            let info = new Map();
+            let info = new Object();
             const quantity = entry.querySelector(".quantity").value;
-            info.set("quantity", quantity);
-            info.set("total_price", entry.querySelector(".price").innerText);
+            info["quantity"] = quantity;
+            info["total_price"] = entry.querySelector(".total-price").innerText;
             if(quantity != '1')
-                info.set("cost_of_item", selected_items.get(entry.className));
-            items.set(entry.className, info);
+                info["cost_of_item"] = selected_items.get(entry.className);
+            items[entry.className] = info;
         }
 
-        data.set(current_choice, items);
+        data[current_choice] = items;
 
-        const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
-        const request = new Request("/get_receipts/",
+        const request = new Request("/get_receipt/",
             {
                 method: "POST", 
                 headers: {
@@ -311,7 +308,7 @@
                 mode: "same-origin"
             });
 
-        fetch(request).then((response) => {
+        await fetch(request).then((response) => {
             if (response.ok) {
                 return response.body;
             }
@@ -320,10 +317,10 @@
             }
         })
         .then((buffer) => {
-            
+            console.log(buffer);
         })
         .catch((error) => {
-
+            console.log(error);
         });
     }
 

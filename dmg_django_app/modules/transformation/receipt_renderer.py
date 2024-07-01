@@ -21,6 +21,7 @@ class ReceiptRenderer():
         self.receipts:list[Image.Image] = []
 
         # Receipt properties.
+        self.TITLE_LENGTH:int = 30
         self.receipt_w, self.receipt_h = 240, 480
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
         self.edit: ImageDraw.ImageDraw
@@ -72,7 +73,7 @@ class ReceiptRenderer():
             
             # item quantity and name
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
-            if data.get('quantity') is not '1':
+            if data.get('quantity') != '1':
                 self._move_cursor(self.grouped_entries_space)
                 self.edit.text((80.00, self.vertical_cursor), f"{data.get('quantity')} @ {data.get('cost_of_item')}", self.black_ink, self.text_font, align='center', direction='ltr')
 
@@ -131,7 +132,11 @@ class ReceiptRenderer():
     def __set_items(self, _items: dict[str]):
         for (name, products) in _items.items():
             self.supermarket_logo = name
-            self.items = products
+            for (title, data) in products.items():
+                if(not (len(title) <= self.TITLE_LENGTH)):
+                    self.items.update({self.__shorten_string(title): data})
+                else:
+                    self.items.update({title: data})
 
     def __create_new_canvas(self):
         self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((self.receipt_w, self.receipt_h)))
@@ -150,3 +155,40 @@ class ReceiptRenderer():
         elif units == 5:
             price_margin -= 10
         return price_margin
+    
+    def __shorten_string(self, s:str) -> str:
+        '''Returns a shorter version of a string provided the maximum
+            length.'''
+        formatted: str = ""
+        count: int = 0
+        
+        # find the position of the first digit in the string.
+        while count < len(s):
+            if s[count].isdigit():
+                break
+            count += 1
+
+        # remove the rest of the string starting from the first 
+        # digit found.
+        formatted = s[:count]
+
+        # slice formatted string if it's longer than 30 characters.
+        if len(formatted) > self.TITLE_LENGTH:
+            formatted = formatted[:self.TITLE_LENGTH-1]
+
+        restricted:set[str] = ["with", "in", "on", "No", "&"]
+        formatted_terms:list[str] = []
+        formatted_terms = formatted.split(' ')
+
+        # find the last term of the formatted string.
+        # ascertain that it meets the required format constraints.
+        # the constraints are: a string should not end with a 
+        # prepostion or it's last term should not be partial.
+        while True:
+            if (formatted_terms[-1] in restricted) or (not (formatted_terms[-1] == s.split(' ')[len(formatted_terms)-1])):
+                formatted_terms.pop()
+                formatted = ' '.join(formatted_terms)
+            else:
+                break            
+        return formatted
+    

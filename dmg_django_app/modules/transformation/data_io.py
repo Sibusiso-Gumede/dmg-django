@@ -172,72 +172,23 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
                                         "promo": data.get('promo')}})
         json.dump(buffer, file)
         return buffer
-    
-def shorten_string(s:str) -> str:
-    ''' Returns a string alias of the complete string.
-        includes the first two words and the last.
-    '''
-    formatted: str = ""
-    count: int = 0
-    # find the position of the first digit in the string.
-    while count < len(s):
-        if s[count].isdigit():
-            break
-        count += 1
 
-    # remove the rest of the string starting from the first 
-    # digit found.
-    formatted = s[:count]
-
-    # slice formatted string if it's longer than 30 characters.
-    if len(formatted) > TITLE_LENGTH:
-        formatted = formatted[:TITLE_LENGTH-1]
-
-    restricted:set[str] = ["with", "in", "on", "No", "&"]
-    formatted_terms:list[str] = []
-    formatted_terms = formatted.split(' ')
-
-    # find the last term of the formatted string.
-    # ascertain that it meets the required format constraints.
-    # the constraints are: a string should not end with a 
-    # prepostion or it's last term should not be partial.
-    while True:
-        if (formatted_terms[-1] in restricted) or (not (formatted_terms[-1] == s.split(' ')[len(formatted_terms)-1])):
-            formatted_terms.pop()
-            formatted = ' '.join(formatted_terms)
-        else:
-            break            
-    return formatted
-
-def query_items(query: str, supermarket_name: str = None, receiptify: bool = False) -> dict[str] | None:
-    supermarket = None
-    products = None
-
-    # In the case where a supermarket name is specified.
-    if supermarket_name:
-        supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
-        products = Product.objects.filter(supermarket_id=supermarket.id)
-        products = products.filter(name__icontains=query)
-    elif supermarket_name == None:
-        products = Product.objects.filter(name__icontains=query)
-        
+def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
+    supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
+    products = Product.objects.filter(supermarket_id=supermarket.id)
+    products = products.filter(name__icontains=query)  
     if products:
         buffer: dict[str] = {}
-        name: str = ""
         for p in products:
-            if (receiptify) and (not (len(p.name) <= TITLE_LENGTH)):
-                name = shorten_string(p.name)
-            else:
-                name = p.name
             if not (p.discounted_price == 'R0.00'):
-                buffer.update({name: {"price": p.discounted_price, "supermarket_name": p.supermarket.name}})
+                buffer.update({p.name: {"price": p.discounted_price}})
             else:
-                buffer.update({name: {"price": p.price, "supermarket_name": p.supermarket.name}})   
+                buffer.update({p.name: {"price": p.price}})
         return buffer
     else:
         return None
     
-def get_receipt(data: dict[str]) -> list[Image.Image] | Image.Image | None:
+def receipt(data: dict[str]) -> list[Image.Image] | Image.Image | None:
     receiptifier = ReceiptRenderer()
     receiptifier.render(data)
     return
