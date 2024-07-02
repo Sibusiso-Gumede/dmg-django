@@ -52,9 +52,13 @@ class ReceiptRenderer():
         credits_top_border = self.vertical_cursor
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
-    
+
+        buffer:list[bytes] = []
         for receipt in self.receipts:
-            receipt.show()
+            receipt.format = "png"
+            buffer.append(receipt.tobytes())
+
+        return buffer
 
     def _items_segment(self):
         # Item names and prices.

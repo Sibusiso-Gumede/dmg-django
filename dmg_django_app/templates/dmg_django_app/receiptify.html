@@ -317,7 +317,9 @@
             }
         })
         .then((buffer) => {
-            
+            // CHORE
+            buffer.getReader().read()
+            console.log();
         })
         .catch((error) => {
             console.log(error);
