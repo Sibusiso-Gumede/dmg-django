@@ -11,7 +11,7 @@ context = {"supermarket_names": [
     Supermarkets.WOOLIES
 ]}
 
-def product_autosuggestion(request):
+def product_autosuggestion(request):    
     return JsonResponse(query_items(request.GET.get('type-to-add'), request.GET.get('supermarket-choice')), safe=True)
 
 def homepage(request):

@@ -173,7 +173,7 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
         json.dump(buffer, file)
         return buffer
 
-def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
+def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
     products = Product.objects.filter(supermarket_id=supermarket.id)
     products = products.filter(name__icontains=query)  
@@ -181,12 +181,12 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str] | None:
         buffer: dict[str] = {}
         for p in products:
             if not (p.discounted_price == 'R0.00'):
-                buffer.update({p.name: {"price": p.discounted_price}})
+                buffer.update({p.name: p.discounted_price})
             else:
-                buffer.update({p.name: {"price": p.price}})
+                buffer.update({p.name: p.price})
         return buffer
     else:
-        return None
+        return dict()
     
 def receipt(data: dict[str]) -> list[Image.Image] | Image.Image | None:
     receiptifier = ReceiptRenderer()

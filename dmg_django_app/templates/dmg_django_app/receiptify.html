@@ -77,17 +77,17 @@
 <script type="text/javascript">
 
     var current_choice = "Shoprite";
-    var autosuggestion = document.getElementById("autosuggestion");
+    var autosuggestion = document.querySelector("#autosuggestion");
     var autosuggestion_body = document.querySelector(".card-body");
-    var type_to_add = document.getElementById("type-to-add");
+    var type_to_add = document.querySelector("#type-to-add");
     var suggested_items = new Map();
     var selected_items = new Map();
     var grocery_list_body = document.querySelector('.selected-items');
-    var get_receipt_button = document.getElementById('get-receipt-button');
+    var get_receipt_button = document.querySelector('#get-receipt-button');
     var results_widget_body = document.querySelector('.modal-body > .container-fluid');
     const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-    document.form.addEventListener("onsubmit", function(event){
+    document.form.addEventListener("onsubmit", function(event) {
         if(event.key === "Enter")
             event.preventDefault();
     });
@@ -186,7 +186,7 @@
             item_name_field.append(item.innerText);
 
             let item_total_price_field = document.createElement("td");
-            item_total_price_field.className = "total-price"
+            item_total_price_field.className = "total-price";
             item_total_price_field.innerText = selected_items.get(item.innerText);
 
             let item_delete_button = document.createElement("button");
@@ -317,7 +317,7 @@
             }
         })
         .then((buffer) => {
-            console.log(buffer);
+            
         })
         .catch((error) => {
             console.log(error);
