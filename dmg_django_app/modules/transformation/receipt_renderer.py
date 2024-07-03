@@ -1,4 +1,5 @@
 from PIL import Image, ImageFont, ImageDraw
+from io import BytesIO
 
 class ReceiptRenderer():
     
@@ -55,8 +56,9 @@ class ReceiptRenderer():
 
         buffer:list[bytes] = []
         for receipt in self.receipts:
-            receipt.format = "png"
-            buffer.append(receipt.tobytes())
+            img_byte_arr = BytesIO()
+            receipt.save(img_byte_arr, "JPEG")
+            buffer.append(img_byte_arr.getvalue())
 
         return buffer
 

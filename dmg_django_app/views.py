@@ -36,4 +36,5 @@ def near_me(request):
 
 def get_receipt(request):
     """Generates slips of the listed products."""
+    
     return HttpResponse(receipt(json.loads(request.body)))

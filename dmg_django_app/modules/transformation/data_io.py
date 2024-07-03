@@ -188,10 +188,9 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     else:
         return dict()
     
-def receipt(data: dict[str]) -> list[Image.Image] | Image.Image | None:
+def receipt(data: dict[str]) -> list[Image.Image] | list[bytes]:
     receiptifier = ReceiptRenderer()
-    receiptifier.render(data)
-    return
+    return receiptifier.render(data)
 
 def string_ascii_total(string:str) -> str:
     accumulator:int = 0
