@@ -326,14 +326,15 @@
         });
     }
 
-    function attach_images(stream) {
+    function attach_images(buffer) {
         let row = document.createElement('div');
         row.className = "container-fluid mx-auto";
         let col = document.createElement('div');
         col.className = "col-12 mx-auto";
         let receipt = document.createElement('img');
         // COMPLETE ME
-        receipt.setAttribute("src", "data:image/jpeg;base64") ;
+        receipt.setAttribute("src", "data:image/jpg;base64, " + buffer);
+        
         results_widget_body.append(row);
     }
 
