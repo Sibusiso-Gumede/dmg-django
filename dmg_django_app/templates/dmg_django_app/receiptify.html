@@ -3,19 +3,14 @@
 {% load static %}
 
 {% block content %}
-<div class="modal fade" id="resultsWidget" tabindex="-1">
+<div class="modal fade" id="receiptWidget" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="resultsWidgetLabel">Receipt(s)</h1>
-                <button typ="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="col-6"></div>
-                    <div class="col-6"></div>
-                </div>
-            </div>
+            <div class="modal-body"></div>
             <div class="modal-footer">
                 <p class="info" id="downloadFormatLabel">Download Format</p>
                 <button type="button" class="btn btn-success" id="jpegFormatButton">JPEG</button>
@@ -24,6 +19,7 @@
         </div>
     </div>
 </div>
+
 <div class="p-4 bg-primary text-black rounded">
     <h1 class="text-body-emphasis">Receipt Renderer</h1>
     <p>Forget doing the mental math while you are at grocery aisles. Simply enter your grocery list below
@@ -85,7 +81,7 @@
     var type_to_add = document.querySelector("#type-to-add");
     var grocery_list_body = document.querySelector('.selected-items');
     var get_receipt_button = document.querySelector('#get-receipt-button');
-    var results_widget_body = document.querySelector('.modal-body');
+    var receipt_widget_body = document.querySelector('.modal-body');
     const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
     var suggested_items = new Map();
     var selected_items = new Map();
@@ -329,13 +325,19 @@
     function attach_images(buffer) {
         let row = document.createElement('div');
         row.className = "container-fluid mx-auto";
+        
         let col = document.createElement('div');
         col.className = "col-12 mx-auto";
+        
         let receipt = document.createElement('img');
-        // COMPLETE ME
         receipt.setAttribute("src", "data:image/jpg;base64, " + buffer);
         
-        results_widget_body.append(row);
+        col.append(receipt);
+        row.append(col);
+        receipt_widget_body.append(row);
+
+        const receipt_widget = new bootstrap.Modal(document.querySelector('#receiptWidget'));
+        receipt_widget.show();
     }
 
     function base64ArrayBuffer(arrayBuffer) {
