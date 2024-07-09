@@ -21,14 +21,14 @@
 
 {% block scripts %}
 <script>
-    var notifier = document.querySelector('iframe');
+    var frame = document.querySelector('iframe');
 
-    function getLocation(nav, c) {
+    async function getLocation(nav) {
         if(nav.geolocation) {
-            nav.geolocation.getCurrentPosition(relayPosition, handleError, {enableHighAccuracy:true});
+            await nav.geolocation.getCurrentPosition(relayPosition, handleError, {enableHighAccuracy:true});
         }
         else {
-            notifier.setAttribute("src", "Geolocation is not supported by the browser.");
+            frame.setAttribute("src", "Geolocation is not supported by the browser.");
         }
     }
 
@@ -38,7 +38,7 @@
     }
 
     function handleError(error) {
-        notifier.setAttribute("src", "Encountered geolocation error");
+        frame.setAttribute("src", "Encountered geolocation error");
     }
     getLocation(window.navigator);
 </script>

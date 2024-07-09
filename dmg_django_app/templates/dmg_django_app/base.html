@@ -15,10 +15,6 @@
         {% load bootstrap5 %}
         {% bootstrap_css %}
         {% bootstrap_javascript %}
-        <!--<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>-->
-        <!-- Layout CSS styling -->
         <link href="{% static 'app_css/ui_styles.css' %}" rel="stylesheet" />
     </head>
     <body class="bg-light">
@@ -100,9 +96,9 @@
                             </li>
                         </ul>
                     {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
-                        <form class="pt-3 col-4 mb-3 ms-4 me-lg-3" role="search">
+                        <div class="pt-3 col-4 mb-3 ms-4 me-lg-3" role="search">
                             <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-                        </form>
+                        </div>
                     {% endif %}
                     </div>
                 </div>
@@ -114,7 +110,7 @@
             </div>
             <footer class="d-flex bg-dark text-white" style="height: 85px;">
                 <div class="align-self-center ps-4">
-                    <p class="pt-3">Developed and maintained by <a href="#" class="linkedInProfile">Sibusiso J. Gumede.</a></p>
+                    <p class="pt-3">Developed and maintained by <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a></p>
                 </div>
             </footer>
         </div>
