@@ -322,15 +322,20 @@
         });
     }
 
-    function attach_images(buffer) {
+    function attach_images(image_data) {
+        if(receipt_widget_body.hasChildNodes()) {
+            for(child of receipt_widget_body.childNodes)
+                receipt_widget_body.removeChild(child);
+        }
+
         let row = document.createElement('div');
         row.className = "container-fluid mx-auto";
         
         let col = document.createElement('div');
-        col.className = "col-12 mx-auto mx-auto";
+        col.className = "col-12 mx-auto justify-content-center";
         
         let receipt = document.createElement('img');
-        receipt.setAttribute("src", "data:image/jpg;base64, " + buffer);
+        receipt.setAttribute("src", "data:image/jpg;base64, " + image_data);
         
         col.append(receipt);
         row.append(col);

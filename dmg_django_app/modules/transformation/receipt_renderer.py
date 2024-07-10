@@ -15,7 +15,6 @@ class ReceiptRenderer():
         self.body_lm_rm = (10, 200)                     # the body's left and right margin coordinates.
         self.header_lm = 45                             # header left margin coordinate.
         self.footer_lm = 70                             # footer left margin coordinate.
-        self.footer_tb: float = 0.00
         self.footer_bb: float = 460
         self.items_segment_limit = 380                  # segment limit.
         self.supermarket_logo: str = ""
@@ -28,7 +27,7 @@ class ReceiptRenderer():
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
 
-    def render(self, _items: dict[str]):
+    def render(self, _items: dict[str]) -> list[bytes]:
         self.__set_items(_items)
         # Header.
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
@@ -64,15 +63,15 @@ class ReceiptRenderer():
 
     def _items_segment(self):
         # Item names and prices.
-        self._move_cursor(self.y_spacing-10)
-        total_amount:float = 0.00
+        segment = "is"
+        self._move_cursor(self.y_spacing-10, segment)
+        total_amount: float = 0.00
         count: int = 0
         for (name, data) in self.items.items():
-            count += 1
             if count > 1:
-                self._move_cursor(self.grouped_entries_space)
+                self._move_cursor(self.grouped_entries_space, segment)
             
-            # extend the receipt if a specific margin is exceeded.
+            # extend the receipt if the items segment margin is exceeded.
             if self.vertical_cursor > self.items_segment_limit:
                 self.__reset_cursor()
                 self.__create_new_canvas()
@@ -86,6 +85,7 @@ class ReceiptRenderer():
             # item price
             self.edit.text((self.__get_price_margin(data.get('total_price')), self.vertical_cursor), data.get('total_price'), self.black_ink, self.text_font, align='right', direction='ltr')
             total_amount += float(data.get('total_price')[1:]) # remove R
+            count += 1
 
         # Total cost.
         self._move_cursor(self.grouped_entries_space)
@@ -132,7 +132,7 @@ class ReceiptRenderer():
             if k > index_limit:
                 k = 0
 
-    def _move_cursor(self, amount: float):
+    def _move_cursor(self, amount: float, area: str = None):
         self.vertical_cursor += amount
 
     def __set_items(self, _items: dict[str]):
