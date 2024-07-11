@@ -15,10 +15,12 @@ class ReceiptRenderer():
         self.body_lm_rm = (10, 200)                     # the body's left and right margin coordinates.
         self.header_lm = 45                             # header left margin coordinate.
         self.footer_lm = 70                             # footer left margin coordinate.
-        self.footer_bb: float = 460
+        self.footer_limit: float = 460
         self.items_segment_limit = 380                  # segment limit.
         self.supermarket_logo: str = ""
         self.receipts:list[Image.Image] = []
+        self.items_limit_exceeded = False
+        self.footer_limit_exceeded = False
 
         # Receipt properties.
         self.TITLE_LENGTH:int = 30
@@ -27,6 +29,9 @@ class ReceiptRenderer():
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
 
+        # Segments.
+        self.segments:dict[str] = {"item": "is", "footer": "fs",}
+
     def render(self, _items: dict[str]) -> list[bytes]:
         self.__set_items(_items)
         # Header.
@@ -34,21 +39,18 @@ class ReceiptRenderer():
         self.edit.multiline_text((self.header_lm, self.vertical_cursor), self.supermarket_logo+'\n'+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
         # Header divider.
-        self._move_cursor(self.y_spacing)
+        self.__move_cursor(self.y_spacing)
         divider = '--------------------------------------------'
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), divider, self.black_ink, self.text_font, align='center', direction='ltr')
 
         # Populate items to the receipt.
-        self._items_segment()
+        self.__items_segment()
 
-        # Footer divider.
-        self._move_cursor(self.y_spacing)
-        self.edit.line([(self.body_lm_rm[0], self.vertical_cursor), (230, self.vertical_cursor)], fill=self.black_ink, width=0)
-
-        self._footer_segment()
+        # Footer segment.
+        self.__footer_segment()
 
         # Credits.
-        self._move_cursor(self.y_spacing)
+        self.__move_cursor(self.y_spacing)
         credits_top_border = self.vertical_cursor
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
@@ -61,15 +63,14 @@ class ReceiptRenderer():
 
         return buffer
 
-    def _items_segment(self):
+    def __items_segment(self):
         # Item names and prices.
-        segment = "is"
-        self._move_cursor(self.y_spacing-10, segment)
+        self.__move_cursor(self.y_spacing-10, "is")
         total_amount: float = 0.00
         count: int = 0
         for (name, data) in self.items.items():
             if count > 1:
-                self._move_cursor(self.grouped_entries_space, segment)
+                self.__move_cursor(self.grouped_entries_space, "is")
             
             # extend the receipt if the items segment margin is exceeded.
             if self.vertical_cursor > self.items_segment_limit:
@@ -79,7 +80,7 @@ class ReceiptRenderer():
             # item quantity and name
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
             if data.get('quantity') != '1':
-                self._move_cursor(self.grouped_entries_space)
+                self.__move_cursor(self.grouped_entries_space, "is")
                 self.edit.text((80.00, self.vertical_cursor), f"{data.get('quantity')} @ {data.get('cost_of_item')}", self.black_ink, self.text_font, align='center', direction='ltr')
 
             # item price
@@ -88,7 +89,7 @@ class ReceiptRenderer():
             count += 1
 
         # Total cost.
-        self._move_cursor(self.grouped_entries_space)
+        self.__move_cursor(self.grouped_entries_space, "is")
         label = 'DUE VAT INCL'
         str_total_amount = 'R'+str(round(total_amount, 2))
 
@@ -97,23 +98,26 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin(str_total_amount), self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='ltr')
 
         # Tax invoice segment.
-        self._move_cursor(self.y_spacing)
+        self.__move_cursor(self.y_spacing, "is")
         tax_inv_divider = '-----------------TAX INVOICE----------------'
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), tax_inv_divider, self.black_ink, self.text_font, align='center', direction='ltr')
         
         # Calculate tax.
-        self._move_cursor(self.grouped_entries_space)
+        self.__move_cursor(self.grouped_entries_space, "is")
         vat_value = round(total_amount * 0.15, 2)
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'VAT VAL', self.black_ink, self.text_font, align='left', direction='ltr')
         self.edit.text((self.__get_price_margin('R'+str(vat_value)), self.vertical_cursor), 'R'+str(vat_value), self.black_ink, self.text_font, align='right', direction='ltr')
-        self._move_cursor(self.grouped_entries_space)
+        self.__move_cursor(self.grouped_entries_space, "is")
         taxable_value = round(total_amount - vat_value, 2)
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), 'TAXABLE VAL', self.black_ink, self.text_font, align='left', direction='ltr')
         self.edit.text((self.__get_price_margin('R'+str(taxable_value)), self.vertical_cursor), 'R'+str(taxable_value), self.black_ink, self.text_font, align='right', direction='ltr')
 
-    def _footer_segment(self):
+    def __footer_segment(self):
+        # Footer divider.
+        self.__move_cursor(self.y_spacing, "fs")
+        self.edit.line([(self.body_lm_rm[0], self.vertical_cursor), (230, self.vertical_cursor)], fill=self.black_ink, width=0)
         # Footer.
-        self._move_cursor(self.grouped_entries_space)    
+        self.__move_cursor(self.grouped_entries_space, "fs")    
         # Barcode.
         barcode_h: float = 20
         barcode_lm: float = 20
@@ -132,7 +136,13 @@ class ReceiptRenderer():
             if k > index_limit:
                 k = 0
 
-    def _move_cursor(self, amount: float, area: str = None):
+    def __move_cursor(self, amount: float, area: str = None):
+        if area == "is":
+
+        elif area == "fs":
+
+        elif area == None:
+
         self.vertical_cursor += amount
 
     def __set_items(self, _items: dict[str]):
