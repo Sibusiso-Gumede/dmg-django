@@ -15,12 +15,10 @@ class ReceiptRenderer():
         self.body_lm_rm = (10, 200)                     # the body's left and right margin coordinates.
         self.header_lm = 45                             # header left margin coordinate.
         self.footer_lm = 70                             # footer left margin coordinate.
-        self.footer_limit: float = 460
-        self.items_segment_limit = 380                  # segment limit.
+        self.footer_limit = 460
+        self.items_limit = 380                          # segment limit.
         self.supermarket_logo: str = ""
         self.receipts:list[Image.Image] = []
-        self.items_limit_exceeded = False
-        self.footer_limit_exceeded = False
 
         # Receipt properties.
         self.TITLE_LENGTH:int = 30
@@ -71,11 +69,6 @@ class ReceiptRenderer():
         for (name, data) in self.items.items():
             if count > 1:
                 self.__move_cursor(self.grouped_entries_space, "is")
-            
-            # extend the receipt if the items segment margin is exceeded.
-            if self.vertical_cursor > self.items_segment_limit:
-                self.__reset_cursor()
-                self.__create_new_canvas()
             
             # item quantity and name
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
@@ -137,13 +130,11 @@ class ReceiptRenderer():
                 k = 0
 
     def __move_cursor(self, amount: float, area: str = None):
-        if area == "is":
-
-        elif area == "fs":
-
-        elif area == None:
-
-        self.vertical_cursor += amount
+        if ((area == "is") and ((self.vertical_cursor > self.items_limit) and (self.vertical_cursor < self.footer_limit))) or ((area == "fs") and (self.vertical_cursor < self.footer_limit)):
+            self.vertical_cursor += amount
+        elif (self.vertical_cursor > self.footer_limit):
+            self.__reset_cursor()
+            self.__create_new_canvas()
 
     def __set_items(self, _items: dict[str]):
         for (name, products) in _items.items():
