@@ -68,13 +68,13 @@ class ReceiptRenderer():
             if count > 0:
                 self.__move_cursor(self.grouped_entries_space, "is")
             
-            # item quantity and name
+            # item quantity and name.
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
             if data.get('quantity') != '1':
                 self.__move_cursor(self.grouped_entries_space, "is")
                 self.edit.text((80.00, self.vertical_cursor), f"{data.get('quantity')} @ {data.get('cost_of_item')}", self.black_ink, self.text_font, align='center', direction='ltr')
 
-            # item price
+            # item price.
             self.edit.text((self.__get_price_margin(data.get('total_price')), self.vertical_cursor), data.get('total_price'), self.black_ink, self.text_font, align='right', direction='ltr')
             total_amount += float(data.get('total_price')[1:]) # remove R
             count += 1
@@ -89,7 +89,7 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin(str_total_amount), self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='ltr')
 
         # Tax invoice segment.
-        if self.footer_limit - self.vertical_cursor < 50.00:
+        if self.footer_limit > self.vertical_cursor:
             self.__reset_cursor()
             self.__create_new_canvas()
         self.__move_cursor(self.y_spacing, "is")
