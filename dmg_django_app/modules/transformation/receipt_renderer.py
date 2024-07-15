@@ -19,6 +19,7 @@ class ReceiptRenderer():
         self.items_limit = 380                          # segment limit.
         self.supermarket_logo: str = ""
         self.receipts:list[Image.Image] = []
+        self.items_segment_exceeded = False
 
         # Receipt properties.
         self.TITLE_LENGTH:int = 30
@@ -26,9 +27,6 @@ class ReceiptRenderer():
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
-
-        # Segments.
-        self.segments:dict[str] = {"item": "is", "footer": "fs",}
 
     def render(self, _items: dict[str]) -> list[bytes]:
         self.__set_items(_items)
@@ -67,7 +65,7 @@ class ReceiptRenderer():
         total_amount: float = 0.00
         count: int = 0
         for (name, data) in self.items.items():
-            if count > 1:
+            if count > 0:
                 self.__move_cursor(self.grouped_entries_space, "is")
             
             # item quantity and name
@@ -91,6 +89,9 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin(str_total_amount), self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='ltr')
 
         # Tax invoice segment.
+        if self.footer_limit - self.vertical_cursor < 50.00:
+            self.__reset_cursor()
+            self.__create_new_canvas()
         self.__move_cursor(self.y_spacing, "is")
         tax_inv_divider = '-----------------TAX INVOICE----------------'
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), tax_inv_divider, self.black_ink, self.text_font, align='center', direction='ltr')
@@ -106,6 +107,8 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin('R'+str(taxable_value)), self.vertical_cursor), 'R'+str(taxable_value), self.black_ink, self.text_font, align='right', direction='ltr')
 
     def __footer_segment(self):
+        if self.vertical_cursor > self.items_limit:
+            self.items_segment_exceeded = True
         # Footer divider.
         self.__move_cursor(self.y_spacing, "fs")
         self.edit.line([(self.body_lm_rm[0], self.vertical_cursor), (230, self.vertical_cursor)], fill=self.black_ink, width=0)
@@ -130,17 +133,19 @@ class ReceiptRenderer():
                 k = 0
 
     def __move_cursor(self, amount: float, area: str = None):
-        if ((area == "is") and ((self.vertical_cursor > self.items_limit) and (self.vertical_cursor < self.footer_limit))) or ((area == "fs") and (self.vertical_cursor < self.footer_limit)):
-            self.vertical_cursor += amount
-        elif (self.vertical_cursor > self.footer_limit):
+        if ((area == "fs") and self.items_segment_exceeded) or (self.vertical_cursor > self.footer_limit):
             self.__reset_cursor()
             self.__create_new_canvas()
+            if self.items_segment_exceeded:
+                self.items_segment_exceeded = False
+        elif (((area == "fs") or (area == "is")) and (self.vertical_cursor < self.footer_limit)) or (area == None):
+            self.vertical_cursor += amount
 
     def __set_items(self, _items: dict[str]):
         for (name, products) in _items.items():
             self.supermarket_logo = name
             for (title, data) in products.items():
-                if(not (len(title) <= self.TITLE_LENGTH)):
+                if(not(len(title) <= self.TITLE_LENGTH)):
                     self.items.update({self.__shorten_string(title): data})
                 else:
                     self.items.update({title: data})
