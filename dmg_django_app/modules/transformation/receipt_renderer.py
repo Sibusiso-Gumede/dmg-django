@@ -19,7 +19,6 @@ class ReceiptRenderer():
         self.items_limit = 380                          # segment limit.
         self.supermarket_logo: str = ""
         self.receipts:list[Image.Image] = []
-        self.items_segment_exceeded = False
 
         # Receipt properties.
         self.TITLE_LENGTH:int = 30
@@ -55,7 +54,7 @@ class ReceiptRenderer():
         for receipt in self.receipts:
             img_byte_arr = BytesIO()
             receipt.save(img_byte_arr, "JPEG")
-            buffer.append(img_byte_arr.getvalue())
+            buffer.append(img_byte_arr.getvalue()+b"#")
 
         return buffer
 
@@ -133,11 +132,9 @@ class ReceiptRenderer():
                 k = 0
 
     def __move_cursor(self, amount: float, area: str = None):
-        if ((area == "fs") and self.items_segment_exceeded) or (self.vertical_cursor > self.footer_limit):
+        if ((area == "fs") and (self.vertical_cursor > self.items_limit)) or (self.vertical_cursor > self.footer_limit):
             self.__reset_cursor()
             self.__create_new_canvas()
-            if self.items_segment_exceeded:
-                self.items_segment_exceeded = False
         elif (((area == "fs") or (area == "is")) and (self.vertical_cursor < self.footer_limit)) or (area == None):
             self.vertical_cursor += amount
 

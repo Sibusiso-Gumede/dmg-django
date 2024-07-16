@@ -310,7 +310,9 @@
         await fetch(request).then((response) => {
             if (response.ok) {
                 response.arrayBuffer().then((data) => {
-                    attach_images(base64ArrayBuffer(data));
+                    for(const img_dat of data) {
+                        attach_images(base64ArrayBuffer(data));
+                    }
                 });
             }
             else {
@@ -331,13 +333,16 @@
         let row = document.createElement('div');
         row.className = "container-fluid mx-auto";
         
-        let col = document.createElement('div');
-        col.className = "col-12 mx-auto justify-content-center";
-        
-        let receipt = document.createElement('img');
-        receipt.setAttribute("src", "data:image/jpg;base64, " + image_data);
-        
-        col.append(receipt);
+        for(const i of image_data) {
+            let col = document.createElement('div');
+            col.className = "col-12 mx-auto justify-content-center";
+            
+            let receipt = document.createElement('img');
+            receipt.setAttribute("src", "data:image/jpg;base64, " + image_data);
+            
+            col.append(receipt);
+        }
+
         row.append(col);
         receipt_widget_body.append(row);
 
@@ -345,14 +350,14 @@
         receipt_widget.show();
     }
 
-    function base64ArrayBuffer(arrayBuffer) {
+    function base64ArrayBuffer(buffer) {
         var base64    = '';
         var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
-        var bytes         = new Uint8Array(arrayBuffer);
-        var byteLength    = bytes.byteLength;
+        var view = new Uint8Array(buffer);
+        var byteLength = view.byteLength;
         var byteRemainder = byteLength % 3;
-        var mainLength    = byteLength - byteRemainder;
+        var mainLength = byteLength - byteRemainder;
 
         var a, b, c, d;
         var chunk;
@@ -360,7 +365,7 @@
         // Main loop deals with bytes in chunks of 3
         for (var i = 0; i < mainLength; i = i + 3) {
             // Combine the three bytes into a single integer
-            chunk = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
+            chunk = (view[i] << 16) | (view[i + 1] << 8) | view[i + 2];
 
             // Use bitmasks to extract 6-bit segments from the triplet
             a = (chunk & 16515072) >> 18; // 16515072 = (2^6 - 1) << 18
@@ -374,7 +379,7 @@
 
         // Deal with the remaining bytes and padding
         if (byteRemainder == 1) {
-            chunk = bytes[mainLength];
+            chunk = view[mainLength];
 
             a = (chunk & 252) >> 2; // 252 = (2^6 - 1) << 2
 
@@ -384,7 +389,7 @@
             base64 += encodings[a] + encodings[b] + '==';
         }
         else if (byteRemainder == 2) {
-            chunk = (bytes[mainLength] << 8) | bytes[mainLength + 1];
+            chunk = (view[mainLength] << 8) | view[mainLength + 1];
 
             a = (chunk & 64512) >> 10; // 64512 = (2^6 - 1) << 10
             b = (chunk & 1008)  >>  4; // 1008  = (2^6 - 1) << 4
