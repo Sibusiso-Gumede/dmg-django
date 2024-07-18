@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="modal fade" id="receiptWidget" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="resultsWidgetLabel">Receipt</h1>
@@ -310,9 +310,9 @@
         await fetch(request).then((response) => {
             if (response.ok) {
                 response.arrayBuffer().then((data) => {
-                    for(const img_dat of data) {
-                        attach_images(base64ArrayBuffer(data));
-                    }
+                    let view = new Uint8Array(data);
+                    console.log(view);
+                    //attach_images(base64ArrayBuffer(data));
                 });
             }
             else {
@@ -324,26 +324,26 @@
         });
     }
 
-    function attach_images(image_data) {
+    function attach_images(images_data) {
         if(receipt_widget_body.hasChildNodes()) {
             for(child of receipt_widget_body.childNodes)
                 receipt_widget_body.removeChild(child);
         }
 
         let row = document.createElement('div');
-        row.className = "container-fluid mx-auto";
+        row.className = "mx-auto d-inline-flex";
         
-        for(const i of image_data) {
+        for(const image of images_data.split('#')) {
             let col = document.createElement('div');
-            col.className = "col-12 mx-auto justify-content-center";
+            col.className = "justify-content-center";
             
             let receipt = document.createElement('img');
-            receipt.setAttribute("src", "data:image/jpg;base64, " + image_data);
+            receipt.setAttribute("src", "data:image/jpg;base64, " + image);
             
             col.append(receipt);
+            row.append(col);
         }
 
-        row.append(col);
         receipt_widget_body.append(row);
 
         const receipt_widget = new bootstrap.Modal(document.querySelector('#receiptWidget'));
