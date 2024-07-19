@@ -89,7 +89,7 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin(str_total_amount), self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='ltr')
 
         # Tax invoice segment.
-        if self.footer_limit > self.vertical_cursor:
+        if self.vertical_cursor > self.items_limit:
             self.__reset_cursor()
             self.__create_new_canvas()
         self.__move_cursor(self.y_spacing, "is")
