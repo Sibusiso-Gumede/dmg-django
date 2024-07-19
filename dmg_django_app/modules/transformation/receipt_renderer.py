@@ -89,9 +89,7 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin(str_total_amount), self.vertical_cursor), str_total_amount, self.black_ink, self.text_font, align='right', direction='ltr')
 
         # Tax invoice segment.
-        if self.vertical_cursor > self.items_limit:
-            self.__reset_cursor()
-            self.__create_new_canvas()
+        self.__test_area()
         self.__move_cursor(self.y_spacing, "is")
         tax_inv_divider = '-----------------TAX INVOICE----------------'
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), tax_inv_divider, self.black_ink, self.text_font, align='center', direction='ltr')
@@ -107,8 +105,9 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin('R'+str(taxable_value)), self.vertical_cursor), 'R'+str(taxable_value), self.black_ink, self.text_font, align='right', direction='ltr')
 
     def __footer_segment(self):
-        if self.vertical_cursor > self.items_limit:
-            self.items_segment_exceeded = True
+        if self.vertical_cursor > 370.00:
+            self.__reset_cursor()
+            self.__create_new_canvas()
         # Footer divider.
         self.__move_cursor(self.y_spacing, "fs")
         self.edit.line([(self.body_lm_rm[0], self.vertical_cursor), (230, self.vertical_cursor)], fill=self.black_ink, width=0)
@@ -133,11 +132,11 @@ class ReceiptRenderer():
                 k = 0
 
     def __move_cursor(self, amount: float, area: str = None):
+        self.vertical_cursor += amount
         if ((area == "fs") and (self.vertical_cursor > self.items_limit)) or (self.vertical_cursor > self.footer_limit):
             self.__reset_cursor()
             self.__create_new_canvas()
-        elif (((area == "fs") or (area == "is")) and (self.vertical_cursor < self.footer_limit)) or (area == None):
-            self.vertical_cursor += amount
+        #elif (((area == "fs") or (area == "is")) and (self.vertical_cursor < self.footer_limit)) or (area == None):   
 
     def __set_items(self, _items: dict[str]):
         for (name, products) in _items.items():
@@ -209,3 +208,8 @@ class ReceiptRenderer():
             encoded_images.update({count: base64.b64encode(image).decode('ascii')})
             count += 1
         return encoded_images
+    
+    def __test_area(self):
+        if self.vertical_cursor > self.items_limit:
+            self.__reset_cursor()
+            self.__create_new_canvas()
