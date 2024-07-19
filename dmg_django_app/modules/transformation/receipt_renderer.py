@@ -1,5 +1,6 @@
 from PIL import Image, ImageFont, ImageDraw
 from io import BytesIO
+import base64
 
 class ReceiptRenderer():
     
@@ -27,7 +28,7 @@ class ReceiptRenderer():
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
 
-    def render(self, _items: dict[str]) -> list[bytes]:
+    def render(self, _items: dict[str]) -> dict[str]:
         self.__set_items(_items)
         # Header.
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
@@ -56,7 +57,7 @@ class ReceiptRenderer():
             receipt.save(img_byte_arr, "JPEG")
             buffer.append(img_byte_arr.getvalue()+b"#")
 
-        return buffer
+        return self.__encode_images(buffer)
 
     def __items_segment(self):
         # Item names and prices.
@@ -201,3 +202,10 @@ class ReceiptRenderer():
                 break            
         return formatted
     
+    def __encode_images(self, container: list[bytes]) -> dict[str]:
+        encoded_images:dict[str] = {}
+        count:int = 1
+        for image in container:
+            encoded_images.update({count: base64.b64encode(image).decode('ascii')})
+            count += 1
+        return encoded_images

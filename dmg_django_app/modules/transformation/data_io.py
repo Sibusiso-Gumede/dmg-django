@@ -188,7 +188,7 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     else:
         return dict()
     
-def receipt(data: dict[str]) -> list[Image.Image] | list[bytes]:
+def receipt(data: dict[str]) -> dict[str]:
     receiptifier = ReceiptRenderer()
     return receiptifier.render(data)
 
