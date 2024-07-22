@@ -174,17 +174,34 @@ def clean_data(s: BaseSupermarket) -> dict[str]:
         return buffer
 
 def query_items(query: str, supermarket_name: str = None) -> dict[str]:
-    supermarket = SupermarketModel.objects.get(name__icontains=supermarket_name)   
-    products = Product.objects.filter(supermarket_id=supermarket.id)
-    products = products.filter(name__icontains=query)  
-    if products:
+    products = Product.objects
+    supermarket = SupermarketModel.objects
+
+    if supermarket_name:
+        supermarket = supermarket.get(name__icontains=supermarket_name)   
+        products = products.filter(supermarket_id=supermarket.id)
+    products = products.filter(name__icontains=query)        
+    
+    if products: 
         buffer: dict[str] = {}
-        for p in products:
-            if not (p.discounted_price == 'R0.00'):
-                buffer.update({p.name: p.discounted_price})
-            else:
-                buffer.update({p.name: p.price})
-        return buffer
+        if supermarket_name:
+            for p in products:
+                if not (p.discounted_price == 'R0.00'):
+                    buffer.update({p.name: p.discounted_price})
+                else:
+                    buffer.update({p.name: p.price})
+            return buffer
+        else:
+            buffer2: dict[str] = {}
+            for s in supermarket.all():
+                for p in products:
+                    if not (p.discounted_price == 'R0.00'):
+                        buffer2.update({p.name: p.discounted_price})
+                    else:
+                        buffer2.update({p.name: p.price})
+                buffer.update({s.name: buffer2})
+                buffer2.clear()
+            return buffer        
     else:
         return dict()
     
