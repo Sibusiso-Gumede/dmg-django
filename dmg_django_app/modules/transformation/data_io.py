@@ -195,10 +195,11 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
             buffer2: dict[str] = {}
             for s in supermarket.all():
                 for p in products:
-                    if not (p.discounted_price == 'R0.00'):
-                        buffer2.update({p.name: p.discounted_price})
-                    else:
-                        buffer2.update({p.name: p.price})
+                    if s.id == p.supermarket_id:
+                        if not (p.discounted_price == 'R0.00'):
+                            buffer2.update({p.name: p.discounted_price})
+                        else:
+                            buffer2.update({p.name: p.price})
                 buffer.update({s.name: buffer2})
                 buffer2.clear()
             return buffer        
