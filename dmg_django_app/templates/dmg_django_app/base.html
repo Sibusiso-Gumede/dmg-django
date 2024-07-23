@@ -99,24 +99,25 @@
                         </ul>
                     {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
                         <div class="pt-3 col-4 mb-3 ms-4 me-lg-3" role="search">
-                            <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                         </div>
                     {% endif %}
                     </div>
                 </div>
             </div>
         </header>
-        <div class="main">
-            <div class="container-fluid content-container p-3 align-content-center">
+        <div class="main" style="height: 100vh">
+            <div class="content-container container-fluid align-content-center pt-3">
                 {% block content %}{% endblock content %}
             </div>
-            <footer class="d-flex bg-dark text-white" style="height: 85px;">
+            <footer class="footer d-flex bg-dark text-white" style="height: 15vh;">
                 <div class="align-self-center ps-4">
-                    <p class="pt-3">Developed and maintained by <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a></p>
+                    <p class="pt-3">Developed and maintained by 
+                        <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
+                    </p>
                 </div>
             </footer>
         </div>
-        <script src="{% static 'app_js/ui_scripts.js' %}"></script>
         {% block scripts %}{% endblock scripts %}
     </body>
 </html>
