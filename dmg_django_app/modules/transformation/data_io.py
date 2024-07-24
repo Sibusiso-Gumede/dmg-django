@@ -192,6 +192,7 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                     buffer.update({p.name: p.price})
             return buffer
         else:
+            breakpoint()
             buffer2: dict[str] = {}
             for s in supermarket.all():
                 for p in products:

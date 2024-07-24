@@ -7,7 +7,7 @@ django.setup()
 from unittest import TestSuite, TextTestRunner, TestCase
 from concurrent.futures import ThreadPoolExecutor
 from ..extraction import Scraper
-from ..transformation import ReceiptRenderer, query_items, get_receipt
+from ..transformation import ReceiptRenderer, query_items, receipt
 from ..common import Supermarkets
 
 class DMGTestCase(TestCase):
@@ -42,10 +42,11 @@ class DMGTestCase(TestCase):
             rr.render(items)
 
     def models_test(self):
-        query_items('Nescafe')
+        q = input('Type item:\n>>>')
+        print(query_items(q))
 
     def receiptify_test(self):
-        get_receipt(self.data)
+        receipt(self.data)
 
 def map_function(func, container: list):
     with ThreadPoolExecutor() as execute:
