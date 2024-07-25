@@ -32,7 +32,7 @@
         }
     }
 
-    function relayPosition(position) {
+    async function relayPosition(position) {
         elem = document.querySelector('iframe');
         elem.src = elem.src+"&center="+String(position.coords.latitude+", "+position.coords.longitude)+"&zoom=15";
     }

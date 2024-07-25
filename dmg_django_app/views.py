@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from dmg_django.settings import GOOGLE_API_KEY
 from dmg_django_app.modules.transformation.data_io import query_items, receipt
 from dmg_django_app.modules.common import Supermarkets
