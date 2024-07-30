@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block content %}
-<div class="results-container container-fluid text-black" style="height: 100vh">
-{% if context %}
-    {% for (supermarket, products) in context.items %}
+<div class="results-container text-black">
+{% if supermarkets.keys %}
+    {% for supermarket, products in supermarkets.items %}
     <div class="supermarket-container">
-        <h2>{{supermarket}}</h2>
-        {% for (title, price) in products.items %}   
-        <div class="found-product d-inline-block">
+        <h2>{{ supermarket }}</h2>
+        {% for title, price in products.items %}   
+        <div class="found-product">
             <article>
                 <div class="product-image">
                     <img alt="{{ title }}" width="310">
@@ -23,9 +23,11 @@
         {% endfor %}
     </div>
     {% endfor %}
-{% else %}
+{% elif not supermarkets.keys %}
     <div class="response-text p-5">
-        <h1>No matching items found.</h1>
+        <div style="height:100vh">
+            <h1>No matching items found.</h1>
+        </div>
     </div>
 {% endif %}
 </div>
