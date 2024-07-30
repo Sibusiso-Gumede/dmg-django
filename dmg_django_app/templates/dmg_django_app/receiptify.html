@@ -49,18 +49,15 @@
                 </div>
             </div>
         </div>        
-        <div class="grocery-list-wrapper d-flex flex-column py-4" style="min-height:400px">
-            <div class="grocery-list-title mb-3 mx-auto" style="width:400px;height:50px">
-                <p class="display-6 text-center">GROCERY LIST</p>
-            </div>
+        <div class="grocery-list-wrapper d-flex flex-column pb-4" style="min-height:400px">
             <table class="table grocery-list">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Remove</th>
+                        <th class="#" scope="col"></th>
+                        <th class="Name" scope="col"></th>
+                        <th class="Quantity" scope="col"></th>
+                        <th class="Price" scope="col"></th>
+                        <th class="Remove" scope="col"></th>
                     </tr>
                 </thead>
                 <tbody class="selected-items"></tbody>
@@ -73,64 +70,238 @@
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript">
+    <script type="text/javascript">
+        var current_choice = "Shoprite";
+        var autosuggestion = document.querySelector("#autosuggestion");
+        var autosuggestion_body = document.querySelector(".card-body");
+        var type_to_add = document.querySelector("#type-to-add");
+        var grocery_list_body = document.querySelector('.selected-items');
+        var get_receipt_button = document.querySelector('#get-receipt-button');
+        var receipt_widget_body = document.querySelector('.modal-body');
+        const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        var suggested_items = new Map();
+        var selected_items = new Map();
 
-    var current_choice = "Shoprite";
-    var autosuggestion = document.querySelector("#autosuggestion");
-    var autosuggestion_body = document.querySelector(".card-body");
-    var type_to_add = document.querySelector("#type-to-add");
-    var grocery_list_body = document.querySelector('.selected-items');
-    var get_receipt_button = document.querySelector('#get-receipt-button');
-    var receipt_widget_body = document.querySelector('.modal-body');
-    const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    var suggested_items = new Map();
-    var selected_items = new Map();
+        document.form.addEventListener("onsubmit", function(event) {
+            if(event.key === "Enter")
+                event.preventDefault();
+        });
 
-    document.form.addEventListener("onsubmit", function(event) {
-        if(event.key === "Enter")
-            event.preventDefault();
-    });
+        type_to_add.addEventListener("keydown", function(event) {
+            if(event.key === "ArrowDown" && autosuggestion.className === "collapse show" && autosuggestion_body.hasChildNodes())
+                autosuggestion_body.firstChild.focus();
+        });
 
-    type_to_add.addEventListener("keydown", function(event) {
-        if(event.key === "ArrowDown" && autosuggestion.className === "collapse show" && autosuggestion_body.hasChildNodes())
-            autosuggestion_body.firstChild.focus();
-    });
-    
-    autosuggestion.addEventListener("keydown", function(event) {
-        let move_to = null;
+        autosuggestion.addEventListener("keydown", function(event) {
+            let move_to = null;
 
-        if(event.key === "ArrowDown")
-            move_to = document.activeElement.nextElementSibling;
-        else if(event.key === "ArrowUp")
-            move_to = document.activeElement.previousElementSibling;
-        
-        if(move_to)
-            move_to.focus();
-    });
-
-    function update_choice(event, option) {
-        if(selected_items.size === 0) {
-            autosuggestion.className = "collapse";
-            current_choice = option.value;
-        }
-        else if(selected_items.size > 0) {
-            event.preventDefault();
-            alert("Please clear the currently selected items\n"+
-                "on the grocery list before changing a supermarket option.");
-        }
-    }
-
-    async function autosuggest(input_field) {
-        if(input_field.value.length > 2) {
-            suggested_items.clear();
-
-            let queryParams = {"type-to-add": input_field.value, "supermarket-choice": current_choice};
-            let url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
+            if(event.key === "ArrowDown")
+                move_to = document.activeElement.nextElementSibling;
+            else if(event.key === "ArrowUp")
+                move_to = document.activeElement.previousElementSibling;
             
-            for(const i in queryParams)
-                url.searchParams.append(i, queryParams[i]);
+            if(move_to)
+                move_to.focus();
+        });
 
-            const request = new Request(url, {method: "GET"});
+        function update_choice(event, option) {
+            if(selected_items.size === 0) {
+                autosuggestion.className = "collapse";
+                current_choice = option.value;
+            }
+            else if(selected_items.size > 0) {
+                event.preventDefault();
+                alert("Please clear the currently selected items\n"+
+                    "on the grocery list before changing a supermarket option.");
+            }
+        }
+
+        async function autosuggest(input_field) {
+            if(input_field.value.length > 2) {
+                suggested_items.clear();
+
+                let queryParams = {"type-to-add": input_field.value, "supermarket-choice": current_choice};
+                let url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
+                
+                for(const i in queryParams)
+                    url.searchParams.append(i, queryParams[i]);
+
+                const request = new Request(url, {method: "GET"});
+
+                await fetch(request)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    else {
+                        throw new Error("Response error.");
+                    }
+                })
+                .then((buffer) => {
+                    for(const i in buffer)
+                        suggested_items.set(i, buffer[i]);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+                autosuggestion_body.innerHTML = "";
+
+                if(suggested_items.size > 0) {
+                    for(const name of suggested_items.keys()) {
+                        let suggestion_entry = document.createElement("button");
+                        suggestion_entry.setAttribute("class", "list-group-item list-group-item-action");
+                        suggestion_entry.setAttribute("type", "button");
+                        suggestion_entry.setAttribute("role", "tab");
+                        suggestion_entry.setAttribute("onclick", "add_to_list(event, this)");
+                        suggestion_entry.setAttribute("onkeyup", "add_to_list(event, this)");
+                        suggestion_entry.innerText = name;
+                        autosuggestion_body.append(suggestion_entry);
+                    }
+                }
+                else {
+                    autosuggestion_body.appendChild(document.createTextNode("No item found."));
+                }
+                autosuggestion.className = "collapse show";
+            }
+        }
+            
+        function add_to_list(event, item) {
+            if((event.key === "Enter" || event.type === "click") && !selected_items.has(item.innerText)) {
+                selected_items.set(item.innerText, suggested_items.get(item.innerText));
+
+                let item_row = document.createElement("tr");
+                item_row.setAttribute("class", item.innerText);
+                
+                let item_number_field = document.createElement("th");
+                item_number_field.setAttribute("scope", "row");
+                item_number_field.append(selected_items.size);
+                
+                let item_name_field = document.createElement("td");
+                item_name_field.append(item.innerText);
+
+                let item_total_price_field = document.createElement("td");
+                item_total_price_field.className = "total-price";
+                item_total_price_field.innerText = selected_items.get(item.innerText);
+
+                let item_delete_button = document.createElement("button");
+                item_delete_button.setAttribute("class", "btn-close");
+                item_delete_button.setAttribute("aria-label", "Close");
+                item_delete_button.setAttribute("type", "button");
+                item_delete_button.setAttribute("onclick", "remove_item(this)");
+
+                let item_delete_button_field = document.createElement("td");
+                item_delete_button_field.append(item_delete_button);
+
+                let item_quantity_wrapper = document.createElement("div");
+                item_quantity_wrapper.setAttribute("class", "item-quantity d-inline-flex");
+                item_quantity_wrapper.setAttribute("style", "width:130px");
+                
+                let item_quantity_minus_button = document.createElement("button");
+                item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-danger");
+                item_quantity_minus_button.setAttribute("type", "button");
+                item_quantity_minus_button.setAttribute("style", "width:40px");
+                item_quantity_minus_button.setAttribute("onclick", "change_product_quantity(this)");
+                item_quantity_minus_button.innerText = "-";
+                
+                let item_quantity_input = document.createElement("input");
+                item_quantity_input.setAttribute("class", "quantity fst-normal fw-normal text-center mx-auto");
+                item_quantity_input.setAttribute("type", "text");
+                item_quantity_input.setAttribute("aria-label", "item-quantity");
+                item_quantity_input.setAttribute("value", "1");
+                item_quantity_input.setAttribute("style", "width:50px");
+                item_quantity_input.setAttribute("onchange", "change_total_price(this)");
+                
+                let item_quantity_plus_button = document.createElement("button");
+                item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-success");
+                item_quantity_plus_button.setAttribute("type", "button"); 
+                item_quantity_plus_button.setAttribute("style", "width:40px");
+                item_quantity_plus_button.setAttribute("onclick", "change_product_quantity(this)");
+                item_quantity_plus_button.innerText = "+";           
+
+                item_quantity_wrapper.append(item_quantity_minus_button);
+                item_quantity_wrapper.append(item_quantity_input);
+                item_quantity_wrapper.append(item_quantity_plus_button);
+                
+                let item_quantity_field = document.createElement("td");
+                item_quantity_field.append(item_quantity_wrapper);
+
+                item_row.append(item_number_field);
+                item_row.append(item_name_field);
+                item_row.append(item_quantity_field);
+                item_row.append(item_total_price_field);
+                item_row.append(item_delete_button_field);
+
+                grocery_list_body.append(item_row);
+
+                if(selected_items.size > 0)
+                    get_receipt_button.className = "btn btn-dark text-white d-block mx-auto";
+            }
+        }
+
+        function remove_item(item) {
+            let parent = item.parentNode.parentNode;
+            
+            selected_items.delete(parent.className);
+            parent.remove();
+
+            let number_fields = document.querySelectorAll('th[scope="row"]');
+            let count = 0;
+
+            for(let num_field of number_fields) {
+                count = count + 1;
+                num_field.innerText = count;
+            }
+
+            if(selected_items.size === 0)
+                get_receipt_button.className = "btn btn-dark text-white d-none";
+        }
+
+        function change_product_quantity(button) {
+            if(button.className.includes("minus")) {
+                const quantity = Number(button.nextSibling.value);
+                if(quantity > 1) {
+                    button.nextSibling.value = quantity - 1;
+                    change_total_price(button.nextSibling);
+                }
+            }
+            else if(button.className.includes("plus")) {
+                button.previousSibling.value = Number(button.previousSibling.value) + 1;
+                change_total_price(button.previousSibling);
+            }
+        }
+
+        function change_total_price(node) {
+            let price = node.parentNode.parentNode.nextSibling;
+            price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(node.value)).toFixed(2);
+        }
+
+        async function get_receipt() {
+            let data = new Object();
+            let items = new Object();
+
+            for(const entry of grocery_list_body.childNodes) {
+                let info = new Object();
+                const quantity = entry.querySelector(".quantity").value;
+                info["quantity"] = quantity;
+                info["total_price"] = entry.querySelector(".total-price").innerText;
+                if(quantity != '1')
+                    info["cost_of_item"] = selected_items.get(entry.className);
+                items[entry.className] = info;
+            }
+
+            data[current_choice] = items;
+
+            const request = new Request("/get_receipt/",
+                {
+                    method: "POST", 
+                    headers: {
+                        'X-CSRFToken': csrf_token,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                    mode: "same-origin"
+                });
 
             await fetch(request)
             .then((response) => {
@@ -141,215 +312,39 @@
                     throw new Error("Response error.");
                 }
             })
-            .then((buffer) => {
-                for(const i in buffer)
-                    suggested_items.set(i, buffer[i]);
+            .then((data) => {
+                attach_images(data);
             })
             .catch((error) => {
                 console.log(error);
             });
+        }
 
-            autosuggestion_body.innerHTML = "";
-
-            if(suggested_items.size > 0) {
-                for(const name of suggested_items.keys()) {
-                    let suggestion_entry = document.createElement("button");
-                    suggestion_entry.setAttribute("class", "list-group-item list-group-item-action");
-                    suggestion_entry.setAttribute("type", "button");
-                    suggestion_entry.setAttribute("role", "tab");
-                    suggestion_entry.setAttribute("onclick", "add_to_list(event, this)");
-                    suggestion_entry.setAttribute("onkeyup", "add_to_list(event, this)");
-                    suggestion_entry.innerText = name;
-                    autosuggestion_body.append(suggestion_entry);
-                }
+        function attach_images(images) {
+            if(receipt_widget_body.hasChildNodes()) {
+                for(child of receipt_widget_body.childNodes)
+                    receipt_widget_body.removeChild(child);
             }
-            else {
-                autosuggestion_body.appendChild(document.createTextNode("No item found."));
+
+            let row = document.createElement('div');
+            row.className = "mx-auto d-inline-flex";
+            
+            for(const number in images) {
+                let col = document.createElement('div');
+                col.className = "justify-content-center";
+                
+                let receipt = document.createElement('img');
+                receipt.className = "pe-5";
+                receipt.setAttribute("src", "data:image/jpg;base64, " + images[number]);
+                
+                col.append(receipt);
+                row.append(col);
             }
-            autosuggestion.className = "collapse show";
+
+            receipt_widget_body.append(row);
+
+            const receipt_widget = new bootstrap.Modal(document.querySelector('#receiptWidget'));
+            receipt_widget.show();
         }
-    }
-        
-    function add_to_list(event, item) {
-        if((event.key === "Enter" || event.type === "click") && !selected_items.has(item.innerText)) {
-            selected_items.set(item.innerText, suggested_items.get(item.innerText));
-
-            let item_row = document.createElement("tr");
-            item_row.setAttribute("class", item.innerText);
-            
-            let item_number_field = document.createElement("th");
-            item_number_field.setAttribute("scope", "row");
-            item_number_field.append(selected_items.size);
-            
-            let item_name_field = document.createElement("td");
-            item_name_field.append(item.innerText);
-
-            let item_total_price_field = document.createElement("td");
-            item_total_price_field.className = "total-price";
-            item_total_price_field.innerText = selected_items.get(item.innerText);
-
-            let item_delete_button = document.createElement("button");
-            item_delete_button.setAttribute("class", "btn-close");
-            item_delete_button.setAttribute("aria-label", "Close");
-            item_delete_button.setAttribute("type", "button");
-            item_delete_button.setAttribute("onclick", "remove_item(this)");
-
-            let item_delete_button_field = document.createElement("td");
-            item_delete_button_field.append(item_delete_button);
-
-            let item_quantity_wrapper = document.createElement("div");
-            item_quantity_wrapper.setAttribute("class", "item-quantity d-inline-flex");
-            item_quantity_wrapper.setAttribute("style", "width:130px");
-            
-            let item_quantity_minus_button = document.createElement("button");
-            item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-danger");
-            item_quantity_minus_button.setAttribute("type", "button");
-            item_quantity_minus_button.setAttribute("style", "width:40px");
-            item_quantity_minus_button.setAttribute("onclick", "change_product_quantity(this)");
-            item_quantity_minus_button.innerText = "-";
-            
-            let item_quantity_input = document.createElement("input");
-            item_quantity_input.setAttribute("class", "quantity fst-normal fw-normal text-center mx-auto");
-            item_quantity_input.setAttribute("type", "text");
-            item_quantity_input.setAttribute("aria-label", "item-quantity");
-            item_quantity_input.setAttribute("value", "1");
-            item_quantity_input.setAttribute("style", "width:50px");
-            item_quantity_input.setAttribute("onchange", "change_total_price(this)");
-            
-            let item_quantity_plus_button = document.createElement("button");
-            item_quantity_plus_button.setAttribute("class", "plus-btn btn btn-success");
-            item_quantity_plus_button.setAttribute("type", "button"); 
-            item_quantity_plus_button.setAttribute("style", "width:40px");
-            item_quantity_plus_button.setAttribute("onclick", "change_product_quantity(this)");
-            item_quantity_plus_button.innerText = "+";           
-
-            item_quantity_wrapper.append(item_quantity_minus_button);
-            item_quantity_wrapper.append(item_quantity_input);
-            item_quantity_wrapper.append(item_quantity_plus_button);
-            
-            let item_quantity_field = document.createElement("td");
-            item_quantity_field.append(item_quantity_wrapper);
-
-            item_row.append(item_number_field);
-            item_row.append(item_name_field);
-            item_row.append(item_quantity_field);
-            item_row.append(item_total_price_field);
-            item_row.append(item_delete_button_field);
-
-            grocery_list_body.append(item_row);
-
-            if(selected_items.size > 0)
-                get_receipt_button.className = "btn btn-dark text-white d-block mx-auto";
-        }
-    }
-
-    function remove_item(item) {
-        let parent = item.parentNode.parentNode;
-        
-        selected_items.delete(parent.className);
-        parent.remove();
-
-        let number_fields = document.querySelectorAll('th[scope="row"]');
-        let count = 0;
-
-        for(let num_field of number_fields) {
-            count = count + 1;
-            num_field.innerText = count;
-        }
-
-        if(selected_items.size === 0)
-            get_receipt_button.className = "btn btn-dark text-white d-none";
-    }
-
-    function change_product_quantity(button) {
-        if(button.className.includes("minus")) {
-            const quantity = Number(button.nextSibling.value);
-            if(quantity > 1) {
-                button.nextSibling.value = quantity - 1;
-                change_total_price(button.nextSibling);
-            }
-        }
-        else if(button.className.includes("plus")) {
-            button.previousSibling.value = Number(button.previousSibling.value) + 1;
-            change_total_price(button.previousSibling);
-        }
-    }
-
-    function change_total_price(node) {
-        let price = node.parentNode.parentNode.nextSibling;
-        price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(node.value)).toFixed(2);
-    }
-
-    async function get_receipt() {
-        let data = new Object();
-        let items = new Object();
-
-        for(const entry of grocery_list_body.childNodes) {
-            let info = new Object();
-            const quantity = entry.querySelector(".quantity").value;
-            info["quantity"] = quantity;
-            info["total_price"] = entry.querySelector(".total-price").innerText;
-            if(quantity != '1')
-                info["cost_of_item"] = selected_items.get(entry.className);
-            items[entry.className] = info;
-        }
-
-        data[current_choice] = items;
-
-        const request = new Request("/get_receipt/",
-            {
-                method: "POST", 
-                headers: {
-                    'X-CSRFToken': csrf_token,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data),
-                mode: "same-origin"
-            });
-
-        await fetch(request)
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-            else {
-                throw new Error("Response error.");
-            }
-        })
-        .then((data) => {
-            attach_images(data);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
-
-    function attach_images(images) {
-        if(receipt_widget_body.hasChildNodes()) {
-            for(child of receipt_widget_body.childNodes)
-                receipt_widget_body.removeChild(child);
-        }
-
-        let row = document.createElement('div');
-        row.className = "mx-auto d-inline-flex";
-        
-        for(const number in images) {
-            let col = document.createElement('div');
-            col.className = "justify-content-center";
-            
-            let receipt = document.createElement('img');
-            receipt.className = "pe-5";
-            receipt.setAttribute("src", "data:image/jpg;base64, " + images[number]);
-            
-            col.append(receipt);
-            row.append(col);
-        }
-
-        receipt_widget_body.append(row);
-
-        const receipt_widget = new bootstrap.Modal(document.querySelector('#receiptWidget'));
-        receipt_widget.show();
-    }
-
-</script>
+    </script>
 {% endblock %}
