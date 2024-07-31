@@ -218,3 +218,9 @@ def string_ascii_total(string:str) -> str:
             accumulator += ord(character)
         ascii_totals.append(accumulator)
         accumulator = 0
+
+def create_supermarkets_histogram():
+    import matplotlib.pyplot as plot
+    import numpy as np
+
+    
