@@ -2,14 +2,11 @@
 
 import json
 from io import BytesIO
-from pathlib import Path
 from PIL import Image, UnidentifiedImageError
-from django.core.files import File
 from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
 from ...models import Supermarket as SupermarketModel, Product
-from .receipt_renderer import ReceiptRenderer
 
 TITLE_LENGTH: int = 30
 
@@ -107,18 +104,6 @@ def store_product_records(supermarket_name: str, products: dict[str]) -> None:
                                 supermarket=supermarket_record, discounted_price=data['discounted_price'])
         product_record.save()
 
-def createProductsFixtures() -> None:
-    for name, supermarket in Supermarkets.SUPERMARKETS.items():
-        file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json', 'r')
-        products = store_supermarket_record(supermarket, file)
-        fixture:dict[str] = {}
-        for name, data in products.items():
-            fixture.update({"model": "dmg_django_app.product",
-                            "fields": {
-                                "id":"", 
-                            }})
-            # TODO: ...
-
 def store_supermarket_records() -> None:
     print("Storage of records initiated...")
     _choice = input("\nStore supermarket records...Y/N\n>>>")
@@ -190,7 +175,6 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                     buffer.update({p.name: p.discounted_price})
                 else:
                     buffer.update({p.name: p.price})
-            return buffer
         else:
             for s in supermarket.all():
                 buffer2: dict[str] = {}
@@ -202,11 +186,12 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                             buffer2.update({p.name: p.price})
                 if buffer2:
                     buffer.update({s.name: buffer2})
-            return buffer        
+        return buffer        
     else:
         return dict()
     
 def receipt(data: dict[str]) -> dict[str]:
+    from .receipt_renderer import ReceiptRenderer
     receiptifier = ReceiptRenderer()
     return receiptifier.render(data)
 
@@ -223,4 +208,4 @@ def create_supermarkets_histogram():
     import matplotlib.pyplot as plot
     import numpy as np
 
-    
+    plot.style.use('_mpl-gallery')
