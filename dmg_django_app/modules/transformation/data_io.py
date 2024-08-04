@@ -5,7 +5,7 @@ from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket
-from ..common import Supermarkets
+from ..common import Supermarkets, ASSETS_DIR
 from ...models import Supermarket as SupermarketModel, Product
 
 TITLE_LENGTH: int = 30
@@ -203,3 +203,7 @@ def string_ascii_total(string:str) -> str:
             accumulator += ord(character)
         ascii_totals.append(accumulator)
         accumulator = 0
+
+def convert_image_to_greyscale(image_name: str):
+    img = Image.open(f'{ASSETS_DIR}/{image_name}').convert("L")
+    img.save(f'{ASSETS_DIR}/{image_name[:-4]}_greyscale.png')
