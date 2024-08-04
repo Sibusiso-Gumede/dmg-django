@@ -203,25 +203,3 @@ def string_ascii_total(string:str) -> str:
             accumulator += ord(character)
         ascii_totals.append(accumulator)
         accumulator = 0
-
-def create_supermarkets_chart():
-    import matplotlib.pyplot as plot
-    import numpy as np
-
-    plot.style.use('_mpl-gallery')
-    fig, ax = plot.subplots()
-    
-    snames, yvals = [], []
-    for supermarket in SupermarketModel.objects.all():
-        snames.append(supermarket.name)
-        yvals.append(int(supermarket.statistics["South Africa"]))
-    
-    plot.title("Number of stores in SA", fontsize=15)
-    plot.xlabel("Supermarket", fontsize=10)
-    plot.ylabel("Number of stores", fontsize=10)
-
-    ax.bar(snames, yvals, 2, edgecolor="white", linewidth=2)
-    ax.set(xlim=(0, 1100), xticks=np.arange(1, 1100),
-           ylim=(0, 1100), yticks=np.arange(1, 1100))
-    
-    plot.savefig('/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/static/app_assets/bi_chart.png')
