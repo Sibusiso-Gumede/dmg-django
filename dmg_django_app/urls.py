@@ -16,4 +16,6 @@ urlpatterns = [
     path('autosuggestion/', product_autosuggestion, name='product_autosuggestion'),
     # Receipt rendering url.
     path('get_receipt/', get_receipt, name='get_receipt'),
+    # Supermarkets' chart url.
+    path('supermarkets', supermarkets, name='supermarkets'),
 ]

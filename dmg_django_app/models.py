@@ -10,10 +10,7 @@ class Supermarket(models.Model):
                             help_text="The supermarket name")
     num_of_products = models.PositiveIntegerField(
         help_text="The total number of different products sold")
-    statistics = models.JSONField(default=dict({"Mpumalanga": "",
-                "Limpopo": "", "Gauteng": "", "North West": "", 
-                "KwaZulu Natal": "", "Free State": "", "Northern Cape": "",
-                "Eastern Cape": "", "Western Cape": ""}), 
+    statistics = models.JSONField(default=dict, 
                 help_text="The total number of stores per province.")
 
     def __str__(self) -> str:

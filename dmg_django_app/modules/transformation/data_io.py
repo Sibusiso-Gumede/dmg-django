@@ -203,7 +203,3 @@ def string_ascii_total(string:str) -> str:
             accumulator += ord(character)
         ascii_totals.append(accumulator)
         accumulator = 0
-
-def convert_image_to_greyscale(image_name: str):
-    img = Image.open(f'{ASSETS_DIR}/{image_name}').convert("L")
-    img.save(f'{ASSETS_DIR}/{image_name[:-4]}_greyscale.png')

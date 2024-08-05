@@ -38,3 +38,7 @@ def near_me(request):
 def get_receipt(request):
     """Generates slips of the listed products."""
     return JsonResponse(receipt(json.loads(request.body)), safe=True)
+
+def supermarkets(request):
+    """Generates supermarkets' chart template."""
+    return render(request, 'dmg_django_app/supermarkets.html')
