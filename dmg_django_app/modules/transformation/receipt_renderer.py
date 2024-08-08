@@ -4,7 +4,7 @@ import base64
 
 class ReceiptRenderer():
     
-    def __init__(self):
+    def __init__(self, _items: dict[str]):
         self.resources_path = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
         # Properties and settings.
         self.items: dict[str] = {}
@@ -27,9 +27,9 @@ class ReceiptRenderer():
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
-
-    def render(self, _items: dict[str]) -> dict[str]:
         self.__set_items(_items)
+
+    def render(self) -> dict[str]:
         # Header.
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
         self.edit.multiline_text((self.header_lm, self.vertical_cursor), self.supermarket_logo+'\n'+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')

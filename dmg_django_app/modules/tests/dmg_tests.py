@@ -17,7 +17,7 @@ class DMGTestCase(TestCase):
     def setUp(self):
         super().setUp(self)
         self.data:dict[str] = {
-            "Supermarket Name": {
+            "PicknPay": {
                 "Jacob's Kronung Coffee": {"total_price": "R379.98", "quantity": "2", "cost_of_item": "R189.99"},
                 "Albany Brown Bread": {"total_price": "R33.98", "quantity": "2", "cost_of_item": "R16.99"},
                 "No Name Potatoes Bag 1 x 1kg": {"total_price": "R78.99", "quantity": "1"},

@@ -192,8 +192,8 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     
 def receipt(data: dict[str]) -> dict[str]:
     from .receipt_renderer import ReceiptRenderer
-    receiptifier = ReceiptRenderer()
-    return receiptifier.render(data)
+    receiptifier = ReceiptRenderer(data)
+    return receiptifier.render()
 
 def string_ascii_total(string:str) -> str:
     accumulator:int = 0
