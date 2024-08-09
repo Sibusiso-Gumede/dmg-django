@@ -31,9 +31,9 @@
 
 {% block scripts %}
 <script type="text/javascript">
-    var appLogo = document.querySelector('#app-logo');
-    var searchBox = document.querySelector('#searchBox');
-
+    let appLogo = document.querySelector('#app-logo');
+    let searchBox = document.querySelector('#searchBox');
+    
     if(height > width) {
         appLogo.setAttribute('style', 'width:'+String(Number(width/3))+'px;height:'+String(Number(height/5)))+'px;';
         searchBox.setAttribute('style', 'width:'+String(Number(width/2.5))+'px;');
@@ -41,6 +41,6 @@
     else if(height < width) {
         appLogo.setAttribute('style', 'width:'+String(Number(width/4))+'px;height:'+String(Number(height/2)))+'px;';
         searchBox.setAttribute('style', 'width:'+String(Number(width/2.5))+'px;');
-    }
+    }    
 </script>
 {% endblock %}

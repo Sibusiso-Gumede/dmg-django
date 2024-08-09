@@ -118,15 +118,24 @@
         <script type="text/javascript">
             var height = window.innerHeight;
             var width = window.innerWidth;
+            
+            visualViewport.addEventListener("resize", () => {
+                height = window.innerHeight;
+                width = window.innerWidth;
+                adjustContentArea();
+            });
 
-            if(height > width) {
-                document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height/2))+'px;');
+            function adjustContentArea() {                
+                if(height > width) {
+                    document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height/2))+'px;');
+                }
+                else if(height < width) {
+                    document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height*(0.9)))+'px;');
+                }
             }
-            else if(height < width) {
-                document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height*(0.9)))+'px;');
-            }
+            adjustContentArea();
             document.querySelector('.footer').setAttribute('style','height:'+String(document.querySelector('#navBar').clientHeight)+'px');
         </script>
-        {% block scripts %}{% endblock scripts %}
+        {% block scripts %}{% endblock %}
     </body>
 </html>
