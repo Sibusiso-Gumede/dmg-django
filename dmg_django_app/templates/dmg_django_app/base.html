@@ -45,9 +45,9 @@
             </svg>
 
             <!-- Navigation bar with the different functions. -->
-            <div class="px-3 py-2 bg-dark text-bg-dark">
-                <div class="container">
-                    <div class="d-flex flex-row justify-content-*-center">                 
+            <div class="px-3 py-2 bg-dark text-bg-dark" style="width:100%;" id="navBar">
+                <div class="container w-100">
+                    <div class="d-flex flex-row justify-content-*-center w-100">                 
                     {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}    
                         <ul class="nav col-8 pe-1 my-2 justify-content-end my-md-0 text-small">
                     {% else %}    
@@ -103,11 +103,11 @@
                 </div>
             </div>
         </header>
-        <div class="main" style="height: 100vh">
-            <div class="content-container container-fluid align-content-center pt-3">
+        <div class="main w-100">
+            <div class="content-container container-fluid align-content-center pt-3 border border-dark w-100">        
                 {% block content %}{% endblock content %}
             </div>
-            <div class="footer d-flex bg-dark text-white" style="height: 15vh;">
+            <div class="footer d-flex bg-dark text-white w-100">
                 <div class="align-self-center ps-4">
                     <p class="pt-3">Developed and maintained by 
                         <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
@@ -115,6 +115,18 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+
+            if(height > width) {
+                document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height/2))+'px;');
+            }
+            else if(height < width) {
+                document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height*(0.9)))+'px;');
+            }
+            document.querySelector('.footer').setAttribute('style','height:'+String(document.querySelector('#navBar').clientHeight)+'px');
+        </script>
         {% block scripts %}{% endblock scripts %}
     </body>
 </html>

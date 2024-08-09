@@ -136,7 +136,6 @@ class ReceiptRenderer():
         if ((area == "fs") and (self.vertical_cursor > self.items_limit)) or (self.vertical_cursor > self.footer_limit):
             self.__reset_cursor()
             self.__create_new_canvas()
-        #elif (((area == "fs") or (area == "is")) and (self.vertical_cursor < self.footer_limit)) or (area == None):   
 
     def __set_items(self, _items: dict[str]):
         for (name, products) in _items.items():
