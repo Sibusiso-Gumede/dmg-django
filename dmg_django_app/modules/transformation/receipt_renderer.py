@@ -140,7 +140,7 @@ class ReceiptRenderer():
 
     def __set_items(self, _items: dict[str]):
         for (name, products) in _items.items():
-            self.supermarket_logo = name
+            self.supermarket_logo = name.upper()
             for (title, data) in products.items():
                 if(not(len(title) <= self.TITLE_LENGTH)):
                     self.items.update({self.__shorten_string(title): data})
