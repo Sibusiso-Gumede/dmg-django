@@ -16,7 +16,7 @@
         </div>
         <!-- Search container. -->
         <div class="p-2 bg-light search-container">
-            <form method="get" action="/home/discounted_products/">
+            <form method="get" action="/home/discounted_products/" name="form">
                 <div class="p-2 searchbox-wrapper">
                     <input class="form-control text-center mx-auto border-2" type="text" id="searchBox" name="searchBox" placeholder="Search product...">
                 </div>
@@ -31,9 +31,19 @@
 
 {% block scripts %}
 <script type="text/javascript">
-    let appLogo = document.querySelector('#app-logo');
-    let searchBox = document.querySelector('#searchBox');
-    
+    var appLogo = document.querySelector('#app-logo');
+    var searchBox = document.querySelector('#searchBox');
+
+    document.querySelector('.btn').addEventListener("onclick", function(event) {
+        if(searchBox.value === '')
+            event.preventDefault();
+    });
+
+    searchBox.addEventListener('onkeydown', function(event) {
+        if(event.key === 'Enter')
+            event.preventDefault();
+    });
+
     if(height > width) {
         appLogo.setAttribute('style', 'width:'+String(Number(width/3))+'px;height:'+String(Number(height/5)))+'px;';
         searchBox.setAttribute('style', 'width:'+String(Number(width/2.5))+'px;');
@@ -41,6 +51,7 @@
     else if(height < width) {
         appLogo.setAttribute('style', 'width:'+String(Number(width/4))+'px;height:'+String(Number(height/2)))+'px;';
         searchBox.setAttribute('style', 'width:'+String(Number(width/2.5))+'px;');
-    }    
+    }
+
 </script>
 {% endblock %}

@@ -126,15 +126,17 @@
             });
 
             function adjustContentArea() {                
-                if(height > width) {
-                    document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height/2))+'px;');
+                if(!(document.URL.includes('receiptify') || document.URL.includes('discounted_products'))) {
+                    if(height > width) {
+                        document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height/2))+'px;');
+                    }
+                    else if(height < width) {
+                        document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height*(0.9)))+'px;');
+                    }
                 }
-                else if(height < width) {
-                    document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height*(0.9)))+'px;');
-                }
+                document.querySelector('.footer').setAttribute('style','height:'+String(document.querySelector('#navBar').clientHeight)+'px');
             }
             adjustContentArea();
-            document.querySelector('.footer').setAttribute('style','height:'+String(document.querySelector('#navBar').clientHeight)+'px');
         </script>
         {% block scripts %}{% endblock %}
     </body>
