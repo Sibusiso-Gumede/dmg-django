@@ -48,7 +48,7 @@
             <div class="type-to-add-wrapper mx-auto" style="width: 600px;" name="type_to_add_container">
                 <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
                 placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
-                <div class="collapse align-content-center" id="autosuggestion" name="autosuggestion" style="width:610px;">
+                <div class="collapse align-content-center" id="autosuggestion" name="autosuggestion" style="width:600px;">
                     <div class="list-group card card-body mx-auto p-1" role="tablist" style="width:600px;"></div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
         var suggested_items = new Map();
         var selected_items = new Map();
 
-        document.form.addEventListener("onsubmit", function(event) {
+        document.form.addEventListener("submit", function(event) {
             if(event.key === "Enter")
                 event.preventDefault();
         });
