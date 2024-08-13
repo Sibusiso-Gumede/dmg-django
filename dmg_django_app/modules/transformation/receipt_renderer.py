@@ -54,8 +54,8 @@ class ReceiptRenderer():
         buffer:list[bytes] = []
         for receipt in self.receipts:
             img_byte_arr = BytesIO()
-            receipt.save(img_byte_arr, "JPEG")
-            buffer.append(img_byte_arr.getvalue()+b"#")
+            receipt.save(img_byte_arr, "PNG")
+            buffer.append(img_byte_arr.getvalue())
 
         return self.__encode_images(buffer)
 
