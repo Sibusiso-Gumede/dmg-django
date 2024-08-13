@@ -20,6 +20,7 @@ class ReceiptRenderer():
         self.items_limit = 380                          # segment limit.
         self.supermarket_logo: str = ""
         self.receipts:list[Image.Image] = []
+        self.bin_imgs:list[bytes] = []
 
         # Receipt properties.
         self.TITLE_LENGTH:int = 30
@@ -51,13 +52,12 @@ class ReceiptRenderer():
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
-        buffer:list[bytes] = []
         for receipt in self.receipts:
             img_byte_arr = BytesIO()
             receipt.save(img_byte_arr, "PNG")
-            buffer.append(img_byte_arr.getvalue())
+            self.bin_imgs.append(img_byte_arr.getvalue())
 
-        return self.__encode_images(buffer)
+        return self.__encode_images()
 
     def __items_segment(self):
         # Item names and prices.
@@ -200,10 +200,10 @@ class ReceiptRenderer():
                 break            
         return formatted
     
-    def __encode_images(self, container: list[bytes]) -> dict[str]:
+    def __encode_images(self) -> dict[str]:
         encoded_images:dict[str] = {}
         count:int = 1
-        for image in container:
+        for image in self.bin_imgs:
             encoded_images.update({count: base64.b64encode(image).decode('ascii')})
             count += 1
         return encoded_images

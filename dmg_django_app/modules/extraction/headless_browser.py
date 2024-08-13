@@ -37,12 +37,13 @@ class Scraper():
                 return True
         return False
 
-    def _update_product_list(self, _super: BaseSupermarket, product_list: dict[str]):
+    def __update_product_list(self, _super: BaseSupermarket, product_list: dict[str]):
         print('\nSCRAPING PRODUCT LIST...')
         products = self.driver.find_elements(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_list'])
-        name: str = None
-        promo: str = None
-        price: str = None
+        name: str = ""
+        promo: str = ""
+        price: str = ""
+        image: str = ""
         prod_name_exception: bool = False
         name_element: WebElement = None
         price_element: WebElement = None
@@ -64,45 +65,51 @@ class Scraper():
                     price_element = None
                 elif _super.get_page_selectors()['product_promo'] in line:
                     promo_element = None
+                elif _super.get_page_selectors()['product_image'] in line:
+                    image_element = None
+                    print("\nProduct image not visible.")
             finally:
                 if (_super.get_supermarket_name() == Supermarkets.PNP) and (prod_name_exception):
                     name = name_element.get_attribute("data-cnstrc-item-name")
                 else:
                     name = name_element.text
+                
                 price = price_element.text
                 if _super.get_supermarket_name() == Supermarkets.MAKRO:
                     price = f'{price[:-2]}.{price[-2:]}'
                 
-                if promo_element is not None:
-                    if (_super.get_supermarket_name() == Supermarkets.MAKRO) and ('for' not in promo_element.text):
-                        promo = "NULL"
-                    else:
-                        promo = promo_element.text
-                elif promo_element is None:
+                if promo_element:
+                    #if (_super.get_supermarket_name() == Supermarkets.MAKRO) and ('for' not in promo_element.text):
+                    #    promo = "NULL"
+                    #else:
+                    promo = promo_element.text
+                else:
                     promo = "NULL"
+                
+                if image_element:
+                    image = image_element.screenshot_as_base64
+                else:
+                    image = "NULL"
+
+                breakpoint()
+                
                 _super.increase_product_count()
-                product_list.update({_super.products: {"name": name, "price": price, "promo": promo}})
+                product_list.update({_super.products: {"name": name, "price": price, "promo": promo, "image": image}})
         print("DONE.")
 
-    def _populate_update_fixtures(self, _supermarket: BaseSupermarket, products: dict[str]):
-        response = input("1. Populate fixtures\n2. Update database products\n>>>")
-        if response == '1':
-            # Populate database fixtures. 
-            output_dir = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}'
-            output_file = f'{output_dir}/{_supermarket.get_supermarket_name()}_products.json'
-            arg = 'w'               # open file in write mode.
-            if not path.isdir(output_dir):
-                makedirs(output_dir)
-            if not path.isfile(output_file):
-                arg = 'x'           # create file and open in write mode.
-            with open(output_file, arg) as o_file:
-                json.dump(products, o_file, indent=4)
-        elif response == '2':
-            # update supermarket products list.
-            _model = SupermarketModel.objects.get(name=_supermarket.get_supermarket_name())
-            _model.products = products
+    def __populate_fixtures(self, _supermarket: BaseSupermarket, products: dict[str]):
+        # Populate database fixtures. 
+        output_dir = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}'
+        output_file = f'{output_dir}/{_supermarket.get_supermarket_name()}_products.json'
+        arg = 'w'               # open file in write mode.
+        if not path.isdir(output_dir):
+            makedirs(output_dir)
+        if not path.isfile(output_file):
+            arg = 'x'           # create file and open in write mode.
+        with open(output_file, arg) as o_file:
+            json.dump(products, o_file, indent=4)
 
-    def _prepare_url_patterns(self, _supermarket: BaseSupermarket) -> bool:
+    def __prepare_url_patterns(self, _supermarket: BaseSupermarket) -> bool:
         # Read data and return complete url's.
         s_name = _supermarket.get_supermarket_name()
         resources_dir = f'{_supermarket.RESOURCES_PATH}/{s_name}'
@@ -110,7 +117,7 @@ class Scraper():
         if not path.isfile(output_file):
             input_file = f'{resources_dir}/{s_name}_categories.json'
             urls: list[str] = list()
-            url: str
+            url: str = ""
             with open(input_file, 'r') as  i_file, open(output_file, 'x', newline='\n') as urls_file:
                 categories = dict(json.load(i_file))                
                 for category, data in zip(categories.keys(), categories.values()):
@@ -140,11 +147,10 @@ class Scraper():
         divisor_range: list[int] = range(2, 6)       
         url_count: int = 0
         urls = list[str]
-        next_button: WebElement
+        next_button: WebElement = None
         home_page: bool
-        makro_subcategory_products_loaded: bool = False
         last_page: int = 0
-        supermarket_name: str
+        supermarket_name: str = ""
         #script:str = r'window.scroll({top:550,left:0,behavior:"smooth",});'
 
         for supermarket in supermarkets:
@@ -154,7 +160,7 @@ class Scraper():
             sleep(1.50)
             buffer: dict[str] = {}
 
-            if ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)) and (self._prepare_url_patterns(supermarket)):
+            if ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)) and (self.__prepare_url_patterns(supermarket)):
                 urls = self._retrieve_urls(supermarket)
                 url_count = len(urls)
             
@@ -232,11 +238,11 @@ class Scraper():
                 # Update product list.
                 if not (supermarket_name == Supermarkets.MAKRO):
                     print(f"\nPAGE {page_number} OF {supermarket_name}")
-                    self._update_product_list(supermarket, buffer)
+                    self.__update_product_list(supermarket, buffer)
                     if page_number == 2:
                         break
                 elif (supermarket_name == Supermarkets.MAKRO):#(page_number < 1):
-                    self._update_product_list(supermarket, buffer)
+                    self.__update_product_list(supermarket, buffer)
                 
             # Populate supermarket database fixtures.
-            self._populate_update_fixtures(supermarket, buffer)
+            self.__populate_fixtures(supermarket, buffer)
