@@ -14,15 +14,15 @@ from time import sleep
 from random import choice
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
-from ...models import Supermarket as SupermarketModel
 from os import path, makedirs
 import json, traceback
 
 class Scraper():
     def __init__(self) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
-        #self.chromeOptions.add_argument('--headless')
+        self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
+        #self.chromeOptions.add_argument('log-level=3')
         self.chromeOptions.page_load_strategy = 'normal'
         
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.chromeOptions)
@@ -143,12 +143,12 @@ class Scraper():
                 urls.append(line.removesuffix('\n'))
             return urls
            
-    def scrape_products(self, supermarkets: list[BaseSupermarket]):
+    def scrape_products(self, supermarkets: list[BaseSupermarket] | BaseSupermarket):
         divisor_range: list[int] = range(2, 6)       
         url_count: int = 0
         urls = list[str]
         next_button: WebElement = None
-        home_page: bool
+        home_page: bool = False
         last_page: int = 0
         supermarket_name: str = ""
         #script:str = r'window.scroll({top:550,left:0,behavior:"smooth",});'
@@ -165,8 +165,7 @@ class Scraper():
                 url_count = len(urls)
             
             while True:
-                if not (supermarket_name == Supermarkets.MAKRO):
-                    page_number += 1
+                page_number += 1
 
                 if home_page:
                     if (supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO):
@@ -226,11 +225,11 @@ class Scraper():
                     # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
                     # Or continue to the next subcategory in the case of Makro.
                     elif not next_button.is_enabled():
-                        if url_count == -1:
+                        if url_count == 0:
                             print(f'Available items completely scraped for {supermarket_name} website.')
                             break
                         # Proceed to the next category if the items are completely scraped for the current category.
-                        elif ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)) and (url_count > -1):
+                        elif ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)):
                             home_page = True
 
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
