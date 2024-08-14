@@ -3,22 +3,22 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid bg-light text-black p-3 align-content-center" style="width:100%;height:100%">
+<!--lg/xxl-->
+<div class="home-container container-fluid bg-light text-black px-3 pt-5 d-none d-lg-block d-xxl-block" style="min-height:750px">
     <!-- Logo and search section. -->
     <div class="d-flex flex-column align-content-center mx-auto" id="logoSearch">
-        <!-- Top padding. -->
-        <div class="padding d-none d-lg-block" style="height:35px"></div>
         <!-- Web Application Logo. -->
         <div class="bg-light app-logo-container mx-auto">
             <a href="{% url 'dmg_django_app:home' %}">
-                <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo">
+                <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo" style="width:350px;height:300px">
             </a>
         </div>
         <!-- Search container. -->
         <div class="p-2 bg-light search-container">
             <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="homeForm">
                 <div class="p-2 searchbox-wrapper">
-                    <input class="form-control text-center mx-auto border-2" type="text" id="searchBox" name="searchBox" placeholder="Search product...">
+                    <input class="form-control text-center mx-auto border-2" type="text" id="searchBox" name="searchBox" placeholder="Search product..."
+                    style="width:500px;">
                 </div>
                 <div class="p-2 button-wrapper text-center">    
                     <input type="submit" class="btn btn-primary bg-dark" id="searchButton" value="Search" style="width: 200px"></input>
@@ -27,27 +27,29 @@
         </div>
     </div>
 </div>
-{% endblock %}
 
-{% block scripts %}
-<script type="text/javascript">
-    var appLogo = document.querySelector('#app-logo');
-    var searchBox = document.querySelector('#searchBox');
-
-    document.homeForm.addEventListener("submit", (event) => {
-        if(searchBox.value === '') {
-            event.preventDefault();
-        }
-    })
-
-    if(height > width) {
-        appLogo.setAttribute('style', 'width:'+String(Number(width/3))+'px;height:'+String(Number(height/5)))+'px;';
-        searchBox.setAttribute('style', 'width:'+String(Number(width/2.5))+'px;');
-    }
-    else if(height < width) {
-        appLogo.setAttribute('style', 'width:'+String(Number(width/4))+'px;height:'+String(Number(height/2)))+'px;';
-        searchBox.setAttribute('style', 'width:'+String(Number(width/2.5))+'px;');
-    }
-
-</script>
+<!--s/m-->
+<div class="home-container container-fluid bg-light text-black px-3 pt-5 d-lg-none d-sm-block" style="height:100vh;">
+    <!-- Logo and search section. -->
+    <div class="d-flex flex-column align-content-center mx-auto" id="logoSearch">
+        <!-- Web Application Logo. -->
+        <div class="bg-light app-logo-container mx-auto">
+            <a href="{% url 'dmg_django_app:home' %}">
+                <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo" style="width:250px;height:200px">
+            </a>
+        </div>
+        <!-- Search container. -->
+        <div class="p-2 bg-light search-container">
+            <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="homeForm">
+                <div class="p-2 searchbox-wrapper">
+                    <input class="form-control mx-auto text-center border-2" type="text" id="searchBox" name="searchBox" placeholder="Search product..."
+                    style="width:300px;">
+                </div>
+                <div class="p-2 button-wrapper text-center">    
+                    <input type="submit" class="btn btn-primary bg-dark" id="searchButton" value="Search" style="width: 100px"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

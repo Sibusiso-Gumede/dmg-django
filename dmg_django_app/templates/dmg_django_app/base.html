@@ -46,7 +46,8 @@
 
             <!-- Navigation bar with the different functions. -->
             <div class="px-3 py-2 bg-dark text-bg-dark" style="width:100%;" id="navBar">
-                <div class="container w-100">
+                <!--lg/xxl-->
+                <div class="container w-100 d-none d-md-block d-lg-block d-xxl-block">
                     <div class="d-flex flex-row justify-content-*-center w-100">                 
                     {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}    
                         <ul class="nav col-8 pe-1 my-2 justify-content-end my-md-0 text-small">
@@ -95,7 +96,64 @@
                             </li>
                         </ul>
                     {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
-                        <div class="pt-3 col-4 mb-3 ms-4 me-lg-3 " role="search">
+                        <div class="pt-3 col-4 mb-3 ms-4 me-lg-3 d-none d-md-block d-xl-block" role="search">
+                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+
+                <!--sm/md-->
+                <div class="container-fluid d-lg-none d-md-none d-sm-block">
+                    <div class="d-flex flex-row mx-auto">                 
+                    {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}    
+                        <ul class="nav col-8 pe-1 my-2 justify-content-end my-md-0 text-small">
+                    {% else %}    
+                        <ul class="nav col-12 my-2 justify-content-center my-md-0 text-small">
+                    {% endif %}
+                            <li class="nav-item" id="homeLink">
+                            {% if '/discounted_products' in request.path or '/receiptify' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
+                                <a href="{% url 'dmg_django_app:home' %}" class="nav-link text-white">
+                            {% else %}
+                                <a href="{% url 'dmg_django_app:home' %}" class="nav-link text-secondary">
+                            {% endif %}
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                            {% if '/receiptify' in request.path %}
+                                <a href="{% url 'dmg_django_app:receiptify' %}" class="nav-link text-secondary">
+                            {% else %}
+                                <a href="{% url 'dmg_django_app:receiptify' %}" class="nav-link text-white">
+                            {% endif %}
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"/></svg>
+                                    Receiptify
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                            {% if '/near_me' in request.path %}
+                                <a href="{% url 'dmg_django_app:near_me' %}" class="nav-link text-secondary">
+                            {% else %}
+                                <a href="{% url 'dmg_django_app:near_me' %}" class="nav-link text-white">
+                            {% endif %}
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
+                                    Near Me
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                            {% if '/supermarkets' in request.path %}
+                                <a href="{% url 'dmg_django_app:supermarkets' %}" class="nav-link text-secondary">
+                            {% else %}
+                                <a href="{% url 'dmg_django_app:supermarkets' %}" class="nav-link text-white">
+                            {% endif %}
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
+                                    Supermarkets
+                                </a>
+                            </li>
+                        </ul>
+                    {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
+                        <div class="pt-3 col-4 mb-3 ms-4 me-lg-3 d-none d-md-block d-xl-block" role="search">
                             <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                         </div>
                     {% endif %}
@@ -104,7 +162,7 @@
             </div>
         </header>
         <div class="main w-100">
-            <div class="content-container container-fluid align-content-center pt-3 border border-dark w-100">        
+            <div class="content-container container-fluid pt-3">        
                 {% block content %}{% endblock content %}
             </div>
             <div class="footer d-flex bg-dark text-white w-100">
@@ -115,29 +173,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            var height = window.innerHeight;
-            var width = window.innerWidth;
-            
-            visualViewport.addEventListener("resize", () => {
-                height = window.innerHeight;
-                width = window.innerWidth;
-                adjustContentArea();
-            });
-
-            function adjustContentArea() {                
-                if(!(document.URL.includes('receiptify') || document.URL.includes('discounted_products'))) {
-                    if(height > width) {
-                        document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height/2))+'px;');
-                    }
-                    else if(height < width) {
-                        document.querySelector('.content-container').setAttribute('style', 'height:'+String(Number(height*(0.9)))+'px;');
-                    }
-                }
-                document.querySelector('.footer').setAttribute('style','height:'+String(document.querySelector('#navBar').clientHeight)+'px');
-            }
-            adjustContentArea();
-        </script>
         {% block scripts %}{% endblock %}
     </body>
 </html>
