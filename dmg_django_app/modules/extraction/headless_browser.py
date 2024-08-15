@@ -22,7 +22,6 @@ class Scraper():
         self.chromeOptions = webdriver.ChromeOptions()
         self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
-        #self.chromeOptions.add_argument('log-level=3')
         self.chromeOptions.page_load_strategy = 'normal'
         
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.chromeOptions)
@@ -90,8 +89,6 @@ class Scraper():
                     image = image_element.screenshot_as_base64
                 else:
                     image = "NULL"
-
-                breakpoint()
                 
                 _super.increase_product_count()
                 product_list.update({_super.products: {"name": name, "price": price, "promo": promo, "image": image}})
@@ -111,7 +108,7 @@ class Scraper():
 
     def __prepare_url_patterns(self, _supermarket: BaseSupermarket) -> bool:
         # Read data and return complete url's.
-        s_name = _supermarket.get_supermarket_name()
+        s_name = _supermarket.get_supermarket_name().lower()
         resources_dir = f'{_supermarket.RESOURCES_PATH}/{s_name}'
         output_file = f'{resources_dir}/{s_name}_urls.txt'
         if not path.isfile(output_file):
@@ -135,8 +132,9 @@ class Scraper():
         else:
             return True
         
-    def _retrieve_urls(self, _supermarket: BaseSupermarket) -> list[str]:
-        urls_file = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}/{_supermarket.get_supermarket_name()}_urls.txt'
+    def __retrieve_urls(self, _supermarket: BaseSupermarket) -> list[str]:
+        sup_name = _supermarket.get_supermarket_name().lower()
+        urls_file = f'{_supermarket.RESOURCES_PATH}/{sup_name}/{sup_name}_urls.txt'
         with open(urls_file, 'rt', newline='\n') as file:
             urls: list[str] = list()
             for line in file.readlines():
@@ -161,7 +159,7 @@ class Scraper():
             buffer: dict[str] = {}
 
             if ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)) and (self.__prepare_url_patterns(supermarket)):
-                urls = self._retrieve_urls(supermarket)
+                urls = self.__retrieve_urls(supermarket)
                 url_count = len(urls)
             
             while True:
