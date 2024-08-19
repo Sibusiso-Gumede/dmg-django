@@ -48,7 +48,7 @@ class Product(models.Model):
     price = models.CharField(max_length=50, default="R0.00")
     discounted_price = models.CharField(max_length=10, default=None)
     promotion = models.CharField(max_length=100, default=None)
-    image = models.BinaryField(help_text='Product image in binary format.', default=None)
+    image = models.BinaryField(max_length=2048000, help_text='Product image in binary format.', default=bytes)
     supermarket = models.ForeignKey(Supermarket, on_delete=models.CASCADE)
 
     def __str__(self) -> str:

@@ -6,6 +6,7 @@ from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets, ASSETS_DIR
+from .receipt_renderer import ReceiptRenderer, base64
 from ...models import Supermarket as SupermarketModel, Product
 
 TITLE_LENGTH: int = 30
@@ -101,13 +102,15 @@ def store_product_records(supermarket_name: str, products: dict[str]) -> None:
         count += 1
         product_record = Product(id=f'{supermarket_record.id}{count}',
                                 name=name, price=data['price'], promotion=data['promo'],
-                                supermarket=supermarket_record, discounted_price=data['discounted_price'])
+                                supermarket=supermarket_record, discounted_price=data['discounted_price'],
+                                image=BytesIO((base64.b64decode(data['image']))))
         product_record.save()
 
 def store_supermarket_records() -> None:
     print("Storage of records initiated...")
     _choice = input("\nStore supermarket records...Y/N\n>>>")
     for name, supermarket in Supermarkets.SUPERMARKETS.items():
+        name = name.lower()
         _file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json','r')
         _products: dict[str] = dict(json.load(_file))                
         if _choice == 'Y':    
@@ -191,7 +194,6 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
         return dict()
     
 def receipt(data: dict[str]) -> dict[str]:
-    from .receipt_renderer import ReceiptRenderer
     receiptifier = ReceiptRenderer(data)
     return receiptifier.render()
 
