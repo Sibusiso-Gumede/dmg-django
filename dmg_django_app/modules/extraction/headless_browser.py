@@ -30,6 +30,8 @@ class Scraper():
         self.actions = ActionChains(self.driver, devices=[WheelInput(WHEEL), PointerInput(POINTER_MOUSE,POINTER_MOUSE), KeyInput(KEY)])
         self.WAITING_TIME_RANGE = range(1, 3)
 
+        self.current_subcategory: str = ""
+
     def _isRelevant(self, item: str, result: str) -> bool:
         for substring in item.split('%20'):
             if (substring[1:] in result) or (result[0] == 'R' and result[-1].isdigit()) or (result[:3] == 'Buy'):
@@ -95,9 +97,14 @@ class Scraper():
         print("DONE.")
 
     def __populate_fixtures(self, _supermarket: BaseSupermarket, products: dict[str]):
+        s_name = _supermarket.get_supermarket_name().lower()
         # Populate database fixtures. 
-        output_dir = f'{_supermarket.RESOURCES_PATH}/{_supermarket.get_supermarket_name()}'
-        output_file = f'{output_dir}/{_supermarket.get_supermarket_name()}_products.json'
+        output_dir = f'{_supermarket.RESOURCES_PATH}/{s_name}'
+        output_file:str = ""
+        if s_name == Supermarkets.MAKRO:
+            output_file = f'{output_dir}/{self.current_subcategory}_products.json'
+        else:
+            output_file = f'{output_dir}/{s_name}_products.json'
         arg = 'w'               # open file in write mode.
         if not path.isdir(output_dir):
             makedirs(output_dir)
@@ -164,9 +171,12 @@ class Scraper():
             
             while True:
                 page_number += 1
+                print(f"\nPAGE {page_number} OF {supermarket_name}")
 
                 if home_page:
                     if (supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO):
+                        if supermarket_name == Supermarkets.MAKRO:
+                            self.current_subcategory = urls[url_count-1].split("/")[-3]
                         # Read urls in ascending order.
                         self.driver.get(urls[url_count-1])
                         url_count -= 1
@@ -203,43 +213,44 @@ class Scraper():
                             selector = selector.replace('number', f'{page_number}')
                         elif page_number > last_page:
                             break
-                                                
-                    # Click to the next page if it's available.
-                    next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=selector)                
 
-                    # In the case where there are still products to be scraped, load the next page.
-                    if next_button.is_enabled():
-                        self.driver.execute_script("arguments[0].click();", next_button)
-                        
-                        if (supermarket_name == Supermarkets.PNP) or (supermarket_name == Supermarkets.MAKRO):
-                            self.actions.scroll_by_amount(0, 550)
-                            sleep(5)
-                            for y in range(0, 8):
-                                self.actions.perform()
-                            sleep(5)
-                            self.actions.reset_actions()
-                            #breakpoint()
-                    
-                    # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
-                    # Or continue to the next subcategory in the case of Makro.
-                    elif not next_button.is_enabled():
-                        if url_count == 0:
-                            print(f'Available items completely scraped for {supermarket_name} website.')
-                            break
-                        # Proceed to the next category if the items are completely scraped for the current category.
-                        elif ((supermarket_name == Supermarkets.WOOLIES) or (supermarket_name == Supermarkets.MAKRO)):
+                    try:                            
+                        # Click to the next page if it's available.
+                        next_button = self.driver.find_element(by=By.CSS_SELECTOR, value=selector)                
+                    except NoSuchElementException:
+                        if supermarket_name == Supermarkets.MAKRO:
                             home_page = True
+                    finally:
+                        # In the case where there are still products to be scraped, load the next page.
+                        if next_button.is_enabled():
+                            self.driver.execute_script("arguments[0].click();", next_button)
+                            
+                            if (supermarket_name == Supermarkets.PNP) or (supermarket_name == Supermarkets.MAKRO):
+                                self.actions.scroll_by_amount(0, 550)
+                                sleep(5)
+                                for y in range(0, 8):
+                                    self.actions.perform()
+                                sleep(5)
+                                self.actions.reset_actions()                        
+                        # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
+                        # Or continue to the next subcategory in the case of Makro.
+                        elif not next_button.is_enabled():
+                            if url_count == 0:
+                                print(f'Available items completely scraped for {supermarket_name} website.')
+                                break
+                            # Proceed to the next category if the items are completely scraped for the current category.
+                            elif supermarket_name == Supermarkets.WOOLIES:
+                                home_page = True
 
                 sleep((choice(self.WAITING_TIME_RANGE))/(choice(divisor_range)))
 
                 # Update product list.
                 if not (supermarket_name == Supermarkets.MAKRO):
-                    print(f"\nPAGE {page_number} OF {supermarket_name}")
                     self.__update_product_list(supermarket, buffer)
-                    if page_number == 2:
-                        break
-                elif (supermarket_name == Supermarkets.MAKRO):#(page_number < 1):
+                elif (supermarket_name == Supermarkets.MAKRO) and (home_page):
                     self.__update_product_list(supermarket, buffer)
-                
-            # Populate supermarket database fixtures.
-            self.__populate_fixtures(supermarket, buffer)
+                    self.__populate_fixtures(supermarket, buffer)
+                    break
+            
+            if not (supermarket_name == Supermarkets.MAKRO):
+                self.__populate_fixtures(supermarket, buffer)

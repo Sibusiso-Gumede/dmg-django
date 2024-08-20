@@ -4,7 +4,7 @@ import json
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
-from ..supermarket_apis import BaseSupermarket
+from ..supermarket_apis import BaseSupermarket, Makro
 from ..common import Supermarkets, ASSETS_DIR
 from .receipt_renderer import ReceiptRenderer, base64
 from ...models import Supermarket as SupermarketModel, Product
@@ -215,3 +215,9 @@ def string_ascii_total(string:str) -> str:
             accumulator += ord(character)
         ascii_totals.append(accumulator)
         accumulator = 0
+
+def scrape_products():
+    from ..extraction import Scraper
+    s = Scraper()
+    m = Makro()
+    s.scrape_products([m])
