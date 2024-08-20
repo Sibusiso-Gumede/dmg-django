@@ -25,6 +25,7 @@ class ReceiptRenderer():
         # Receipt properties.
         self.TITLE_LENGTH:int = 30
         self.receipt_w, self.receipt_h = 240, 480
+        self.barcode_height:int = 25
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
@@ -47,7 +48,7 @@ class ReceiptRenderer():
         self.__footer_segment()
 
         # Credits.
-        self.__move_cursor(self.y_spacing)
+        self.__move_cursor(self.barcode_height+5)
         credits_top_border = self.vertical_cursor
         footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
@@ -108,28 +109,18 @@ class ReceiptRenderer():
         if self.vertical_cursor > 370.00:
             self.__reset_cursor()
             self.__create_new_canvas()
+        
         # Footer divider.
         self.__move_cursor(self.y_spacing, "fs")
         self.edit.line([(self.body_lm_rm[0], self.vertical_cursor), (230, self.vertical_cursor)], fill=self.black_ink, width=0)
+        
         # Footer.
         self.__move_cursor(self.grouped_entries_space, "fs")    
+        
         # Barcode.
-        barcode_h: float = 20
-        barcode_lm: float = 20
-        barcode_rm: float = 220
-        horizontal_cursor = barcode_lm
-        barcode_sizes = [1, 1.2, 1.5, 1.6, 2, 1.8, 1.4, 2, 1.5, 1.2, 1.7]
-        barcode_top = self.vertical_cursor
-        barcode_bottom = barcode_top + barcode_h
-        x, k, index_limit = 2, 0, len(barcode_sizes) - 1
-        while not (horizontal_cursor > barcode_rm):
-            if x % 2 == 0:
-                self.edit.rectangle([(horizontal_cursor, barcode_top), (horizontal_cursor+barcode_sizes[k], barcode_bottom)], self.black_ink, width=0)
-            horizontal_cursor += barcode_sizes[k]
-            x += 1
-            k += 1
-            if k > index_limit:
-                k = 0
+        barcode_lm: int = 10
+        barcode = Image.open(f"{self.resources_path}/barcode.png").resize((int(220), self.barcode_height))
+        self.edit.im = self.edit.im.alpha_composite(barcode, (barcode_lm, int(self.vertical_cursor)))
 
     def __move_cursor(self, amount: float, area: str = None):
         self.vertical_cursor += amount
@@ -147,7 +138,7 @@ class ReceiptRenderer():
                     self.items.update({title: data})
 
     def __create_new_canvas(self):
-        self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture-7.jpg').resize((self.receipt_w, self.receipt_h)))
+        self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture.png').resize((self.receipt_w, self.receipt_h)))
         count = len(self.receipts)
         self.edit = ImageDraw.Draw(self.receipts[count-1])
 

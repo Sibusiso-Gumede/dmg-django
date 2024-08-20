@@ -100,10 +100,20 @@ def store_product_records(supermarket_name: str, products: dict[str]) -> None:
     count:int = 0
     for name, data in products.items():
         count += 1
+        if (supermarket_name == "picknpay") and (data['discounted_price'] is not None):
+            _discounted = data['discounted_price']        
+        else:
+            _discounted = 'R0.00'
+
+        if data['promo'] is None:
+            _promo = "NULL"
+        else:
+            _promo = data['promo']
+            
         product_record = Product(id=f'{supermarket_record.id}{count}',
-                                name=name, price=data['price'], promotion=data['promo'],
-                                supermarket=supermarket_record, discounted_price=data['discounted_price'],
-                                image=BytesIO((base64.b64decode(data['image']))))
+                                name=name, price=data['price'], promotion=_promo,
+                                supermarket=supermarket_record, discounted_price=_discounted)
+                                #image=BytesIO((base64.b64decode(data['image']))))
         product_record.save()
 
 def store_supermarket_records() -> None:

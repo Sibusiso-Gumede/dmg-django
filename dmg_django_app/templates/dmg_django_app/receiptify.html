@@ -33,10 +33,8 @@
             <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
         {% for s_name in supermarket_names %}
             <div class="form-check-form form-check-inline pb-3" id="supermarket-choice">
-                <div class="logo-wrapper" style="width:214px; height:42px;">
-                    <img src="/static/{{s_name.lower}}_logo.png" alt="{{ s_name }}" style="width:214px; height:42px;">
-                </div>
-                <div class="button-wrapper mx-auto">
+                <div class="choice-wrapper mx-auto">
+                    {{ s_name }}<br>
             {% if s_name == "Shoprite" %}
                     <input class="form-check-input border border-dark" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" checked onclick="update_choice(event, this)">
             {% else %}    
