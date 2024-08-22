@@ -45,7 +45,7 @@
             </svg>
 
             <!-- Navigation bar with the different functions. -->
-            <div class="px-3 py-2 bg-dark text-bg-dark" style="width:100%;" id="navBar">
+            <div class="px-3 py-2 bg-dark text-bg-dark" style="width:auto;" id="navBar">
                 <!--lg/xxl-->
                 <div class="container w-100 d-none d-md-block d-lg-block d-xxl-block">
                     <div class="d-flex flex-row justify-content-*-center w-100">                 
@@ -105,12 +105,8 @@
 
                 <!--sm/md-->
                 <div class="container-fluid d-lg-none d-md-none d-sm-block">
-                    <div class="d-flex flex-row mx-auto">                 
-                    {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}    
-                        <ul class="nav col-8 pe-1 my-2 justify-content-end my-md-0 text-small">
-                    {% else %}    
+                    <div class="d-flex flex-row mx-auto">                    
                         <ul class="nav col-12 my-2 justify-content-center my-md-0 text-small">
-                    {% endif %}
                             <li class="nav-item" id="homeLink">
                             {% if '/discounted_products' in request.path or '/receiptify' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
                                 <a href="{% url 'dmg_django_app:home' %}" class="nav-link text-white">
@@ -165,9 +161,17 @@
             <div class="content-container container-fluid pt-3">        
                 {% block content %}{% endblock content %}
             </div>
-            <div class="footer d-flex bg-dark text-white w-100">
-                <div class="align-self-center ps-4">
-                    <p class="pt-3">Developed and maintained by 
+            <div class="footer d-flex bg-dark text-white" style="width:auto;">
+                <!--lg/xxl-->
+                <div class="align-self-center ps-4 d-none d-md-block d-lg-block d-xxl-block">
+                    <p class="pt-3">Designed and developed by 
+                        <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
+                    </p>
+                </div>
+
+                <!--sm/md-->
+                <div class="align-self-center mx-auto d-lg-none d-md-none d-sm-block">
+                    <p class="pt-3">Designed and developed by 
                         <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
                     </p>
                 </div>

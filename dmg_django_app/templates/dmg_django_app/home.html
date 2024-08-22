@@ -32,6 +32,8 @@
 <div class="home-container container-fluid bg-light text-black px-3 pt-5 d-lg-none d-sm-block" style="height:100vh;">
     <!-- Logo and search section. -->
     <div class="d-flex flex-column align-content-center mx-auto" id="logoSearch">
+        <!-- Padding -->
+        <div class="nav-logo-padding" style="height:41px;"></div>
         <!-- Web Application Logo. -->
         <div class="bg-light app-logo-container mx-auto">
             <a href="{% url 'dmg_django_app:home' %}">
@@ -46,7 +48,7 @@
                     style="width:300px;">
                 </div>
                 <div class="p-2 button-wrapper text-center">    
-                    <input type="submit" class="btn btn-primary bg-dark" id="searchButton" value="Search" style="width: 100px"></input>
+                    <input type="submit" class="btn btn-primary bg-dark" id="searchButton" value="Search" style="width:100px"></input>
                 </div>
             </form>
         </div>
