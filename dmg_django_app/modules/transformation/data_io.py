@@ -215,9 +215,3 @@ def string_ascii_total(string:str) -> str:
             accumulator += ord(character)
         ascii_totals.append(accumulator)
         accumulator = 0
-
-def scrape_products():
-    from ..extraction import Scraper
-    s = Scraper()
-    m = Makro()
-    s.scrape_products([m])
