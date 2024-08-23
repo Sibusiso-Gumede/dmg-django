@@ -44,27 +44,26 @@
             </div>
         {% endfor %}
             <!--lg/xxl-->
-            <div class="type-to-add-wrapper lg-xxl mx-auto d-none d-md-block d-lg-block d-xxl-block" style="width:auto;" name="type_to_add_container">
-                <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
-                placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
-                <div class="collapse align-content-center" id="autosuggestion" name="autosuggestion" style="width:600px;">
+            <div class="type-to-add-wrapper-desktop mx-auto d-none d-md-block d-lg-block d-xxl-block" style="width:auto;">
+                <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add-desktop" name="type-to-add-desktop" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
+                placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion-desktop" aria-controls="autosuggestion-desktop">
+                <div class="collapse align-content-center" id="autosuggestion-desktop" name="autosuggestion-desktop" style="width:600px;">
                     <div class="list-group card card-body mx-auto p-1" role="tablist" style="width:600px;"></div>
                 </div>
             </div>
-
             <!--sm/md-->
-            <div class="type-to-add-wrapper sm-md mx-auto d-lg-none d-md-none d-sm-block" style="width:auto;" name="type_to_add_container">
-                <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
-                placeholder="Type to add product..." style="width:300px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
-                <div class="collapse align-content-center" id="autosuggestion" name="autosuggestion" style="width:300px;">
+            <div class="type-to-add-wrapper-mobile mx-auto d-lg-none d-md-none d-sm-block" style="width:auto;">
+                <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add-mobile" name="type-to-add-mobile" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
+                placeholder="Type to add product..." style="width:300px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion-mobile" aria-controls="autosuggestion-mobile">
+                <div class="collapse align-content-center" id="autosuggestion-mobile" name="autosuggestion-mobile" style="width:300px;">
                     <div class="list-group card card-body mx-auto p-1" role="tablist" style="width:300px;"></div>
                 </div>
             </div>
         </div>
         
         <!--lg/xxl-->
-        <div class="grocery-list-wrapper lg-xxl d-flex flex-column pb-4" style="min-height:400px">
-            <table class="table grocery-list">
+        <div class="grocery-list-wrapper-desktop d-flex flex-column pb-4" style="min-height:400px">
+            <table class="table grocery-list-desktop">
                 <thead>
                     <tr>
                         <th class="#" scope="col"></th>
@@ -76,13 +75,12 @@
                 </thead>
                 <tbody class="selected-items"></tbody>
             </table>
-            <button type="button" class="btn btn-dark text-white d-none" id="get-receipt-button" style="width:200px;"
+            <button type="button" class="btn btn-dark text-white d-none" id="get-receipt-button-desktop" style="width:200px;"
             onclick="get_receipt()">Get Receipt</button>
         </div>
-
         <!--sm/md-->
-        <div class="grocery-list-wrapper sm-md d-flex flex-column pb-4" style="min-height:400px">
-            <table class="table grocery-list">
+        <div class="grocery-list-wrapper-desktop d-flex flex-column pb-4" style="min-height:400px">
+            <table class="table grocery-list-desktop">
                 <thead>
                     <tr>
                         <th class="#" scope="col"></th>
@@ -94,7 +92,7 @@
                 </thead>
                 <tbody class="selected-items"></tbody>
             </table>
-            <button type="button" class="btn btn-dark text-white d-none" id="get-receipt-button" style="width:200px;"
+            <button type="button" class="btn btn-dark text-white d-none" id="get-receipt-button-mobile" style="width:100px;"
             onclick="get_receipt()">Get Receipt</button>
         </div>
     </form>

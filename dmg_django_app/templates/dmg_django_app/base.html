@@ -97,7 +97,7 @@
                         </ul>
                     {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
                         <div class="pt-3 col-4 mb-3 ms-4 me-lg-3 d-none d-md-block d-xl-block" role="search">
-                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" id="nav-search-box-desktop">
                         </div>
                     {% endif %}
                     </div>
@@ -148,11 +148,6 @@
                                 </a>
                             </li>
                         </ul>
-                    {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
-                        <div class="pt-3 col-4 mb-3 ms-4 me-lg-3 d-none d-md-block d-xl-block" role="search">
-                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                        </div>
-                    {% endif %}
                     </div>
                 </div>
             </div>
@@ -161,26 +156,23 @@
             <div class="content-container container-fluid pt-3">        
                 {% block content %}{% endblock content %}
             </div>
-            <!--lg/xxl-->
-            <div class="footer lg-xxl d-flex bg-dark text-white d-none d-md-block d-lg-block d-xxl-block" style="width:auto;">
-                <div class="align-self-center ps-4">
+            <div class="footer d-flex bg-dark text-white" style="width:auto;">
+                <!--lg/xxl-->
+                <div class="align-self-center ps-4 d-none d-md-block d-lg-block d-xxl-block" id="desktop-footer">
                     <p class="pt-3">Designed and developed by 
                         <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
                     </p>
                 </div>
-            </div>
-            <!--sm/md-->
-            <div class="footer sm-md bg-dark text-white d-lg-none d-md-none d-sm-block" style="width:100vh;">
-                <div class="pt-4" style="height: 100vh;">
-                    <p class="ps-4">Designed and developed by 
+
+                <!--sm/md-->
+                <div class="align-self-center mx-auto d-lg-none d-md-none d-sm-block" id="mobile-footer">
+                    <p class="pt-3">Designed and developed by 
                         <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
                     </p>
                 </div>
             </div>
         </div>
         <script type="text/javascript">
-            var small_medium_devices = Number(900);
-
             window.addEventListener('resize', (event) => {
                 document.querySelector(".footer").setAttribute('style',"height:"+String(document.querySelector("#navBar").clientHeight)+"px;");
             });
