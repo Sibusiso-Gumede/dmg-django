@@ -44,7 +44,7 @@
             </div>
         {% endfor %}
             <!--lg/xxl-->
-            <div class="type-to-add-wrapper mx-auto d-none d-md-block d-lg-block d-xxl-block" style="width:auto;" name="type_to_add_container">
+            <div class="type-to-add-wrapper lg-xxl mx-auto d-none d-md-block d-lg-block d-xxl-block" style="width:auto;" name="type_to_add_container">
                 <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
                 placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
                 <div class="collapse align-content-center" id="autosuggestion" name="autosuggestion" style="width:600px;">
@@ -53,15 +53,35 @@
             </div>
 
             <!--sm/md-->
-            <div class="type-to-add-wrapper mx-auto d-lg-none d-md-none d-sm-block" style="width:auto;" name="type_to_add_container">
+            <div class="type-to-add-wrapper sm-md mx-auto d-lg-none d-md-none d-sm-block" style="width:auto;" name="type_to_add_container">
                 <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
                 placeholder="Type to add product..." style="width:300px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
                 <div class="collapse align-content-center" id="autosuggestion" name="autosuggestion" style="width:300px;">
                     <div class="list-group card card-body mx-auto p-1" role="tablist" style="width:300px;"></div>
                 </div>
             </div>
-        </div>        
-        <div class="grocery-list-wrapper d-flex flex-column pb-4" style="min-height:400px">
+        </div>
+        
+        <!--lg/xxl-->
+        <div class="grocery-list-wrapper lg-xxl d-flex flex-column pb-4" style="min-height:400px">
+            <table class="table grocery-list">
+                <thead>
+                    <tr>
+                        <th class="#" scope="col"></th>
+                        <th class="Name" scope="col"></th>
+                        <th class="Quantity" scope="col"></th>
+                        <th class="Price" scope="col"></th>
+                        <th class="Remove" scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="selected-items"></tbody>
+            </table>
+            <button type="button" class="btn btn-dark text-white d-none" id="get-receipt-button" style="width:200px;"
+            onclick="get_receipt()">Get Receipt</button>
+        </div>
+
+        <!--sm/md-->
+        <div class="grocery-list-wrapper sm-md d-flex flex-column pb-4" style="min-height:400px">
             <table class="table grocery-list">
                 <thead>
                     <tr>

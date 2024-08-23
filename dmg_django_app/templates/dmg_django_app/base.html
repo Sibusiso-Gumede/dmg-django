@@ -161,23 +161,26 @@
             <div class="content-container container-fluid pt-3">        
                 {% block content %}{% endblock content %}
             </div>
-            <div class="footer d-flex bg-dark text-white" style="width:auto;">
-                <!--lg/xxl-->
-                <div class="align-self-center ps-4 d-none d-md-block d-lg-block d-xxl-block">
+            <!--lg/xxl-->
+            <div class="footer lg-xxl d-flex bg-dark text-white d-none d-md-block d-lg-block d-xxl-block" style="width:auto;">
+                <div class="align-self-center ps-4">
                     <p class="pt-3">Designed and developed by 
                         <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
                     </p>
                 </div>
-
-                <!--sm/md-->
-                <div class="align-self-center mx-auto d-lg-none d-md-none d-sm-block">
-                    <p class="pt-3">Designed and developed by 
+            </div>
+            <!--sm/md-->
+            <div class="footer sm-md bg-dark text-white d-lg-none d-md-none d-sm-block" style="width:100vh;">
+                <div class="pt-4" style="height: 100vh;">
+                    <p class="ps-4">Designed and developed by 
                         <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
                     </p>
                 </div>
             </div>
         </div>
         <script type="text/javascript">
+            var small_medium_devices = Number(900);
+
             window.addEventListener('resize', (event) => {
                 document.querySelector(".footer").setAttribute('style',"height:"+String(document.querySelector("#navBar").clientHeight)+"px;");
             });

@@ -112,7 +112,7 @@ class Scraper():
         print("Updating database fixtures", end="...")
 
         # Populate database fixtures. 
-        output_file = f'{_supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}/{self.driver.current_url}.json'
+        output_file = f'{_supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}/{self.driver.current_url.replace("/","#")}.json'
 
         with open(output_file, 'x') as o_file:
             json.dump(self.products_list, o_file, indent=4)
@@ -177,8 +177,10 @@ class Scraper():
                 if len(existing_fixtures) > 0:
                     for fixture in existing_fixtures:
                         try:
-                            self.urls.remove(fixture.removesuffix('.json'))
+                            # Remove existing fixtures.
+                            self.urls.remove(fixture.removesuffix('.json').replace('#','/'))
                         except ValueError:
+                            # If the fixture is not found, continue.
                             pass
                 self.url_count = len(self.urls)
             
