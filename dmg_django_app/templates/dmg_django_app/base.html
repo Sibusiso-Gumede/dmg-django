@@ -6,7 +6,7 @@
     <head>
         <title>DMG: Grocery price comparison made easy.</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1" name="viewport">
         <meta name="Keywords" content="Groceries, Grocery, Discounts, Price Discounts, Compare, Cheap Prices, Website, Receipt, Products, Food, Low Price">
         <meta name="Description" content="Easily compare the prices of grocery products across multiple supermarkets including Shoprite, Checkers, Makro, PicknPay and Woolworths.">
         
@@ -46,65 +46,7 @@
 
             <!-- Navigation bar with the different functions. -->
             <div class="px-3 py-2 bg-dark text-bg-dark" style="width:auto;" id="navBar">
-                <!--lg/xxl-->
-                <div class="container w-100 d-none d-md-block d-lg-block d-xxl-block">
-                    <div class="d-flex flex-row justify-content-*-center w-100">                 
-                    {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}    
-                        <ul class="nav col-8 pe-1 my-2 justify-content-end my-md-0 text-small">
-                    {% else %}    
-                        <ul class="nav col-12 my-2 justify-content-center my-md-0 text-small">
-                    {% endif %}
-                            <li class="nav-item" id="homeLink">
-                            {% if '/discounted_products' in request.path or '/receiptify' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
-                                <a href="{% url 'dmg_django_app:home' %}" class="nav-link text-white">
-                            {% else %}
-                                <a href="{% url 'dmg_django_app:home' %}" class="nav-link text-secondary">
-                            {% endif %}
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
-                                    Home
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            {% if '/receiptify' in request.path %}
-                                <a href="{% url 'dmg_django_app:receiptify' %}" class="nav-link text-secondary">
-                            {% else %}
-                                <a href="{% url 'dmg_django_app:receiptify' %}" class="nav-link text-white">
-                            {% endif %}
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"/></svg>
-                                    Receiptify
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            {% if '/near_me' in request.path %}
-                                <a href="{% url 'dmg_django_app:near_me' %}" class="nav-link text-secondary">
-                            {% else %}
-                                <a href="{% url 'dmg_django_app:near_me' %}" class="nav-link text-white">
-                            {% endif %}
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
-                                    Near Me
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            {% if '/supermarkets' in request.path %}
-                                <a href="{% url 'dmg_django_app:supermarkets' %}" class="nav-link text-secondary">
-                            {% else %}
-                                <a href="{% url 'dmg_django_app:supermarkets' %}" class="nav-link text-white">
-                            {% endif %}
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
-                                    Supermarkets
-                                </a>
-                            </li>
-                        </ul>
-                    {% if '/discounted_products' in request.path or '/near_me' in request.path or '/supermarkets' in request.path %}
-                        <div class="pt-3 col-4 mb-3 ms-4 me-lg-3 d-none d-md-block d-xl-block" role="search">
-                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" id="nav-search-box-desktop">
-                        </div>
-                    {% endif %}
-                    </div>
-                </div>
-
-                <!--sm/md-->
-                <div class="container-fluid d-lg-none d-md-none d-sm-block">
+                <div class="container-fluid">
                     <div class="d-flex flex-row mx-auto">                    
                         <ul class="nav col-12 my-2 justify-content-center my-md-0 text-small">
                             <li class="nav-item" id="homeLink">
@@ -156,28 +98,25 @@
             <div class="content-container container-fluid pt-3">        
                 {% block content %}{% endblock content %}
             </div>
-            <div class="footer d-flex bg-dark text-white" style="width:auto;">
-                <!--lg/xxl-->
-                <div class="align-self-center ps-4 d-none d-md-block d-lg-block d-xxl-block" id="desktop-footer">
-                    <p class="pt-3">Designed and developed by 
-                        <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
-                    </p>
-                </div>
-
-                <!--sm/md-->
-                <div class="align-self-center mx-auto d-lg-none d-md-none d-sm-block" id="mobile-footer">
-                    <p class="pt-3">Designed and developed by 
-                        <a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a>
-                    </p>
+            <div class="footer bg-dark text-white w-100 align-content-center">
+                <div class="d-flex flex-column">
+                    <div class="text-center p-0">Designed and developed by</div>
+                    <div class="text-center p-0"><a href="https://www.linkedin.com/in/sibusiso-j-gumede-6580b01a8" class="linkedInProfile">Sibusiso J. Gumede.</a></div>
                 </div>
             </div>
         </div>
         <script type="text/javascript">
+            var footer = document.querySelector(".footer");
+            var navbar = document.querySelector("#navBar");
+            var content_container = document.querySelector('.content-container');
+
             window.addEventListener('resize', (event) => {
-                document.querySelector(".footer").setAttribute('style',"height:"+String(document.querySelector("#navBar").clientHeight)+"px;");
+                footer.setAttribute('style',"height:"+String(navbar.clientHeight)+"px;");
+                content_container.setAttribute('style','min-height:'+String(window.innerHeight-(Number(navbar.clientHeight*2)))+'px;');
             });
             window.addEventListener('load', (event) => {
-                document.querySelector(".footer").setAttribute('style',"height:"+String(document.querySelector("#navBar").clientHeight)+"px;");
+                footer.setAttribute('style',"height:"+String(navbar.clientHeight)+"px;");
+                content_container.setAttribute('style','min-height:'+String(window.innerHeight-(Number(navbar.clientHeight*2)))+'px;');
             });
         </script>
         {% block scripts %}{% endblock %}

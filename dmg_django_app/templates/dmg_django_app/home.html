@@ -3,52 +3,26 @@
 {% load static %}
 
 {% block content %}
-<!--lg/xxl-->
-<div class="home-container-desktop container-fluid bg-light text-black px-3 pt-5 d-none d-lg-block d-xxl-block" style="min-height:750px">
+<div class="home-container container-fluid bg-light text-black px-3 pt-5" style="min-height:750px">
     <!-- Logo and search section. -->
-    <div class="d-flex flex-column align-content-center mx-auto" id="logo-search-desktop">
+    <div class="d-flex flex-column align-content-center mx-auto" id="logo-search">
         <!-- Web Application Logo. -->
-        <div class="bg-light app-logo-container-desktop mx-auto">
-            <a href="{% url 'dmg_django_app:home' %}">
-                <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo-desktop" style="width:350px;height:300px">
-            </a>
-        </div>
-        <!-- Search container. -->
-        <div class="p-2 bg-light search-container-desktop">
-            <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="home-form-desktop">
-                <div class="p-2 searchbox-wrapper-desktop">
-                    <input class="form-control text-center mx-auto border-2" type="text" id="search-box-desktop" name="search-box-desktop" placeholder="Search product..."
-                    style="width:500px;">
-                </div>
-                <div class="p-2 button-wrapper-desktop text-center">    
-                    <input type="submit" class="btn btn-primary bg-dark" id="search-button-desktop" value="Search" style="width: 200px"></input>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!--s/m-->
-<div class="home-container-mobile container-fluid bg-light text-black px-3 pt-5 d-lg-none d-sm-block" style="height:100vh;">
-    <!-- Logo and search section. -->
-    <div class="d-flex flex-column align-content-center mx-auto" id="logo-search-mobile">
         <!-- Padding -->
-        <div class="nav-logo-padding" style="height:41px;"></div>
-        <!-- Web Application Logo. -->
-        <div class="bg-light app-logo-container-mobile mx-auto">
+        <div class="nav-logo-padding" style="height:41px;display: hidden;"></div>
+        <div class="bg-light app-logo-container mx-auto">
             <a href="{% url 'dmg_django_app:home' %}">
-                <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo-mobile" style="width:250px;height:200px">
+                <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo" style="width:250px;height:200px">
             </a>
         </div>
-        <!-- Search container. -->
-        <div class="p-2 bg-light search-container-mobile">
-            <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="home-form-mobile">
-                <div class="p-2 searchbox-wrapper-mobile">
-                    <input class="form-control mx-auto text-center border-2" type="text" id="search-box-mobile" name="search-box-mobile" placeholder="Search product..."
+        <!--Search container-->
+        <div class="p-2 bg-light search-container">
+            <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="home-form">
+                <div class="p-2 search-box-wrapper">
+                    <input class="form-control text-center mx-auto border-2" type="text" id="search-box" name="search-box" placeholder="Search product..."
                     style="width:300px;">
                 </div>
-                <div class="p-2 button-wrapper-mobile text-center">    
-                    <input type="submit" class="btn btn-primary bg-dark" id="search-button-mobile" value="Search" style="width:100px"></input>
+                <div class="p-2 button-wrapper text-center">    
+                    <input type="submit" class="btn btn-primary bg-dark" id="search-button" value="Search" style="width: 100px"></input>
                 </div>
             </form>
         </div>

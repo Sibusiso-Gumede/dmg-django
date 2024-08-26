@@ -24,7 +24,7 @@ def receiptify(request):
 
 def discounted_products(request):
     """Generate the product content of the searched product across all supermarkets."""
-    context = {'supermarkets': query_items(request.GET.get('searchBox'))}
+    context = {'supermarkets': query_items(request.GET.get('search-box'))}
     return render(request, 'dmg_django_app/discounted_products.html', context)
 
 def near_me(request):

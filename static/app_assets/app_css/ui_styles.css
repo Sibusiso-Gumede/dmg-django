@@ -19,3 +19,19 @@
 .list-group button:hover {
     background-color: #0d6efd;
 }
+
+@media only screen and (min-width: 992px) {
+    #app-logo {
+        width: 350px;
+        height: 300px;
+    }
+    .nav-logo-padding {
+        display: hidden;
+    }
+    #search-box {
+        width: 400px;
+    }
+    #search-button {
+        width: 200px;
+    }
+}
