@@ -8,7 +8,7 @@
     <div class="d-flex flex-column align-content-center mx-auto" id="logo-search">
         <!-- Web Application Logo. -->
         <!-- Padding -->
-        <div class="nav-logo-padding" style="height:41px;display: hidden;"></div>
+        <div class="nav-logo-padding" style="height:41px;"></div>
         <div class="bg-light app-logo-container mx-auto">
             <a href="{% url 'dmg_django_app:home' %}">
                 <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo" style="width:250px;height:200px">
@@ -16,10 +16,10 @@
         </div>
         <!--Search container-->
         <div class="p-2 bg-light search-container">
-            <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="home-form">
+            <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="form">
                 <div class="p-2 search-box-wrapper">
                     <input class="form-control text-center mx-auto border-2" type="text" id="search-box" name="search-box" placeholder="Search product..."
-                    style="width:300px;">
+                    required="required" minlength="3" style="width:300px;">
                 </div>
                 <div class="p-2 button-wrapper text-center">    
                     <input type="submit" class="btn btn-primary bg-dark" id="search-button" value="Search" style="width: 100px"></input>
@@ -29,3 +29,9 @@
     </div>
 </div>
 {% endblock %}
+
+<!--{% block scripts %}
+<script type="text/javascript">
+    //document.form.addEventListener('submit', (event))
+</script>
+{% endblock %}-->

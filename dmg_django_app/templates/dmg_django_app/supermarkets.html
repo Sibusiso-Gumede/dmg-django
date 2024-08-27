@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-<div class="supermarkets-container" style="min-height:750px">
+<div class="supermarkets-container" style="min-height:500px">
     <div class="p-4 bg-warning text-black rounded">
         <h1 class="text-body-emphasis">Business Intelligence</h1>
         <p>Brick and mortar statistics of the national supermarkets.</p>
     </div>
-    <div class="py-4 chart-container-desktop d-none d-md-block d-lg-block d-xxl-block">
-        <div class="chart-wrapper mx-auto" style="width:750px;">
-            <img src="{% static 'chart (1).png' %}" alt="Supermarkets' Stats" style="width:750px;height:400px;">
+    <div class="py-4 chart-container">
+        <div class="chart-wrapper mx-auto" style="width:375px;">
+            <img src="{% static 'chart.png' %}" alt="Supermarkets' Stats" style="width:375px;height:350px;">
         </div>
     </div>
 </div>

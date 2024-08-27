@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="modal fade" id="receiptWidget" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title ms-10" id="resultsWidgetLabel">Receipt</h1>
@@ -28,7 +28,7 @@
 
 <!-- Renderer form container. -->
 <div class="p-2 bg-light receipt-rendering-container">
-    <form method="get" action="{% url 'dmg_django_app:product_autosuggestion' %}" name="form"> {% csrf_token %} 
+    <div class="form" name="form"> {% csrf_token %} 
         <div class="choices-and-add-wrapper py-5 px-2 text-center">
             <div class="instructive-label py-2">Please select a supermarket of your choice.</div>
         {% for s_name in supermarket_names %}
@@ -43,16 +43,16 @@
                 </div>
             </div>
         {% endfor %}
-            <div class="type-to-add-wrapper mx-auto" style="width:auto;">
-                <input class="form-control text-center mx-auto border-2" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
-                placeholder="Type to add product..." style="width:600px;" required="required" minlength="3" onkeyup="autosuggest(this)" data-target="#autosuggestion" aria-controls="autosuggestion">
-                <div class="collapse align-content-center mx-auto" id="autosuggestion" name="autosuggestion" style="width:600px;">
-                    <div class="list-group card card-body mx-auto p-0" role="tablist" style="width:600px;"></div>
+            <div class="type-to-add-wrapper mx-auto" style="width:300px;">
+                    <input class="form-control text-center border-2 mx-auto" type="text" id="type-to-add" name="type-to-add" type="button" data-toggle="collapse" aria-expanded="false" tabindex="1"
+                    placeholder="Type to add product..." style="width:300px;" required="required" minlength="3" data-target="#autosuggestion" aria-controls="autosuggestion">
+                <div class="collapse mx-auto" id="autosuggestion" name="autosuggestion" style="width:300px;">
+                    <div class="list-group card card-body p-0" role="tablist" style="width:300px;"></div>
                 </div>
             </div>
         </div>
         
-        <div class="grocery-list-wrapper d-flex flex-column pb-4" style="min-height:400px">
+        <div class="grocery-list-wrapper mx-auto pb-4" style="min-height:400px">
             <table class="table grocery-list">
                 <thead>
                     <tr>
@@ -65,10 +65,10 @@
                 </thead>
                 <tbody class="selected-items"></tbody>
             </table>
-            <button type="button" class="btn btn-dark text-white d-none" id="get-receipt-button" style="width:200px;"
+            <button type="button" class="btn btn-dark text-white invisible d-block mx-auto" id="get-receipt-button" style="width:200px;"
             onclick="get_receipt()">Get Receipt</button>
         </div>
-    </form>
+    </div>
 </div>
 {% endblock %}
 
@@ -83,15 +83,18 @@
     var receipt_widget_body = document.querySelector('.modal-body');
     const csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value;
     var table = document.querySelector('.table');
+    var cart = document.querySelector('.grocery-list-wrapper');
     var suggested_items = new Map();
     var selected_items = new Map();
 
-    document.form.addEventListener("submit", function(event) {
+    /*document.form.addEventListener("submit", function(event) {
         if(event.key === "Enter")
             event.preventDefault();
-    });
+    });*/
 
     type_to_add.addEventListener("keydown", function(event) {
+        if(event.key === "Enter")
+            autosuggest();
         if(event.key === "ArrowDown" && autosuggestion.className === "collapse show" && autosuggestion_body.hasChildNodes())
             autosuggestion_body.firstChild.focus();
     });
@@ -120,61 +123,59 @@
         }
     }
 
-    async function autosuggest(input_field) {
-        if(input_field.value.length > 2) {
-            suggested_items.clear();
+    async function autosuggest() {
+        suggested_items.clear();
 
-            let queryParams = {"type-to-add": input_field.value, "supermarket-choice": current_choice};
-            let url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
-            
-            for(const i in queryParams)
-                url.searchParams.append(i, queryParams[i]);
+        let queryParams = {"type-to-add": type_to_add.value, "supermarket-choice": current_choice};
+        let url = new URL(window.location.href.replace(window.location.pathname, "{% url 'dmg_django_app:product_autosuggestion' %}"));
+        
+        for(const i in queryParams)
+            url.searchParams.append(i, queryParams[i]);
 
-            const request = new Request(url, {method: "GET"});
+        const request = new Request(url, {method: "GET"});
 
-            await fetch(request)
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                else {
-                    throw new Error("Response error.");
-                }
-            })
-            .then((buffer) => {
-                for(const i in buffer)
-                    suggested_items.set(i, buffer[i]);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
-            autosuggestion_body.innerHTML = "";
-
-            if(suggested_items.size > 0) {
-                for(const name of suggested_items.keys()) {
-                    let suggestion_entry = document.createElement("button");
-                    suggestion_entry.setAttribute("class", "list-group-item list-group-item-action");
-                    suggestion_entry.setAttribute("type", "button");
-                    suggestion_entry.setAttribute("role", "tab");
-                    suggestion_entry.setAttribute("onclick", "add_to_list(event, this)");
-                    suggestion_entry.setAttribute("onkeyup", "add_to_list(event, this)");
-                    suggestion_entry.innerText = name;
-                    autosuggestion_body.append(suggestion_entry);
-                }
+        await fetch(request)
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
             }
             else {
-                autosuggestion_body.appendChild(document.createTextNode("No item found."));
+                throw new Error("Response error.");
             }
-            autosuggestion.className = "collapse show";
+        })
+        .then((buffer) => {
+            for(const i in buffer)
+                suggested_items.set(i, buffer[i]);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+        autosuggestion_body.innerHTML = "";
+
+        if(suggested_items.size > 0) {
+            for(const name of suggested_items.keys()) {
+                let suggestion_entry = document.createElement("button");
+                suggestion_entry.setAttribute("class", "list-group-item list-group-item-action");
+                suggestion_entry.setAttribute("type", "button");
+                suggestion_entry.setAttribute("role", "tab");
+                suggestion_entry.setAttribute("onclick", "add_to_list(event, this)");
+                suggestion_entry.setAttribute("onkeyup", "add_to_list(event, this)");
+                suggestion_entry.innerText = name;
+                autosuggestion_body.append(suggestion_entry);
+            }
         }
+        else {
+            autosuggestion_body.appendChild(document.createTextNode("No item found."));
+        }
+        autosuggestion.className = "collapse show";
     }
         
     function add_to_list(event, item) {
         if((event.key === "Enter" || event.type === "click") && !selected_items.has(item.innerText)) {
             
-            if(table.className === 'table grocery-list invisible')
-                table.className = 'table grocery-list visible';
+            if(table.classList.contains('invisible'))
+                table.classList.toggle("invisible");
 
             selected_items.set(item.innerText, suggested_items.get(item.innerText));
 
@@ -242,8 +243,8 @@
 
             grocery_list_body.append(item_row);
 
-            if(selected_items.size > 0)
-                get_receipt_button.className = "btn btn-dark text-white d-block mx-auto";
+            if((selected_items.size > 0) && get_receipt_button.classList.contains('invisible'))
+                get_receipt_button.classList.toggle("invisible");
         }
     }
 
@@ -262,8 +263,10 @@
         }
 
         if(selected_items.size === 0) {
-            get_receipt_button.className = "btn btn-dark text-white d-none";
-            table.className = 'table grocery-list invisible';
+            if(!(get_receipt_button.classList.contains('invisible')))
+                get_receipt_button.classList.toggle('invisible');
+            if(!(table.classList.contains('invisible')))
+                table.classList.toggle('invisible');
         }
     }
 
@@ -341,10 +344,12 @@
         
         for(const number in images) {
             let col = document.createElement('div');
-            col.className = "justify-content-center";
+            col.className = "receipt-wrapper pe-2";
+            col.setAttribute('style', 'width:240px;height:480px;');
             
             let receipt = document.createElement('img');
-            receipt.className = "pe-5";
+            receipt.className = String("receipt-"+number);
+            receipt.setAttribute('style', 'width:240px;height:480px;');
             receipt.setAttribute("src", "data:image/png;base64, " + images[number]);
             
             col.append(receipt);

@@ -16,8 +16,8 @@ class ReceiptRenderer():
         self.body_lm_rm = (10, 200)                     # the body's left and right margin coordinates.
         self.header_lm = 45                             # header left margin coordinate.
         self.footer_lm = 70                             # footer left margin coordinate.
-        self.footer_limit = 460
-        self.items_limit = 380                          # segment limit.
+        self.bottom_margin = 460
+        self.items_limit = 400                          # segment limit.
         self.supermarket_logo: str = ""
         self.receipts:list[Image.Image] = []
         self.bin_imgs:list[bytes] = []
@@ -26,6 +26,7 @@ class ReceiptRenderer():
         self.TITLE_LENGTH:int = 30
         self.receipt_w, self.receipt_h = 240, 480
         self.barcode_height:int = 25
+        self.divider = '--------------------------------------------'
         self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
@@ -34,24 +35,17 @@ class ReceiptRenderer():
     def render(self) -> dict[str]:
         # Header.
         cashier = 'CASHIER: DISCOUNT MY GROCERIES\n'
-        self.edit.multiline_text((self.header_lm, self.vertical_cursor), self.supermarket_logo+'\n'+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
+        self.edit.multiline_text((self.header_lm, self.vertical_cursor), self.supermarket_logo+"\n"+cashier, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr', font_size=10)
 
         # Header divider.
         self.__move_cursor(self.y_spacing)
-        divider = '--------------------------------------------'
-        self.edit.text((self.body_lm_rm[0], self.vertical_cursor), divider, self.black_ink, self.text_font, align='center', direction='ltr')
+        self.edit.text((self.body_lm_rm[0], self.vertical_cursor), self.divider, self.black_ink, self.text_font, align='center', direction='ltr')
 
         # Populate items to the receipt.
         self.__items_segment()
 
         # Footer segment.
         self.__footer_segment()
-
-        # Credits.
-        self.__move_cursor(self.barcode_height+5)
-        credits_top_border = self.vertical_cursor
-        footer_text = 'CREATED BY\nOUTER SPECTRUM LABS'        
-        self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
         for receipt in self.receipts:
             img_byte_arr = BytesIO()
@@ -106,13 +100,13 @@ class ReceiptRenderer():
         self.edit.text((self.__get_price_margin('R'+str(taxable_value)), self.vertical_cursor), 'R'+str(taxable_value), self.black_ink, self.text_font, align='right', direction='ltr')
 
     def __footer_segment(self):
-        if self.vertical_cursor > 370.00:
+        if self.vertical_cursor > self.items_limit:
             self.__reset_cursor()
             self.__create_new_canvas()
         
         # Footer divider.
         self.__move_cursor(self.y_spacing, "fs")
-        self.edit.line([(self.body_lm_rm[0], self.vertical_cursor), (230, self.vertical_cursor)], fill=self.black_ink, width=0)
+        self.edit.text((self.body_lm_rm[0], self.vertical_cursor), self.divider, self.black_ink, self.text_font, align='center', direction='ltr')
         
         # Footer.
         self.__move_cursor(self.grouped_entries_space, "fs")    
@@ -120,11 +114,17 @@ class ReceiptRenderer():
         # Barcode.
         barcode_lm: int = 10
         barcode = Image.open(f"{self.resources_path}/barcode.png").resize((int(220), self.barcode_height))
-        self.edit.im = self.edit.im.alpha_composite(barcode, (barcode_lm, int(self.vertical_cursor)))
+        self.receipts[-1].alpha_composite(barcode, (barcode_lm, int(self.vertical_cursor)))
+
+        # Credits.
+        self.__move_cursor(self.barcode_height+5)
+        credits_top_border = self.vertical_cursor
+        footer_text = 'CREATED BY\nSIBUSISO J. GUMEDE'        
+        self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
     def __move_cursor(self, amount: float, area: str = None):
         self.vertical_cursor += amount
-        if ((area == "fs") and (self.vertical_cursor > self.items_limit)) or (self.vertical_cursor > self.footer_limit):
+        if (self.vertical_cursor > self.bottom_margin):
             self.__reset_cursor()
             self.__create_new_canvas()
 
@@ -138,9 +138,9 @@ class ReceiptRenderer():
                     self.items.update({title: data})
 
     def __create_new_canvas(self):
-        self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture.png').resize((self.receipt_w, self.receipt_h)))
+        self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture.png').convert('RGBA').resize((self.receipt_w, self.receipt_h)))
         count = len(self.receipts)
-        self.edit = ImageDraw.Draw(self.receipts[count-1])
+        self.edit = ImageDraw.Draw(self.receipts[count-1], 'RGBA')
 
     def __reset_cursor(self):
         self.vertical_cursor = 20.00

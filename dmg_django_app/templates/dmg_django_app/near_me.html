@@ -4,13 +4,13 @@
 {% block content %}
 <div class="p-4 bg-success rounded">
     <h1 class="text-body-emphasis">Supermarket Locator</h1>
-    <p>Out of the five supermarkets, find out which ones are near your location.</p>
+    <p>Find out which ones of the five supermarkets are near your location.</p>
 </div>
-<div class="map-wrapper align-content-center">
+<div class="map-wrapper d-flex justify-content-center align-content-center">
     <iframe
-        class="py-3 mx-auto"
-        width="1000"
-        height="600"
+        class="py-3"
+        width="350"
+        height="350"
         frameborder="0"
         referrerpolicy="no-referrer-when-downgrade"
         src="{{ source }}">
