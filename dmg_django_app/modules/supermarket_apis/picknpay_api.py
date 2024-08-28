@@ -17,6 +17,7 @@ class PicknPay(BaseSupermarket):
 			'product_name_alternative': 'div:only-child',
 			'product_price': 'div.product-grid-item__info-container > div.product-grid-item__price-container',
 			'product_promo': 'div.product-grid-item__info-container > div.product-grid-item__promotion-container',
+			'product_image': 'a.product-grid-item__image-container > cx-media.product-grid-item__image-container__image > img',
 			'next_button': 'cx-pagination[queryparam="currentPage"] > a[aria-label="page number"]',
 			'last_page_button': 'cx-pagination[queryparam="currentPage"] > a:nth-child(5)',
 			'browse_nav': 'cx-page-slot[position="NavigationBar"] > cms-category-navigation[class="ng-star-inserted"] > cms-navigation-ui > nav > div:nth-child(2) > ul > li > button',

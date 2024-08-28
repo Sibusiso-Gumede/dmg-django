@@ -102,8 +102,7 @@ class Scraper():
                 else:
                     image = "NULL"
                 
-                _super.increase_product_count()
-                self.products_list.update({_super.products: {"name": name, "price": price, "promo": promo, "image": image}})
+                self.products_list.update({name: {"price": price, "promo": promo, "image": image}})
         if (self.supermarket_name == Supermarkets.MAKRO) and (self.last_product):
             self.last_product = products[-1]
         print("Done.")
@@ -169,8 +168,8 @@ class Scraper():
         print(f"Scraping {self.supermarket_name} products.")
         sleep(1.50)
         
-        urls_prepared:bool = self.__prepare_url_patterns(supermarket)
-        if (((self.supermarket_name == Supermarkets.WOOLIES) or (self.supermarket_name == Supermarkets.MAKRO)) and (urls_prepared)):
+        if ((self.supermarket_name == Supermarkets.WOOLIES) or (self.supermarket_name == Supermarkets.MAKRO)):
+            self.__prepare_url_patterns(supermarket)
             self.urls = self.__retrieve_urls(supermarket)
             if len(existing_fixtures) > 0:
                 for fixture in existing_fixtures:
@@ -193,7 +192,7 @@ class Scraper():
                     self.url_count -= 1
                 elif not (self.supermarket_name == Supermarkets.WOOLIES):
                     if not (self.supermarket_name == Supermarkets.MAKRO):
-                        self.driver.get(supermarket.get_self.home_page_url())
+                        self.driver.get(supermarket.get_home_page_url())
                     
                     if not ((self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO)):
                         self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()

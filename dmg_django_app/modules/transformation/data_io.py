@@ -85,51 +85,48 @@ def retrieve_image(images_dir: str):
 def resize_image(image: Image):
     '''Resizes an image.'''
     width, height = image.size
-    return image.crop((width/2, 0.5, width, height))     
+    return image.crop((width/2, 0.5, width, height))
 
-def store_supermarket_record(s:BaseSupermarket, nr_of_prods:int) -> None:
-    print("\nStoring supermarket records...")
-    supermarket_record = SupermarketModel(id=s.identifier,
-                                        name=s.get_supermarket_name(),
-                                        num_of_products=nr_of_prods)
+def store_supermarket_records(supermarket: BaseSupermarket) -> None:
+    print("Storing products in database.")
+    _name = supermarket.get_supermarket_name().lower()
+    products: dict = {}
+    for file_name in listdir(f'{supermarket.RESOURCES_PATH}/{_name}/'):
+        if('http' in file_name):
+            _file = open(f'{supermarket.RESOURCES_PATH}/{_name}/{file_name}', 'r')
+            products.update(dict(json.load(_file)))
+            _file.close()
+    print("\nStoring supermarket record...", end="")
+    supermarket_record = SupermarketModel(id=supermarket.identifier,
+                                        name=_name.capitalize(),
+                                        num_of_products=len(products))
     supermarket_record.save()
+    print("Done.")
 
-def store_product_records(supermarket_name: str, products: dict[str]) -> None:
-    print("\nStoring product records...")
-    supermarket_record = SupermarketModel.objects.get(name=supermarket_name)
+    print("Storing product records...", end="")
+    supermarket_record = SupermarketModel.objects.get(name=_name.capitalize())
     count:int = 0
-    for name, data in products.items():
+    for name, details in products.items():
         count += 1
-        if (supermarket_name == "picknpay") and (data['discounted_price'] is not None):
-            _discounted = data['discounted_price']        
+        if (_name == "picknpay") and (details['discounted_price'] is not None):
+            _discounted = details['discounted_price']        
         else:
             _discounted = 'R0.00'
 
-        if data['promo'] is None:
+        if details['promo'] is None:
             _promo = "NULL"
         else:
-            _promo = data['promo']
+            _promo = details['promo']
             
         product_record = Product(id=f'{supermarket_record.id}{count}',
-                                name=name, price=data['price'], promotion=_promo,
-                                supermarket=supermarket_record, discounted_price=_discounted)
-                                #image=BytesIO((base64.b64decode(data['image']))))
+                                name=name, price=details['price'], promotion=_promo,
+                                supermarket=supermarket_record, discounted_price=_discounted,
+                                image=BytesIO((base64.b64decode(details['image']))))
         product_record.save()
+    print("Done.")
+    print("Storage of records completed.")
 
-def store_supermarket_records() -> None:
-    print("Storage of records initiated...")
-    _choice = input("\nStore supermarket records...Y/N\n>>>")
-    for name, supermarket in Supermarkets.SUPERMARKETS.items():
-        name = name.lower()
-        _file = open(f'{supermarket.RESOURCES_PATH}/{name}/{name}_products.json','r')
-        _products: dict[str] = dict(json.load(_file))                
-        if _choice == 'Y':    
-            store_supermarket_record(supermarket, len(list(_products.keys())))   
-        store_product_records(name, _products)
-        _file.close()
-    print("\nStorage of records completed.")
-
-def seperate_prices(price: str) -> list[str]:
+def separate_prices(price: str) -> list[str]:
     '''Extracts a list of prices contained within a single string
         and returns a list of the seperated prices.
         e.g. "R99.99 R89.99" -> ["R99.99", "R89.99"]'''
@@ -152,24 +149,26 @@ def organize_prices(_list:list[str]) -> dict[str]:
     else:
         return {"discounted":_list[1], "price": _list[0]}
 
-def clean_data(s: BaseSupermarket) -> dict[str]:
-    with open(f'{s.RESOURCES_PATH}/{s.get_supermarket_name()}/{s.get_supermarket_name()}_products.json', "+r") as file:
-        prods = dict(json.load(file))
+def clean_data(s: BaseSupermarket) -> None:
+    _name = s.get_supermarket_name().lower()
+    for _file in listdir(f'{s.RESOURCES_PATH}/{_name}/'):
         buffer: dict = {}
-        for name, data in prods.items():
-            # if there's more than one price in the same field,
-            # move the lesser price to the discounted_price field.
-            if data.get('price').count('R') > 1:
-                sorted:dict[str] = organize_prices(seperate_prices(data.get('price')))
-                buffer.update({name: {"price": sorted.get('price'),
-                                        "discounted_price": sorted.get('discounted'),
-                                        "promo": data.get('promo')}})
-            else:
-                buffer.update({name: {"price": data.get('price'),
-                                        "discounted_price": None,
-                                        "promo": data.get('promo')}})
-        json.dump(buffer, file)
-        return buffer
+        if 'http' in _file:
+            with open(f'{s.RESOURCES_PATH}/{_name}/{_file}', "+r") as file:
+                prods = dict(json.load(file)).values()
+                for prod in prods:
+                    # if there's more than one price in the same field,
+                    # move the lesser price to the discounted_price field.
+                    if prod.get('price').count('R') > 1:
+                        sorted:dict[str] = organize_prices(separate_prices(prod.get('price')))
+                        buffer.update({prod.get('name'): {"price": sorted.get('price'),
+                                                "discounted_price": sorted.get('discounted'),
+                                                "promo": prod.get('promo'), "image": prod.get('image')}})
+                    else:
+                        buffer.update({prod.get('name'): {"price": prod.get('price'),
+                                                "discounted_price": None,
+                                                "promo": prod.get('promo'), "image": prod.get('image')}})
+                json.dump(buffer, file)
 
 def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     products = Product.objects

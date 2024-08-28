@@ -1,4 +1,2 @@
-UPDATE Supermarkets
-SET num_of_products = 0;
-
-TRUNCATE TABLE Products;
+DELETE FROM Products
+WHERE supermarket_id = 20;
