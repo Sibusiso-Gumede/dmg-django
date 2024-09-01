@@ -22,6 +22,7 @@ class PicknPay(BaseSupermarket):
 			'last_page_button': 'cx-pagination[queryparam="currentPage"] > a:nth-child(5)',
 			'browse_nav': 'cx-page-slot[position="NavigationBar"] > cms-category-navigation[class="ng-star-inserted"] > cms-navigation-ui > nav > div:nth-child(2) > ul > li > button',
 			'view_all': 'cx-page-slot[position="NavigationBar"] > cms-category-navigation[class="ng-star-inserted"] > cms-navigation-ui > nav > div:nth-child(2) > ul > li > div > ul > li:nth-child(1) > a[class^="list"] > span[class^="action"]',
+			'body': 'body',
 			'footer': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > footer.mouse-focus',
 			'header': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > header.mouse-focus'
 		}		

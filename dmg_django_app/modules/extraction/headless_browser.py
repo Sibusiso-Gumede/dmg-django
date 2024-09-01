@@ -20,14 +20,13 @@ import json, traceback
 class Scraper():
     def __init__(self) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
-        self.chromeOptions.add_argument('--headless')
+        #self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
         self.chromeOptions.page_load_strategy = 'normal'
         
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=self.chromeOptions)
         self.driver.set_window_size(1351, 598)
         self.driver.maximize_window()
-        self.actions = ActionChains(self.driver, devices=[WheelInput(WHEEL), PointerInput(POINTER_MOUSE,POINTER_MOUSE), KeyInput(KEY)])
         self.WAITING_TIME_RANGE = range(1, 3)
 
         self.current_subcategory: str = ""
@@ -197,24 +196,20 @@ class Scraper():
                     if not ((self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO)):
                         self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                     elif (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
-                        if self.supermarket_name == Supermarkets.MAKRO:
-                            # Move the focus to the body segment of the page.
-                            self.driver.execute_script("arguments[0].click();",
-                                                        self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
+                        # Move the focus to the body segment of the page.
+                        self.driver.execute_script("arguments[0].click();",
+                                                    self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
                         
                         # Scroll to the bottom of the page.
-                        self.actions.scroll_by_amount(0, 550)
-                        sleep(5)
-
-                        for y in range(0, 8):
-                            self.actions.perform()
-
-                        sleep(5)
-                        self.actions.reset_actions()
+                        sleep(2.5)
+                        i = 0
+                        while i < 10:
+                            sleep(1)
+                            self.driver.execute_script("window.scrollBy(0,1000);")
 
                         if self.supermarket_name == Supermarkets.PNP:
                             href: str = self.driver.find_element(By.CSS_SELECTOR, 
-                                                                    supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
+                                                                supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
                             last_page = int((href[href.find('='):])[1:])
                 self.home_page = False
             elif not self.home_page:
