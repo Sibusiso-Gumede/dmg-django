@@ -11,7 +11,7 @@
         <div class="nav-logo-padding" style="height:41px;"></div>
         <div class="bg-light app-logo-container mx-auto">
             <a href="{% url 'dmg_django_app:home' %}">
-                <img src="{% static 'dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo" style="width:250px;height:200px">
+                <img src="{{ STATIC_URL }}app_assets/dmg_logo.png" alt="Discount My Groceries Logo" id="app-logo">
             </a>
         </div>
         <!--Search container-->

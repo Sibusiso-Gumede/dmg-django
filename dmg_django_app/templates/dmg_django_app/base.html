@@ -11,10 +11,40 @@
         <meta name="Description" content="Easily compare the prices of grocery products across multiple supermarkets including Shoprite, Checkers, Makro, PicknPay and Woolworths.">
         
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{% static 'bare_gh/assets/favicon.ico' %}" />
-        <link href="{% static 'app_css/bootstrap.min.css' %}" rel="stylesheet"/>
-        <link href="{% static 'app_css/ui_styles.css' %}" rel="stylesheet" />
-        <script defer src="{% static 'app_js/bootstrap.bundle.min.js' %}"></script>
+        <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}app_assets/bare_gh/assets/favicon.ico" />
+        <link href="{{ STATIC_URL }}app_assets/app_css/bootstrap.min.css" rel="stylesheet"/>
+        <style>
+            .text-small {
+                font-size: 85%;
+            }
+            .form-control-dark {
+                border-color: var(--bs-gray);
+            }
+            .form-control-dark:focus {
+                border-color: #fff;
+                box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+            }
+            .list-group button:focus {
+                background-color: #0d6efd;
+                outline: none;
+            }
+            .list-group button:hover {
+                background-color: #0d6efd;
+            }
+            @media only screen and (min-width: 996px) {
+                #app-logo {
+                    width: 350px;
+                    height: 300px;
+                }
+            }
+            @media only screen and (min-width: 300px) {
+                #app-logo {
+                    width: 250px;
+                    height: 200px;
+                }
+            }
+        </style>
+        <script defer src="{{ STATIC_URL }}app_assets/app_js/bootstrap.bundle.min.js"></script>
     </head>
     <body class="bg-light">
         <header>
