@@ -6,21 +6,19 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains, KeyInput, PointerInput, WheelInput
-from selenium.webdriver.common.actions.interaction import POINTER_MOUSE, KEY, WHEEL
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 from time import sleep
 from random import choice
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
-from os import path, makedirs, listdir
+from os import path, listdir
 import json, traceback
 
 class Scraper():
     def __init__(self) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
-        #self.chromeOptions.add_argument('--headless')
+        self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
         self.chromeOptions.page_load_strategy = 'normal'
         
@@ -97,6 +95,7 @@ class Scraper():
                     promo = "NULL"
                 
                 if image_element:
+                    print(f'\nScreenshot product.')
                     image = image_element.screenshot_as_base64
                 else:
                     image = "NULL"
@@ -189,10 +188,12 @@ class Scraper():
                     # Read urls in ascending order.
                     self.driver.get(self.urls[self.url_count-1])
                     self.url_count -= 1
+                    sleep(5)
                 elif not (self.supermarket_name == Supermarkets.WOOLIES):
                     if not (self.supermarket_name == Supermarkets.MAKRO):
                         self.driver.get(supermarket.get_home_page_url())
-                    
+                        sleep(5)
+
                     if not ((self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO)):
                         self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                     elif (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
@@ -201,11 +202,11 @@ class Scraper():
                                                     self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
                         
                         # Scroll to the bottom of the page.
-                        sleep(2.5)
                         i = 0
                         while i < 10:
-                            sleep(1)
+                            sleep(5)
                             self.driver.execute_script("window.scrollBy(0,1000);")
+                            i += 1
 
                         if self.supermarket_name == Supermarkets.PNP:
                             href: str = self.driver.find_element(By.CSS_SELECTOR, 

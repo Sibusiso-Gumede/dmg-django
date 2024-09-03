@@ -11,7 +11,7 @@
         <div class="nav-logo-padding" style="height:41px;"></div>
         <div class="bg-light app-logo-container mx-auto">
             <a href="{% url 'dmg_django_app:home' %}">
-                <img src="{{ STATIC_URL }}app_assets/dmg_logo.png" alt="Discount My Groceries Logo" id="app-logo">
+                <img src="{% static 'admin/logos/dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo" style="min-height:200px;min-width:250px;">
             </a>
         </div>
         <!--Search container-->
@@ -29,9 +29,3 @@
     </div>
 </div>
 {% endblock %}
-
-<!--{% block scripts %}
-<script type="text/javascript">
-    //document.form.addEventListener('submit', (event))
-</script>
-{% endblock %}-->

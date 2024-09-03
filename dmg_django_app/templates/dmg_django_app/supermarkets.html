@@ -8,8 +8,8 @@
         <p>Brick and mortar statistics of the national supermarkets.</p>
     </div>
     <div class="py-4 chart-container">
-        <div class="chart-wrapper mx-auto" style="width:375px;">
-            <img src="{{ STATIC_URL }}app_assets/chart.png" alt="Supermarkets' Stats" style="width:375px;height:350px;">
+        <div class="chart-wrapper mx-auto" style="min-width:375px;min-height: 350px;">
+            <img src="{% static 'admin/charts/chart.png' %}" alt="Supermarkets' Stats" style="min-width:375px;min-height:350px;">
         </div>
     </div>
 </div>

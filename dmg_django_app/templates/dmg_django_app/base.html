@@ -11,8 +11,8 @@
         <meta name="Description" content="Easily compare the prices of grocery products across multiple supermarkets including Shoprite, Checkers, Makro, PicknPay and Woolworths.">
         
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}app_assets/bare_gh/assets/favicon.ico" />
-        <link href="{{ STATIC_URL }}app_assets/app_css/bootstrap.min.css" rel="stylesheet"/>
+        <link rel="icon" type="image/x-icon" href="{% static 'admin/bare_gh/assets/favicon.ico' %}" />
+        <link href="{% static 'admin/css/bootstrap.min.css' %}" rel="stylesheet"/>
         <style>
             .text-small {
                 font-size: 85%;
@@ -36,15 +36,17 @@
                     width: 350px;
                     height: 300px;
                 }
-            }
-            @media only screen and (min-width: 300px) {
-                #app-logo {
-                    width: 250px;
-                    height: 200px;
+                .supermarkets-container {
+                    width: 100vh;
+                    height: 700px;
+                }
+                .chart-wrapper {
+                    width: 750px;
+                    height: 700px;
                 }
             }
         </style>
-        <script defer src="{{ STATIC_URL }}app_assets/app_js/bootstrap.bundle.min.js"></script>
+        <script defer src="{% static 'admin/js/bootstrap.bundle.min.js' %}"></script>
     </head>
     <body class="bg-light">
         <header>
