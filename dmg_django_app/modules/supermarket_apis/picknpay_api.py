@@ -25,7 +25,7 @@ class PicknPay(BaseSupermarket):
 			'body': 'body',
 			'footer': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > footer.mouse-focus',
 			'header': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > header.mouse-focus',
-			'cookie_button': 'div.cookie-item > button.accept',
+			'cookie_button': 'body > pnp-root > div > ui-storefront > footer > cx-page-layout > cx-page-slot > cms-popia-component > div > div > div.cookie-item > button.btn.close-btn',
 		}
 		self.scroll_count:int = 5
 

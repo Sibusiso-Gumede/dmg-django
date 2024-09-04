@@ -13,6 +13,7 @@ from random import choice
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
 from os import path, listdir
+from sys import exit
 import json, traceback
 
 class Scraper():
@@ -49,6 +50,7 @@ class Scraper():
         promo: str = ""
         price: str = ""
         image: str = ""
+        prod_count: int = 0
         prod_name_exception: bool = False
         name_element: WebElement = None
         price_element: WebElement = None
@@ -59,6 +61,7 @@ class Scraper():
             products = products[products.index(self.last_product)+1:]
 
         for product in products:
+            prod_count += 1
             try:    
                 name_element = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_name'])
                 price_element = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['product_price'])
@@ -78,7 +81,7 @@ class Scraper():
                     print("\nProduct image not visible.")
             finally:
                 if (self.supermarket_name == Supermarkets.PNP) and (prod_name_exception):
-                    name = name_element.get_attribute("data-cnstrc-item-name")
+                    name = name_element.get_dom_attribute("data-cnstrc-item-name")
                 else:
                     name = name_element.text
                 
@@ -87,18 +90,23 @@ class Scraper():
                     price = f'{price[:-2]}.{price[-2:]}'
                 
                 if promo_element:
-                    #if (_super.get_supermarket_name() == Supermarkets.MAKRO) and ('for' not in promo_element.text):
-                    #    promo = "NULL"
-                    #else:
                     promo = promo_element.text
                 else:
                     promo = "NULL"
                 
                 if image_element:
-                    print(f'\nScreenshot product.')
-                    image = image_element.screenshot_as_base64
+                    image_element.location_once_scrolled_into_view
+                    print(f'\nScreenshoting product {prod_count}.')
+                    sleep(1)
+                    filename = f'{_super.RESOURCES_PATH}/{self.supermarket_name.lower()}/product_images/{name}.png'
+                    if not path.isfile(filename):
+                        f = open(filename, 'xb')
+                        f.close()
+                        if not image_element.screenshot(filename):
+                            exit('Image not saved.') # system exit.
+                    image = filename
                 else:
-                    image = "NULL"
+                    image = ''
                 
                 self.products_list.update({name: {"price": price, "promo": promo, "image": image}})
         if (self.supermarket_name == Supermarkets.MAKRO) and (self.last_product):
@@ -120,23 +128,33 @@ class Scraper():
         # Read data and return complete url's.
         s_name =  self.supermarket_name.lower()
         resources_dir = f'{_supermarket.RESOURCES_PATH}/{s_name}'
-        output_file = f'{resources_dir}/{s_name}_urls.txt'
+        output_file = f'{resources_dir}/urls.txt'
         
         # If the supermarket urls file does not exist, create it.
         if not path.isfile(output_file):
-            input_file = f'{resources_dir}/{s_name}_categories.json'
             urls: list[str] = list()
             url: str = ""
-            with open(input_file, 'r') as  i_file, open(output_file, 'x', newline='\n') as urls_file:
-                categories = dict(json.load(i_file))              
-                for category, data in zip(categories.keys(), categories.values()):
-                    if s_name == Supermarkets.MAKRO.lower():
-                        for subcategory, _attributes in zip(data.keys(), data.values()):
-                            url = _supermarket.get_category_page_url()
-                            url = url.replace("category", category).replace("sub", subcategory).replace("idcode", _attributes['ID'])
-                            urls.append(url+'\n')
-                            urls_file.writelines(urls)
-                    elif s_name == Supermarkets.WOOLIES.lower():
+            if s_name == Supermarkets.MAKRO.lower():
+                input_files: list[str] = listdir(resources_dir)
+                urls_file = open(output_file, 'x', newline='\n')
+                for input_file in input_files:
+                    if 'department' in input_file:
+                        i_file = open(input_file, 'r')
+                        products = dict(json.load(i_file))
+                        department_name = input_file.split('_')[0]
+                        for category, data in products.items():                           
+                            for subcategory, _attributes in data.items():
+                                url = _supermarket.get_category_page_url()
+                                url = url.replace('department', department_name).replace("category", category).replace("sub", subcategory).replace("idcode", _attributes['ID'])
+                                urls.append(url+'\n')
+                                urls_file.writelines(urls)
+                        i_file.close()
+                urls_file.close()
+            elif s_name == Supermarkets.PNP.lower():
+                input_file = f'{resources_dir}/{s_name}_categories.json'                
+                with open(input_file, 'r') as  i_file, open(output_file, 'x', newline='\n') as urls_file:
+                    categories = dict(json.load(i_file))              
+                    for category, data in categories.items():
                         url = _supermarket.get_category_page_url()
                         url = url.replace("category", category).replace('idcode', data['ID'])
                         urls.append(url+'\n')
@@ -193,7 +211,12 @@ class Scraper():
                     if not (self.supermarket_name == Supermarkets.MAKRO):
                         self.driver.get(supermarket.get_home_page_url())
                         sleep(5)
-
+                        if (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
+                            try:
+                                self.driver.execute_script('arguments[0].click();',
+                                                       self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['cookie_button']))
+                            except NoSuchElementException:
+                                pass
                     if not ((self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO)):
                         self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                     elif (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
@@ -209,8 +232,7 @@ class Scraper():
                             i += 1
 
                         if self.supermarket_name == Supermarkets.PNP:
-                            href: str = self.driver.find_element(By.CSS_SELECTOR, 
-                                                                supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
+                            href: str = self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
                             last_page = int((href[href.find('='):])[1:])
                 self.home_page = False
             elif not self.home_page:

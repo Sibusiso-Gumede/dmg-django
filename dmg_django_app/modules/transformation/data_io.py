@@ -4,8 +4,7 @@ import json
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir, makedirs
-from ..supermarket_apis import BaseSupermarket, Makro
-from ..common import Supermarkets, ASSETS_DIR
+from ..supermarket_apis import BaseSupermarket
 from .receipt_renderer import ReceiptRenderer, base64
 from ...models import Supermarket as SupermarketModel, Product
 
@@ -60,7 +59,7 @@ def store_image(img: bytes, path_: str, img_name: str) -> bool:
 
     return path.isfile(absolute_path)
 
-def retrieve_image(images_dir: str):
+def retrieve_image(images_dir: str) -> list[Image.Image] | Image.Image:
     '''Retrieves an image file stored on disk and
         returns it in Image format.'''
     
@@ -214,3 +213,15 @@ def string_ascii_total(string:str) -> str:
             accumulator += ord(character)
         ascii_totals.append(accumulator)
         accumulator = 0
+
+def from_base64String_to_png(filename: str, resources_dir: str) -> None:
+    with open(filename, '+r') as file:
+        products = dict(json.load(file))
+        file_buffer: dict = {}
+        for name, data in products.items():
+            Image.open(BytesIO(base64.b64decode(data.get('image')))).save(f'{resources_dir}/product_images/{name}', 'png')
+            file_buffer.update({name: {
+                'price': data.get('price'), 'discounted_price': data.get('discounted_price'),
+                'promo': data.get('promo'), 'image': f'{resources_dir}/product_images/{name}.png'
+            }})
+        json.dump(file_buffer, file)
