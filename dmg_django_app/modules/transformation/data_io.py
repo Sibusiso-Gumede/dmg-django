@@ -120,7 +120,7 @@ def store_supermarket_records(supermarket: BaseSupermarket) -> None:
         product_record = Product(id=f'{supermarket_record.id}{count}',
                                 name=name, price=details['price'], promotion=_promo,
                                 supermarket=supermarket_record, discounted_price=_discounted,
-                                image=BytesIO((base64.b64decode(details['image']))))
+                                image=details['image'])
         product_record.save()
     print("Done.")
     print("Storage of records completed.")
@@ -180,21 +180,24 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     
     if products: 
         buffer: dict[str] = {}
+        # product autosuggestion.
         if supermarket_name:
             for p in products:
                 if not (p.discounted_price == 'R0.00'):
                     buffer.update({p.name: p.discounted_price})
                 else:
                     buffer.update({p.name: p.price})
+        # dicounted products.
         else:
             for s in supermarket.all():
                 buffer2: dict[str] = {}
                 for p in products:
                     if s.id == p.supermarket_id:
+                        image = base64.b64encode(Image.open(p.image).tobytes()).decode('ascii')
                         if not (p.discounted_price == 'R0.00'):
-                            buffer2.update({p.name: p.discounted_price})
+                            buffer2.update({p.name: {'price': p.discounted_price, 'image': image}})
                         else:
-                            buffer2.update({p.name: p.price})
+                            buffer2.update({p.name: {'price': p.price, 'image': image}})
                 if buffer2:
                     buffer.update({s.name: buffer2})
         return buffer        

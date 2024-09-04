@@ -8,15 +8,15 @@
     {% for supermarket, products in supermarkets.items %}
     <div class="supermarket-container">
         <h2>{{ supermarket }}</h2>
-        {% for title, price in products.items %}   
+        {% for title, data in products.items %}   
         <div class="found-product">
             <article>
                 <div class="product-image">
-                    <img width="80">
+                    <img src="data:image/png;base64, {{ data.image }}" style="width:80px;height:80px;">
                 </div>      
                 <div class="product-details">
                     <p class="product-title">{{ title }}</p>
-                    <p class="price">{{ price }}</p>
+                    <p class="price">{{ data.price }}</p>
                 </div>
             </article>
         </div>

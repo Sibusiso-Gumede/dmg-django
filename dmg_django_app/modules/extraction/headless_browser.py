@@ -116,7 +116,7 @@ class Scraper():
     def __populate_fixtures(self, _supermarket: BaseSupermarket):
         print("Updating database fixtures", end="...")
 
-        # Populate database fixtures. 
+        # Populate database fixtures.
         output_file = f'{_supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}/{self.driver.current_url.replace("/","#")}.json'
 
         with open(output_file, 'x') as o_file:
@@ -124,45 +124,6 @@ class Scraper():
         self.products_list = {}
         print("Done.")
 
-    def __prepare_url_patterns(self, _supermarket: BaseSupermarket) -> bool:
-        # Read data and return complete url's.
-        s_name =  self.supermarket_name.lower()
-        resources_dir = f'{_supermarket.RESOURCES_PATH}/{s_name}'
-        output_file = f'{resources_dir}/urls.txt'
-        
-        # If the supermarket urls file does not exist, create it.
-        if not path.isfile(output_file):
-            urls: list[str] = list()
-            url: str = ""
-            if s_name == Supermarkets.MAKRO.lower():
-                input_files: list[str] = listdir(resources_dir)
-                urls_file = open(output_file, 'x', newline='\n')
-                for input_file in input_files:
-                    if 'department' in input_file:
-                        i_file = open(input_file, 'r')
-                        products = dict(json.load(i_file))
-                        department_name = input_file.split('_')[0]
-                        for category, data in products.items():                           
-                            for subcategory, _attributes in data.items():
-                                url = _supermarket.get_category_page_url()
-                                url = url.replace('department', department_name).replace("category", category).replace("sub", subcategory).replace("idcode", _attributes['ID'])
-                                urls.append(url+'\n')
-                                urls_file.writelines(urls)
-                        i_file.close()
-                urls_file.close()
-            elif s_name == Supermarkets.PNP.lower():
-                input_file = f'{resources_dir}/{s_name}_categories.json'                
-                with open(input_file, 'r') as  i_file, open(output_file, 'x', newline='\n') as urls_file:
-                    categories = dict(json.load(i_file))              
-                    for category, data in categories.items():
-                        url = _supermarket.get_category_page_url()
-                        url = url.replace("category", category).replace('idcode', data['ID'])
-                        urls.append(url+'\n')
-                        urls_file.writelines("".join(urls))   
-            return path.isfile(output_file)
-        else:
-            return True
-        
     def __retrieve_urls(self, _supermarket: BaseSupermarket) -> list[str]:
         sup_name = self.supermarket_name.lower()
         urls_file = f'{_supermarket.RESOURCES_PATH}/{sup_name}/{sup_name}_urls.txt'
@@ -185,7 +146,6 @@ class Scraper():
         sleep(1.50)
         
         if ((self.supermarket_name == Supermarkets.WOOLIES) or (self.supermarket_name == Supermarkets.MAKRO)):
-            self.__prepare_url_patterns(supermarket)
             self.urls = self.__retrieve_urls(supermarket)
             if len(existing_fixtures) > 0:
                 for fixture in existing_fixtures:
