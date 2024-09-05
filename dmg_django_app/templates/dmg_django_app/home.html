@@ -3,25 +3,23 @@
 {% load static %}
 
 {% block content %}
-<div class="home-container container-fluid bg-light text-black px-3 pt-5" style="min-height:750px">
+<div class="home-container w-100 bg-light text-black px-3 pt-5 " style="min-height:750px">
     <!-- Logo and search section. -->
-    <div class="d-flex flex-column align-content-center mx-auto" id="logo-search">
+    <div class="d-flex flex-column align-content-center mx-auto " id="logo-search">
         <!-- Web Application Logo. -->
         <!-- Padding -->
         <div class="nav-logo-padding" style="height:41px;"></div>
-        <div class="bg-light app-logo-container mx-auto">
-            <a href="{% url 'dmg_django_app:home' %}">
-                <img src="{% static 'admin/logos/dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo" style="min-height:200px;min-width:250px;">
-            </a>
+        <div class="bg-light app-logo-container d-flex align-content-center justify-content-center mx-auto">
+            <img src="{% static 'admin/logos/dmg_logo.png' %}" alt="Discount My Groceries Logo" id="app-logo">
         </div>
         <!--Search container-->
-        <div class="p-2 bg-light search-container">
+        <div class="p-2 bg-light d-flex justify-content-center search-container">
             <form method="get" action="{% url 'dmg_django_app:discounted_products' %}" name="form">
                 <div class="p-2 search-box-wrapper">
                     <input class="form-control text-center mx-auto border-2" type="text" id="search-box" name="search-box" placeholder="Search product..."
                     required="required" minlength="3" style="width:300px;">
                 </div>
-                <div class="p-2 button-wrapper text-center">    
+                <div class="p-2 button-wrapper text-center">
                     <input type="submit" class="btn btn-primary bg-dark" id="search-button" value="Search" style="width: 100px"></input>
                 </div>
             </form>

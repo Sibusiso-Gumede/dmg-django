@@ -1,0 +1,122 @@
+{
+    "Long Life Full Cream Milk 1 L": {
+        "price": "R 19.99",
+        "promo": null,
+        "image": null
+    },
+    "Penne Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R55 EVERYDAY PASTA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Penne Pasta 500 g.png"
+    },
+    "Spaghetti 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R55 EVERYDAY PASTA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Spaghetti 500 g.png"
+    },
+    "Long Life Low Fat Milk 1 L": {
+        "price": "R 19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Long Life Low Fat Milk 1 L.png"
+    },
+    "Long Life Full Cream Milk 6 x 1 L": {
+        "price": "R 116.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Long Life Full Cream Milk 6 x 1 L.png"
+    },
+    "Light Brown Sugar 2 kg": {
+        "price": "R 54.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Light Brown Sugar 2 kg.png"
+    },
+    "Chickpeas in Brine 400 g": {
+        "price": "R 28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Chickpeas in Brine 400 g.png"
+    },
+    "Light Meat Tuna Shredded in Brine 3 x 170 g": {
+        "price": "R 79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Light Meat Tuna Shredded in Brine 3 x 170 g.png"
+    },
+    "Diced Tomatoes 400 g": {
+        "price": "R 28.99",
+        "promo": "BUY ANY 3 FOR R70 ITALIAN CANNED TOMATOES DICED AND WHOLE",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Diced Tomatoes 400 g.png"
+    },
+    "Nescaf\u00e9 Cappuccino Sachets 10 x 18 g": {
+        "price": "R 78.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Nescaf\u00e9 Cappuccino Sachets 10 x 18 g.png"
+    },
+    "Macaroni 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R55 EVERYDAY PASTA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Macaroni 500 g.png"
+    },
+    "Tangy Mayonnaise 750 g": {
+        "price": "R 51.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tangy Mayonnaise 750 g.png"
+    },
+    "Baked Beans 410 g": {
+        "price": "R 15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Baked Beans 410 g.png"
+    },
+    "White Sugar 2.5 kg": {
+        "price": "R 58.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/White Sugar 2.5 kg.png"
+    },
+    "Light Meat Tuna Shredded in Brine 170 g": {
+        "price": "R 27.99",
+        "promo": "BUY ANY 3 FOR R70 CANNED SHREDDED TUNA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Light Meat Tuna Shredded in Brine 170 g.png"
+    },
+    "Peeled and Diced Tomatoes 410 g": {
+        "price": "R 22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Peeled and Diced Tomatoes 410 g.png"
+    },
+    "Breakfast Muesli 1 kg": {
+        "price": "R 91.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Breakfast Muesli 1 kg.png"
+    },
+    "Linguine Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R55 EVERYDAY PASTA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Linguine Pasta 500 g.png"
+    },
+    "Long Life Fat Free Milk 1 L": {
+        "price": "R 19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Long Life Fat Free Milk 1 L.png"
+    },
+    "Tomato Paste 140 g": {
+        "price": "R 35.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tomato Paste 140 g.png"
+    },
+    "Chicken and Herb Flavoured Quicksticks Noodles 75 g": {
+        "price": "R 10.99",
+        "promo": "BUY ANY 5 FOR R45 QUICKSTICKS NOODLES 75G",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Chicken and Herb Flavoured Quicksticks Noodles 75 g.png"
+    },
+    "Tomato Paste 70 g": {
+        "price": "R 17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tomato Paste 70 g.png"
+    },
+    "Tomato and Onion Mix 410 g": {
+        "price": "R 22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tomato and Onion Mix 410 g.png"
+    },
+    "Tagliatelle Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R55 EVERYDAY PASTA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tagliatelle Pasta 500 g.png"
+    }
+}

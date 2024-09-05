@@ -31,18 +31,40 @@
             .list-group button:hover {
                 background-color: #0d6efd;
             }
-            @media only screen and (min-width: 996px) {
-                #app-logo {
-                    width: 350px;
-                    height: 300px;
-                }
+            #app-logo {
+                object-fit: contain;
+                height: 100%;
+                width: 100%;
+            }
+            #chart {
+                object-fit: contain;
+                height: 100%;
+                width: 100%;
+            }
+            @media only screen and (min-width: 350px) {
                 .supermarkets-container {
-                    width: 100vh;
-                    height: 700px;
+                    min-height: 500px;
+                }
+                .chart-wrapper {
+                    width: 350px;
+                    height: 350px;
+                }
+                .app-logo-container {
+                    width: 200px;
+                    height: 150px;
+                }
+            }
+            @media only screen and (min-width: 996px) {
+                .supermarkets-container {
+                    min-height: 700px;
                 }
                 .chart-wrapper {
                     width: 750px;
-                    height: 700px;
+                    height: 500px;
+                }
+                .app-logo-container {
+                    width: 350px;
+                    height: 300px;
                 }
             }
         </style>
