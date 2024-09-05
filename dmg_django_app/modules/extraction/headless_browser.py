@@ -128,7 +128,7 @@ class Scraper():
 
     def __retrieve_urls(self, _supermarket: BaseSupermarket) -> list[str]:
         sup_name = self.supermarket_name.lower()
-        urls_file = f'{_supermarket.RESOURCES_PATH}/{sup_name}/{sup_name}_urls.txt'
+        urls_file = f'{_supermarket.RESOURCES_PATH}/{sup_name}/urls.txt'
         with open(urls_file, 'rt', newline='\n') as file:
             urls: list[str] = list()
             for line in file.readlines():
@@ -152,7 +152,7 @@ class Scraper():
         
         if ((self.supermarket_name == Supermarkets.WOOLIES) or (self.supermarket_name == Supermarkets.MAKRO)):
             self.urls = self.__retrieve_urls(supermarket)
-            if len(existing_fixtures) > 0:
+            if (self.supermarket_name == Supermarkets.MAKRO) and (len(existing_fixtures) > 0):
                 for fixture in existing_fixtures:
                     url = fixture.removesuffix('.json').replace('#','/')
                     # Remove existing fixtures.
@@ -169,11 +169,11 @@ class Scraper():
                     # Read urls in ascending order.
                     self.driver.get(self.urls[self.url_count-1])
                     self.url_count -= 1
-                    sleep(5)
+                    sleep(2.5)
                 elif not (self.supermarket_name == Supermarkets.WOOLIES):
                     if not (self.supermarket_name == Supermarkets.MAKRO):
                         self.driver.get(supermarket.get_home_page_url())
-                        sleep(5)
+                        sleep(2.5)
                         if (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
                             try:
                                 self.driver.execute_script('arguments[0].click();',
@@ -183,15 +183,13 @@ class Scraper():
                     if not ((self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO)):
                         self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
                     elif (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
-                        # Move the focus to the body segment of the page.
-                        self.driver.execute_script("arguments[0].click();",
-                                                    self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
-                        
-                        # Scroll to the bottom of the page.
-                        self.__scroll_page()
-
                         if self.supermarket_name == Supermarkets.PNP:
                             last_page = 138
+                # Move the focus to the body segment of the page.
+                self.driver.execute_script("arguments[0].click();",
+                                            self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
+                # Scroll to the bottom of the page.
+                self.__scroll_page(supermarket.SCROLL)
                 self.home_page = False
             elif not self.home_page:
                 selector:str = supermarket.get_page_selectors()['next_button']
@@ -212,7 +210,9 @@ class Scraper():
                     if next_button.is_enabled():
                         self.driver.execute_script("arguments[0].click();", next_button)
                         if (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
-                            self.__scroll_page()
+                            self.driver.execute_script("arguments[0].click();",
+                                            self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
+                            self.__scroll_page(supermarket.SCROLL)
                     # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
                     # Or continue to the next subcategory in the case of Makro.
                     elif not next_button.is_enabled():
@@ -235,9 +235,9 @@ class Scraper():
             if not(self.supermarket_name == Supermarkets.MAKRO) or ((self.supermarket_name == Supermarkets.MAKRO) and self.home_page):
                 self.__populate_fixtures(supermarket)
 
-    def __scroll_page(self):
+    def __scroll_page(self, amount):
         i = 0
-        while i < 10:
+        while i < amount:
             sleep(5)
             self.driver.execute_script("window.scrollBy(0,1000);")
             i += 1

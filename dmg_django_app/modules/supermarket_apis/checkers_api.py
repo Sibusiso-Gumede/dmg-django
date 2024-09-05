@@ -5,6 +5,8 @@ from .base_api import BaseSupermarket
 class Checkers(BaseSupermarket):
 	"""The Checkers supermarket class implementation."""
 
+	SCROLL = 5
+
 	def __init__(self):
 		super().__init__()
 		self.identifier = 10

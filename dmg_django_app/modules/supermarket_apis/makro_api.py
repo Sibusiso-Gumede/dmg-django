@@ -5,6 +5,8 @@ from .base_api import BaseSupermarket
 class Makro(BaseSupermarket):
 	"""The Makro supermarket class implementation."""
 
+	SCROLL = 10
+
 	def __init__(self):
 		super().__init__()
 		self.identifier = 20

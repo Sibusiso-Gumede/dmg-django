@@ -5,6 +5,8 @@ from .base_api import BaseSupermarket
 class PicknPay(BaseSupermarket):
 	"""The PicknPay supermarket class implementation."""
 
+	SCROLL = 8
+
 	def __init__(self):
 		super().__init__()
 		self.identifier = 30
@@ -27,7 +29,6 @@ class PicknPay(BaseSupermarket):
 			'header': 'body > pnp-root.sparta > div.main-wrapper > ui-storefront > header.mouse-focus',
 			'cookie_button': 'body > pnp-root > div > ui-storefront > footer > cx-page-layout > cx-page-slot > cms-popia-component > div > div > div.cookie-item > button.btn.close-btn',
 		}
-		self.scroll_count:int = 5
 
 	def get_supermarket_name(self) -> str:
 		"""Returns the name of the supermarket object."""
@@ -46,6 +47,3 @@ class PicknPay(BaseSupermarket):
 
 	def get_query_page_url(self) -> str:
 		return self.__query_page
-	
-	def get_scroll_count(self) -> int:
-		return self.scroll_count

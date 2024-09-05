@@ -4,7 +4,7 @@ from .base_api import BaseSupermarket
 
 class Woolworths(BaseSupermarket):
     """The Woolworths supermarket class implementation."""
-    
+    SCROLL = 6
     def __init__(self):
         super().__init__()
         self.identifier = 50
@@ -18,8 +18,9 @@ class Woolworths(BaseSupermarket):
             'product_name_alternative': 'div[id^="prod_details"] > div.product-card__details > div.product--desc > a > h2',
 			'product_price': 'strong.price',
 			'product_promo': 'div[id^="promotion"] > a > div.product__special',
-            'browseNav': '#main-nav > ul > li:nth-child(1) > a > div > span',
-            'next_button': '#app > div > div > main > div > div:nth-child(3) > div.product-list__list > div > nav > div.pagination__info > li:nth-child(3)',# > span[class="icon icon--right-dark"]'
+            'product_image': 'article > div > a.product--view > div.product--image > img',
+            'body': 'body',
+            'next_button': ''
         }
 
     def get_page_selectors(self) -> dict[str]:
