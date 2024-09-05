@@ -1,0 +1,362 @@
+{
+    "PnP Chicken A La King Cook In Sauce 400g": {
+        "price": "R45.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Chicken A La King Cook In Sauce 400g.png"
+    },
+    "Today Puff Pastry 400g": {
+        "price": "R31.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Today Puff Pastry 400g.png"
+    },
+    "Nescafe Cappuccino White Chocolate 10 Sachets": {
+        "price": "R79.99",
+        "promo": "Buy Any 2 For R110.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Nescafe Cappuccino White Chocolate 10 Sachets.png"
+    },
+    "PnP Live Well Lean Beef Mince": {
+        "price": "R109.99/kg",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Live Well Lean Beef Mince.png"
+    },
+    "I&J Beefers Beef Patties 800g": {
+        "price": "R110.99",
+        "promo": "Smart Price: R89.99",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/I&J Beefers Beef Patties 800g.png"
+    },
+    "Robertsons Steak & Chops Spice Refill 160g": {
+        "price": "R32.99",
+        "promo": "Buy Any 2 For R42.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Robertsons Steak & Chops Spice Refill 160g.png"
+    },
+    "McCain Asian Stir Fry Vegetable Mix 700g": {
+        "price": "R46.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/McCain Asian Stir Fry Vegetable Mix 700g.png"
+    },
+    "Jik Bleach Lemon Fresh 3l": {
+        "price": "R72.99",
+        "promo": "Smart Price: R59.99",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Jik Bleach Lemon Fresh 3l.png"
+    },
+    "Sparkle Roller Towel 2 Ply 2 Pack": {
+        "price": "R19.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Sparkle Roller Towel 2 Ply 2 Pack.png"
+    },
+    "Rainbow Simply Chicken Cheesies Nuggets 350g": {
+        "price": "R61.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Rainbow Simply Chicken Cheesies Nuggets 350g.png"
+    },
+    "Harpic White & Shine Thick Bleach Toilet Cleaner Lavender 750ml": {
+        "price": "R38.99",
+        "promo": "Buy Any 2 For R60.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Harpic White & Shine Thick Bleach Toilet Cleaner Lavender 750ml.png"
+    },
+    "Parmalat Full Fat Cheddar Cheese 600g": {
+        "price": "R119.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Parmalat Full Fat Cheddar Cheese 600g.png"
+    },
+    "Tall Horse Sauvignon Blanc 750ml": {
+        "price": "R65.00",
+        "promo": "Buy Any 6, Get Cheapest Free (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Tall Horse Sauvignon Blanc 750ml.png"
+    },
+    "Clover Fruits Of The Forest Full Cream Strawberry,Fruit Cocktail & Berry Burst 6 Pack": {
+        "price": "R29.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Clover Fruits Of The Forest Full Cream Strawberry,Fruit Cocktail & Berry Burst 6 Pack.png"
+    },
+    "Knorrox Beef Curry Stock Cubes 24 x 10g": {
+        "price": "R26.99",
+        "promo": "Buy Any 2 For R40.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Knorrox Beef Curry Stock Cubes 24 x 10g.png"
+    },
+    "Tasty Treats Cream Strawberry Bisc 80g": {
+        "price": "R7.99 R8.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Tasty Treats Cream Strawberry Bisc 80g.png"
+    },
+    "LiveFit EPP Foam Roller 45cm": {
+        "price": "R50.00 R199.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/LiveFit EPP Foam Roller 45cm.png"
+    },
+    "Omo Stain Removal Auto Washing Liquid Detergent 3L": {
+        "price": "R175.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Omo Stain Removal Auto Washing Liquid Detergent 3L.png"
+    },
+    "Stretton's London Dry Gin 750ml_1": {
+        "price": "R184.99 R189.99",
+        "promo": "Smart Price: R149.99",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Stretton's London Dry Gin 750ml_1.png"
+    },
+    "Dettol Herbal Hygiene Soap 175g": {
+        "price": "R18.99",
+        "promo": "Buy Any 3, Pay For 2 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Dettol Herbal Hygiene Soap 175g.png"
+    },
+    "Sea Harvest Fish Fingers 800g": {
+        "price": "R115.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Sea Harvest Fish Fingers 800g.png"
+    },
+    "Bokomo Otees Bubblegum Flavoured 375g": {
+        "price": "R55.99",
+        "promo": "Smart Price: R42.99",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Bokomo Otees Bubblegum Flavoured 375g.png"
+    },
+    "Goldair Upright White Fan Heater GFH-2000A 2 000W": {
+        "price": "R269.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Goldair Upright White Fan Heater GFH-2000A 2 000W.png"
+    },
+    "DAY Hi Ball Glasses Colour 300ml 4 Pack": {
+        "price": "R59.99 R79.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/DAY Hi Ball Glasses Colour 300ml 4 Pack.png"
+    },
+    "I&J Light & Crispy Classic Hake 500g": {
+        "price": "R84.99 R119.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/I&J Light & Crispy Classic Hake 500g.png"
+    },
+    "Nestle Cerelac Infant Cereal Regular 250g": {
+        "price": "R37.99 R48.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Nestle Cerelac Infant Cereal Regular 250g.png"
+    },
+    "PnP Beef Dro\u00ebwors 350g": {
+        "price": "R129.99",
+        "promo": "Buy Any 2, Save 20%",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Beef Dro\u00ebwors 350g.png"
+    },
+    "Nivea Pamper Night In 4 Piece Set": {
+        "price": "R224.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Nivea Pamper Night In 4 Piece Set.png"
+    },
+    "Bubble T Winter Berries Hand & Body Butter 426g": {
+        "price": "R159.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Bubble T Winter Berries Hand & Body Butter 426g.png"
+    },
+    "Spice Mecca Chicken Spice 100g": {
+        "price": "R23.99 R25.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Spice Mecca Chicken Spice 100g.png"
+    },
+    "Parmalat Gouda Full Fat Semi-Hard Cheese 850g": {
+        "price": "R159.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Parmalat Gouda Full Fat Semi-Hard Cheese 850g.png"
+    },
+    "JC Le Roux Le Domaine Premium Sparkling Wine 750ml": {
+        "price": "R100.00",
+        "promo": "Buy Any 6, Get Cheapest Free (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/JC Le Roux Le Domaine Premium Sparkling Wine 750ml.png"
+    },
+    "Mama's Pepper Steak Pies 6 Pies": {
+        "price": "R129.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Mama's Pepper Steak Pies 6 Pies.png"
+    },
+    "PnP Robot Pepper 3s": {
+        "price": "R39.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Robot Pepper 3s.png"
+    },
+    "Skip Stain Removal Auto Washing Liquid Detergent 1.5L": {
+        "price": "R110.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Skip Stain Removal Auto Washing Liquid Detergent 1.5L.png"
+    },
+    "PnP Mini Ginger Biscuits 30g": {
+        "price": "R7.49",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Mini Ginger Biscuits 30g.png"
+    },
+    "Bakers Tennis Biscuit Lemon 200g": {
+        "price": "R29.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Bakers Tennis Biscuit Lemon 200g.png"
+    },
+    "Sea Harvest Crisp & Chunky Garlic & Herb 500g": {
+        "price": "R110.49",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Sea Harvest Crisp & Chunky Garlic & Herb 500g.png"
+    },
+    "Sta-Soft Spring Fresh Fabric Softener Refill 500ml": {
+        "price": "R48.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Sta-Soft Spring Fresh Fabric Softener Refill 500ml.png"
+    },
+    "Clover Nolac UHT Lactose Free Milk 1L 6 x 1L": {
+        "price": "R145.49",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Clover Nolac UHT Lactose Free Milk 1L 6 x 1L.png"
+    },
+    "Iwisa Super Maize Meal 5kg": {
+        "price": "R71.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Iwisa Super Maize Meal 5kg.png"
+    },
+    "Rainbow Simply Chicken Frozen Finger Cheese 400g": {
+        "price": "R61.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Rainbow Simply Chicken Frozen Finger Cheese 400g.png"
+    },
+    "Fair Cape 100% Orange Juice 2L": {
+        "price": "R42.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Fair Cape 100% Orange Juice 2L.png"
+    },
+    "PnP Instant Unsweetened Cappuccino Sachets 10 x 18g": {
+        "price": "R69.99",
+        "promo": "Coffee Club Members: Buy Any 2 For R100.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Instant Unsweetened Cappuccino Sachets 10 x 18g.png"
+    },
+    "Lux Velvet Touch Cleansing Bar Soap 175g": {
+        "price": "R17.99",
+        "promo": "Buy Any 2 For R24.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Lux Velvet Touch Cleansing Bar Soap 175g.png"
+    },
+    "PnP Beef Fillets Untrimmed": {
+        "price": "R199.99/kg R279.99/kg",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Beef Fillets Untrimmed.png"
+    },
+    "I&J Original Fish Fingers 600g": {
+        "price": "R95.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/I&J Original Fish Fingers 600g.png"
+    },
+    "Rhodes Whole Kernel Corn 410g": {
+        "price": "R17.99 R19.99",
+        "promo": "Buy Any 2 For R38.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Rhodes Whole Kernel Corn 410g.png"
+    },
+    "PnP Ready to Eat Whole Rotisserie Chicken": {
+        "price": "R84.99 R89.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Ready to Eat Whole Rotisserie Chicken.png"
+    },
+    "Aquafresh Fresh & Minty Toothpaste 100ml": {
+        "price": "R23.99",
+        "promo": "Smart Price: R17.99",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Aquafresh Fresh & Minty Toothpaste 100ml.png"
+    },
+    "Jacobs Kronung 100% Freeze Dried Instant Coffee 300g": {
+        "price": "R209.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Jacobs Kronung 100% Freeze Dried Instant Coffee 300g.png"
+    },
+    "Johnson's Baby Wet Wipes Gentle All Over 288 Wipes": {
+        "price": "R139.99",
+        "promo": "Smart Price: R99.99",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Johnson's Baby Wet Wipes Gentle All Over 288 Wipes.png"
+    },
+    "Fisherman's Friend Original Sugar Free Lozenges 25g": {
+        "price": "R24.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Fisherman's Friend Original Sugar Free Lozenges 25g.png"
+    },
+    "Parmalat Cheddar Full Fat Hard Cheese 850g": {
+        "price": "R159.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Parmalat Cheddar Full Fat Hard Cheese 850g.png"
+    },
+    "Knorrox Chicken Stock Cubes 24 x 10g": {
+        "price": "R26.99",
+        "promo": "Buy Any 2 For R40.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Knorrox Chicken Stock Cubes 24 x 10g.png"
+    },
+    "Mama's Chicken & Mushroom Pies 6 Pies": {
+        "price": "R129.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Mama's Chicken & Mushroom Pies 6 Pies.png"
+    },
+    "Bakers Cheese & Onion Mini Cheddars 6 x 33g": {
+        "price": "R43.99",
+        "promo": "Buy Any 2 For R65.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Bakers Cheese & Onion Mini Cheddars 6 x 33g.png"
+    },
+    "Spice Mecca Bbq Garlic & Lemon Spice 100g": {
+        "price": "R23.99 R25.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Spice Mecca Bbq Garlic & Lemon Spice 100g.png"
+    },
+    "ADDIS Storage Container 68L": {
+        "price": "R179.99 R199.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/ADDIS Storage Container 68L.png"
+    },
+    "Robertsons Mixed Herbs Dry Herbs Refill 18g": {
+        "price": "R21.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Robertsons Mixed Herbs Dry Herbs Refill 18g.png"
+    },
+    "No Name Frozen Chicken Drumstick 1.5kg": {
+        "price": "R79.99 R104.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/No Name Frozen Chicken Drumstick 1.5kg.png"
+    },
+    "Pantene Total Fullness Shampoo 200ml": {
+        "price": "R64.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Pantene Total Fullness Shampoo 200ml.png"
+    },
+    "Lancewood Sweet Chilli Cream Cheese 230g": {
+        "price": "R57.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Lancewood Sweet Chilli Cream Cheese 230g.png"
+    },
+    "PnP Matches": {
+        "price": "R1.00",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Matches.png"
+    },
+    "Pantene Colour Protection Shampoo 200ml": {
+        "price": "R64.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Pantene Colour Protection Shampoo 200ml.png"
+    },
+    "Fruits Of The Earth Raw Mixed Nuts 400g": {
+        "price": "R156.99 R177.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Fruits Of The Earth Raw Mixed Nuts 400g.png"
+    },
+    "Truda Spookies Chutney 100g": {
+        "price": "R11.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Truda Spookies Chutney 100g.png"
+    },
+    "Pierre Jourdan Tranquille 750ml": {
+        "price": "R90.00",
+        "promo": "Buy Any 6, Get Cheapest Free (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Pierre Jourdan Tranquille 750ml.png"
+    },
+    "Knorr Cup-A-Soup Chicken & Mushroom Instant Soup 4 x 20g": {
+        "price": "R23.99",
+        "promo": "Buy Any 2 For R32.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Knorr Cup-A-Soup Chicken & Mushroom Instant Soup 4 x 20g.png"
+    },
+    "Husky Lamb Chunks in Gravy 775g": {
+        "price": "R36.99",
+        "promo": "Buy Any 3 For R80.00 (Smart Price)",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Husky Lamb Chunks in Gravy 775g.png"
+    },
+    "Jordan Toothpste Kids 0-5yr 50ml": {
+        "price": "R20.99 R26.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Jordan Toothpste Kids 0-5yr 50ml.png"
+    },
+    "First Choice Low Fat Caramel Fudge Dairy Snack Drinking Yoghurt 250g": {
+        "price": "R9.99 R14.99",
+        "promo": "",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/First Choice Low Fat Caramel Fudge Dairy Snack Drinking Yoghurt 250g.png"
+    }
+}

@@ -28,10 +28,10 @@ class Scraper():
         self.driver.maximize_window()
         self.WAITING_TIME_RANGE = range(1, 3)
 
-        self.current_subcategory: str = ""
         self.last_product: WebElement = None
         self.home_page: bool = False
         self.products_list: dict[str] = {}
+        self.product_images = []
 
         self.url_count: int = 0
         self.urls = list[str]
@@ -85,6 +85,9 @@ class Scraper():
                 else:
                     name = name_element.text
                 
+                if '/' in name:
+                    name = name.replace('/', '')
+
                 price = price_element.text
                 if self.supermarket_name == Supermarkets.MAKRO:
                     price = f'{price[:-2]}.{price[-2:]}'
@@ -92,11 +95,10 @@ class Scraper():
                 if promo_element:
                     promo = promo_element.text
                 else:
-                    promo = "NULL"
+                    promo = None
                 
-                if image_element:
+                if image_element and (not self.__image_exists(name)):
                     image_element.location_once_scrolled_into_view
-                    print(f'\nScreenshoting product {prod_count}.')
                     sleep(1)
                     filename = f'{_super.RESOURCES_PATH}/{self.supermarket_name.lower()}/product_images/{name}.png'
                     if not path.isfile(filename):
@@ -106,12 +108,12 @@ class Scraper():
                             exit('Image not saved.') # system exit.
                     image = filename
                 else:
-                    image = ''
+                    image = None
                 
                 self.products_list.update({name: {"price": price, "promo": promo, "image": image}})
         if (self.supermarket_name == Supermarkets.MAKRO) and (self.last_product):
             self.last_product = products[-1]
-        print("Done.")
+        print(f'Done. {prod_count} total products scraped.')
 
     def __populate_fixtures(self, _supermarket: BaseSupermarket):
         print("Updating database fixtures", end="...")
@@ -140,7 +142,10 @@ class Scraper():
         self.home_page = True
         page_number:int = 0
         self.supermarket_name = supermarket.get_supermarket_name()
+        if self.supermarket_name == Supermarkets.PNP:
+            page_number= int(supermarket.get_home_page_url()[supermarket.get_home_page_url().index('=')+1:])
         existing_fixtures:list[str] = listdir(f'{supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}')
+        self.product_images = listdir(f'{supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}/product_images')
         
         print(f"Scraping {self.supermarket_name} products.")
         sleep(1.50)
@@ -149,12 +154,10 @@ class Scraper():
             self.urls = self.__retrieve_urls(supermarket)
             if len(existing_fixtures) > 0:
                 for fixture in existing_fixtures:
-                    try:
-                        # Remove existing fixtures.
-                        self.urls.remove(fixture.removesuffix('.json').replace('#','/'))
-                    except ValueError:
-                        # If the fixture is not found, continue.
-                        pass
+                    url = fixture.removesuffix('.json').replace('#','/')
+                    # Remove existing fixtures.
+                    if (url in self.urls):
+                        self.urls.remove(url)
             self.url_count = len(self.urls)
         
         while True:
@@ -185,15 +188,10 @@ class Scraper():
                                                     self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
                         
                         # Scroll to the bottom of the page.
-                        i = 0
-                        while i < 10:
-                            sleep(5)
-                            self.driver.execute_script("window.scrollBy(0,1000);")
-                            i += 1
+                        self.__scroll_page()
 
                         if self.supermarket_name == Supermarkets.PNP:
-                            href: str = self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['last_page_button']).get_dom_attribute('href')
-                            last_page = int((href[href.find('='):])[1:])
+                            last_page = 138
                 self.home_page = False
             elif not self.home_page:
                 selector:str = supermarket.get_page_selectors()['next_button']
@@ -213,14 +211,8 @@ class Scraper():
                     # In the case where there are still products to be scraped, load the next page.
                     if next_button.is_enabled():
                         self.driver.execute_script("arguments[0].click();", next_button)
-                        
                         if (self.supermarket_name == Supermarkets.PNP) or (self.supermarket_name == Supermarkets.MAKRO):
-                            self.actions.scroll_by_amount(0, 550)
-                            sleep(5)
-                            for y in range(0, 8):
-                                self.actions.perform()
-                            sleep(5)
-                            self.actions.reset_actions()                        
+                            self.__scroll_page()
                     # Otherwise, if the final page of the products is reached, proceed to the next supermarket website.
                     # Or continue to the next subcategory in the case of Makro.
                     elif not next_button.is_enabled():
@@ -242,3 +234,13 @@ class Scraper():
             # Update database fixtures.
             if not(self.supermarket_name == Supermarkets.MAKRO) or ((self.supermarket_name == Supermarkets.MAKRO) and self.home_page):
                 self.__populate_fixtures(supermarket)
+
+    def __scroll_page(self):
+        i = 0
+        while i < 10:
+            sleep(5)
+            self.driver.execute_script("window.scrollBy(0,1000);")
+            i += 1
+
+    def __image_exists(self, filename:str) -> bool:
+        return f'{filename}.png' in self.product_images
