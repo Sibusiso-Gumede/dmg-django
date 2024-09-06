@@ -1,0 +1,122 @@
+{
+    "Bolognese Pasta Sauce 600 g": {
+        "price": "R 86.99",
+        "promo": null,
+        "image": null
+    },
+    "Nestl\u00e9 Full Cream Sweetened Condensed Milk 385 g": {
+        "price": "R 39.99",
+        "promo": null,
+        "image": null
+    },
+    "Fresh Fettuccine Pasta 250 g": {
+        "price": "R 54.99",
+        "promo": null,
+        "image": null
+    },
+    "Reduced Fat Coconut Milk 400 ml": {
+        "price": "R 39.99",
+        "promo": "BUY ANY 3 PAY FOR 2 ASIAN COCONUT MILK & CREAM",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Reduced Fat Coconut Milk 400 ml.png"
+    },
+    "Nutella Nut Spread 350 g": {
+        "price": "R 105.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Nutella Nut Spread 350 g.png"
+    },
+    "Fresh Pour Over Cheese Sauce 200 g": {
+        "price": "R 57.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Fresh Pour Over Cheese Sauce 200 g.png"
+    },
+    "Corn Taco Shells 12 pk": {
+        "price": "R 76.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Corn Taco Shells 12 pk.png"
+    },
+    "Nutella Nut Spread 680 g": {
+        "price": "R 189.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Nutella Nut Spread 680 g.png"
+    },
+    "Parboiled Long Grain White Rice 2 kg": {
+        "price": "R 45.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Parboiled Long Grain White Rice 2 kg.png"
+    },
+    "Sweet and Sour Sliced Gherkins 385 g": {
+        "price": "R 46.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Sweet and Sour Sliced Gherkins 385 g.png"
+    },
+    "Bokomo Weet-Bix Wholegrain Wheat Biscuits 900 g": {
+        "price": "R 68.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Bokomo Weet-Bix Wholegrain Wheat Biscuits 900 g.png"
+    },
+    "White Flour Wraps 6 pk": {
+        "price": "R 68.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/White Flour Wraps 6 pk.png"
+    },
+    "Salsa Nacho Chips 250 g": {
+        "price": "R 61.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Salsa Nacho Chips 250 g.png"
+    },
+    "Diced Tomatoes with Herbs 400 g": {
+        "price": "R 29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Diced Tomatoes with Herbs 400 g.png"
+    },
+    "Canola Oil 750 ml": {
+        "price": "R 37.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Canola Oil 750 ml.png"
+    },
+    "Butter Chicken Cook-in-Sauce 400 g": {
+        "price": "R 69.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Butter Chicken Cook-in-Sauce 400 g.png"
+    },
+    "Brown Wheat Flour Wraps 8 x 54 g": {
+        "price": "R 52.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Brown Wheat Flour Wraps 8 x 54 g.png"
+    },
+    "Salted Nacho Chips 250 g": {
+        "price": "R 61.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Salted Nacho Chips 250 g.png"
+    },
+    "Mushroom Sauce 200 ml": {
+        "price": "R 61.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Mushroom Sauce 200 ml.png"
+    },
+    "Chicken Stock Powder 150 g": {
+        "price": "R 56.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Chicken Stock Powder 150 g.png"
+    },
+    "Tomato Puree in Tub 240 g": {
+        "price": "R 15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tomato Puree in Tub 240 g.png"
+    },
+    "Smooth Apricot Jam 450 g": {
+        "price": "R 35.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Smooth Apricot Jam 450 g.png"
+    },
+    "Tomato Pur\u00e9e 660 ml": {
+        "price": "R 53.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tomato Pur\u00e9e 660 ml.png"
+    },
+    "Chicken Liquid Stock Concentrate Sachets 8 x 25 g": {
+        "price": "R 54.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Chicken Liquid Stock Concentrate Sachets 8 x 25 g.png"
+    }
+}

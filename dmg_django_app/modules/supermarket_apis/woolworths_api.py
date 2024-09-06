@@ -4,7 +4,10 @@ from .base_api import BaseSupermarket
 
 class Woolworths(BaseSupermarket):
     """The Woolworths supermarket class implementation."""
+    
     SCROLL = 6
+    PAGE_INCREMENT = 144
+
     def __init__(self):
         super().__init__()
         self.identifier = 50
@@ -13,14 +16,14 @@ class Woolworths(BaseSupermarket):
         self.__name = 'Woolworths'
         self.__page_selectors = {
 			'product_list': 'div.product-list__item',
-			'product_id': '',
 			'product_name': 'div[id^="prod_details"] > div.product-card__details > div > div > a.range--title',
-            'product_name_alternative': 'div[id^="prod_details"] > div.product-card__details > div.product--desc > a > h2',
-			'product_price': 'strong.price',
-			'product_promo': 'div[id^="promotion"] > a > div.product__special',
+            'alternative_product_name': 'div[id^="prod_details"] > div.product-card__details > div.product--desc > a > h2',
+			'product_price': 'div.product__price > div.product-price-combined > div.product-card__actions > span > strong.price',
+            'product_promo': 'div[id^="promotion"] > a > div.product__special',
             'product_image': 'article > div > a.product--view > div.product--image > img',
             'body': 'body',
-            'next_button': ''
+            'next_button': '#app > div > div > main > div > div:nth-child(3) > div.product-list__list > div > nav > div.pagination__info > li:nth-child(3) > span.icon-text',
+            'cookie_button': '#cookie-root > div > a'
         }
 
     def get_page_selectors(self) -> dict[str]:

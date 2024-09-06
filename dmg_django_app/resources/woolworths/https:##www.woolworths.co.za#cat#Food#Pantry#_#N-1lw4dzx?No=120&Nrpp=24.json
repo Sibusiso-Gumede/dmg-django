@@ -1,0 +1,122 @@
+{
+    "Black Olives in Brine 200 g": {
+        "price": "R 27.99",
+        "promo": null,
+        "image": null
+    },
+    "Baking Paper 5 m x 30 cm": {
+        "price": "R 36.99",
+        "promo": null,
+        "image": null
+    },
+    "Fusilli Pasta 500 g": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": null
+    },
+    "Lucky Star Pilchards in Tomato Sauce 400 g": {
+        "price": "R 28.99",
+        "promo": "BUY ANY 2 FOR R52 LUCKY STAR PILCHARDS",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Lucky Star Pilchards in Tomato Sauce 400 g.png"
+    },
+    "Tangy Mayonnaise 385 g": {
+        "price": "R 43.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tangy Mayonnaise 385 g.png"
+    },
+    "Lentils 400 g": {
+        "price": "R 28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Lentils 400 g.png"
+    },
+    "Mrs H.S.Ball's Original Recipe Chutney 470 g": {
+        "price": "R 43.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Mrs H.S.Ball's Original Recipe Chutney 470 g.png"
+    },
+    "Italian Lasagne Sheets 250 g": {
+        "price": "R 56.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Italian Lasagne Sheets 250 g.png"
+    },
+    "Easy To Wok Honey, Soy and Ginger Stir Fry Sauce 125 ml": {
+        "price": "R 24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Easy To Wok Honey, Soy and Ginger Stir Fry Sauce 125 ml.png"
+    },
+    "Kellogg's Corn Flakes 500 g": {
+        "price": "R 51.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Kellogg's Corn Flakes 500 g.png"
+    },
+    "Roast Chicken Gravy 200 ml": {
+        "price": "R 51.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Roast Chicken Gravy 200 ml.png"
+    },
+    "Almond and Fruit Snack Bars 10 x 30 g": {
+        "price": "R 91.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Almond and Fruit Snack Bars 10 x 30 g.png"
+    },
+    "WCafe Italian Blend Ground Coffee 500 g": {
+        "price": "R 178.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/WCafe Italian Blend Ground Coffee 500 g.png"
+    },
+    "Stir-Fry Noodles 400 g": {
+        "price": "R 37.99",
+        "promo": "BUY ANY 2 SAVE 20% ASIAN RANGE",
+        "image": null
+    },
+    "Bicarbonate Of Soda 200 g": {
+        "price": "R 29.99",
+        "promo": null,
+        "image": null
+    },
+    "Couscous 500 g": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": null
+    },
+    "Smooth Strawberry Jam 450 g": {
+        "price": "R 47.99",
+        "promo": null,
+        "image": null
+    },
+    "WCafe Italian Blend Coffee Beans 1 kg": {
+        "price": "R 293.99",
+        "promo": null,
+        "image": null
+    },
+    "Tastic Parboiled Rice 2 kg": {
+        "price": "R 46.99",
+        "promo": null,
+        "image": null
+    },
+    "WCafe Organic All African Espresso Cafe Blend Beans 1 kg": {
+        "price": "R 304.99",
+        "promo": null,
+        "image": null
+    },
+    "Freshpak Pure Rooibos Tea Tagless Teabags 80 pk": {
+        "price": "R 53.99",
+        "promo": null,
+        "image": null
+    },
+    "Nescaf\u00e9 Gold White Chocolate Cappuccino Sachets 10 x 18 g": {
+        "price": "R 78.99",
+        "promo": null,
+        "image": null
+    },
+    "Bonne Maman Strawberry Jam 370 g": {
+        "price": "R 99.99",
+        "promo": null,
+        "image": null
+    },
+    "Mini White Flour Wraps 10 x 30 g": {
+        "price": "R 41.99",
+        "promo": null,
+        "image": null
+    }
+}

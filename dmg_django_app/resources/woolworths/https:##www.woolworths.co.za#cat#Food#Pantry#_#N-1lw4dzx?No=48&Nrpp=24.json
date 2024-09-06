@@ -1,0 +1,122 @@
+{
+    "Wild Blossom Honey 500 g": {
+        "price": "R 115.99",
+        "promo": null,
+        "image": null
+    },
+    "Long Life Low Fat Milk 6 x 1 L": {
+        "price": "R 116.99",
+        "promo": null,
+        "image": null
+    },
+    "Mac and Cheese Flavoured Quicksticks Noodles 75 g": {
+        "price": "R 10.99",
+        "promo": "BUY ANY 5 FOR R45 QUICKSTICKS NOODLES 75G",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Mac and Cheese Flavoured Quicksticks Noodles 75 g.png"
+    },
+    "Garlic Powder 55 g": {
+        "price": "R 31.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Garlic Powder 55 g.png"
+    },
+    "Multiseed Wraps 8 x 54 g": {
+        "price": "R 52.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Multiseed Wraps 8 x 54 g.png"
+    },
+    "Smooth Peanut Butter 400 g": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Smooth Peanut Butter 400 g.png"
+    },
+    "Light Meat Tuna Shredded with Vegetable Oil 170 g": {
+        "price": "R 27.99",
+        "promo": "BUY ANY 3 FOR R70 CANNED SHREDDED TUNA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Light Meat Tuna Shredded with Vegetable Oil 170 g.png"
+    },
+    "Pitted Green Manzanilla Olives 180 g": {
+        "price": "R 27.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Pitted Green Manzanilla Olives 180 g.png"
+    },
+    "Fusilli Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R55 EVERYDAY PASTA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Fusilli Pasta 500 g.png"
+    },
+    "Rooibos Tagless Tea Bags 80 pk": {
+        "price": "R 48.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Rooibos Tagless Tea Bags 80 pk.png"
+    },
+    "No Added Salt and Sugar Peanut Butter 400 g": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/No Added Salt and Sugar Peanut Butter 400 g.png"
+    },
+    "Unsweetened Barista Oat Drink 1 L": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Unsweetened Barista Oat Drink 1 L.png"
+    },
+    "Organic Unsweetened Oat Drink 1 L": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Organic Unsweetened Oat Drink 1 L.png"
+    },
+    "Crosse and Blackwell Tangy Mayonnaise 750 g": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Crosse and Blackwell Tangy Mayonnaise 750 g.png"
+    },
+    "Tomato and Basil Pasta Sauce 375 ml": {
+        "price": "R 69.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tomato and Basil Pasta Sauce 375 ml.png"
+    },
+    "Orzo Pasta 500 g": {
+        "price": "R 22.99",
+        "promo": "BUY ANY 3 FOR R55 EVERYDAY PASTA",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Orzo Pasta 500 g.png"
+    },
+    "White Spirit Vinegar 750 ml": {
+        "price": "R 24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/White Spirit Vinegar 750 ml.png"
+    },
+    "Butterfly Popcorn 500 g": {
+        "price": "R 28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Butterfly Popcorn 500 g.png"
+    },
+    "Organic Chickpeas in Water 400 g": {
+        "price": "R 32.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Organic Chickpeas in Water 400 g.png"
+    },
+    "Mild Salsa 400 g": {
+        "price": "R 47.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Mild Salsa 400 g.png"
+    },
+    "Whole Sweet and Sour Gherkins 780 g": {
+        "price": "R 63.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Whole Sweet and Sour Gherkins 780 g.png"
+    },
+    "Kellogg's Coco Pops 350 g": {
+        "price": "R 61.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Kellogg's Coco Pops 350 g.png"
+    },
+    "Sunflower Oil 2 L": {
+        "price": "R 79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Sunflower Oil 2 L.png"
+    },
+    "Long Life Full Cream Milk 250 ml": {
+        "price": "R 10.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Long Life Full Cream Milk 250 ml.png"
+    }
+}

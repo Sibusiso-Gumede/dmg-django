@@ -1,0 +1,122 @@
+{
+    "Five Roses Smooth Ceylon Blend Tagless Tea Bags 102 pk": {
+        "price": "R 62.99",
+        "promo": null,
+        "image": null
+    },
+    "Tangy Light Mayonnaise 790 g": {
+        "price": "R 51.99",
+        "promo": null,
+        "image": null
+    },
+    "Jungle Oats 1 kg": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": null
+    },
+    "Light Brown Sugar 1kg": {
+        "price": "R 29.99",
+        "promo": null,
+        "image": null
+    },
+    "Lactose Free Full Cream Milk 1 L ": {
+        "price": "R 23.99",
+        "promo": null,
+        "image": null
+    },
+    "Tomato Sauce 565 g": {
+        "price": "R 49.99",
+        "promo": null,
+        "image": null
+    },
+    "All Gold Original Tomato Sauce 700 ml": {
+        "price": "R 40.99",
+        "promo": null,
+        "image": null
+    },
+    "Coconut Milk 400 ml": {
+        "price": "R 39.99",
+        "promo": "BUY ANY 3 PAY FOR 2 ASIAN COCONUT MILK & CREAM",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Coconut Milk 400 ml.png"
+    },
+    "Asian Coconut Cream 400 ml": {
+        "price": "R 39.99",
+        "promo": "BUY ANY 3 PAY FOR 2 ASIAN COCONUT MILK & CREAM",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Asian Coconut Cream 400 ml.png"
+    },
+    "Smooth Peanut Butter 800 g": {
+        "price": "R 92.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Smooth Peanut Butter 800 g.png"
+    },
+    "Red Kidney Beans in Brine 400 g": {
+        "price": "R 28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Red Kidney Beans in Brine 400 g.png"
+    },
+    "Roast Beef Flavoured Quicksticks Noodles 75 g": {
+        "price": "R 10.99",
+        "promo": "BUY ANY 5 FOR R45 QUICKSTICKS NOODLES 75G",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Roast Beef Flavoured Quicksticks Noodles 75 g.png"
+    },
+    "No Added Salt and Sugar Peanut Butter 770 g": {
+        "price": "R 92.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/No Added Salt and Sugar Peanut Butter 770 g.png"
+    },
+    "Berry Muesli 1 kg": {
+        "price": "R 91.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Berry Muesli 1 kg.png"
+    },
+    "Lemon Juice 500 ml": {
+        "price": "R 29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Lemon Juice 500 ml.png"
+    },
+    "White Flour Wraps 8 x 54 g": {
+        "price": "R 52.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/White Flour Wraps 8 x 54 g.png"
+    },
+    "Stir-Fry Flavoured Quicksticks Noodles 75 g": {
+        "price": "R 10.99",
+        "promo": "BUY ANY 5 FOR R45 QUICKSTICKS NOODLES 75G",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Stir-Fry Flavoured Quicksticks Noodles 75 g.png"
+    },
+    "Butter Beans in Brine 400 g": {
+        "price": "R 28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Butter Beans in Brine 400 g.png"
+    },
+    "Rolled Oats 1 kg": {
+        "price": "R 43.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Rolled Oats 1 kg.png"
+    },
+    "Whipping Cream 250 ml": {
+        "price": "R 32.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Whipping Cream 250 ml.png"
+    },
+    "Vanilla Flavoured Custard 1 L": {
+        "price": "R 33.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Vanilla Flavoured Custard 1 L.png"
+    },
+    "Canola Oil 2 L": {
+        "price": "R 79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Canola Oil 2 L.png"
+    },
+    "Mediterranean Extra Virgin Olive Oil 1 L": {
+        "price": "R 349.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Mediterranean Extra Virgin Olive Oil 1 L.png"
+    },
+    "Tomato and Basil Pasta Sauce 600 g": {
+        "price": "R 86.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/woolworths/product_images/Tomato and Basil Pasta Sauce 600 g.png"
+    }
+}
