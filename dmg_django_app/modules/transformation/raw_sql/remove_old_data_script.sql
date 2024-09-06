@@ -1,2 +1,2 @@
 DELETE FROM Products
-WHERE supermarket_id = 20;
+WHERE supermarket_id = 40;

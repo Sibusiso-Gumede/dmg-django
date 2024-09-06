@@ -10,8 +10,6 @@ class Supermarket(models.Model):
                             help_text="The supermarket name")
     num_of_products = models.PositiveIntegerField(
         help_text="The total number of different products sold")
-    statistics = models.JSONField(default=dict, 
-                help_text="The total number of stores per province.")
 
     def __str__(self) -> str:
         return f"{self.name}"
@@ -48,7 +46,7 @@ class Product(models.Model):
     price = models.CharField(max_length=50, default="R0.00")
     discounted_price = models.CharField(max_length=10, default=None)
     promotion = models.CharField(max_length=100, default=None)
-    image = models.TextField(max_length=100, default=None)
+    img_path = models.TextField(max_length=100, default=None)
     supermarket = models.ForeignKey(Supermarket, on_delete=models.CASCADE)
 
     def __str__(self) -> str:

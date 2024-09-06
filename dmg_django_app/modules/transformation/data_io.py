@@ -113,14 +113,14 @@ def store_supermarket_records(supermarket: BaseSupermarket) -> None:
             _discounted = 'R0.00'
 
         if details['promo'] is None:
-            _promo = "NULL"
+            _promo = None
         else:
             _promo = details['promo']
             
         product_record = Product(id=f'{supermarket_record.id}{count}',
                                 name=name, price=details['price'], promotion=_promo,
                                 supermarket=supermarket_record, discounted_price=_discounted,
-                                image=details['image'])
+                                img_path=details['image'])
         product_record.save()
     print("Done.")
     print("Storage of records completed.")
@@ -154,15 +154,15 @@ def clean_data(s: BaseSupermarket) -> None:
         buffer: dict = {}
         if 'http' in _file:
             with open(f'{s.RESOURCES_PATH}/{_name}/{_file}', "+r") as file:
-                prods = dict(json.load(file)).values()
-                for prod in prods:
+                prods = dict(json.load(file))
+                for name, data in prods.keys():
                     # if there's more than one price in the same field,
                     # move the lesser price to the discounted_price field.
-                    if prod.get('price').count('R') > 1:
-                        sorted:dict[str] = organize_prices(separate_prices(prod.get('price')))
-                        buffer.update({prod.get('name'): {"price": sorted.get('price'),
-                                                "discounted_price": sorted.get('discounted'),
-                                                "promo": prod.get('promo'), "image": prod.get('image')}})
+                    if data.get('price').count('R') > 1:
+                        sorted:dict[str] = organize_prices(separate_prices(data.get('price')))
+                        buffer.update({name: {"price": sorted.get('price'),
+                                            "discounted_price": sorted.get('discounted'),
+                                            "promo": prod.get('promo'), "image": prod.get('image')}})
                     else:
                         buffer.update({prod.get('name'): {"price": prod.get('price'),
                                                 "discounted_price": None,
@@ -228,3 +228,12 @@ def from_base64String_to_png(filename: str, resources_dir: str) -> None:
                 'promo': data.get('promo'), 'image': f'{resources_dir}/product_images/{name}.png'
             }})
         json.dump(file_buffer, file)
+
+def assign_blank_fields(fixture:str):
+    with open(fixture, '+') as file:
+        products = dict(json.load(file))
+        buffer = {}
+        for name, data in products.keys():
+            buffer.update({name: {'price': data.get('price'),
+                                  'promo': data.get('promo'),
+                                  'image':}})

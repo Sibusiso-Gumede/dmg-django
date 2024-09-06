@@ -70,6 +70,9 @@ class Scraper():
                 line = traceback.format_exception_only(error)[0]
                 if _super.get_page_selectors()['product_name'] in line:
                     name_element = product.find_element(by=By.CSS_SELECTOR, value=_super.get_page_selectors()['alternative_product_name'])
+                    res = input('Product name not found. Continue execution?')
+                    if res != 'y':
+                        exit('Scraping terminated.')
                     if (self.supermarket_name == Supermarkets.PNP):
                         name = name_element.get_dom_attribute("data-cnstrc-item-name")
                     elif (self.supermarket_name == Supermarkets.WOOLIES):
@@ -174,23 +177,22 @@ class Scraper():
                     self.driver.get(self.urls[len(self.urls)-self.url_count])
                     self.url_count -= 1
                     sleep(2.5)
-                elif not (self.supermarket_name == Supermarkets.WOOLIES):
-                    if not (self.supermarket_name == Supermarkets.MAKRO):
-                        self.driver.get(supermarket.get_home_page_url())
-                        sleep(2.5)
-                        if not((self.supermarket_name == Supermarkets.CHECKERS) or (self.supermarket_name == Supermarkets.SHOPRITE)):
-                            try:
-                                self.driver.execute_script('arguments[0].click();',
-                                                       self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['cookie_button']))
-                            except NoSuchElementException:
-                                pass
+                elif not((self.supermarket_name == Supermarkets.WOOLIES) or (self.supermarket_name == Supermarkets.MAKRO)):
+                    self.driver.get(supermarket.get_home_page_url())
+                    sleep(5)
                     if not((self.supermarket_name == Supermarkets.CHECKERS) or (self.supermarket_name == Supermarkets.SHOPRITE)):
-                        self.driver.find_element(by=By.CSS_SELECTOR, value=supermarket.get_page_selectors()['browse_nav']).click()
-                    elif (self.supermarket_name == Supermarkets.PNP):
-                            last_page = 138
-                # Move the focus to the body segment of the page.
-                self.driver.execute_script("arguments[0].click();",
-                                            self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
+                        try:
+                            self.driver.execute_script('arguments[0].click();',
+                                                    self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['cookie_button']))
+                        except NoSuchElementException:
+                            pass
+                    if (self.supermarket_name == Supermarkets.PNP):
+                        last_page = 138
+                
+                if not((self.supermarket_name == Supermarkets.CHECKERS) or (self.supermarket_name == Supermarkets.SHOPRITE)):
+                    # Move the focus to the body segment of the page.
+                    self.driver.execute_script("arguments[0].click();",
+                                                self.driver.find_element(By.CSS_SELECTOR, supermarket.get_page_selectors()['body']))
                 # Scroll to the bottom of the page.
                 self.__scroll_page(supermarket.SCROLL)
                 self.home_page = False
@@ -241,7 +243,7 @@ class Scraper():
                 self.__populate_fixtures(supermarket)
                 if self.supermarket_name == Supermarkets.MAKRO:
                     response = input('Proceed to the next subcategory?')
-                    if response is not 'y':
+                    if response != 'y':
                         exit('Scraping terminated.')
                         
     def __scroll_page(self, amount):
