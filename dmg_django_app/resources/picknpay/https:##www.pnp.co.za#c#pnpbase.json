@@ -1,362 +1,68 @@
 {
-    "PnP UHT Full Cream Milk 6 x 1L": {
-        "price": "R94.99 R98.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "PnP Brown Sugar 2kg": {
-        "price": "R44.99 R54.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Koo Baked Beans in Tomato Sauce 410gr": {
-        "price": "R16.99",
-        "promo": "Buy Any 2 For R30.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Brookes Oros 2L": {
-        "price": "R44.99",
-        "promo": "Smart Price: R39.99",
-        "image": "NULL"
-    },
-    "Sunlight Original Dishwashing Liquid 750ml": {
-        "price": "R37.99",
-        "promo": "Buy 2 For R60.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "No Name Live Well Shredded Tuna in Salt Water 170g": {
-        "price": "R21.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "PnP White Sugar 2.5kg": {
-        "price": "R54.99 R62.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Maggi Chicken 2 Minute Noodles 68g x 5": {
-        "price": "R39.99",
-        "promo": "Buy Any 2 For R60.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "No Name Macaroni Pasta 500g": {
-        "price": "R15.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Humpty Dumpty Large Eggs 30 Pack": {
-        "price": "R83.99 R102.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "No Name Straight Cut Frying Potato Chips 1kg": {
-        "price": "R44.99",
-        "promo": "Combo For R70.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "No Name Pasta Spaghetti 500g": {
-        "price": "R15.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "All Gold Tomato Sauce 700ml": {
-        "price": "R42.99",
-        "promo": "Smart Price: R32.99",
-        "image": "NULL"
-    },
-    "Fatti's & Moni's Pasta Screws 500g": {
-        "price": "R30.99",
-        "promo": "Buy Any 3 For R45.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Nescafe Ricoffy Pouch 800g": {
-        "price": "R139.99",
-        "promo": "Smart Price: R109.99",
-        "image": "NULL"
-    },
-    "Cadbury Astros 40g": {
-        "price": "R15.99",
-        "promo": "Buy Any 2 For R23.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "No Name Frozen Chicken Braaipack 5kg": {
-        "price": "R244.99",
-        "promo": "Buy 2 For R350.00",
-        "image": "NULL"
-    },
-    "Tastic Rice 2kg": {
-        "price": "R46.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Nola Original Mayonnaise 750g": {
-        "price": "R48.99",
-        "promo": "Smart Price: R36.99",
-        "image": "NULL"
-    },
-    "PnP Sunflower Oil 2L": {
-        "price": "R74.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Kellogg's Corn Flakes 750g": {
-        "price": "R69.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Freshpak Rooibos Tagless Tea Bags 80 Pack": {
-        "price": "R52.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Beigel & Beigel Traditional Pretzels 500g": {
-        "price": "R25.00 R119.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Tuffy Budget Black Refuse Bags 750mm x 950mm 20 Pack": {
-        "price": "R42.99",
-        "promo": "Smart Price: R29.99",
-        "image": "NULL"
-    },
-    "Dettol Eventone Pomegranate Hygiene Soap 175g": {
-        "price": "R18.99",
-        "promo": "Buy Any 3, Pay For 2 (Smart Price)",
-        "image": "NULL"
-    },
-    "PnP Full Cream Fresh Milk 2L": {
-        "price": "R29.99 R34.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Knorr Brown Onion Thickening Soup 50g": {
-        "price": "R8.99",
-        "promo": "Buy Any 3 For R16.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Fatti's & Moni's Macaroni 500g": {
-        "price": "R19.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Nescafe Classic Coffee 200g": {
-        "price": "R129.99",
-        "promo": "Smart Price: R109.99",
-        "image": "NULL"
-    },
-    "Black Cat Smooth Peanut Butter 400g": {
-        "price": "R51.99",
-        "promo": "Smart Price: R38.99",
-        "image": "NULL"
-    },
-    "Jacobs Kronung Instant Coffee 200g": {
-        "price": "R189.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Knorr Cream of Mushroom Thickening Soup 50g": {
-        "price": "R8.99",
-        "promo": "Buy Any 3 For R16.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Coca-Cola Plastic 2L": {
-        "price": "R27.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Simba NikNaks Cheese Flavoured Maize Snack 135g": {
-        "price": "R15.99",
-        "promo": "Buy Any 2 For R25.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Domestos Lemon Multipurpose Stain Removal Thick Bleach Cleaner 750ml": {
-        "price": "R34.99",
-        "promo": "Buy Any 2 For R58.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Five Roses Tagless Tea Bags 100 Pack": {
-        "price": "R69.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Koo Creamstyle Sweetcorn 415g": {
-        "price": "R23.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Domestos Whitening Multipurpose Stain Removal Thick Bleach Cleaner 750ml": {
-        "price": "R34.99",
-        "promo": "Buy Any 2 For R58.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "PnP Pork Pack": {
-        "price": "R69.99/kg",
-        "promo": "",
-        "image": "NULL"
-    },
-    "PnP 2 Ply White Toilet Paper 18 Pack": {
-        "price": "R129.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Maggi Durban Curry 2 Minute Noodles 68g x 5": {
-        "price": "R39.99",
-        "promo": "Buy Any 2 For R60.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Lay's Salted Potato Chips 120g": {
-        "price": "R23.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Stork Country 40% Fat Spread 1kg": {
-        "price": "R57.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Sunlight Regular Degreasing Dishwashing Liquid Detergent 1.5l": {
-        "price": "R69.99",
-        "promo": "Buy 2 For R110.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Kellogg's Noodles Chicken 5 x 70g": {
-        "price": "R36.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Nestle Cremora Creamer 750g": {
-        "price": "R69.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "PnP Chicken 4 Thighs & 4 Drumsticks": {
-        "price": "R58.37",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Sunlight Regular Degreasing Dishwashing Liquid Detergent Refill 750ml": {
-        "price": "R29.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Fatti's & Moni's Pasta Shells 500g": {
-        "price": "R30.99",
-        "promo": "Buy Any 3 For R45.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Knorr Aromat Original All Purpose Seasoning Spice Trio Refill 200g": {
-        "price": "R39.99",
-        "promo": "Buy Any 2 For R40.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "PnP UHT Low Fat Long Life Milk 6 x 1L": {
-        "price": "R94.99 R98.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Handy Andy Lemon Multipurpose Cleaning Cream 750ml": {
-        "price": "R24.99 R33.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Maggi Beef 2 Minute Noodles 68g x 5": {
-        "price": "R39.99",
-        "promo": "Buy Any 2 For R60.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Rainbow Original Chicken Viennas 1kg": {
-        "price": "R89.99 R109.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Crosse & Blackwell Mayonnaise 750g": {
-        "price": "R49.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "No Name Tuna Shredded in Oil 170g": {
-        "price": "R21.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Cadbury 5 Star Chocolate Bar 48g": {
-        "price": "R15.99",
-        "promo": "Buy Any 2 For R23.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Bakers Original Romany Creams Biscuits 200g": {
-        "price": "R36.99",
-        "promo": "Buy Any 2 For R60.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "Lancewood Cheddar Cheese 600g": {
-        "price": "R109.99 R124.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Joko Regular Tagless Tea Bags 100 Pack": {
-        "price": "R54.99",
-        "promo": "Smart Price: R49.99",
-        "image": "NULL"
-    },
-    "Domestos Summer Multipurpose Stain Removal Thick Bleach Cleaner 750ml": {
-        "price": "R34.99",
-        "promo": "Buy Any 2 For R58.00 (Smart Price)",
-        "image": "NULL"
-    },
-    "PnP Live Well Skinless Chicken Breast 4 Pack": {
-        "price": "R47.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Fatti's & Moni's Spaghetti 500g": {
-        "price": "R19.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Bakers Tennis Biscuits 200g": {
-        "price": "R29.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Nestle Hot Chocolate 500g": {
-        "price": "R99.99",
-        "promo": "Smart Price: R79.99",
-        "image": "NULL"
-    },
-    "Flora Light 40% Fat Spread 1kg": {
-        "price": "R74.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Nescafe Ricoffy Coffee 750g": {
-        "price": "R169.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Mrs H.S.Ball's Original Chutney 470g": {
-        "price": "R48.99",
-        "promo": "Smart Price: R34.99",
-        "image": "NULL"
-    },
-    "Jacobs Kronung Instant Coffee 230g": {
-        "price": "R189.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Rhodes Baked Beans in Tomato Sauce 410g": {
-        "price": "R13.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "PnP 2 Ply Toilet Tissue Paper 9 Pack": {
-        "price": "R77.99",
-        "promo": "",
-        "image": "NULL"
-    },
-    "Knorr Beef & Onion Thickening Soup 50g": {
-        "price": "R8.99",
-        "promo": "Buy Any 3 For R16.00 (Smart Price)",
-        "image": "NULL"
-    }
+  "PnP UHT Full Cream Milk 6 x 1L": {
+    "price": "R98.99",
+    "discounted_price": "R94.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "PnP Brown Sugar 2kg": {
+    "price": "R54.99",
+    "discounted_price": "R44.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "null": {
+    "price": "R8.99",
+    "discounted_price": null,
+    "promo": "Buy Any 3 For R16.00 (Smart Price)",
+    "image": "NULL"
+  },
+  "PnP White Sugar 2.5kg": {
+    "price": "R62.99",
+    "discounted_price": "R54.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "Humpty Dumpty Large Eggs 30 Pack": {
+    "price": "R102.99",
+    "discounted_price": "R83.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "Beigel & Beigel Traditional Pretzels 500g": {
+    "price": "R119.99",
+    "discounted_price": "R25.00",
+    "promo": "",
+    "image": "NULL"
+  },
+  "PnP Full Cream Fresh Milk 2L": {
+    "price": "R34.99",
+    "discounted_price": "R29.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "PnP UHT Low Fat Long Life Milk 6 x 1L": {
+    "price": "R98.99",
+    "discounted_price": "R94.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "Handy Andy Lemon Multipurpose Cleaning Cream 750ml": {
+    "price": "R33.99",
+    "discounted_price": "R24.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "Rainbow Original Chicken Viennas 1kg": {
+    "price": "R109.99",
+    "discounted_price": "R89.99",
+    "promo": "",
+    "image": "NULL"
+  },
+  "Lancewood Cheddar Cheese 600g": {
+    "price": "R124.99",
+    "discounted_price": "R109.99",
+    "promo": "",
+    "image": "NULL"
+  }
 }

@@ -136,7 +136,7 @@ def separate_prices(price: str) -> list[str]:
         if (x == 'R') and (previous.isdigit() or (previous == ' ')):
             prices.append(_price)
             _price = ''
-        if not ((x == ' ') or (x == '/') or (x == 'k') or (x == 'g')):
+        if not (x in [' ', '/', 'k', 'g', 'P', 'p', 'e', 'r']):
             _price += x      
             previous = x
     prices.append(_price)       
@@ -153,21 +153,31 @@ def clean_data(s: BaseSupermarket) -> None:
     for _file in listdir(f'{s.RESOURCES_PATH}/{_name}/'):
         buffer: dict = {}
         if 'http' in _file:
-            with open(f'{s.RESOURCES_PATH}/{_name}/{_file}', "+r") as file:
-                prods = dict(json.load(file))
-                for name, data in prods.keys():
+            file = open(f'{s.RESOURCES_PATH}/{_name}/{_file}', "r")
+            prods = dict(json.load(file))
+            file.close()
+            file = open(f'{s.RESOURCES_PATH}/{_name}/{_file}', 'w')
+            for name, data in prods.items():
+                if s.get_supermarket_name() == 'PicknPay':
                     # if there's more than one price in the same field,
                     # move the lesser price to the discounted_price field.
                     if data.get('price').count('R') > 1:
                         sorted:dict[str] = organize_prices(separate_prices(data.get('price')))
                         buffer.update({name: {"price": sorted.get('price'),
                                             "discounted_price": sorted.get('discounted'),
-                                            "promo": prod.get('promo'), "image": prod.get('image')}})
+                                            "promo": data.get('promo'), "image": data.get('image')}})
                     else:
-                        buffer.update({prod.get('name'): {"price": prod.get('price'),
+                        buffer.update({data.get('name'): {"price": data.get('price'),
                                                 "discounted_price": None,
-                                                "promo": prod.get('promo'), "image": prod.get('image')}})
-                json.dump(buffer, file)
+                                                "promo": data.get('promo'), "image": data.get('image')}})
+                elif s.get_supermarket_name() == 'Makro':
+                    promo = ''
+                    if data.get('promo')[2:].isdigit():
+                        promo = None
+                    buffer.update({name: {'price': data.get('price'), 'promo': promo,
+                                    'image': f'{s.RESOURCES_PATH}/{_name}/product_images/{name}.png'}})
+            json.dump(buffer, file)
+            file.close()
 
 def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     products = Product.objects
@@ -228,12 +238,3 @@ def from_base64String_to_png(filename: str, resources_dir: str) -> None:
                 'promo': data.get('promo'), 'image': f'{resources_dir}/product_images/{name}.png'
             }})
         json.dump(file_buffer, file)
-
-def assign_blank_fields(fixture:str):
-    with open(fixture, '+') as file:
-        products = dict(json.load(file))
-        buffer = {}
-        for name, data in products.keys():
-            buffer.update({name: {'price': data.get('price'),
-                                  'promo': data.get('promo'),
-                                  'image':}})
