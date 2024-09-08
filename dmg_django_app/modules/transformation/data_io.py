@@ -193,11 +193,11 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
         # product autosuggestion.
         if supermarket_name:
             for p in products:
-                if not (p.discounted_price == 'R0.00'):
-                    buffer.update({p.name: p.discounted_price})
+                if (not (p.discounted_price == 'R0.00')) and check_for_bargain(p.promotion):
+                    buffer.update({p.name: {'price': p.discounted_price, 'promo': p.promotion}})
                 else:
-                    buffer.update({p.name: p.price})
-        # dicounted products.
+                    buffer.update({p.name: {'price': p.price, 'promo': None}})
+        # discounted products.
         else:
             for s in supermarket.all():
                 buffer2: dict[str] = {}
@@ -238,3 +238,9 @@ def from_base64String_to_png(filename: str, resources_dir: str) -> None:
                 'promo': data.get('promo'), 'image': f'{resources_dir}/product_images/{name}.png'
             }})
         json.dump(file_buffer, file)
+
+def check_for_bargain(promotion: str) -> bool:
+    bargain_substrings = ['FOR', 'Buy', 'for']
+    for sub in bargain_substrings:
+        if sub in promotion:
+            return True
