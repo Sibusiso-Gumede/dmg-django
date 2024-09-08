@@ -1,1 +1,122 @@
-{"null": {"price": "R75.99", "discounted_price": null, "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Ace Super Maize Meal 5kg.png"}, "Rainbow Simply Chicken Cheese Viennas 1kg": {"price": "R109.99", "discounted_price": "R89.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Rainbow Simply Chicken Cheese Viennas 1kg.png"}, "Clover Traditional Plain Feta Cheese 400g": {"price": "R69.99", "discounted_price": "R59.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Clover Traditional Plain Feta Cheese 400g.png"}, "Beigel & Beigel Extra Thin Sticks 150g": {"price": "R46.99", "discounted_price": "R15.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Beigel & Beigel Extra Thin Sticks 150g.png"}, "BT Assorted Biscuits 1.2kg": {"price": "R99.99", "discounted_price": "R89.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/BT Assorted Biscuits 1.2kg.png"}, "Finish Dishwasher Regular Tablets 56 Pack": {"price": "R259.99", "discounted_price": "R189.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Finish Dishwasher Regular Tablets 56 Pack.png"}, "HTH Floater + 1.6kg": {"price": "R179.99", "discounted_price": "R149.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/HTH Floater + 1.6kg.png"}, "Henties Juice Drink 10% Apple 250ml": {"price": "R6.99", "discounted_price": "R5.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Henties Juice Drink 10% Apple 250ml.png"}, "PnP Chicken & Mushroom Pie": {"price": "R29.99", "discounted_price": "R26.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Chicken & Mushroom Pie.png"}, "Crafted Collection Orecchiette 500g": {"price": "R54.99", "discounted_price": "R29.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Crafted Collection Orecchiette 500g.png"}, "Clover Elite Cheddar Full Cream Processed Cheese Slices 360g": {"price": "R64.99", "discounted_price": "R59.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Clover Elite Cheddar Full Cream Processed Cheese Slices 360g.png"}, "Castle Lite Premium Lager Beer 24 x 330ml": {"price": "R324.99", "discounted_price": "R299.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Castle Lite Premium Lager Beer 24 x 330ml.png"}, "White Star Super Maize Meal 5kg": {"price": "R79.99", "discounted_price": "R68.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/White Star Super Maize Meal 5kg.png"}, "PnP Bulk Lamb Braai Chops": {"price": "R169.99", "discounted_price": "R149.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Bulk Lamb Braai Chops.png"}, "Crafted Collection Casarecce 500g": {"price": "R49.99", "discounted_price": "R25.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Crafted Collection Casarecce 500g.png"}, "De Vries Ginger Biscuits 200g": {"price": "R21.99", "discounted_price": "R19.99", "promo": "Buy 2 For R30.00 (Smart Price)", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/De Vries Ginger Biscuits 200g.png"}, "LiveFit 9ft PVC Jump Rope Foam Handles": {"price": "R69.99", "discounted_price": "R25.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/LiveFit 9ft PVC Jump Rope Foam Handles.png"}, "PnP Low Fat Mixed Berry Yoghurt 1kg": {"price": "R36.99", "discounted_price": "R29.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Low Fat Mixed Berry Yoghurt 1kg.png"}, "Beigel & Beigel Break Mix 200g": {"price": "R56.99", "discounted_price": "R15.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Beigel & Beigel Break Mix 200g.png"}, "PnP Pie Pepper Steak": {"price": "R29.99", "discounted_price": "R26.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Pie Pepper Steak.png"}}
+{
+  "Ace Super Maize Meal 5kg": {
+    "price": "R75.99",
+    "discounted_price": null,
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Ace Super Maize Meal 5kg.png"
+  },
+  "Rainbow Simply Chicken Cheese Viennas 1kg": {
+    "price": "R109.99",
+    "discounted_price": "R89.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Rainbow Simply Chicken Cheese Viennas 1kg.png"
+  },
+  "Clover Traditional Plain Feta Cheese 400g": {
+    "price": "R69.99",
+    "discounted_price": "R59.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Clover Traditional Plain Feta Cheese 400g.png"
+  },
+  "Beigel & Beigel Extra Thin Sticks 150g": {
+    "price": "R46.99",
+    "discounted_price": "R15.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Beigel & Beigel Extra Thin Sticks 150g.png"
+  },
+  "BT Assorted Biscuits 1.2kg": {
+    "price": "R99.99",
+    "discounted_price": "R89.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/BT Assorted Biscuits 1.2kg.png"
+  },
+  "Finish Dishwasher Regular Tablets 56 Pack": {
+    "price": "R259.99",
+    "discounted_price": "R189.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Finish Dishwasher Regular Tablets 56 Pack.png"
+  },
+  "HTH Floater + 1.6kg": {
+    "price": "R179.99",
+    "discounted_price": "R149.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/HTH Floater + 1.6kg.png"
+  },
+  "Henties Juice Drink 10% Apple 250ml": {
+    "price": "R6.99",
+    "discounted_price": "R5.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Henties Juice Drink 10% Apple 250ml.png"
+  },
+  "PnP Chicken & Mushroom Pie": {
+    "price": "R29.99",
+    "discounted_price": "R26.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Chicken & Mushroom Pie.png"
+  },
+  "Crafted Collection Orecchiette 500g": {
+    "price": "R54.99",
+    "discounted_price": "R29.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Crafted Collection Orecchiette 500g.png"
+  },
+  "Clover Elite Cheddar Full Cream Processed Cheese Slices 360g": {
+    "price": "R64.99",
+    "discounted_price": "R59.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Clover Elite Cheddar Full Cream Processed Cheese Slices 360g.png"
+  },
+  "Castle Lite Premium Lager Beer 24 x 330ml": {
+    "price": "R324.99",
+    "discounted_price": "R299.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Castle Lite Premium Lager Beer 24 x 330ml.png"
+  },
+  "White Star Super Maize Meal 5kg": {
+    "price": "R79.99",
+    "discounted_price": "R68.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/White Star Super Maize Meal 5kg.png"
+  },
+  "PnP Bulk Lamb Braai Chops": {
+    "price": "R169.99",
+    "discounted_price": "R149.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Bulk Lamb Braai Chops.png"
+  },
+  "Crafted Collection Casarecce 500g": {
+    "price": "R49.99",
+    "discounted_price": "R25.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Crafted Collection Casarecce 500g.png"
+  },
+  "De Vries Ginger Biscuits 200g": {
+    "price": "R21.99",
+    "discounted_price": "R19.99",
+    "promo": "Buy 2 For R30.00 (Smart Price)",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/De Vries Ginger Biscuits 200g.png"
+  },
+  "LiveFit 9ft PVC Jump Rope Foam Handles": {
+    "price": "R69.99",
+    "discounted_price": "R25.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/LiveFit 9ft PVC Jump Rope Foam Handles.png"
+  },
+  "PnP Low Fat Mixed Berry Yoghurt 1kg": {
+    "price": "R36.99",
+    "discounted_price": "R29.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Low Fat Mixed Berry Yoghurt 1kg.png"
+  },
+  "Beigel & Beigel Break Mix 200g": {
+    "price": "R56.99",
+    "discounted_price": "R15.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Beigel & Beigel Break Mix 200g.png"
+  },
+  "PnP Pie Pepper Steak": {
+    "price": "R29.99",
+    "discounted_price": "R26.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Pie Pepper Steak.png"
+  }
+}

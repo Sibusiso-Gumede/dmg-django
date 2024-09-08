@@ -204,10 +204,10 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                 for p in products:
                     if s.id == p.supermarket_id:
                         image = base64.b64encode(Image.open(p.image).tobytes()).decode('ascii')
-                        if not (p.discounted_price == 'R0.00'):
-                            buffer2.update({p.name: {'price': p.discounted_price, 'image': image}})
+                        if (not (p.discounted_price == 'R0.00')) and check_for_bargain(p.promotion):
+                            buffer2.update({p.name: {'price': p.discounted_price, 'image': image, 'promo': p.promotion}})
                         else:
-                            buffer2.update({p.name: {'price': p.price, 'image': image}})
+                            buffer2.update({p.name: {'price': p.price, 'image': image, 'promo': None}})
                 if buffer2:
                     buffer.update({s.name: buffer2})
         return buffer        
@@ -240,7 +240,8 @@ def from_base64String_to_png(filename: str, resources_dir: str) -> None:
         json.dump(file_buffer, file)
 
 def check_for_bargain(promotion: str) -> bool:
-    bargain_substrings = ['FOR', 'Buy', 'for']
+    bargain_substrings = ['FOR', 'Buy', 'for', 'Any', 'any']
     for sub in bargain_substrings:
         if sub in promotion:
             return True
+    return False

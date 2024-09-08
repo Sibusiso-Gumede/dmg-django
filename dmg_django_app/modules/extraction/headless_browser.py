@@ -78,7 +78,7 @@ class Scraper():
                     elif (self.supermarket_name == Supermarkets.WOOLIES):
                         continue
                 elif _super.get_page_selectors()['product_price'] in line:
-                    continue
+                    price_element = None
                 elif _super.get_page_selectors()['product_promo'] in line:
                     promo_element = None
                 elif _super.get_page_selectors()['product_image'] in line:

@@ -1,1 +1,68 @@
-{"null": {"price": "R34.99", "discounted_price": null, "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/The Laughing Cow Light Cheese Wedges 120g.png"}, "Lancewood White Cheddar Cheese 600g": {"price": "R124.99", "discounted_price": "R109.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Lancewood White Cheddar Cheese 600g.png"}, "PnP Mini Beef Sausage Rolls 24 Pack": {"price": "R79.99", "discounted_price": "R69.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Mini Beef Sausage Rolls 24 Pack.png"}, "LiveFit TPR Fitness Resistance Bands": {"price": "R99.99", "discounted_price": "R25.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/LiveFit TPR Fitness Resistance Bands.png"}, "PnP Pork Braai Chops": {"price": "R79.99", "discounted_price": "R69.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Pork Braai Chops.png"}, "Crafted Collection Spaghetti Alla Chitarra 500g": {"price": "R47.99", "discounted_price": "R25.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Crafted Collection Spaghetti Alla Chitarra 500g.png"}, "Lancewood Gouda Cheese 600g": {"price": "R124.99", "discounted_price": "R109.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Lancewood Gouda Cheese 600g.png"}, "Henties Juice Drink 10% Berry 250ml": {"price": "R6.99", "discounted_price": "R5.00", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Henties Juice Drink 10% Berry 250ml.png"}, "PnP Fresh Cream 500ml": {"price": "R49.99", "discounted_price": "R39.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Fresh Cream 500ml.png"}, "PnP Butternut Soup Spiced with Cinnamon & Nutmeg 600g": {"price": "R42.99", "discounted_price": "R39.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Butternut Soup Spiced with Cinnamon & Nutmeg 600g.png"}, "Today Original Sausage Rolls 30 Pack": {"price": "R131.49", "discounted_price": "R99.99", "promo": "", "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Today Original Sausage Rolls 30 Pack.png"}}
+{
+  "null": {
+    "price": "R34.99",
+    "discounted_price": null,
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/The Laughing Cow Light Cheese Wedges 120g.png"
+  },
+  "Lancewood White Cheddar Cheese 600g": {
+    "price": "R124.99",
+    "discounted_price": "R109.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Lancewood White Cheddar Cheese 600g.png"
+  },
+  "PnP Mini Beef Sausage Rolls 24 Pack": {
+    "price": "R79.99",
+    "discounted_price": "R69.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Mini Beef Sausage Rolls 24 Pack.png"
+  },
+  "LiveFit TPR Fitness Resistance Bands": {
+    "price": "R99.99",
+    "discounted_price": "R25.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/LiveFit TPR Fitness Resistance Bands.png"
+  },
+  "PnP Pork Braai Chops": {
+    "price": "R79.99",
+    "discounted_price": "R69.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Pork Braai Chops.png"
+  },
+  "Crafted Collection Spaghetti Alla Chitarra 500g": {
+    "price": "R47.99",
+    "discounted_price": "R25.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Crafted Collection Spaghetti Alla Chitarra 500g.png"
+  },
+  "Lancewood Gouda Cheese 600g": {
+    "price": "R124.99",
+    "discounted_price": "R109.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Lancewood Gouda Cheese 600g.png"
+  },
+  "Henties Juice Drink 10% Berry 250ml": {
+    "price": "R6.99",
+    "discounted_price": "R5.00",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Henties Juice Drink 10% Berry 250ml.png"
+  },
+  "PnP Fresh Cream 500ml": {
+    "price": "R49.99",
+    "discounted_price": "R39.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Fresh Cream 500ml.png"
+  },
+  "PnP Butternut Soup Spiced with Cinnamon & Nutmeg 600g": {
+    "price": "R42.99",
+    "discounted_price": "R39.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/PnP Butternut Soup Spiced with Cinnamon & Nutmeg 600g.png"
+  },
+  "Today Original Sausage Rolls 30 Pack": {
+    "price": "R131.49",
+    "discounted_price": "R99.99",
+    "promo": "",
+    "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/picknpay/product_images/Today Original Sausage Rolls 30 Pack.png"
+  }
+}
