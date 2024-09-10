@@ -1,0 +1,102 @@
+{
+    "Flying Fish Pressed Lemon Flavoured Beer Bottles 6 x 330ml": {
+        "price": "R94.99",
+        "promo": "Valid until 30 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Flying Fish Pressed Lemon Flavoured Beer Bottles 6 x 330ml.png"
+    },
+    "Schweppes Tonic Water Soft Drink Bottle 1L": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Schweppes Tonic Water Soft Drink Bottle 1L.png"
+    },
+    "Tex Chocolate Bar Fun Bag 182g": {
+        "price": "R66.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tex Chocolate Bar Fun Bag 182g.png"
+    },
+    "Sir Fruit 100% Cranberry Fruit Juice Blend 1.5L": {
+        "price": "R39.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sir Fruit 100% Cranberry Fruit Juice Blend 1.5L.png"
+    },
+    "Farmer's Deli Sliced Double Smoked Ham 180g": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Farmer's Deli Sliced Double Smoked Ham 180g.png"
+    },
+    "KOO Creamstyle Sweetcorn 415G": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/KOO Creamstyle Sweetcorn 415G.png"
+    },
+    "Simba KFC Original Recipe Chicken Flavoured Potato Chips 120g": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Simba KFC Original Recipe Chicken Flavoured Potato Chips 120g.png"
+    },
+    "Danone Ultra Mel Vanilla Flavoured Custard 1L": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Danone Ultra Mel Vanilla Flavoured Custard 1L.png"
+    },
+    "Lay's Spring Onion & Cheese Flavour Potato Chips 120g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lay's Spring Onion & Cheese Flavour Potato Chips 120g.png"
+    },
+    "Wooden Spoon Yellow Margarine 500g": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Wooden Spoon Yellow Margarine 500g.png"
+    },
+    "aQuell\u00e9 Still Natural Spring Water 1.5L": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/aQuell\u00e9 Still Natural Spring Water 1.5L.png"
+    },
+    "Farmer's Choice Chicken Wings Per Kg": {
+        "price": "R77.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Farmer's Choice Chicken Wings Per Kg.png"
+    },
+    "Monster Mucho Loco Mango Flavoured Energy Drink Can 500ml": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Monster Mucho Loco Mango Flavoured Energy Drink Can 500ml.png"
+    },
+    "Domestos Summer Fresh Multipurpose Thick Bleach 750ml": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Domestos Summer Fresh Multipurpose Thick Bleach 750ml.png"
+    },
+    "Thirsti Natural Still Spring Water 5L": {
+        "price": "R23.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Thirsti Natural Still Spring Water 5L.png"
+    },
+    "Heineken Lager Bottle 650ml": {
+        "price": "R27.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Heineken Lager Bottle 650ml.png"
+    },
+    "Checkers Housebrand Fresh Full Cream Milk 2L": {
+        "price": "R35.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand Fresh Full Cream Milk 2L.png"
+    },
+    "Stella Artois Beer Bottles 6 x 330ml": {
+        "price": "R99.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Stella Artois Beer Bottles 6 x 330ml.png"
+    },
+    "Festive Fresh Chicken Breast Fillets Per kg": {
+        "price": "R84.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Festive Fresh Chicken Breast Fillets Per kg.png"
+    },
+    "Tex Large Chocolate Bar 40g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tex Large Chocolate Bar 40g.png"
+    }
+}

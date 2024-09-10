@@ -1,0 +1,102 @@
+{
+    "Lucky Star Pilchards In Hot Chilli Sauce 400g": {
+        "price": "R28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lucky Star Pilchards In Hot Chilli Sauce 400g.png"
+    },
+    "Renown French Polony 750g": {
+        "price": "R34.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Renown French Polony 750g.png"
+    },
+    "NESCAF\u00c9 RICOFFY Soluble Chicory & Coffee Granules Refill 800g": {
+        "price": "R129.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/NESCAF\u00c9 RICOFFY Soluble Chicory & Coffee Granules Refill 800g.png"
+    },
+    "Cadbury Crunchie Chocolate Bar 40g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cadbury Crunchie Chocolate Bar 40g.png"
+    },
+    "Nyama Choma BBQ Spice 200g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Nyama Choma BBQ Spice 200g.png"
+    },
+    "Renown Shoulder Bacon 200g": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Renown Shoulder Bacon 200g.png"
+    },
+    "Twist Granadilla Flavoured Soft Drink 2L": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Twist Granadilla Flavoured Soft Drink 2L.png"
+    },
+    "Ritebrand 1 Ply Toilet Rolls 10 Pack": {
+        "price": "R44.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand 1 Ply Toilet Rolls 10 Pack.png"
+    },
+    "Medium Onions 7kg": {
+        "price": "R79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Medium Onions 7kg.png"
+    },
+    "Spar-Letta Soft Drink Creme Soda Bottle 2L": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Spar-Letta Soft Drink Creme Soda Bottle 2L.png"
+    },
+    "Oros Orange Flavoured Concentrated Squash 2L": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Oros Orange Flavoured Concentrated Squash 2L.png"
+    },
+    "Lay's Sweet & Smoky American BBQ Flavour Potato Chips 120g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lay's Sweet & Smoky American BBQ Flavour Potato Chips 120g.png"
+    },
+    "Jungle Oats 1kg": {
+        "price": "R46.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Jungle Oats 1kg.png"
+    },
+    "Cerebos Iodated Sea Salt 500g": {
+        "price": "R10.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cerebos Iodated Sea Salt 500g.png"
+    },
+    "Royco Minestrone Soup Packet 50g": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Royco Minestrone Soup Packet 50g.png"
+    },
+    "Albany Everyday Thick Sliced Brown Bread Loaf 700g": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Albany Everyday Thick Sliced Brown Bread Loaf 700g.png"
+    },
+    "Doughnut Dessert Topping 100g": {
+        "price": "R9.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Doughnut Dessert Topping 100g.png"
+    },
+    "Old Buck Dry Gin Bottle 750ml": {
+        "price": "R169.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Old Buck Dry Gin Bottle 750ml.png"
+    },
+    "Crystal Valley Full Cream Cheddar Cheese Slices 150g": {
+        "price": "R31.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crystal Valley Full Cream Cheddar Cheese Slices 150g.png"
+    },
+    "Danone NutriDay Smooth Low Fat Granadilla, Strawberry And Apricot Flavoured Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Danone NutriDay Smooth Low Fat Granadilla, Strawberry And Apricot Flavoured Dairy Snack 6 x 100g.png"
+    }
+}

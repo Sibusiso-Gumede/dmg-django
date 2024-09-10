@@ -1,0 +1,102 @@
+{
+    "ASTIR Praline Chocolate Balls 100g": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/ASTIR Praline Chocolate Balls 100g.png"
+    },
+    "Darling Fresh Full Cream Milk Sachet 1L": {
+        "price": "R15.49",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Darling Fresh Full Cream Milk Sachet 1L.png"
+    },
+    "Blue Ribbon Toaster White Bread 700g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Blue Ribbon Toaster White Bread 700g.png"
+    },
+    "Sliced Brown Bread 600g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Sliced Brown Bread 600g.png"
+    },
+    "Farmbest Fresh Chicken Braai Pack 5 Piece Per kg": {
+        "price": "R54.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Farmbest Fresh Chicken Braai Pack 5 Piece Per kg.png"
+    },
+    "Blue Ribbon Sliced White Bread 700g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Blue Ribbon Sliced White Bread 700g.png"
+    },
+    "County Fair Frozen Chicken Mixed Portions With Brine Based Mixture 5kg": {
+        "price": "R179.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/County Fair Frozen Chicken Mixed Portions With Brine Based Mixture 5kg.png"
+    },
+    "Standard White Bread 600g": {
+        "price": "R11.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Standard White Bread 600g.png"
+    },
+    "Fresh Bakery Panini Roll": {
+        "price": "R4.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fresh Bakery Panini Roll.png"
+    },
+    "Farmbest Fresh Chicken Braai Pack 650g": {
+        "price": "R34.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Farmbest Fresh Chicken Braai Pack 650g.png"
+    },
+    "Caress Regular Maxi Sanitary Pads 8 Pack": {
+        "price": "R5.00",
+        "promo": "Valid until 31 December 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Caress Regular Maxi Sanitary Pads 8 Pack.png"
+    },
+    "KOO Baked Beans in Tomato Sauce 400g": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/KOO Baked Beans in Tomato Sauce 400g.png"
+    },
+    "Darling Amasi Maas Bottle 2L": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Darling Amasi Maas Bottle 2L.png"
+    },
+    "Crown Blended Cooking Oil 2L": {
+        "price": "R74.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crown Blended Cooking Oil 2L.png"
+    },
+    "Nulaid Large Eggs 18 Pack": {
+        "price": "R54.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Nulaid Large Eggs 18 Pack.png"
+    },
+    "Selati Golden Brown Sugar 2kg": {
+        "price": "R59.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Selati Golden Brown Sugar 2kg.png"
+    },
+    "Huletts White Sugar 2.5kg": {
+        "price": "R63.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Huletts White Sugar 2.5kg.png"
+    },
+    "Potatoes Sock 7kg": {
+        "price": "R89.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Potatoes Sock 7kg.png"
+    },
+    "Ritebrand Pasta Macaroni 500g": {
+        "price": "R12.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Pasta Macaroni 500g.png"
+    },
+    "Farmer's Choice Frozen Mixed Chicken Portions With Brine Based Mixture 5kg": {
+        "price": "R179.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Farmer's Choice Frozen Mixed Chicken Portions With Brine Based Mixture 5kg.png"
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "Ritebrand Full Cream Milk 1L": {
+        "price": "R15.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Full Cream Milk 1L.png"
+    },
+    "Ritebrand White Sugar 2kg": {
+        "price": "R44.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand White Sugar 2kg.png"
+    },
+    "Lucky Star Pilchards In Tomato Sauce Tin 400g": {
+        "price": "R28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lucky Star Pilchards In Tomato Sauce Tin 400g.png"
+    },
+    "Onions Bag 1kg": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Onions Bag 1kg.png"
+    },
+    "Ritebrand Medium Grain Parboiled White Rice 2kg": {
+        "price": "R29.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Medium Grain Parboiled White Rice 2kg.png"
+    },
+    "Carling Black Label Beer Bottle 750ml": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Carling Black Label Beer Bottle 750ml.png"
+    },
+    "Fatti's & Moni's Macaroni Pasta 500g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fatti's & Moni's Macaroni Pasta 500g.png"
+    },
+    "Colgate Triple Action Original Mint Fluoride Toothpaste 100ml": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Colgate Triple Action Original Mint Fluoride Toothpaste 100ml.png"
+    },
+    "Spekko Long Grain Parboiled White Rice Bag 2kg": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Spekko Long Grain Parboiled White Rice Bag 2kg.png"
+    },
+    "Sliced White Bread 600g": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Sliced White Bread 600g.png"
+    },
+    "Castle Lager Beer Bottle 750ml": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Castle Lager Beer Bottle 750ml.png"
+    },
+    "Fatti's & Moni's Spaghetti Pasta 500g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fatti's & Moni's Spaghetti Pasta 500g.png"
+    },
+    "D'Lite 40% Fat Spread Brick 500g": {
+        "price": "R14.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/D'Lite 40% Fat Spread Brick 500g.png"
+    },
+    "Sunfoil Pure Sunflower Seed Oil 750ml": {
+        "price": "R36.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Sunfoil Pure Sunflower Seed Oil 750ml.png"
+    },
+    "County Fair Fresh Chicken 5 Piece Braaipack Per kg": {
+        "price": "R54.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/County Fair Fresh Chicken 5 Piece Braaipack Per kg.png"
+    },
+    "Carrots Bag 1kg": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Carrots Bag 1kg.png"
+    },
+    "SASKO Cake Wheat Flour Bag 2.5kg": {
+        "price": "R34.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/SASKO Cake Wheat Flour Bag 2.5kg.png"
+    },
+    "Spekko Long Grain Parboiled White Rice 10kg": {
+        "price": "R189.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Spekko Long Grain Parboiled White Rice 10kg.png"
+    },
+    "Loose Bananas Per kg": {
+        "price": "R16.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Loose Bananas Per kg.png"
+    },
+    "Anchor Instant Yeast 10g": {
+        "price": "R5.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Anchor Instant Yeast 10g.png"
+    }
+}

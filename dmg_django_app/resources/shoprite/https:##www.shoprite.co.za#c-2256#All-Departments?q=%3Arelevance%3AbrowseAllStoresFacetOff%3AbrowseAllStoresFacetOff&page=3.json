@@ -1,0 +1,102 @@
+{
+    "D'Lite 37% Fat Spread 1kg": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/D'Lite 37% Fat Spread 1kg.png"
+    },
+    "White Star Super Maize Meal 5kg": {
+        "price": "R59.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Star Super Maize Meal 5kg.png"
+    },
+    "Spekko Long Grain Parboiled White Rice 5kg": {
+        "price": "R119.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Spekko Long Grain Parboiled White Rice 5kg.png"
+    },
+    "Ritebrand Long Life Full Cream Milk 6 x 1L": {
+        "price": "R98.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Long Life Full Cream Milk 6 x 1L.png"
+    },
+    "Crystal Valley Gouda Flavoured Full Cream Processed Cheese Slices 9 Pack": {
+        "price": "R31.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crystal Valley Gouda Flavoured Full Cream Processed Cheese Slices 9 Pack.png"
+    },
+    "Kellogg's Chicken Flavoured Instant Noodles 5 x 70g": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Kellogg's Chicken Flavoured Instant Noodles 5 x 70g.png"
+    },
+    "Tomatoes Bag 1kg": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Tomatoes Bag 1kg.png"
+    },
+    "Huletts White Sugar 10kg": {
+        "price": "R249.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Huletts White Sugar 10kg.png"
+    },
+    "Super White Super Maize Meal 2.5kg": {
+        "price": "R36.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Super White Super Maize Meal 2.5kg.png"
+    },
+    "Cadbury Lunch Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cadbury Lunch Bar 48g.png"
+    },
+    "Carrots Pack 3kg": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Carrots Pack 3kg.png"
+    },
+    "Coca-Cola Original Soft Drink Bottle 440ml": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Coca-Cola Original Soft Drink Bottle 440ml.png"
+    },
+    "Wellington's New Recipe Tomato Sauce 700ml": {
+        "price": "R38.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Wellington's New Recipe Tomato Sauce 700ml.png"
+    },
+    "Pork Braai Chops Per kg": {
+        "price": "R69.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Pork Braai Chops Per kg.png"
+    },
+    "Yum Yum Smooth Peanut Butter 400g": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Yum Yum Smooth Peanut Butter 400g.png"
+    },
+    "Lux Soft Caress Cleansing Bar Soap 175g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lux Soft Caress Cleansing Bar Soap 175g.png"
+    },
+    "Robertsons Coarse Black Pepper Compound Envelope 7g": {
+        "price": "R3.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Robertsons Coarse Black Pepper Compound Envelope 7g.png"
+    },
+    "Ellis Brown Coffee Creamer 750g": {
+        "price": "R56.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ellis Brown Coffee Creamer 750g.png"
+    },
+    "Magic Moments Pink & White Marshmallows 120g": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Magic Moments Pink & White Marshmallows 120g.png"
+    },
+    "Golden Yolk Eggs 18 Pack": {
+        "price": "R52.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Golden Yolk Eggs 18 Pack.png"
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "Stoney Soft Drink Ginger Beer Bottle 2L": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Stoney Soft Drink Ginger Beer Bottle 2L.png"
+    },
+    "Sunlight Lemon 100 Original Dishwashing Liquid Refill 750ml": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sunlight Lemon 100 Original Dishwashing Liquid Refill 750ml.png"
+    },
+    "Large Queen Pineapple Single": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Large Queen Pineapple Single.png"
+    },
+    "Ghost Pops The Original Flavoured Maize Snack 100g": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Ghost Pops The Original Flavoured Maize Snack 100g.png"
+    },
+    "Lemons Bag": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lemons Bag.png"
+    },
+    "aQuell\u00e9 Natural Sparkling Spring Water 6 x 500ml": {
+        "price": "R48.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/aQuell\u00e9 Natural Sparkling Spring Water 6 x 500ml.png"
+    },
+    "Cadbury Lunch Bar Dream White Milk Chocolate Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Lunch Bar Dream White Milk Chocolate Bar 48g.png"
+    },
+    "Cadbury P.S. Milk Chocolate Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury P.S. Milk Chocolate Bar 48g.png"
+    },
+    "Red Bull Energy Drink 250ml": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Red Bull Energy Drink 250ml.png"
+    },
+    "Cremora Coffee Creamer Box 750g": {
+        "price": "R64.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cremora Coffee Creamer Box 750g.png"
+    },
+    "Bar-One Mini Chocolate Bars 189g": {
+        "price": "R66.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bar-One Mini Chocolate Bars 189g.png"
+    },
+    "Blossom Spread 25% Fat Spread 1kg": {
+        "price": "R32.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Blossom Spread 25% Fat Spread 1kg.png"
+    },
+    "Colgate Cavity Protection Toothpaste 100ml": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Colgate Cavity Protection Toothpaste 100ml.png"
+    },
+    "Grand-Pa Headache Powder": {
+        "price": "R4.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Grand-Pa Headache Powder.png"
+    },
+    "Kellogg's Durban Curry Flavoured Instant Noodles 5 x 70g": {
+        "price": "R37.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Kellogg's Durban Curry Flavoured Instant Noodles 5 x 70g.png"
+    },
+    "Doritos Flamin' Hot Nacho Cheese Flavoured Corn Chips 145g": {
+        "price": "R23.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Doritos Flamin' Hot Nacho Cheese Flavoured Corn Chips 145g.png"
+    },
+    "Cadbury Chomp Chocolate Bar 21g": {
+        "price": "R8.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Chomp Chocolate Bar 21g.png"
+    },
+    "Powerade Mountain Blast Sport Drink 500ml": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Powerade Mountain Blast Sport Drink 500ml.png"
+    },
+    "Fatti's & Moni's Macaroni Pasta 500g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fatti's & Moni's Macaroni Pasta 500g.png"
+    },
+    "Wrapped Cabbage": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Wrapped Cabbage.png"
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "Pot O' Gold Tomato Paste 50g": {
+        "price": "R5.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Pot O' Gold Tomato Paste 50g.png"
+    },
+    "Albany Superior Best Of Both Sliced White Bread Loaf 700g": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Albany Superior Best Of Both Sliced White Bread Loaf 700g.png"
+    },
+    "Fresh Bakery Panini Roll": {
+        "price": "R4.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fresh Bakery Panini Roll.png"
+    },
+    "Lay's Caribbean Onion & Balsamic Vinegar Flavour Potato Chips 120g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lay's Caribbean Onion & Balsamic Vinegar Flavour Potato Chips 120g.png"
+    },
+    "Chelsea Spheres Chocolate Flavoured Biscuit with Chocolate Flavoured Filling 6 x 30g": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Chelsea Spheres Chocolate Flavoured Biscuit with Chocolate Flavoured Filling 6 x 30g.png"
+    },
+    "Kellogg's Beef Flavoured Instant Noodles 5 x 70g": {
+        "price": "R37.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Kellogg's Beef Flavoured Instant Noodles 5 x 70g.png"
+    },
+    "KitKat 4 Finger Milk Chocolate Bar 41.5g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/KitKat 4 Finger Milk Chocolate Bar 41.5g.png"
+    },
+    "Sweetcorn 4 Pack": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sweetcorn 4 Pack.png"
+    },
+    "Farmer's Choice Fresh Braai Pack Chicken Per Kg": {
+        "price": "R67.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Farmer's Choice Fresh Braai Pack Chicken Per Kg.png"
+    },
+    "Strawberries Pack 400g": {
+        "price": "R49.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Strawberries Pack 400g.png"
+    },
+    "Danone NutriDay Smooth & Creamy Strawberry Flavoured Low Fat Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Danone NutriDay Smooth & Creamy Strawberry Flavoured Low Fat Dairy Snack 6 x 100g.png"
+    },
+    "Conee Rolls 6 Pack": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Conee Rolls 6 Pack.png"
+    },
+    "Freshpak Pure Rooibos Tagless Teabags 80 Pack": {
+        "price": "R54.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Freshpak Pure Rooibos Tagless Teabags 80 Pack.png"
+    },
+    "Mandarins Bag 1kg": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mandarins Bag 1kg.png"
+    },
+    "NikNaks Original Cheese Flavoured Maize Snack 135g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/NikNaks Original Cheese Flavoured Maize Snack 135g.png"
+    },
+    "Bull Brand Corned Meat 300g": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bull Brand Corned Meat 300g.png"
+    },
+    "Twinsaver Twin Ply Toilet Roll 24 Value Pack": {
+        "price": "R189.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Twinsaver Twin Ply Toilet Roll 24 Value Pack.png"
+    },
+    "Simba Salt & Vinegar Flavoured Potato Chips 120g": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Simba Salt & Vinegar Flavoured Potato Chips 120g.png"
+    },
+    "Peeled Onions Bag 1kg": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Peeled Onions Bag 1kg.png"
+    },
+    "Ripe & Ready Avocados 4 Pack": {
+        "price": "R54.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Ripe & Ready Avocados 4 Pack.png"
+    }
+}

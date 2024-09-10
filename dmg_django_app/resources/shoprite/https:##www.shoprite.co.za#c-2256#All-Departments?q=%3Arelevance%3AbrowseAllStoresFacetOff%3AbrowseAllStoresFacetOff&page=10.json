@@ -1,0 +1,102 @@
+{
+    "Cadbury Lunch Bar Max Chocolate Bar 62g": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cadbury Lunch Bar Max Chocolate Bar 62g.png"
+    },
+    "Allsome Long Grain Parboiled Rice 2kg": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Allsome Long Grain Parboiled Rice 2kg.png"
+    },
+    "Mutton Pack Per kg": {
+        "price": "R109.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Mutton Pack Per kg.png"
+    },
+    "Albany Everyday Thick Sliced White Bread Loaf 700g": {
+        "price": "R15.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Albany Everyday Thick Sliced White Bread Loaf 700g.png"
+    },
+    "KOO Original Tomato Paste 50g": {
+        "price": "R7.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/KOO Original Tomato Paste 50g.png"
+    },
+    "Danone NutriDay Litchi & Cranberry, Tropical Coconut And Kiwi & Pineapple Flavoured Low Fat Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Danone NutriDay Litchi & Cranberry, Tropical Coconut And Kiwi & Pineapple Flavoured Low Fat Dairy Snack 6 x 100g.png"
+    },
+    "Securex Herbal Essence Active Hygiene Soap Bar 175g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Securex Herbal Essence Active Hygiene Soap Bar 175g.png"
+    },
+    "Rajah Mild & Spicy Curry Powder Envelope 7g": {
+        "price": "R3.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Rajah Mild & Spicy Curry Powder Envelope 7g.png"
+    },
+    "Ritebrand Oats 1kg": {
+        "price": "R29.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Oats 1kg.png"
+    },
+    "Stewing Pork Per kg": {
+        "price": "R64.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Stewing Pork Per kg.png"
+    },
+    "Weet-Bix Wholegrain Wheat Biscuits 900g": {
+        "price": "R64.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Weet-Bix Wholegrain Wheat Biscuits 900g.png"
+    },
+    "Tiffany Chocolate Flavoured Cream Biscuits 90g": {
+        "price": "R8.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Tiffany Chocolate Flavoured Cream Biscuits 90g.png"
+    },
+    "Lay's Italian Truffle & Garlic Flavoured Limited Edition Potato Chips 120g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lay's Italian Truffle & Garlic Flavoured Limited Edition Potato Chips 120g.png"
+    },
+    "Monastry Rolls 6 Pack": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Monastry Rolls 6 Pack.png"
+    },
+    "Power Play Original Energy Drink 440ml": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Power Play Original Energy Drink 440ml.png"
+    },
+    "Danone NutriDay Low Fat Mixed Berry, Blueberry And Blackberry Flavoured Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Danone NutriDay Low Fat Mixed Berry, Blueberry And Blackberry Flavoured Dairy Snack 6 x 100g.png"
+    },
+    "Rajah Mild & Spicy Curry Powder Box 50g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Rajah Mild & Spicy Curry Powder Box 50g.png"
+    },
+    "Cremora Coffee Creamer Box 750g": {
+        "price": "R66.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cremora Coffee Creamer Box 750g.png"
+    },
+    "Ritebrand Brown Spirit Vinegar 750ml": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Brown Spirit Vinegar 750ml.png"
+    },
+    "Lay's Chinese 5 Spice Flavour Limited Edition Potato Chips 120g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lay's Chinese 5 Spice Flavour Limited Edition Potato Chips 120g.png"
+    }
+}

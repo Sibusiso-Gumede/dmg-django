@@ -1,0 +1,102 @@
+{
+    "PIEMAN\u2019S Original Sausage Roll": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/PIEMAN\u2019S Original Sausage Roll.png"
+    },
+    "NESCAF\u00c9 Classic Instant Coffee 200g": {
+        "price": "R99.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/NESCAF\u00c9 Classic Instant Coffee 200g.png"
+    },
+    "Mandarin Bag 2kg": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mandarin Bag 2kg.png"
+    },
+    "Danone NutriDay Low Fat Mixed Berry, Blueberry And Blackberry Flavoured Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Danone NutriDay Low Fat Mixed Berry, Blueberry And Blackberry Flavoured Dairy Snack 6 x 100g.png"
+    },
+    "SASKO Low G.I Wholewheat Brown Bread 800g": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/SASKO Low G.I Wholewheat Brown Bread 800g.png"
+    },
+    "Tango Fruit Pack 1kg": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tango Fruit Pack 1kg.png"
+    },
+    "Flings Original Flavour Maize Snack 4 x 16g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Flings Original Flavour Maize Snack 4 x 16g.png"
+    },
+    "Danone NutriDay Litchi & Cranberry, Tropical Coconut And Kiwi & Pineapple Flavoured Low Fat Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Danone NutriDay Litchi & Cranberry, Tropical Coconut And Kiwi & Pineapple Flavoured Low Fat Dairy Snack 6 x 100g.png"
+    },
+    "Fanta Grape Flavoured Soft Drink Bottle 2L": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fanta Grape Flavoured Soft Drink Bottle 2L.png"
+    },
+    "Portuguese Roll Single": {
+        "price": "R3.59",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Portuguese Roll Single.png"
+    },
+    "Handy Andy Lemon Multipurpose Cleaning Cream 750ml": {
+        "price": "R31.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Handy Andy Lemon Multipurpose Cleaning Cream 750ml.png"
+    },
+    "Beef Mince Per kg": {
+        "price": "R99.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Beef Mince Per kg.png"
+    },
+    "aQuell\u00e9 Sparkling Natural Spring Water 1.5L": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/aQuell\u00e9 Sparkling Natural Spring Water 1.5L.png"
+    },
+    "I&J Frozen Original Crispy Fish Fingers 600g": {
+        "price": "R79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/I&J Frozen Original Crispy Fish Fingers 600g.png"
+    },
+    "Knorr Brown Onion Thickening Soup 50g": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Knorr Brown Onion Thickening Soup 50g.png"
+    },
+    "Bonaqua Pump Prepared Still Water 750ml": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bonaqua Pump Prepared Still Water 750ml.png"
+    },
+    "Fried Fish Baby Hake Per kg": {
+        "price": "R999.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fried Fish Baby Hake Per kg.png"
+    },
+    "Sunbake Brown Bread 700g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sunbake Brown Bread 700g.png"
+    },
+    "Sweet Potatoes Bag 1kg": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sweet Potatoes Bag 1kg.png"
+    },
+    "Mini Vetkoek 16 Pack": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mini Vetkoek 16 Pack.png"
+    }
+}

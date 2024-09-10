@@ -1,0 +1,102 @@
+{
+    "Checkers Housebrand 2 Ply Toilet Rolls 18 Pack": {
+        "price": "R129.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand 2 Ply Toilet Rolls 18 Pack.png"
+    },
+    "Avocados Bag": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Avocados Bag.png"
+    },
+    "Flora Light 40% Fat Spread Tub 1kg": {
+        "price": "R74.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Flora Light 40% Fat Spread Tub 1kg.png"
+    },
+    "Granny Smith Apples Bag 1.5kg": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Granny Smith Apples Bag 1.5kg.png"
+    },
+    "Checkers Housebrand Baked Beans In Tomato Sauce 410g": {
+        "price": "R11.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand Baked Beans In Tomato Sauce 410g.png"
+    },
+    "Carling Black Label Beer Can 500ml": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Carling Black Label Beer Can 500ml.png"
+    },
+    "Coca-Cola No Sugar Soft Drink Bottle 1.5L": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola No Sugar Soft Drink Bottle 1.5L.png"
+    },
+    "Knorr Aromat Original All Purpose Seasoning Trio Refill 200g": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Knorr Aromat Original All Purpose Seasoning Trio Refill 200g.png"
+    },
+    "Corn Flakes Cereal 1kg": {
+        "price": "R79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Corn Flakes Cereal 1kg.png"
+    },
+    "Willards Cheese Curls Double Cheese Flavoured Maize Snack 150g": {
+        "price": "R22.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Willards Cheese Curls Double Cheese Flavoured Maize Snack 150g.png"
+    },
+    "Mini Cucumber Single": {
+        "price": "R9.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mini Cucumber Single.png"
+    },
+    "Avocado Single": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Avocado Single.png"
+    },
+    "Mixed Peppers Bag": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mixed Peppers Bag.png"
+    },
+    "Brown Hamburger Roll": {
+        "price": "R2.49",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Brown Hamburger Roll.png"
+    },
+    "Twist Lemon Flavoured Soft Drink Bottle 2L": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Twist Lemon Flavoured Soft Drink Bottle 2L.png"
+    },
+    "Coca-Cola Light Soft Drink 2L": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Light Soft Drink 2L.png"
+    },
+    "Championship Boerewors Beef & Pork Thick Boerewors Per KG": {
+        "price": "R89.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Championship Boerewors Beef & Pork Thick Boerewors Per KG.png"
+    },
+    "Checkers Housebrand Kitchen Roller Towels 2 Pack": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand Kitchen Roller Towels 2 Pack.png"
+    },
+    "Wimpy Frozen Chips 1kg": {
+        "price": "R56.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Wimpy Frozen Chips 1kg.png"
+    },
+    "Domestos Lavender Blast Multipurpose Thick Bleach 750ml": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Domestos Lavender Blast Multipurpose Thick Bleach 750ml.png"
+    }
+}

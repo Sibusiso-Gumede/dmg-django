@@ -1,0 +1,102 @@
+{
+    "Ritebrand Mayonnaise 750g": {
+        "price": "R29.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Mayonnaise 750g.png"
+    },
+    "SASKO Cake Wheat Flour 5kg": {
+        "price": "R84.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/SASKO Cake Wheat Flour 5kg.png"
+    },
+    "County Fair Frozen Mixed Chicken Portions 3.5kg": {
+        "price": "R139.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/County Fair Frozen Mixed Chicken Portions 3.5kg.png"
+    },
+    "Danone NutriDay Strawberry, Banana And Mixed Fruit Flavoured Low Fat Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Danone NutriDay Strawberry, Banana And Mixed Fruit Flavoured Low Fat Dairy Snack 6 x 100g.png"
+    },
+    "Cadbury 5 Star Chocolate 48.5g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cadbury 5 Star Chocolate 48.5g.png"
+    },
+    "Twist Lemon Flavoured Soft Drink Bottle 2L": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Twist Lemon Flavoured Soft Drink Bottle 2L.png"
+    },
+    "Blue Ribbon Sliced Brown Bread 700g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Blue Ribbon Sliced Brown Bread 700g.png"
+    },
+    "Danone Ultra Mel Vanilla Flavoured Custard 1L": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Danone Ultra Mel Vanilla Flavoured Custard 1L.png"
+    },
+    "Cadbury P.S. Caramilk Chocolate Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cadbury P.S. Caramilk Chocolate Bar 48g.png"
+    },
+    "Carling Black Label Beer Cans 6 x 500ml": {
+        "price": "R104.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Carling Black Label Beer Cans 6 x 500ml.png"
+    },
+    "Stork Country Spread 40% Fat Spread Tub 1kg": {
+        "price": "R57.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Stork Country Spread 40% Fat Spread Tub 1kg.png"
+    },
+    "Ritebrand Light Meat Shredded Tuna In Water Can 170g": {
+        "price": "R16.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Light Meat Shredded Tuna In Water Can 170g.png"
+    },
+    "Igwinya Vetkoek": {
+        "price": "R2.50",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Igwinya Vetkoek.png"
+    },
+    "English Cucumber Single": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/English Cucumber Single.png"
+    },
+    "Crisp Lettuce Head Pack": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crisp Lettuce Head Pack.png"
+    },
+    "Royco Brown Onion Soup Packet 50g": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Royco Brown Onion Soup Packet 50g.png"
+    },
+    "Harvestime Frozen Mixed Vegetables 900g": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Harvestime Frozen Mixed Vegetables 900g.png"
+    },
+    "Dessert Buns 6 Pack": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Dessert Buns 6 Pack.png"
+    },
+    "Ritebrand Light Meat Shredded Tuna In Vegetable Oil Can 170g": {
+        "price": "R16.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Light Meat Shredded Tuna In Vegetable Oil Can 170g.png"
+    },
+    "The Bakery Small Trifle Dessert": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/The Bakery Small Trifle Dessert.png"
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "Knorrox Chilli Beef Flavoured Stock Cubes 12 x 10g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Knorrox Chilli Beef Flavoured Stock Cubes 12 x 10g.png"
+    },
+    "Rajah Medium Curry Powder 50g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Rajah Medium Curry Powder 50g.png"
+    },
+    "Crystal Valley Strawberry, Vanilla & Granadilla Flavoured Smooth Low Fat Dairy Snack 6 x 75g": {
+        "price": "R12.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crystal Valley Strawberry, Vanilla & Granadilla Flavoured Smooth Low Fat Dairy Snack 6 x 75g.png"
+    },
+    "Knorrox Savoury Mince Flavoured Soya Mince 400g": {
+        "price": "R32.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Knorrox Savoury Mince Flavoured Soya Mince 400g.png"
+    },
+    "Robertsons Barbecue Spice Refill 64g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Robertsons Barbecue Spice Refill 64g.png"
+    },
+    "Crystal Valley Strawberry, Peach & Apricot & Mixed Berry Flavoured Smooth Low Fat Dairy Snack 6 x 75g": {
+        "price": "R12.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crystal Valley Strawberry, Peach & Apricot & Mixed Berry Flavoured Smooth Low Fat Dairy Snack 6 x 75g.png"
+    },
+    "Baumann's Lemon Creams Biscuits 200g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Baumann's Lemon Creams Biscuits 200g.png"
+    },
+    "Darling Pasteurised Fresh Cream 250ml": {
+        "price": "R27.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Darling Pasteurised Fresh Cream 250ml.png"
+    },
+    "Imana Super Stock Chill Beef Flavoured Cubes 12 Pack": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Imana Super Stock Chill Beef Flavoured Cubes 12 Pack.png"
+    },
+    "Truda Spookies Chicken Chills Chicken Flavoured Maize Puffs 100g": {
+        "price": "R11.99",
+        "promo": "Valid until 13 October 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Truda Spookies Chicken Chills Chicken Flavoured Maize Puffs 100g.png"
+    },
+    "Lucky Star Pilchards In Sweet Chilli Sauce 400g": {
+        "price": "R28.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lucky Star Pilchards In Sweet Chilli Sauce 400g.png"
+    },
+    "Protex Fresh Bar Soap 150g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Protex Fresh Bar Soap 150g.png"
+    },
+    "Farmer's Choice Frozen Chicken Livers 500g": {
+        "price": "R25.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Farmer's Choice Frozen Chicken Livers 500g.png"
+    },
+    "Castle Lite Beer Bottle 660ml": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Castle Lite Beer Bottle 660ml.png"
+    },
+    "Mr. Pasta Macaroni Pasta 500g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Mr. Pasta Macaroni Pasta 500g.png"
+    },
+    "Ritebrand Medium Fat Bread Spread Brick 500g": {
+        "price": "R9.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Medium Fat Bread Spread Brick 500g.png"
+    },
+    "TOWER Greengage Flavoured Jelly 40g (Flavour May Vary)": {
+        "price": "R8.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/TOWER Greengage Flavoured Jelly 40g (Flavour May Vary).png"
+    },
+    "Knorr Brown Onion Thickening Soup 50g": {
+        "price": "R7.49",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Knorr Brown Onion Thickening Soup 50g.png"
+    },
+    "Aquafresh Herbal Fluoride Toothpaste 100ml": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Aquafresh Herbal Fluoride Toothpaste 100ml.png"
+    },
+    "Simba KFC Original Recipe Chicken Flavoured Potato Chips 120g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Simba KFC Original Recipe Chicken Flavoured Potato Chips 120g.png"
+    }
+}

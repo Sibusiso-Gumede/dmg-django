@@ -1,0 +1,102 @@
+{
+    "Imbo Red Speckled Beans 500g": {
+        "price": "R32.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Imbo Red Speckled Beans 500g.png"
+    },
+    "Crown Blended Cooking Oil 750ml": {
+        "price": "R32.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crown Blended Cooking Oil 750ml.png"
+    },
+    "Messaris Bubbles Cheese Flavoured Maize Snack 100g": {
+        "price": "R12.99",
+        "promo": "Valid until 13 October 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Messaris Bubbles Cheese Flavoured Maize Snack 100g.png"
+    },
+    "Twinsaver 1 Ply Toilet Rolls 8 Pack": {
+        "price": "R57.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Twinsaver 1 Ply Toilet Rolls 8 Pack.png"
+    },
+    "Castle Lite Lager Beer Cans 6 x 500ml": {
+        "price": "R104.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Castle Lite Lager Beer Cans 6 x 500ml.png"
+    },
+    "Kellogg's Durban Curry Flavoured Instant Noodles 5 x 70g": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Kellogg's Durban Curry Flavoured Instant Noodles 5 x 70g.png"
+    },
+    "Carling Black Label Beer Can 500ml": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Carling Black Label Beer Can 500ml.png"
+    },
+    "SASKO More Slices White Bread Loaf 700g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/SASKO More Slices White Bread Loaf 700g.png"
+    },
+    "Pork Pack Per kg": {
+        "price": "R59.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Pork Pack Per kg.png"
+    },
+    "Pink Lamington Snowball": {
+        "price": "R9.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Pink Lamington Snowball.png"
+    },
+    "Fair Cape Lunchbox Sweetened StrawberryVanillaGranadilla Yoghurt 6 x 80g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fair Cape Lunchbox Sweetened StrawberryVanillaGranadilla Yoghurt 6 x 80g.png"
+    },
+    "Gordon's London Dry Gin Bottle 750ml": {
+        "price": "R179.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Gordon's London Dry Gin Bottle 750ml.png"
+    },
+    "Score Original Sparkling Guarana Flavoured Energy Drink Can 500ml": {
+        "price": "R10.00",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Score Original Sparkling Guarana Flavoured Energy Drink Can 500ml.png"
+    },
+    "Bakery White Hamburger Rolls 6 Pack": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Bakery White Hamburger Rolls 6 Pack.png"
+    },
+    "Al-Amien Foods French Polony 1kg": {
+        "price": "R44.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Al-Amien Foods French Polony 1kg.png"
+    },
+    "Banana Loaf 450g": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Banana Loaf 450g.png"
+    },
+    "White Hotdog Rolls 6 Pack": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Hotdog Rolls 6 Pack.png"
+    },
+    "Rhodes Quality Superfine Apricot Jam 900g": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Rhodes Quality Superfine Apricot Jam 900g.png"
+    },
+    "Nosh Chocolate Bar 56g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Nosh Chocolate Bar 56g.png"
+    },
+    "KitKat 2 Finger Chocolate Bar 20g": {
+        "price": "R3.99",
+        "promo": "Valid until 29 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/KitKat 2 Finger Chocolate Bar 20g.png"
+    }
+}

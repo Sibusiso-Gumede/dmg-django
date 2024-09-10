@@ -1,0 +1,102 @@
+{
+    "Loose Medium Potatoes Per kg": {
+        "price": "R24.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Loose Medium Potatoes Per kg.png"
+    },
+    "Crystal Valley Salted Butter Brick 500g": {
+        "price": "R72.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Crystal Valley Salted Butter Brick 500g.png"
+    },
+    "Fanta Sparkling Pineapple Flavoured Soft Drink Bottle 2L": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fanta Sparkling Pineapple Flavoured Soft Drink Bottle 2L.png"
+    },
+    "Rhodes Quality Chopped & Peeled Tomatoes 410g": {
+        "price": "R25.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Rhodes Quality Chopped & Peeled Tomatoes 410g.png"
+    },
+    "Champion Boerewors Roll": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Champion Boerewors Roll.png"
+    },
+    "Power Play Original Energy Drink 440ml": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Power Play Original Energy Drink 440ml.png"
+    },
+    "SASKO Low G.I Dumpy Seeded Whole Wheat Brown Bread 800g": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/SASKO Low G.I Dumpy Seeded Whole Wheat Brown Bread 800g.png"
+    },
+    "Dinu Mega Kitchen Towels 2 Pack": {
+        "price": "R54.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Dinu Mega Kitchen Towels 2 Pack.png"
+    },
+    "Surf Hand Washing Powder 2kg": {
+        "price": "R59.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Surf Hand Washing Powder 2kg.png"
+    },
+    "PIEMAN\u2019S Cheese Griller Pie Single": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/PIEMAN\u2019S Cheese Griller Pie Single.png"
+    },
+    "7UP Sugar Free Lemon and Lime Flavoured Soft Drink 2L": {
+        "price": "R18.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/7UP Sugar Free Lemon and Lime Flavoured Soft Drink 2L.png"
+    },
+    "Twist Granadilla Flavoured Soft Drink 2L": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Twist Granadilla Flavoured Soft Drink 2L.png"
+    },
+    "Cheese Curls Double Cheese Flavoured Maize Snack 4 x 16g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cheese Curls Double Cheese Flavoured Maize Snack 4 x 16g.png"
+    },
+    "Simba Chipniks Snack 100g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Simba Chipniks Snack 100g.png"
+    },
+    "Kellogg's Cheese Flavoured Instant Noodles 5 x 70g": {
+        "price": "R37.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Kellogg's Cheese Flavoured Instant Noodles 5 x 70g.png"
+    },
+    "Rooikrantz Thick Boerewors Per kg": {
+        "price": "R105.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Rooikrantz Thick Boerewors Per kg.png"
+    },
+    "NESCAF\u00c9 RICOFFY 3-In-1 Instant Coffee Stick 20g": {
+        "price": "R3.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/NESCAF\u00c9 RICOFFY 3-In-1 Instant Coffee Stick 20g.png"
+    },
+    "Checkers Housebrand Lemon Cream Biscuits 200g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand Lemon Cream Biscuits 200g.png"
+    },
+    "Fresh Baby Plum Tomatoes Bag 500g": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fresh Baby Plum Tomatoes Bag 500g.png"
+    },
+    "Pink Lady Apples Pack 1kg": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Pink Lady Apples Pack 1kg.png"
+    }
+}

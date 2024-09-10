@@ -1,0 +1,102 @@
+{
+    "Lean Beef Mince Per kg": {
+        "price": "R109.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lean Beef Mince Per kg.png"
+    },
+    "Domestos White & Shine Multipurpose Thick Bleach 750ml": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Domestos White & Shine Multipurpose Thick Bleach 750ml.png"
+    },
+    "Cadbury Dairy Milk Whole Nut Chocolate Slab 80g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Dairy Milk Whole Nut Chocolate Slab 80g.png"
+    },
+    "Selati Pure White Sugar Bag 2.5kg": {
+        "price": "R69.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Selati Pure White Sugar Bag 2.5kg.png"
+    },
+    "Coca-Cola Original Taste Soft Drink Bottle 300ml": {
+        "price": "R8.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Original Taste Soft Drink Bottle 300ml.png"
+    },
+    "Tait's Rounds Butter Cheese Flavoured Crackers 33g": {
+        "price": "R4.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tait's Rounds Butter Cheese Flavoured Crackers 33g.png"
+    },
+    "Green Baby Marrows Pack 400g": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Green Baby Marrows Pack 400g.png"
+    },
+    "Dewfresh Long Life Full Cream Milk 1L": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Dewfresh Long Life Full Cream Milk 1L.png"
+    },
+    "Beacon Maynards Original Wine Gums 100g": {
+        "price": "R27.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Beacon Maynards Original Wine Gums 100g.png"
+    },
+    "Blueberries Tub 350g": {
+        "price": "R64.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Blueberries Tub 350g.png"
+    },
+    "Farmer's Choice Chicken Drumsticks 16 Piece Per Kg": {
+        "price": "R76.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Farmer's Choice Chicken Drumsticks 16 Piece Per Kg.png"
+    },
+    "Clover Full Cream Condensed Milk 385g": {
+        "price": "R38.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Clover Full Cream Condensed Milk 385g.png"
+    },
+    "Wrapped Cut Cabbage": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Wrapped Cut Cabbage.png"
+    },
+    "Red Seedless Grapes Pack 500g": {
+        "price": "R59.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Red Seedless Grapes Pack 500g.png"
+    },
+    "Golden Pockets Ham & Cheese Fried Pastry": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Golden Pockets Ham & Cheese Fried Pastry.png"
+    },
+    "Fresh Chicken Roast, Vegetables & Rice Ready Meal": {
+        "price": "R39.99",
+        "promo": "Valid until 30 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fresh Chicken Roast, Vegetables & Rice Ready Meal.png"
+    },
+    "Stoney Ginger Beer Extra Kwetsa Soft Drink Bottle 2L": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Stoney Ginger Beer Extra Kwetsa Soft Drink Bottle 2L.png"
+    },
+    "Fried Mince Golden Pockets": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fried Mince Golden Pockets.png"
+    },
+    "Simba Mrs H.S. Ball's Original Chutney Flavoured Potato Chips 4 x 25g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Simba Mrs H.S. Ball's Original Chutney Flavoured Potato Chips 4 x 25g.png"
+    },
+    "Bakers Eet-Sum-Mor Shortbread Biscuits 200g": {
+        "price": "R31.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bakers Eet-Sum-Mor Shortbread Biscuits 200g.png"
+    }
+}

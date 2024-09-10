@@ -1,0 +1,102 @@
+{
+    "Bakers Tennis Classic Coconut Biscuits 200g": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bakers Tennis Classic Coconut Biscuits 200g.png"
+    },
+    "Albany Superior Thick Sliced Brown Bread Loaf 700g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Albany Superior Thick Sliced Brown Bread Loaf 700g.png"
+    },
+    "Garlic Wedges Roll Single 100g": {
+        "price": "R5.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Garlic Wedges Roll Single 100g.png"
+    },
+    "OREO Original Biscuits 128g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/OREO Original Biscuits 128g.png"
+    },
+    "KitKat Mini Chocolate Bars 180g": {
+        "price": "R66.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/KitKat Mini Chocolate Bars 180g.png"
+    },
+    "Lucky Star Pilchards In Tomato Sauce Tin 400g": {
+        "price": "R27.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lucky Star Pilchards In Tomato Sauce Tin 400g.png"
+    },
+    "Beef Potjiekos Per kg": {
+        "price": "R105.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Beef Potjiekos Per kg.png"
+    },
+    "NESCAF\u00c9 Original Cappuccino Sticks 10 x 18g": {
+        "price": "R79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/NESCAF\u00c9 Original Cappuccino Sticks 10 x 18g.png"
+    },
+    "Sunlight Mild & Gentle Laundry Soap Bar 500g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sunlight Mild & Gentle Laundry Soap Bar 500g.png"
+    },
+    "Medium Carrots Bag 500g": {
+        "price": "R7.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Medium Carrots Bag 500g.png"
+    },
+    "Lay's Sweet & Smoky American BBQ Flavour Potato Chips 120g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lay's Sweet & Smoky American BBQ Flavour Potato Chips 120g.png"
+    },
+    "NikNaks Cheese Flavoured Maize Snack Strip 5 x 22g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/NikNaks Cheese Flavoured Maize Snack Strip 5 x 22g.png"
+    },
+    "Tomatoes Bag 2kg": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tomatoes Bag 2kg.png"
+    },
+    "Dewfresh Fresh Full Cream Milk 2L": {
+        "price": "R29.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Dewfresh Fresh Full Cream Milk 2L.png"
+    },
+    "Kellogg's Chicken Flavoured Instant Noodles 5 x 70g": {
+        "price": "R37.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Kellogg's Chicken Flavoured Instant Noodles 5 x 70g.png"
+    },
+    "Maggi Beef Flavoured 2 Minute Noodles 5 x 68g": {
+        "price": "R42.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Maggi Beef Flavoured 2 Minute Noodles 5 x 68g.png"
+    },
+    "Douglasdale Fresh Low Fat Milk Bottle 2L": {
+        "price": "R37.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Douglasdale Fresh Low Fat Milk Bottle 2L.png"
+    },
+    "Weet-Bix Wholegrain Wheat Biscuits 900g": {
+        "price": "R64.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Weet-Bix Wholegrain Wheat Biscuits 900g.png"
+    },
+    "Fanta Orange Flavoured Soft Drink Bottle 2L": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fanta Orange Flavoured Soft Drink Bottle 2L.png"
+    },
+    "Brown Onions Bag 2kg": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Brown Onions Bag 2kg.png"
+    }
+}

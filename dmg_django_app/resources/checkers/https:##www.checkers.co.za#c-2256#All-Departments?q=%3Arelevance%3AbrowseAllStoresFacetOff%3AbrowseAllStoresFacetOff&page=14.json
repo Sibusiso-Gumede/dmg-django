@@ -1,0 +1,102 @@
+{
+    "Red Bull Energy Drink 355ml": {
+        "price": "R25.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Red Bull Energy Drink 355ml.png"
+    },
+    "Mr. Pasta Macaroni Pasta 500g": {
+        "price": "R15.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mr. Pasta Macaroni Pasta 500g.png"
+    },
+    "RAINBOW Simply Chicken Original Chicken Polony 1kg": {
+        "price": "R64.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/RAINBOW Simply Chicken Original Chicken Polony 1kg.png"
+    },
+    "Flings Original Flavour Maize Snack 150g": {
+        "price": "R22.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Flings Original Flavour Maize Snack 150g.png"
+    },
+    "Sunlight Lemon 100 Original Dishwashing Liquid 1.5L": {
+        "price": "R72.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sunlight Lemon 100 Original Dishwashing Liquid 1.5L.png"
+    },
+    "Liqui Fruit 100% Cranberry Cooler Fruit Juice Blend 2L": {
+        "price": "R59.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Liqui Fruit 100% Cranberry Cooler Fruit Juice Blend 2L.png"
+    },
+    "PIEMAN\u2019S Steak & Kidney Pie": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/PIEMAN\u2019S Steak & Kidney Pie.png"
+    },
+    "White Seedless Grapes Pack 500g": {
+        "price": "R59.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/White Seedless Grapes Pack 500g.png"
+    },
+    "Klipdrift Premium Brandy Bottle 750ml": {
+        "price": "R239.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Klipdrift Premium Brandy Bottle 750ml.png"
+    },
+    "Knorr Cream Of Mushroom Thickening Soup 50g": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Knorr Cream Of Mushroom Thickening Soup 50g.png"
+    },
+    "Spar-Letta Pine Nut Flavoured Soft Drink Bottle 2L": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Spar-Letta Pine Nut Flavoured Soft Drink Bottle 2L.png"
+    },
+    "Carling Black Label Beer Cans 6 x 500ml": {
+        "price": "R104.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Carling Black Label Beer Cans 6 x 500ml.png"
+    },
+    "Lion Safety Matches": {
+        "price": "R1.20",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lion Safety Matches.png"
+    },
+    "RAINBOW Frozen Chicken Livers 500g": {
+        "price": "R25.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/RAINBOW Frozen Chicken Livers 500g.png"
+    },
+    "Cerebos Iodated Table Salt Pack 1kg": {
+        "price": "R19.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cerebos Iodated Table Salt Pack 1kg.png"
+    },
+    "Regal A Royal Selection Of Delicious Chocolates 400g": {
+        "price": "R79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Regal A Royal Selection Of Delicious Chocolates 400g.png"
+    },
+    "Rhodes Quality Tomato Paste Sachet 50g": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Rhodes Quality Tomato Paste Sachet 50g.png"
+    },
+    "Queen Cakes 10 Pack": {
+        "price": "R37.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Queen Cakes 10 Pack.png"
+    },
+    "Rama Original 70% Fat Spread 500g": {
+        "price": "R32.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Rama Original 70% Fat Spread 500g.png"
+    },
+    "Spinach Bag 300g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Spinach Bag 300g.png"
+    }
+}

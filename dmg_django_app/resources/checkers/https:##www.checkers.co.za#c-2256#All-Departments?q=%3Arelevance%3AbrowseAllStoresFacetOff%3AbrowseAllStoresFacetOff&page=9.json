@@ -1,0 +1,102 @@
+{
+    "Trio Peppers in Bag": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Trio Peppers in Bag.png"
+    },
+    "Crystal Valley Full Cream Long Life Milk 1L": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Crystal Valley Full Cream Long Life Milk 1L.png"
+    },
+    "Lux Soft Caress Cleansing Bar Soap 175g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lux Soft Caress Cleansing Bar Soap 175g.png"
+    },
+    "Green Pepper Duet Bag": {
+        "price": "R18.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Green Pepper Duet Bag.png"
+    },
+    "Danone NutriDay Low Fat Mixed Fruit, Pineapple And Mango Flavoured Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Danone NutriDay Low Fat Mixed Fruit, Pineapple And Mango Flavoured Dairy Snack 6 x 100g.png"
+    },
+    "Tastic Long Grain Parboiled Rice 2kg": {
+        "price": "R44.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tastic Long Grain Parboiled Rice 2kg.png"
+    },
+    "Eskort Smoked Viennas Pack 1kg": {
+        "price": "R85.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Eskort Smoked Viennas Pack 1kg.png"
+    },
+    "Fritos Twists Sweet Chilli Flavoured Corn Chips 4 x 25g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fritos Twists Sweet Chilli Flavoured Corn Chips 4 x 25g.png"
+    },
+    "Ouma Butter Milk Sliced Rusks 450g": {
+        "price": "R59.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Ouma Butter Milk Sliced Rusks 450g.png"
+    },
+    "Dewfresh Fresh Cream 250ml": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Dewfresh Fresh Cream 250ml.png"
+    },
+    "Cadbury Lunch Bar Max Chocolate Bar 62g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Lunch Bar Max Chocolate Bar 62g.png"
+    },
+    "Stork Country Spread 40% Fat Spread Tub 1kg": {
+        "price": "R45.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Stork Country Spread 40% Fat Spread Tub 1kg.png"
+    },
+    "Grilled BBQ Chicken Leg Quarter": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Grilled BBQ Chicken Leg Quarter.png"
+    },
+    "Checkers Housebrand Tomato & Onion Mix 410g": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand Tomato & Onion Mix 410g.png"
+    },
+    "Spar-Letta Soft Drink Creme Soda Bottle 2L": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Spar-Letta Soft Drink Creme Soda Bottle 2L.png"
+    },
+    "PIEMAN\u2019S Pepper Steak Pie": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/PIEMAN\u2019S Pepper Steak Pie.png"
+    },
+    "Baby Potatoes Bag 1kg": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Baby Potatoes Bag 1kg.png"
+    },
+    "Bar-One Large Chocolate 52g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bar-One Large Chocolate 52g.png"
+    },
+    "Mrs H.S. Ball's Chutney Original Chutney 470g": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mrs H.S. Ball's Chutney Original Chutney 470g.png"
+    },
+    "Checkers Housebrand Coconut Biscuits 200g": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand Coconut Biscuits 200g.png"
+    }
+}

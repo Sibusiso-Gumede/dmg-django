@@ -1,0 +1,102 @@
+{
+    "Ritebrand French Polony 750g": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand French Polony 750g.png"
+    },
+    "Fair Cape Dairies Long Life Full Cream Milk 1L": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fair Cape Dairies Long Life Full Cream Milk 1L.png"
+    },
+    "Ritebrand Iodated Table Salt 500g": {
+        "price": "R7.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Iodated Table Salt 500g.png"
+    },
+    "Lay's Spring Onion & Cheese Flavour Potato Chips 120g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lay's Spring Onion & Cheese Flavour Potato Chips 120g.png"
+    },
+    "Large Unwrapped Cabbage Single": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Large Unwrapped Cabbage Single.png"
+    },
+    "White Star Super Maize Meal 2.5kg": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Star Super Maize Meal 2.5kg.png"
+    },
+    "Danone NutriDay Smooth & Creamy Strawberry Flavoured Low Fat Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Danone NutriDay Smooth & Creamy Strawberry Flavoured Low Fat Dairy Snack 6 x 100g.png"
+    },
+    "Lay's Caribbean Onion & Balsamic Vinegar Flavour Potato Chips 120g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lay's Caribbean Onion & Balsamic Vinegar Flavour Potato Chips 120g.png"
+    },
+    "Knorrox Mutton Flavoured Soya Mince 400g": {
+        "price": "R32.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Knorrox Mutton Flavoured Soya Mince 400g.png"
+    },
+    "Tait's Rounds Butter Cheese Flavoured Crackers 33g": {
+        "price": "R4.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Tait's Rounds Butter Cheese Flavoured Crackers 33g.png"
+    },
+    "Aquafresh Fresh & Minty Fluoride Toothpaste 100ml": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Aquafresh Fresh & Minty Fluoride Toothpaste 100ml.png"
+    },
+    "Lay's Thai Sweet Chilli Flavour Potato Chips 120g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lay's Thai Sweet Chilli Flavour Potato Chips 120g.png"
+    },
+    "KOO Creamstyle Sweetcorn 415G": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/KOO Creamstyle Sweetcorn 415G.png"
+    },
+    "Energade Blueberry Flavoured Sports Drink 500ml": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Energade Blueberry Flavoured Sports Drink 500ml.png"
+    },
+    "MAQ Regular Hand Washing Powder 2kg": {
+        "price": "R64.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/MAQ Regular Hand Washing Powder 2kg.png"
+    },
+    "Rama Original 70% Fat Spread 500g": {
+        "price": "R32.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Rama Original 70% Fat Spread 500g.png"
+    },
+    "Securex Care Active Hygiene Soap Bar 175g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Securex Care Active Hygiene Soap Bar 175g.png"
+    },
+    "Tait's Fruit Chutney Chips 125g": {
+        "price": "R15.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Tait's Fruit Chutney Chips 125g.png"
+    },
+    "Imana Chilli Beef Flavoured Stock Cubes 6 Pack": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Imana Chilli Beef Flavoured Stock Cubes 6 Pack.png"
+    },
+    "Surf Hand Washing Powder 2kg": {
+        "price": "R52.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Surf Hand Washing Powder 2kg.png"
+    }
+}

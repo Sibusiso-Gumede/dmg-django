@@ -1,0 +1,102 @@
+{
+    "Sunbake White Bread 700g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sunbake White Bread 700g.png"
+    },
+    "Coca-Cola Original Less Sugar Soft Drink Bottle 2L": {
+        "price": "R26.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Original Less Sugar Soft Drink Bottle 2L.png"
+    },
+    "White Hamburger Roll": {
+        "price": "R2.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/White Hamburger Roll.png"
+    },
+    "Albany Superior Sliced White Bread Loaf 700g": {
+        "price": "R19.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Albany Superior Sliced White Bread Loaf 700g.png"
+    },
+    "White Hot Dog Roll Single": {
+        "price": "R2.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/White Hot Dog Roll Single.png"
+    },
+    "Douglasdale Fresh Full Cream Milk Bottle 2L": {
+        "price": "R37.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Douglasdale Fresh Full Cream Milk Bottle 2L.png"
+    },
+    "Coca-Cola Original Less Sugar Soft Drink Bottle 1.5L": {
+        "price": "R21.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Original Less Sugar Soft Drink Bottle 1.5L.png"
+    },
+    "English Cucumber Single": {
+        "price": "R16.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/English Cucumber Single.png"
+    },
+    "Bulk Banana Pack 1.2kg": {
+        "price": "R39.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bulk Banana Pack 1.2kg.png"
+    },
+    "Bananas Bag (Small)": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bananas Bag (Small).png"
+    },
+    "Blue Ribbon Classic White Bread 700g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Blue Ribbon Classic White Bread 700g.png"
+    },
+    "Coney Roll Single": {
+        "price": "R3.79",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coney Roll Single.png"
+    },
+    "Albany Superior Sliced Brown Bread Loaf 700g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Albany Superior Sliced Brown Bread Loaf 700g.png"
+    },
+    "Brown Bread 700g": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Brown Bread 700g.png"
+    },
+    "Coca-Cola Original Soft Drink Bottle 440ml": {
+        "price": "R13.99",
+        "promo": "Valid until 30 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Original Soft Drink Bottle 440ml.png"
+    },
+    "Selati Golden Brown Sugar 2kg": {
+        "price": "R54.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Selati Golden Brown Sugar 2kg.png"
+    },
+    "Doritos Sweet Chilli Pepper Flavoured Corn Chips 145g": {
+        "price": "R23.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Doritos Sweet Chilli Pepper Flavoured Corn Chips 145g.png"
+    },
+    "Tomatoes Bag 1kg": {
+        "price": "R28.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tomatoes Bag 1kg.png"
+    },
+    "Crosse And Blackwell Tangy Mayonnaise 750g": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Crosse And Blackwell Tangy Mayonnaise 750g.png"
+    },
+    "Crisp Lettuce Head Pack": {
+        "price": "R14.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Crisp Lettuce Head Pack.png"
+    }
+}

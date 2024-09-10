@@ -1,0 +1,102 @@
+{
+    "Beetroots Pack 1kg": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Beetroots Pack 1kg.png"
+    },
+    "Securex Active Active Hygiene Soap Bar 175g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Securex Active Active Hygiene Soap Bar 175g.png"
+    },
+    "Potatoes Bag 1kg": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Potatoes Bag 1kg.png"
+    },
+    "Redd's Berry Flavoured Golden Ale Bottle 660ml": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Redd's Berry Flavoured Golden Ale Bottle 660ml.png"
+    },
+    "Rajah Medium Curry Powder Envelope 7g": {
+        "price": "R3.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Rajah Medium Curry Powder Envelope 7g.png"
+    },
+    "Fair Cape Lunchbox Strawberry Yoghurt 6 x 80g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fair Cape Lunchbox Strawberry Yoghurt 6 x 80g.png"
+    },
+    "Pork Texan Steak Per kg": {
+        "price": "R69.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Pork Texan Steak Per kg.png"
+    },
+    "Truda Flyers Cheese & Chives Flavoured Puffed Corn 100g": {
+        "price": "R11.99",
+        "promo": "Valid until 13 October 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Truda Flyers Cheese & Chives Flavoured Puffed Corn 100g.png"
+    },
+    "Loose Serve Chicken Leg Quarters Per kg": {
+        "price": "R59.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Loose Serve Chicken Leg Quarters Per kg.png"
+    },
+    "Knorrox Boerewors Flavoured Soya Mince 400g": {
+        "price": "R32.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Knorrox Boerewors Flavoured Soya Mince 400g.png"
+    },
+    "Egg & Tomato Sandwich": {
+        "price": "R5.00",
+        "promo": "Valid until 31 December 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Egg & Tomato Sandwich.png"
+    },
+    "Truda Honey & Mustard Flavoured Pretzels 30g": {
+        "price": "R5.99",
+        "promo": "Valid until 13 October 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Truda Honey & Mustard Flavoured Pretzels 30g.png"
+    },
+    "Tait's Smoked Beef Chips 125g": {
+        "price": "R15.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Tait's Smoked Beef Chips 125g.png"
+    },
+    "Mr. Pasta Pasta Screws 500g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Mr. Pasta Pasta Screws 500g.png"
+    },
+    "Securex Romance Active Hygiene Soap Bar 175g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Securex Romance Active Hygiene Soap Bar 175g.png"
+    },
+    "Coca-Cola Original Soft Drink Bottle 1L": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Coca-Cola Original Soft Drink Bottle 1L.png"
+    },
+    "Knorrox Chilli Beef Flavoured Soya Mince 400g": {
+        "price": "R32.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Knorrox Chilli Beef Flavoured Soya Mince 400g.png"
+    },
+    "White Bread Dough 1kg": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Bread Dough 1kg.png"
+    },
+    "Huletts White Sugar 1kg": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Huletts White Sugar 1kg.png"
+    },
+    "Ritebrand 1 Ply Toilet Roll": {
+        "price": "R7.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand 1 Ply Toilet Roll.png"
+    }
+}

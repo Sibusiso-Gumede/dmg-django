@@ -1,0 +1,102 @@
+{
+    "Ritebrand Spaghetti 500g": {
+        "price": "R12.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Spaghetti 500g.png"
+    },
+    "Fresh Bakery Sweet Bread 600g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fresh Bakery Sweet Bread 600g.png"
+    },
+    "Coca-Cola Original Less Sugar Soft Drink Bottle 2L": {
+        "price": "R19.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Coca-Cola Original Less Sugar Soft Drink Bottle 2L.png"
+    },
+    "White Star Super Maize Meal Poly Bag 10kg": {
+        "price": "R149.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Star Super Maize Meal Poly Bag 10kg.png"
+    },
+    "Marvello Original Baking Margarine Brick 500g": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Marvello Original Baking Margarine Brick 500g.png"
+    },
+    "Sunlight Mild & Gentle Laundry Soap Bar 500g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Sunlight Mild & Gentle Laundry Soap Bar 500g.png"
+    },
+    "Crystal Valley Full Cream Long Life Milk 1L": {
+        "price": "R16.89",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Crystal Valley Full Cream Long Life Milk 1L.png"
+    },
+    "Blossom Spread 25% Fat Spread 1kg": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Blossom Spread 25% Fat Spread 1kg.png"
+    },
+    "Albany Everyday Brown Bread Loaf 700g": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Albany Everyday Brown Bread Loaf 700g.png"
+    },
+    "Ritebrand Baked Beans In Tomato Sauce Can 410g": {
+        "price": "R9.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Baked Beans In Tomato Sauce Can 410g.png"
+    },
+    "Blue Ribbon Toaster Brown Bread 700g": {
+        "price": "R17.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Blue Ribbon Toaster Brown Bread 700g.png"
+    },
+    "Rhodes Quality Tomato Paste Sachet 50g": {
+        "price": "R4.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Rhodes Quality Tomato Paste Sachet 50g.png"
+    },
+    "Weet-Bix Wholegrain Wheat Biscuits 450g": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Weet-Bix Wholegrain Wheat Biscuits 450g.png"
+    },
+    "Nola Original Mayonnaise Jar 750g": {
+        "price": "R44.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Nola Original Mayonnaise Jar 750g.png"
+    },
+    "Snowflake Cake Wheat Flour 10kg": {
+        "price": "R159.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Snowflake Cake Wheat Flour 10kg.png"
+    },
+    "Kellogg's Beef Flavoured Instant Noodles 5 x 70g": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Kellogg's Beef Flavoured Instant Noodles 5 x 70g.png"
+    },
+    "White Hamburger Roll": {
+        "price": "R2.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Hamburger Roll.png"
+    },
+    "SmallMedium Avocado": {
+        "price": "R9.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/SmallMedium Avocado.png"
+    },
+    "Spar-Letta Pine Nut Flavoured Soft Drink Bottle 2L": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Spar-Letta Pine Nut Flavoured Soft Drink Bottle 2L.png"
+    },
+    "White Hot Dog Roll Single": {
+        "price": "R2.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Hot Dog Roll Single.png"
+    }
+}

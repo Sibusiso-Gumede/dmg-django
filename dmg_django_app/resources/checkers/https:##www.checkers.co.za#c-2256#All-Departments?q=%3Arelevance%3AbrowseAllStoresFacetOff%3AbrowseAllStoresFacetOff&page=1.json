@@ -1,0 +1,102 @@
+{
+    "Sunlight Original Dishwashing Liquid 750ml": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sunlight Original Dishwashing Liquid 750ml.png"
+    },
+    "Crystal Valley UHT Full Cream Long Life Milk 6 x 1L": {
+        "price": "R109.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Crystal Valley UHT Full Cream Long Life Milk 6 x 1L.png"
+    },
+    "Cadbury Lunch Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Lunch Bar 48g.png"
+    },
+    "KOO Baked Beans in Tomato Sauce 400g": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/KOO Baked Beans in Tomato Sauce 400g.png"
+    },
+    "Maggi Chicken Flavoured 2 Minute Noodles 5 x 68g": {
+        "price": "R42.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Maggi Chicken Flavoured 2 Minute Noodles 5 x 68g.png"
+    },
+    "White Hotdog Rolls 6 Pack": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/White Hotdog Rolls 6 Pack.png"
+    },
+    "Checkers Housebrand Light Meat Shredded Tuna In Water 170g": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand Light Meat Shredded Tuna In Water 170g.png"
+    },
+    "Farmer's Choice Fresh 12 Piece Chicken Fillets Per Kg": {
+        "price": "R79.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Farmer's Choice Fresh 12 Piece Chicken Fillets Per Kg.png"
+    },
+    "Standard Brown Bread 700g": {
+        "price": "R12.99",
+        "promo": "Valid until 29 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Standard Brown Bread 700g.png"
+    },
+    "Loose Bananas Per kg": {
+        "price": "R16.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Loose Bananas Per kg.png"
+    },
+    "Coca-Cola Zero Sugar Soft Drink 2L": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Zero Sugar Soft Drink 2L.png"
+    },
+    "SASKO Premium Sliced Brown Bread Loaf 700g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/SASKO Premium Sliced Brown Bread Loaf 700g.png"
+    },
+    "Clover UHT Long Life Full Cream Milk Carton 6 x 1L": {
+        "price": "R124.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Clover UHT Long Life Full Cream Milk Carton 6 x 1L.png"
+    },
+    "Bakery White Hamburger Rolls 6 Pack": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bakery White Hamburger Rolls 6 Pack.png"
+    },
+    "aQuell\u00e9 Still Natural Spring Water 5L": {
+        "price": "R31.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/aQuell\u00e9 Still Natural Spring Water 5L.png"
+    },
+    "ALL GOLD Tomato Sauce Bottle 700ml": {
+        "price": "R42.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/ALL GOLD Tomato Sauce Bottle 700ml.png"
+    },
+    "Albany Superior Thick Slice White Bread 700g": {
+        "price": "R19.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Albany Superior Thick Slice White Bread 700g.png"
+    },
+    "Garbie 20 Pack Super Saver Refuse Bags 750mm x 950mm": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Garbie 20 Pack Super Saver Refuse Bags 750mm x 950mm.png"
+    },
+    "Strawberries Pack 250g": {
+        "price": "R34.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Strawberries Pack 250g.png"
+    },
+    "Farmer's Choice Fresh Drum & Thigh Chicken Individually Wrapped 16 Piece Per kg": {
+        "price": "R69.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Farmer's Choice Fresh Drum & Thigh Chicken Individually Wrapped 16 Piece Per kg.png"
+    }
+}

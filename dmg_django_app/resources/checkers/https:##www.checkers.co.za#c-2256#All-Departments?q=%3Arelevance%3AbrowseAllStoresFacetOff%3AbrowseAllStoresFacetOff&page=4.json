@@ -1,0 +1,102 @@
+{
+    "Savanna Dry Premium Cider Bottles 6 x 330ml": {
+        "price": "R119.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Savanna Dry Premium Cider Bottles 6 x 330ml.png"
+    },
+    "Chelsea Spheres Vanilla Biscuits 180g": {
+        "price": "R14.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Chelsea Spheres Vanilla Biscuits 180g.png"
+    },
+    "Monster Energy Drink 500ml": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Monster Energy Drink 500ml.png"
+    },
+    "Ripe & Ready Avocados 2 Pack": {
+        "price": "R36.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Ripe & Ready Avocados 2 Pack.png"
+    },
+    "Spekko Long Grain Parboiled White Rice Bag 2kg": {
+        "price": "R47.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Spekko Long Grain Parboiled White Rice Bag 2kg.png"
+    },
+    "Mash & Bake Potatoes Bag 2kg": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mash & Bake Potatoes Bag 2kg.png"
+    },
+    "Blue Ribbon Classic Brown Bread 700g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Blue Ribbon Classic Brown Bread 700g.png"
+    },
+    "Clover Butro Full Cream Modified Butter Spread 500g": {
+        "price": "R98.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Clover Butro Full Cream Modified Butter Spread 500g.png"
+    },
+    "Pepsi Cola Flavoured Soft Drink 2L": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Pepsi Cola Flavoured Soft Drink 2L.png"
+    },
+    "Brown Onions Bag 1kg": {
+        "price": "R24.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Brown Onions Bag 1kg.png"
+    },
+    "Cheas Snaks Cheese Flavoured Maize Snack 135g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cheas Snaks Cheese Flavoured Maize Snack 135g.png"
+    },
+    "Corona Extra Beer Bottles 6 x 355ml": {
+        "price": "R109.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Corona Extra Beer Bottles 6 x 355ml.png"
+    },
+    "Whole Grilled BBQ Chicken": {
+        "price": "R89.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Whole Grilled BBQ Chicken.png"
+    },
+    "Tomatoes 4 Pack": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tomatoes 4 Pack.png"
+    },
+    "SASKO Premium Sliced White Bread 700g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/SASKO Premium Sliced White Bread 700g.png"
+    },
+    "Baby Soft 2 Ply Fresh White Toilet Tissue Rolls 18 Pack": {
+        "price": "R169.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Baby Soft 2 Ply Fresh White Toilet Tissue Rolls 18 Pack.png"
+    },
+    "B-well Canola Oil 2L": {
+        "price": "R89.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/B-well Canola Oil 2L.png"
+    },
+    "Danone NutriDay Smooth Low Fat Granadilla, Strawberry And Apricot Flavoured Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Danone NutriDay Smooth Low Fat Granadilla, Strawberry And Apricot Flavoured Dairy Snack 6 x 100g.png"
+    },
+    "Plain Cheese Roll Single": {
+        "price": "R5.29",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Plain Cheese Roll Single.png"
+    },
+    "Golden Delicious Apples Bag 1.5kg": {
+        "price": "R32.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Golden Delicious Apples Bag 1.5kg.png"
+    }
+}

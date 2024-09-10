@@ -1,0 +1,102 @@
+{
+    "Lay's Thai Sweet Chilli Flavour Potato Chips 120g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lay's Thai Sweet Chilli Flavour Potato Chips 120g.png"
+    },
+    "Forelle Pears Bag 1.5kg": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Forelle Pears Bag 1.5kg.png"
+    },
+    "Lean Beef Mince Bulk Pack Per kg": {
+        "price": "R108.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lean Beef Mince Bulk Pack Per kg.png"
+    },
+    "Fritos Ribbons Tomato Flavoured Corn Chips 4 x 25g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fritos Ribbons Tomato Flavoured Corn Chips 4 x 25g.png"
+    },
+    "Parmalat White Cheddar Cheese 850g": {
+        "price": "R149.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Parmalat White Cheddar Cheese 850g.png"
+    },
+    "Checkers Housebrand 2 Ply Toilet Paper 9 Pack": {
+        "price": "R79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand 2 Ply Toilet Paper 9 Pack.png"
+    },
+    "Mr. Pasta Spaghetti Pasta 500g": {
+        "price": "R15.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Mr. Pasta Spaghetti Pasta 500g.png"
+    },
+    "Kara Nichha's Peanuts 40g": {
+        "price": "R4.49",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Kara Nichha's Peanuts 40g.png"
+    },
+    "Bakers Red Label Lemon Cream Biscuits 200g": {
+        "price": "R19.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bakers Red Label Lemon Cream Biscuits 200g.png"
+    },
+    "Packham's Triumph Pears Bag 1.5kg": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Packham's Triumph Pears Bag 1.5kg.png"
+    },
+    "Cadbury Dairy Milk Top Deck Chocolate Slab 80g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Dairy Milk Top Deck Chocolate Slab 80g.png"
+    },
+    "Simba Mrs. Balls Chutney Flavoured Potato Chips 120g": {
+        "price": "R21.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Simba Mrs. Balls Chutney Flavoured Potato Chips 120g.png"
+    },
+    "Flora Regular 50% Fat Spread 1kg": {
+        "price": "R74.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Flora Regular 50% Fat Spread 1kg.png"
+    },
+    "Colgate Triple Action Original Mint Fluoride Toothpaste 100ml": {
+        "price": "R23.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Colgate Triple Action Original Mint Fluoride Toothpaste 100ml.png"
+    },
+    "Fresh Green Peppers in Bag": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fresh Green Peppers in Bag.png"
+    },
+    "Eskort Wood Smoked Rindless Streaky Bacon 200g": {
+        "price": "R56.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Eskort Wood Smoked Rindless Streaky Bacon 200g.png"
+    },
+    "Rama Original 60% Fat Spread 1kg": {
+        "price": "R52.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Rama Original 60% Fat Spread 1kg.png"
+    },
+    "White Mushrooms Sliced Pack 250g": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/White Mushrooms Sliced Pack 250g.png"
+    },
+    "Cheas Naks Cheese Flavoured Maize Snack 5 x 22g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cheas Naks Cheese Flavoured Maize Snack 5 x 22g.png"
+    },
+    "Lucky Star Pilchards In Hot Chilli Sauce 400g": {
+        "price": "R27.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lucky Star Pilchards In Hot Chilli Sauce 400g.png"
+    }
+}

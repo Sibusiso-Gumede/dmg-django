@@ -1,0 +1,102 @@
+{
+    "Cadbury Crunchie Chocolate Bar 40g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Crunchie Chocolate Bar 40g.png"
+    },
+    "Standard White Bread 700g": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Standard White Bread 700g.png"
+    },
+    "Cadbury 5 Star Chocolate 48.5g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury 5 Star Chocolate 48.5g.png"
+    },
+    "White Bread 700g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/White Bread 700g.png"
+    },
+    "Top Red Apples Bag 1.5kg": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Top Red Apples Bag 1.5kg.png"
+    },
+    "Bakers Blue Label Marie Biscuits 200g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Bakers Blue Label Marie Biscuits 200g.png"
+    },
+    "Sprite Low Kilojoule Lemon Lime Flavoured Soft Drink Bottle 2L": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sprite Low Kilojoule Lemon Lime Flavoured Soft Drink Bottle 2L.png"
+    },
+    "Pepsi MAX Cola Flavoured Sugar Free Soft Drink 2L": {
+        "price": "R18.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Pepsi MAX Cola Flavoured Sugar Free Soft Drink 2L.png"
+    },
+    "Doritos Cheese Supreme Flavoured Corn Chips 145g": {
+        "price": "R23.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Doritos Cheese Supreme Flavoured Corn Chips 145g.png"
+    },
+    "Coca-Cola Original Soft Drink Bottle 1L": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Original Soft Drink Bottle 1L.png"
+    },
+    "White Button Mushrooms Pack 250g": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/White Button Mushrooms Pack 250g.png"
+    },
+    "Ice Cubes 2kg": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Ice Cubes 2kg.png"
+    },
+    "Checkers Housebrand UHT Full Cream Milk 1L": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand UHT Full Cream Milk 1L.png"
+    },
+    "Doritos Sour Cream & Mild Chilli Flavoured Corn Chips 145g": {
+        "price": "R23.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Doritos Sour Cream & Mild Chilli Flavoured Corn Chips 145g.png"
+    },
+    "Parmalat Cheddar Cheese Pack 850g": {
+        "price": "R149.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Parmalat Cheddar Cheese Pack 850g.png"
+    },
+    "Cadbury P.S. Caramilk Chocolate Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury P.S. Caramilk Chocolate Bar 48g.png"
+    },
+    "Castle Lite Beer Bottles 6 x 330ml": {
+        "price": "R89.99",
+        "promo": "Valid until 30 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Castle Lite Beer Bottles 6 x 330ml.png"
+    },
+    "Oros Orange Flavoured Concentrated Squash 2L": {
+        "price": "R48.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Oros Orange Flavoured Concentrated Squash 2L.png"
+    },
+    "Blueberries Tub 125g": {
+        "price": "R29.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Blueberries Tub 125g.png"
+    },
+    "Farmer's Choice Fresh Thighs & Drumsticks Chicken 8 Piece Per Kg": {
+        "price": "R69.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Farmer's Choice Fresh Thighs & Drumsticks Chicken 8 Piece Per Kg.png"
+    }
+}

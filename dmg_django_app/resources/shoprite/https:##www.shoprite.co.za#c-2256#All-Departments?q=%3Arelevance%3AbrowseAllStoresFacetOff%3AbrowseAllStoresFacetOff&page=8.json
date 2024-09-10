@@ -1,0 +1,102 @@
+{
+    "Benny Chicken Flavoured Stock Powder 17g": {
+        "price": "R1.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Benny Chicken Flavoured Stock Powder 17g.png"
+    },
+    "Securex Fresh Dew Active Hygiene Soap Bar 175g": {
+        "price": "R12.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Securex Fresh Dew Active Hygiene Soap Bar 175g.png"
+    },
+    "Green Peppers Bag": {
+        "price": "R29.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Green Peppers Bag.png"
+    },
+    "Lay's Salted Potato Chips 120g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Lay's Salted Potato Chips 120g.png"
+    },
+    "Hugo's Baked Beans in Tomato Sauce 410g": {
+        "price": "R12.99",
+        "promo": "Valid until 13 October 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Hugo's Baked Beans in Tomato Sauce 410g.png"
+    },
+    "Reboost Original Flavour Energy Drink 500ml": {
+        "price": "R10.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Reboost Original Flavour Energy Drink 500ml.png"
+    },
+    "Glen African Blend Tea Bags 100 Pack": {
+        "price": "R34.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Glen African Blend Tea Bags 100 Pack.png"
+    },
+    "White Mushrooms Pack 250g": {
+        "price": "R22.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/White Mushrooms Pack 250g.png"
+    },
+    "Savanna Dry Premium Cider Bottles 6 x 500ml": {
+        "price": "R164.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Savanna Dry Premium Cider Bottles 6 x 500ml.png"
+    },
+    "Ritebrand Kitchen Towels 2 Pack": {
+        "price": "R19.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Kitchen Towels 2 Pack.png"
+    },
+    "Robertsons Chicken Spice Refill 84g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Robertsons Chicken Spice Refill 84g.png"
+    },
+    "Grilled Portion BBQ Flavoured Chicken Per kg": {
+        "price": "R104.90 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Grilled Portion BBQ Flavoured Chicken Per kg.png"
+    },
+    "Coca-Cola Original Less Sugar Soft Drink Bottle 1.5L": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Coca-Cola Original Less Sugar Soft Drink Bottle 1.5L.png"
+    },
+    "Gold Star Instant Yeast 10g": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Gold Star Instant Yeast 10g.png"
+    },
+    "Potatoes Pack 2kg": {
+        "price": "R39.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Potatoes Pack 2kg.png"
+    },
+    "Knorrox Beef Flavoured Stock Cubes 12 x 10g": {
+        "price": "R18.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Knorrox Beef Flavoured Stock Cubes 12 x 10g.png"
+    },
+    "Royco Rich Oxtail Soup Packet 50g": {
+        "price": "R6.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Royco Rich Oxtail Soup Packet 50g.png"
+    },
+    "NESCAF\u00c9 RICOFFY 3-In-1 Instant Coffee Stick 20g": {
+        "price": "R4.49",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/NESCAF\u00c9 RICOFFY 3-In-1 Instant Coffee Stick 20g.png"
+    },
+    "Corn Flakes Cereal 1kg": {
+        "price": "R79.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Corn Flakes Cereal 1kg.png"
+    },
+    "Ritebrand Table Salt 1kg": {
+        "price": "R11.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Table Salt 1kg.png"
+    }
+}

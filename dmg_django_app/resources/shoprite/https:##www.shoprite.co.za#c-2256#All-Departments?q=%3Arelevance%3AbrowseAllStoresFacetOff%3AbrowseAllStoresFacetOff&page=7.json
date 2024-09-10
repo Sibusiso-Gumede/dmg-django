@@ -1,0 +1,102 @@
+{
+    "Ghost Pops The Original Flavoured Maize Snack 100g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ghost Pops The Original Flavoured Maize Snack 100g.png"
+    },
+    "Champion Boerewors Roll": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Champion Boerewors Roll.png"
+    },
+    "Brutal Fruit Ruby Apple Spritzer Bottles 6 x 275ml": {
+        "price": "R89.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Brutal Fruit Ruby Apple Spritzer Bottles 6 x 275ml.png"
+    },
+    "Chelsea Spheres Vanilla Biscuits 180g": {
+        "price": "R14.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Chelsea Spheres Vanilla Biscuits 180g.png"
+    },
+    "KOO Original Tomato Paste Sachet 100g": {
+        "price": "R14.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/KOO Original Tomato Paste Sachet 100g.png"
+    },
+    "Farmbest Fresh Chicken Breasts Per kg": {
+        "price": "R39.99 Per Kg",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Farmbest Fresh Chicken Breasts Per kg.png"
+    },
+    "Spar-Letta Iron Brew Flavour Soft Drink Bottle 2L": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Spar-Letta Iron Brew Flavour Soft Drink Bottle 2L.png"
+    },
+    "Bananas Bag (Small)": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Bananas Bag (Small).png"
+    },
+    "NESCAF\u00c9 RICOFFY Instant Coffee 250g": {
+        "price": "R59.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/NESCAF\u00c9 RICOFFY Instant Coffee 250g.png"
+    },
+    "Fair Cape Lunchbox Sweetened StrawberryPeach & ApricotMixed Berry Yoghurt 6 x 80g": {
+        "price": "R15.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Fair Cape Lunchbox Sweetened StrawberryPeach & ApricotMixed Berry Yoghurt 6 x 80g.png"
+    },
+    "Ritebrand Smooth Peanut Butter 400g": {
+        "price": "R29.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Ritebrand Smooth Peanut Butter 400g.png"
+    },
+    "Danone NutriDay Low Fat Mixed Fruit, Pineapple And Mango Flavoured Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Danone NutriDay Low Fat Mixed Fruit, Pineapple And Mango Flavoured Dairy Snack 6 x 100g.png"
+    },
+    "Albany Everyday Sliced White Bread Loaf 700g": {
+        "price": "R15.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Albany Everyday Sliced White Bread Loaf 700g.png"
+    },
+    "Twinsaver 1 Ply Toilet Roll": {
+        "price": "R9.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Twinsaver 1 Ply Toilet Roll.png"
+    },
+    "Cadbury P.S. Milk Chocolate Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cadbury P.S. Milk Chocolate Bar 48g.png"
+    },
+    "Spar-Letta Soft Drink Sparberry Bottle 2L": {
+        "price": "R16.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Spar-Letta Soft Drink Sparberry Bottle 2L.png"
+    },
+    "Bulk Pork Pack Per kg": {
+        "price": "R56.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Bulk Pork Pack Per kg.png"
+    },
+    "Cadbury Lunch Bar Dream White Milk Chocolate Bar 48g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Cadbury Lunch Bar Dream White Milk Chocolate Bar 48g.png"
+    },
+    "Small Bee Sting Cake Small": {
+        "price": "R9.99",
+        "promo": "Valid until 13 October 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Small Bee Sting Cake Small.png"
+    },
+    "Beef Potjiekos Per kg": {
+        "price": "R99.99 Per Kg",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/shoprite/product_images/Beef Potjiekos Per kg.png"
+    }
+}

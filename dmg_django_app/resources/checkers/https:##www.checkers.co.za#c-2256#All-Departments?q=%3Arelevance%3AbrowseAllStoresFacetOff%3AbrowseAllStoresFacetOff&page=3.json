@@ -1,0 +1,102 @@
+{
+    "Coca-Cola Zero Sugar Zero Caffeine Soft Drink 2L": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Zero Sugar Zero Caffeine Soft Drink 2L.png"
+    },
+    "Large Carrots Bag 1kg": {
+        "price": "R14.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Large Carrots Bag 1kg.png"
+    },
+    "Baby Plum Tomatoes 250g": {
+        "price": "R19.99",
+        "promo": "Valid until 15 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Baby Plum Tomatoes 250g.png"
+    },
+    "Maggi Durban Curry Flavoured 2 Minute Noodles 5 x 68g": {
+        "price": "R42.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Maggi Durban Curry Flavoured 2 Minute Noodles 5 x 68g.png"
+    },
+    "Checkers Housebrand UHT Full Cream Milk 6 x 1L": {
+        "price": "R99.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Checkers Housebrand UHT Full Cream Milk 6 x 1L.png"
+    },
+    "Fatti's & Moni's Spaghetti Pasta 500g": {
+        "price": "R19.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fatti's & Moni's Spaghetti Pasta 500g.png"
+    },
+    "Jungle Oats 1kg": {
+        "price": "R52.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Jungle Oats 1kg.png"
+    },
+    "Potatoes Pocket 7kg": {
+        "price": "R89.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Potatoes Pocket 7kg.png"
+    },
+    "Tango Fruit Seedless Fruit Pack 1.8kg": {
+        "price": "R59.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Tango Fruit Seedless Fruit Pack 1.8kg.png"
+    },
+    "Parmalat Gouda Cheese Pack 850g": {
+        "price": "R149.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Parmalat Gouda Cheese Pack 850g.png"
+    },
+    "Douglasdale Pasteurised Fresh Cream 500ml": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Douglasdale Pasteurised Fresh Cream 500ml.png"
+    },
+    "Clover Fresh Full Cream Milk 2L": {
+        "price": "R32.99",
+        "promo": "Valid until 22 September 2024",
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Clover Fresh Full Cream Milk 2L.png"
+    },
+    "aQuell\u00e9 Still Natural Spring Water 6 x 500ml": {
+        "price": "R48.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/aQuell\u00e9 Still Natural Spring Water 6 x 500ml.png"
+    },
+    "Fresh Roma Tomatoes 1kg": {
+        "price": "R24.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Fresh Roma Tomatoes 1kg.png"
+    },
+    "Boil & Roast Potatoes Bag 2kg": {
+        "price": "R49.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Boil & Roast Potatoes Bag 2kg.png"
+    },
+    "Danone NutriDay Strawberry, Banana And Mixed Fruit Flavoured Low Fat Dairy Snack 6 x 100g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Danone NutriDay Strawberry, Banana And Mixed Fruit Flavoured Low Fat Dairy Snack 6 x 100g.png"
+    },
+    "Lay's Salted Potato Chips 120g": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Lay's Salted Potato Chips 120g.png"
+    },
+    "Cadbury Astros Chocolate 40g": {
+        "price": "R13.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Cadbury Astros Chocolate 40g.png"
+    },
+    "Coca-Cola Original Taste Soft Drink 4 x 6 Pack": {
+        "price": "R189.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Coca-Cola Original Taste Soft Drink 4 x 6 Pack.png"
+    },
+    "Sprite Lemon-Lime Flavoured Zero Sugar Soft Drink 2L": {
+        "price": "R23.99",
+        "promo": null,
+        "image": "/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources/checkers/product_images/Sprite Lemon-Lime Flavoured Zero Sugar Soft Drink 2L.png"
+    }
+}
