@@ -3,10 +3,9 @@
 import json
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
-from os import path, listdir, makedirs
+from os import path, listdir
 from ..supermarket_apis import BaseSupermarket
 from .receipt_renderer import ReceiptRenderer, base64
-from ...models import Supermarket as SupermarketModel, Product
 
 TITLE_LENGTH: int = 30
 
@@ -43,21 +42,18 @@ def retrieve_webpage(content_name: str, path_: str) -> bytes:
 
     return payload
 
-def store_image(img: bytes, path_: str, img_name: str) -> bool:
+def store_image(img: bytes, image_path: str) -> bool:
     '''Stores byte content in image format(png, jpeg, etc).'''
     
-    absolute_path = f"{path_}/{img_name}.png"
-    if not path.exists(path_):
-        makedirs(path_)
     try:
         image = Image.open(BytesIO(img))
     except UnidentifiedImageError or FileNotFoundError:
         print("Image not found or is invalid.")
     else:
-        with open(absolute_path, "xb") as file:
-            image.save(file, "png") 
+        with open(image_path, "xb") as file:
+            image.save(file) 
 
-    return path.isfile(absolute_path)
+    return path.isfile(image_path)
 
 def retrieve_image(images_dir: str) -> list[Image.Image] | Image.Image:
     '''Retrieves an image file stored on disk and
@@ -87,6 +83,8 @@ def resize_image(image: Image):
     return image.crop((width/2, 0.5, width, height))
 
 def store_supermarket_records(supermarket: BaseSupermarket) -> None:
+    from ...models import Supermarket as SupermarketModel, Product
+    
     print("Storing products in database.")
     _name = supermarket.get_supermarket_name().lower()
     products: dict = {}
@@ -172,7 +170,7 @@ def clean_data(s: BaseSupermarket) -> None:
                                                 "promo": data.get('promo'), "image": data.get('image')}})
                 elif s.get_supermarket_name() == 'Makro':
                     promo = ''
-                    if data.get('promo')[2:].isdigit():
+                    if data.get('promo')[2:].isdigit() or (data.ger('promo') == ''):
                         promo = None
                     buffer.update({name: {'price': data.get('price'), 'promo': promo,
                                     'image': f'{s.RESOURCES_PATH}/{_name}/product_images/{name}.png'}})
@@ -180,6 +178,8 @@ def clean_data(s: BaseSupermarket) -> None:
             file.close()
 
 def query_items(query: str, supermarket_name: str = None) -> dict[str]:
+    from ...models import Supermarket as SupermarketModel, Product
+    
     products = Product.objects
     supermarket = SupermarketModel.objects
 

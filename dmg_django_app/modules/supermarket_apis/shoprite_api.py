@@ -10,17 +10,17 @@ class Shoprite(BaseSupermarket):
 	def __init__(self):
 		super().__init__()
 		self.identifier = 40
-		self.__query_page = 'https://www.shoprite.co.za/search/all?q=item'
+		self.__query_page = 'https://www.shoprite.co.za'
 		self.__home_page = 'https://www.shoprite.co.za/c-2256/All-Departments'
 		self.__name = 'Shoprite'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
 			'product_name': 'div.item-product__details > h3.item-product__name > a',
 			'product_price': 'span.now',
+			'product_image': 'figure.item-product__content > div.item-product__image > a > img',
 			'body': 'body.page-productGrid',
 			'product_promo': 'div.item-product__details > span.item-product__valid',
-			'next_button': 'ul.pagination.pull-right > li.pagination-next > a',
-			'browse_nav': '#BrowseProductsNavNodeEntry > a'
+			'next_button': 'ul.pagination.pull-right > li.pagination-next > a'
 		}	
 
 	def get_supermarket_name(self) -> str:
