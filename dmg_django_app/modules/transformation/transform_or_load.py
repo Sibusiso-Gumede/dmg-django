@@ -6,6 +6,7 @@ from PIL import Image, UnidentifiedImageError
 from os import path, listdir
 from ..supermarket_apis import BaseSupermarket
 from .receipt_renderer import ReceiptRenderer, base64
+from ..common import DEFAULT_PRODUCT_IMAGE
 
 TITLE_LENGTH: int = 30
 
@@ -84,7 +85,7 @@ def resize_image(image: Image):
 
 def store_supermarket_records(supermarket: BaseSupermarket) -> None:
     from ...models import Supermarket as SupermarketModel, Product
-    
+
     print("Storing products in database.")
     _name = supermarket.get_supermarket_name().lower()
     products: dict = {}
@@ -193,20 +194,34 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
         # product autosuggestion.
         if supermarket_name:
             for p in products:
-                if (not (p.discounted_price == 'R0.00')) and check_for_bargain(p.promotion):
-                    buffer.update({p.name: {'price': p.discounted_price, 'promo': p.promotion}})
+                if not (p.discounted_price == 'R0.00'):
+                    price = p.discounted_price
                 else:
-                    buffer.update({p.name: {'price': p.price, 'promo': None}})
+                    price = p.price
+                if check_for_bargain(p.promotion):
+                    promotion = p.promotion
+                else:
+                    promotion = None
+                buffer.update({p.name: {'price': price, 'promo': promotion}})
         # discounted products.
         else:
             for s in supermarket.all():
                 buffer2: dict[str] = {}
                 for p in products:
                     if s.id == p.supermarket_id:
-                        if (not (p.discounted_price == 'R0.00')) and check_for_bargain(p.promotion):
-                            buffer2.update({p.name: {'price': p.discounted_price, 'image': p.image, 'promo': p.promotion}})
+                        if not (p.discounted_price == 'R0.00'):
+                            price = p.discounted_price
                         else:
-                            buffer2.update({p.name: {'price': p.price, 'image': p.image, 'promo': None}})
+                            price = p.price
+                        if check_for_bargain(p.promotion):
+                            promotion = p.promotion
+                        else:
+                            promotion = None
+                        if not p.image:
+                            image = p.image
+                        else:
+                            image = DEFAULT_PRODUCT_IMAGE
+                        buffer2.update({p.name: {'price': price, 'image': image, 'promo': promotion}})
                 if buffer2:
                     buffer.update({s.name: buffer2})
         return buffer        
