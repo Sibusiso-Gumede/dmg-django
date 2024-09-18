@@ -19,25 +19,6 @@ class Supermarket(models.Model):
         verbose_name_plural = "supermarkets"
         db_table = "Supermarkets"
 
-class Category(models.Model):
-    """A product category entity."""
-    id = models.CharField(primary_key=True,
-                            unique=True,
-                            max_length=20,
-                            help_text="The category ID")
-    name = models.CharField(max_length=30, unique=True,
-                            help_text="Category name")
-    num_of_products = models.PositiveIntegerField(
-                        help_text="Number of products in the category")
-
-    def __str__(self) -> str:
-        return f"{self.name}"
-    
-    class Meta:
-        ordering = ["name"]
-        verbose_name_plural = "categories"
-        db_table = "Categories"
-
 class Product(models.Model):
     """A product entity.""" 
     id = models.PositiveIntegerField(primary_key=True,
@@ -46,7 +27,7 @@ class Product(models.Model):
     price = models.CharField(max_length=50, default="R0.00")
     discounted_price = models.CharField(max_length=10, default=None)
     promotion = models.CharField(max_length=100, default=None)
-    img_path = models.TextField(max_length=100, default=None)
+    image = models.TextField(max_length=1000, default=None, null=True)
     supermarket = models.ForeignKey(Supermarket, on_delete=models.CASCADE)
 
     def __str__(self) -> str:

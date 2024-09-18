@@ -203,11 +203,10 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                 buffer2: dict[str] = {}
                 for p in products:
                     if s.id == p.supermarket_id:
-                        image = base64.b64encode(Image.open(p.image).tobytes()).decode('ascii')
                         if (not (p.discounted_price == 'R0.00')) and check_for_bargain(p.promotion):
-                            buffer2.update({p.name: {'price': p.discounted_price, 'image': image, 'promo': p.promotion}})
+                            buffer2.update({p.name: {'price': p.discounted_price, 'image': p.image, 'promo': p.promotion}})
                         else:
-                            buffer2.update({p.name: {'price': p.price, 'image': image, 'promo': None}})
+                            buffer2.update({p.name: {'price': p.price, 'image': p.image, 'promo': None}})
                 if buffer2:
                     buffer.update({s.name: buffer2})
         return buffer        

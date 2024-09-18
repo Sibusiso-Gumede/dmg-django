@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^+14jkhqdla@uy7h@t4s-(e@w^grvacmr4&y^ngin)ajq)t7_9'
+SECRET_KEY = os.environ.get('DMG_KEY')
 
 # Google Maps API Key.
 GOOGLE_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
@@ -83,17 +83,22 @@ WSGI_APPLICATION = 'dmg_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+DATABASES = {  
+    'default': {  
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/etc/mysql/my.cnf',
-            'isolation_level': 'read committed',
-        },
-        'TEST': {
-            'NAME': 'testdatabase',
-        }, 
-    }
+        'NAME': 'discount_my_groceries',  
+        'USER': 'root',  
+        'PASSWORD': 'S@ilth3wave$',  
+        'SOCKET': '/var/run/mysqld/mysqlx.sock',  
+        'PORT': '3306',    
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'isolation_level': 'read committed'  
+        }  
+    },
+    'TEST': {
+        'NAME': 'testdatabase'
+    }   
 }
 
 # Password validation
@@ -131,7 +136,7 @@ USE_TZ = True
 
 STATIC_URL =  '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static/'
+    BASE_DIR / 'staticfiles/'
 ]
 
 # Default primary key field type

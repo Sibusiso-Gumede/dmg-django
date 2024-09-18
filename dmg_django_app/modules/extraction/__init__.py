@@ -1,2 +1,2 @@
 from .headless_browser import Scraper
-from .scrape import scrape
+from .extract import scrape
