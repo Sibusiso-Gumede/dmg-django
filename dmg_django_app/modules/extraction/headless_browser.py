@@ -1,6 +1,5 @@
 # The extraction component of the ETL pipeline.
-# The scrape_products method collects product data from all supermarkets
-# and prepares it for database storage.
+# The scrape_products method collects product data from the specified supermarket and prepares it for database storage.
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -19,7 +18,7 @@ import json, traceback
 class Scraper():
     def __init__(self, s: BaseSupermarket) -> None:
         self.chromeOptions = webdriver.ChromeOptions()
-        prefs = {"profile.default_content_setting_values.geolocation" :2}
+        prefs = {"profile.default_content_setting_values.geolocation": 2}
         self.chromeOptions.add_experimental_option('prefs', prefs)
         #self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
@@ -49,6 +48,7 @@ class Scraper():
         print('\nScraping product list', end="...")
 
         if (self.supermarket_name == Supermarkets.CHECKERS) or (self.supermarket_name == Supermarkets.SHOPRITE):
+            # Remove obstructing navigation bar to screenshot the product images.
             self.driver.execute_script(f"""document.querySelector('main[data-currency-iso-code="ZAR"] > header.header.js-mainHeader').remove();""")                         
             sleep(5)
 
@@ -109,16 +109,12 @@ class Scraper():
                 else:
                     promo = None
                 
-                if image_element and (not self.__image_exists(name)):
-                    filename = f'{self.supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}/product_images/{name}.png'
+                if image_element:
                     image_element.location_once_scrolled_into_view
                     sleep(1)
-                    if not path.isfile(filename):
-                        f = open(filename, 'xb')
-                        f.close()
-                        if not image_element.screenshot(filename):
-                            print('Image not saved.')
-                    image = filename
+                    image = image_element.screenshot_as_base64():
+                    if image is None:
+                        print('Image not saved.')
                 else:
                     image = None
                 
@@ -259,6 +255,3 @@ class Scraper():
             sleep(5)
             self.driver.execute_script("window.scrollBy(0,1000);")
             i += 1
-
-    def __image_exists(self, filename:str) -> bool:
-        return f'{filename}.png' in self.product_images
