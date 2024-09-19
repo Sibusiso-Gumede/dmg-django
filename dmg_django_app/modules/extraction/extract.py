@@ -6,7 +6,6 @@ django.setup()
 
 from . import Scraper
 
-
 def scrape(super):
     s = Scraper(super)
     s.scrape_products()

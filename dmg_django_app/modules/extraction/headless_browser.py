@@ -113,8 +113,6 @@ class Scraper():
                     image_element.location_once_scrolled_into_view
                     sleep(1)
                     image = image_element.screenshot_as_base64()
-                    if image is None:
-                        print('Image not saved.')
                 else:
                     image = None
                 

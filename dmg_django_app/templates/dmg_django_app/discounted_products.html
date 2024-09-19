@@ -8,6 +8,7 @@
     {% for supermarket, products in supermarkets.items %}
     <div class="supermarket-container">
         <h2>{{ supermarket }}</h2>
+        <table class="product-list">
         {% for title, data in products.items %}   
         <div class="found-product">
             <article>
@@ -21,6 +22,7 @@
             </article>
         </div>
         {% endfor %}
+        </table>
     </div>
     {% endfor %}
 {% elif not supermarkets.keys %}
