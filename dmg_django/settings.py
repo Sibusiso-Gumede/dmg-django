@@ -95,10 +95,7 @@ DATABASES = {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'isolation_level': 'read committed'  
         }  
-    },
-    'TEST': {
-        'NAME': 'testdatabase'
-    }   
+    }  
 }
 
 # Password validation
@@ -135,9 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL =  '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'staticfiles/'
-]
+STATIC_ROOT = BASE_DIR / 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

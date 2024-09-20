@@ -1,0 +1,53 @@
+.text-small {
+    font-size: 85%;
+}
+.form-control-dark {
+    border-color: var(--bs-gray);
+}
+.form-control-dark:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+.list-group button:focus {
+    background-color: #0d6efd;
+    outline: none;
+}
+.list-group button:hover {
+    background-color: #0d6efd;
+}
+#app-logo {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+/*#chart {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}*/
+@media only screen and (min-width: 350px) {
+    .supermarkets-container {
+        min-height: 500px;
+    }
+    #chart {
+        width: 350px;
+        height: 350px;
+    }
+    .app-logo-container {
+        width: 200px;
+        height: 150px;
+    }
+}
+@media only screen and (min-width: 996px) {
+    .supermarkets-container {
+        min-height: 700px;
+    }
+    #chart {
+        width: 750px;
+        height: 750px;
+    }
+    .app-logo-container {
+        width: 350px;
+        height: 300px;
+    }
+}

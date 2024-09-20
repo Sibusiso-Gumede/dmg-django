@@ -6,24 +6,32 @@
 <div class="results-container text-black" style="min-height:750px">
 {% if supermarkets.keys %}
     {% for supermarket, products in supermarkets.items %}
-    <div class="supermarket-container">
-        <h2>{{ supermarket }}</h2>
-        <table class="product-list">
-        {% for title, data in products.items %}   
-        <div class="found-product">
-            <article>
-                <div class="product-image">
-                    <img src="data:image/png;base64, {{ data.image }}" style="width:80px;height:80px;">
-                </div>      
-                <div class="product-details">
-                    <p class="product-title">{{ title }}</p>
-                    <p class="price">{{ data.price }}</p>
-                </div>
-            </article>
-        </div>
-        {% endfor %}
-        </table>
-    </div>
+    <h2>{{ supermarket }}</h2>
+    <table class="supermarket-products">
+        <thead>
+            <tr>
+                <th class="product-image"></th>
+                <th class="product-details"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for title, data in products.items %}
+            <tr class="product-list">
+                <td>
+                    <div class="product-image">
+                        <img src="data:image/png;base64, {{ data.image }}" style="width:80px;height:80px;">
+                    </div>
+                </td>
+                <td>          
+                    <div class="product-details d-inline-flex">
+                        <div><p class="product-title">{{ title }}</p></div>
+                        <div><p class="product-price">{{ data.price }}</p></div>
+                    </div>
+                </td>
+            </tr>    
+            {% endfor %}
+        </tbody>
+    </table>
     {% endfor %}
 {% elif not supermarkets.keys %}
     <div class="response-text p-5">

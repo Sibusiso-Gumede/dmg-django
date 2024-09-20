@@ -6,7 +6,7 @@ from PIL import Image, UnidentifiedImageError
 from os import path, listdir
 from ..supermarket_apis import BaseSupermarket
 from .receipt_renderer import ReceiptRenderer, base64
-from ..common import DEFAULT_PRODUCT_IMAGE
+from ...models import Supermarket as SupermarketModel, Product, Common
 
 TITLE_LENGTH: int = 30
 
@@ -84,7 +84,6 @@ def resize_image(image: Image):
     return image.crop((width/2, 0.5, width, height))
 
 def store_supermarket_records(supermarkets: list) -> None:
-    from ...models import Supermarket as SupermarketModel, Product, Common
     for supermarket in supermarkets:
         _name = supermarket.get_supermarket_name().lower()
         print(f"Storing {_name.capitalize()} fixtures in database.")
@@ -119,12 +118,7 @@ def store_supermarket_records(supermarkets: list) -> None:
                                     supermarket=supermarket_record, discounted_price=_discounted,
                                     image=details['image'])
             product_record.save()
-        print("Done.\n")
-
-    response = input("Store records of common values?(Y/N)")
-    if response == 'Y':
-        Common(name='Default Product Image', value=DEFAULT_PRODUCT_IMAGE).save()
-        print("Common record stored.")
+        print("Done.")
     print("Storage of records completed successfully.")
 
 def separate_prices(price: str) -> list[str]:
@@ -194,8 +188,6 @@ def clean_data(s: BaseSupermarket) -> None:
     print('complete.\n')
 
 def query_items(query: str, supermarket_name: str = None) -> dict[str]:
-    from ...models import Supermarket as SupermarketModel, Product
-    
     products = Product.objects
     supermarket = SupermarketModel.objects
 
@@ -235,7 +227,7 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                         if p.image:
                             image = p.image
                         else:
-                            image = DEFAULT_PRODUCT_IMAGE
+                            Common.objects.get(name='Default Product Image')
                         buffer2.update({p.name: {'price': price, 'image': image, 'promo': promotion}})
                 if buffer2:
                     buffer.update({s.name: buffer2})
@@ -269,7 +261,7 @@ def from_base64String_to_png(filename: str, resources_dir: str) -> None:
         json.dump(file_buffer, file)
 
 def check_for_bargain(promotion: str) -> bool:
-    bargain_substrings = ['FOR', 'Buy', 'for', 'Any', 'any']
+    bargain_substrings = ['FOR', 'Buy', 'BUY', 'for', 'Any', 'any']
     for sub in bargain_substrings:
         if sub in promotion:
             return True
