@@ -22,7 +22,6 @@ numpy
 packaging
 pandas
 Pillow
-psycopg
 pycodestyle
 pycparser
 PyMySQL

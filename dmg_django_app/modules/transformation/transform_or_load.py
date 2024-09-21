@@ -4,7 +4,6 @@ import json
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
 from os import path, listdir
-from ..supermarket_apis import BaseSupermarket
 from .receipt_renderer import ReceiptRenderer, base64
 from ...models import Supermarket as SupermarketModel, Product, Common
 
@@ -144,7 +143,7 @@ def organize_prices(_list:list[str]) -> dict[str]:
     else:
         return {"discounted":_list[1], "price": _list[0]}
 
-def clean_data(s: BaseSupermarket) -> None:
+def clean_data(s) -> None:
     _name = s.get_supermarket_name().lower()
     print(f'Cleaning {_name.capitalize()} fixtures...', end='')
     for _file in listdir(f'{s.RESOURCES_PATH}/{_name}/'):

@@ -1,0 +1,11 @@
+Django
+django-bootstrap-v5
+django-environ
+django-moderation
+asgiref
+gunicorn
+Pillow
+mysqlclient
+shiboken2
+whitenoise
+mod-wsgi

@@ -1,8 +1,9 @@
 from abc import ABC
+from ....dmg_django.settings import BASE_DIR
 
 class BaseSupermarket(ABC):
     """The base class for all supermarket classes."""
-    RESOURCES_PATH = '/home/workstation33/Documents/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
+    RESOURCES_PATH = BASE_DIR / 'dmg_django_app/resources'
 
     @classmethod
     def __init__(self):
