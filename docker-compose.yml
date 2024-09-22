@@ -3,7 +3,7 @@ version: '3.8'
 services:
   dmg_gunicorn:
     volumes:
-      - static:/static
+      - ./static:/static
     env_file:
       - .env
     build:
@@ -11,15 +11,19 @@ services:
     container_name: 'dmg_gunicorn_cont'
     ports:
       -"8000:8000"
+    depends_on:
+      - db
   nginx:
     build: ./nginx
-    container_name: 'nginx_cont'
+    container_name: 'dmg_nginx_cont'
     volumes:
-      - static:/static
+      - ./static:/static
     ports:
-      - "80:80"
+      - "8080:8080"
     depends_on:
       - dmg_gunicorn
-
-volumes:
-  static:
+  db:
+    image: mysql
+    container_name: 'dmg_mysql_cont'
+    volumes:
+      - /var/lib/mysql:var/lib/mysql_cont

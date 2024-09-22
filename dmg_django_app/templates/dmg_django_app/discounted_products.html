@@ -6,32 +6,37 @@
 <div class="results-container text-black" style="min-height:750px">
 {% if supermarkets.keys %}
     {% for supermarket, products in supermarkets.items %}
-    <h2>{{ supermarket }}</h2>
-    <table class="supermarket-products">
-        <thead>
-            <tr>
-                <th class="product-image"></th>
-                <th class="product-details"></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for title, data in products.items %}
-            <tr class="product-list">
-                <td>
-                    <div class="product-image">
-                        <img src="data:image/png;base64, {{ data.image }}" style="width:80px;height:80px;">
-                    </div>
-                </td>
-                <td>          
-                    <div class="product-details d-inline-flex">
-                        <div><p class="product-title">{{ title }}</p></div>
-                        <div><p class="product-price">{{ data.price }}</p></div>
-                    </div>
-                </td>
-            </tr>    
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="supermarket-heading text-center">
+        <h2>{{ supermarket }}</h2>
+    </div>
+    <div class="discounted-products-wrapper table-responsive">
+        <table class="table discounted-products mx-auto">
+            <thead>
+                <tr>
+                    <th class="product-image"></th>
+                    <th class="product-title"></th>
+                    <th class="product-price"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for title, data in products.items %}
+                <tr class="product-list">
+                    <td>
+                        <div class="product-image-wrapper border border dark">
+                            <img class="product-image" src="data:image/png;base64, {{ data.image }}" style="width:80px;height:80px;">
+                        </div>
+                    </td>
+                    <td>         
+                        <div class="product-title text-center ms-3 pe-2 overflow-auto" style="height:80px;">{{ title }}</div>
+                    </td>
+                    <td>
+                        <div class="product-price text-center" style="height:80px;""><strong>{{ data.price }}</strong></div>
+                    </td>
+                </tr>    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     {% endfor %}
 {% elif not supermarkets.keys %}
     <div class="response-text p-5">

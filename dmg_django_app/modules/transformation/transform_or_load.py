@@ -200,12 +200,13 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
         # product autosuggestion.
         if supermarket_name:
             for p in products:
-                if not (p.discounted_price == 'R0.00'):
+                if p.discounted_price != None:
                     price = p.discounted_price
                 else:
                     price = p.price
-                if check_for_bargain(p.promotion):
-                    promotion = p.promotion
+                if p.promotion:
+                    if check_for_bargain(p.promotion):
+                        promotion = p.promotion
                 else:
                     promotion = None
                 buffer.update({p.name: {'price': price, 'promo': promotion}})
@@ -215,12 +216,13 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                 buffer2: dict[str] = {}
                 for p in products:
                     if s.id == p.supermarket_id:
-                        if not (p.discounted_price == 'R0.00'):
+                        if p.discounted_price != None:
                             price = p.discounted_price
                         else:
                             price = p.price
-                        if check_for_bargain(p.promotion):
-                            promotion = p.promotion
+                        if p.promotion:
+                            if check_for_bargain(p.promotion):
+                                promotion = p.promotion
                         else:
                             promotion = None
                         if p.image:

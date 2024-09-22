@@ -1,12 +1,13 @@
 from PIL import Image, ImageFont, ImageDraw
 from io import BytesIO
+from dmg_django.settings import BASE_DIR
 import base64
 
 class ReceiptRenderer():
     
     def __init__(self, _items: dict[str]):
-        self.resources_path = '/home/workstation33/Documents/Development Environment/Projects/discount_my_groceries/dmg_django/dmg_django_app/resources'
         # Properties and settings.
+        self.resources_dir = f'{BASE_DIR.as_posix()}/dmg_django_app/resources'
         self.items: dict[str] = {}
         self.black_ink = (0,0,0)
         self.y_spacing = 30                             # vertical space between the entries.
@@ -27,7 +28,7 @@ class ReceiptRenderer():
         self.receipt_w, self.receipt_h = 240, 480
         self.barcode_height:int = 25
         self.divider = '--------------------------------------------'
-        self.text_font = ImageFont.truetype(f'{self.resources_path}/bitMatrix-A2.ttf')
+        self.text_font = ImageFont.truetype(f'{self.resources_dir}/bitMatrix-A2.ttf')
         self.edit: ImageDraw.ImageDraw
         self.__create_new_canvas()
         self.__set_items(_items)
@@ -113,7 +114,7 @@ class ReceiptRenderer():
         
         # Barcode.
         barcode_lm: int = 10
-        barcode = Image.open(f"{self.resources_path}/barcode.png").resize((int(220), self.barcode_height))
+        barcode = Image.open(f"{self.resources_dir}/barcode.png").resize((int(220), self.barcode_height))
         self.receipts[-1].alpha_composite(barcode, (barcode_lm, int(self.vertical_cursor)))
 
         # Credits.
@@ -138,7 +139,7 @@ class ReceiptRenderer():
                     self.items.update({title: data})
 
     def __create_new_canvas(self):
-        self.receipts.append(Image.open(f'{self.resources_path}/wrinkled-paper-texture.png').convert('RGBA').resize((self.receipt_w, self.receipt_h)))
+        self.receipts.append(Image.open(f'{self.resources_dir}/wrinkled-paper-texture.png').convert('RGBA').resize((self.receipt_w, self.receipt_h)))
         count = len(self.receipts)
         self.edit = ImageDraw.Draw(self.receipts[count-1], 'RGBA')
 

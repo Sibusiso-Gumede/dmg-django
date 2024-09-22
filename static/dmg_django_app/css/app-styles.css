@@ -15,21 +15,16 @@
 .list-group button:hover {
     background-color: #0d6efd;
 }
-#app-logo {
+#app-logo, #chart {
     object-fit: contain;
     height: 100%;
     width: 100%;
 }
-/*#chart {
-    object-fit: contain;
-    height: 100%;
-    width: 100%;
-}*/
 @media only screen and (min-width: 350px) {
     .supermarkets-container {
         min-height: 500px;
     }
-    #chart {
+    .chart-wrapper {
         width: 350px;
         height: 350px;
     }
@@ -42,7 +37,7 @@
     .supermarkets-container {
         min-height: 700px;
     }
-    #chart {
+    .chart-wrapper {
         width: 750px;
         height: 750px;
     }

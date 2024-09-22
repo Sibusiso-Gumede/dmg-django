@@ -186,7 +186,7 @@
 
             let item_total_price_field = document.createElement("td");
             item_total_price_field.className = "total-price";
-            item_total_price_field.innerText = selected_items.get(item.innerText);
+            item_total_price_field.innerText = selected_items.get(item.innerText).price;
 
             let item_delete_button = document.createElement("button");
             item_delete_button.setAttribute("class", "btn-close");
@@ -281,7 +281,7 @@
 
     function change_total_price(node) {
         let price = node.parentNode.parentNode.nextSibling;
-        price.innerText = "R" + (Number(selected_items.get(price.parentNode.className).substring(1)) * Number(node.value)).toFixed(2);
+        price.innerText = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2);
     }
 
     async function get_receipt() {
@@ -317,7 +317,7 @@
                 return response.json();
             }
             else {
-                throw new Error("Response error.");
+                throw new Error("Session Timeout.");
             }
         })
         .then((data) => {
