@@ -10,7 +10,7 @@
         <h2>{{ supermarket }}</h2>
     </div>
     <div class="discounted-products-wrapper table-responsive">
-        <table class="table discounted-products mx-auto">
+        <table class="table-sm discounted-products mx-auto">
             <thead>
                 <tr>
                     <th class="product-image"></th>
@@ -22,15 +22,20 @@
                 {% for title, data in products.items %}
                 <tr class="product-list">
                     <td>
-                        <div class="product-image-wrapper border border dark">
+                        <div class="product-image-wrapper border border dark" style="width:80px;height:80px;">
                             <img class="product-image" src="data:image/png;base64, {{ data.image }}" style="width:80px;height:80px;">
                         </div>
                     </td>
-                    <td>         
-                        <div class="product-title text-center ms-3 pe-2 overflow-auto" style="height:80px;">{{ title }}</div>
+                    <td> 
+                        <div class="product-title text-center overflow-auto" style="height:80px;">{{ title }}</div>
                     </td>
                     <td>
-                        <div class="product-price text-center" style="height:80px;""><strong>{{ data.price }}</strong></div>
+                        <div class="product-price text-center" style="height:80px;"">
+                            <strong>{{ data.price }}</strong>
+                            {% if data.promo %}
+                            <p>{{ data.promo }}</p>
+                            {% endif %}
+                        </div>
                     </td>
                 </tr>    
                 {% endfor %}

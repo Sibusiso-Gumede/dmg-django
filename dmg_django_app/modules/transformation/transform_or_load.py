@@ -3,7 +3,7 @@
 import json
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
-from os import path, listdir
+from os import path, listdir, makedirs
 from .receipt_renderer import ReceiptRenderer, base64
 from ...models import Supermarket as SupermarketModel, Product, Common
 
@@ -83,21 +83,29 @@ def resize_image(image: Image):
     return image.crop((width/2, 0.5, width, height))
 
 def store_supermarket_records(supermarkets: list) -> None:
+    import shutil
     for supermarket in supermarkets:
         _name = supermarket.get_supermarket_name().lower()
         print(f"Storing {_name.capitalize()} fixtures in database.")
-        products: dict = {}
-        for file_name in listdir(f'{supermarket.RESOURCES_PATH}/{_name}/'):
-            if('http' in file_name):
-                _file = open(f'{supermarket.RESOURCES_PATH}/{_name}/{file_name}', 'r')
-                products.update(dict(json.load(_file)))
-                _file.close()
+        
         print("Storing supermarket record...", end="")
         supermarket_record = SupermarketModel(id=supermarket.identifier,
                                             name=_name.capitalize(),
                                             num_of_products=len(products))
         supermarket_record.save()
         print("Done.")
+        
+        products: dict = {}
+        for file_name in listdir(f'{supermarket.RESOURCES_PATH}/{_name}/'):
+            if('http' in file_name):
+                _file = open(f'{supermarket.RESOURCES_PATH}/{_name}/{file_name}', 'r')
+                products.update(dict(json.load(_file)))
+                _file.close()
+                
+                # Store fixtures in old fixtures folder.
+                if not path.isdir('./old_fixtures'):
+                    makedirs('./old_fixtures')
+                shutil.move(f'./{file_name}', './old_fixtures/')
 
         print("Storing product records...", end="")
         supermarket_record = SupermarketModel.objects.get(name=_name.capitalize())
@@ -118,6 +126,7 @@ def store_supermarket_records(supermarkets: list) -> None:
                                     image=details['image'])
             product_record.save()
         print("Done.")
+
     print("Storage of records completed successfully.")
 
 def separate_prices(price: str) -> list[str]:
@@ -169,7 +178,7 @@ def clean_data(s) -> None:
                         price = data['price']
                     if (data.get('promo') != ""):
                         promo = data.get('promo')
-                elif (s.get_supermarket_name() == 'Makro') or (s.get_supermarket_name() == 'Woolies'):
+                elif (s.get_supermarket_name() == 'Makro') or (s.get_supermarket_name() == 'Woolworths'):
                     price = data['price'].replace(' ', '')
                     if (data['promo'] != "") and (data['promo'] != None):
                         promo = data['promo']

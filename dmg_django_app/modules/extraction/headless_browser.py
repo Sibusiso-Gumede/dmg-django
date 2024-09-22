@@ -11,7 +11,7 @@ from time import sleep
 from random import choice
 from ..supermarket_apis import BaseSupermarket
 from ..common import Supermarkets
-from os import path, listdir
+from os import path, listdir, makedirs
 from sys import exit
 import json, traceback
 
@@ -32,6 +32,7 @@ class Scraper():
         self.supermarket_name: str = s.get_supermarket_name()
         self.url_count: int = 0
         self.urls = list[str]
+        self.current_fixtures_dir:str = f'{self.supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}/current_fixtures'
 
         self.last_product: WebElement = None
         self.home_page: bool = True
@@ -124,8 +125,10 @@ class Scraper():
     def __populate_fixtures(self):
         print("Updating database fixtures", end="...")
 
+        if path.isdir(self.current_fixtures_dir):
+            makedirs(self.current_fixtures_dir)
         # Populate database fixtures.
-        output_file = f'{self.supermarket.RESOURCES_PATH}/{self.supermarket_name.lower()}/{self.driver.current_url.replace("/","#")}.json'
+        output_file = f'{self.current_fixtures_dir}/{self.driver.current_url.replace("/","#")}.json'
 
         with open(output_file, 'x') as o_file:
             json.dump(self.products_list, o_file, indent=4)
