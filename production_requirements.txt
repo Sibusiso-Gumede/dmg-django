@@ -6,6 +6,5 @@ asgiref
 gunicorn
 Pillow
 mysqlclient
-shiboken2
 whitenoise
 mod-wsgi

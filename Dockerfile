@@ -6,17 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Install development headers and libraries.
-RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
+RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers pkgconfig mariadb-dev apache2-dev
 
 # Update the pip manager to the latest version.
 RUN pip install --upgrade pip
-
-# Install app packages.
-COPY ./production_requirements.txt /app
-RUN pip install -r production_requirements.txt
-
-# Remove dev headers and libraries.
-RUN apk del .tmp
 
 # Set the working directory.
 RUN mkdir /app
@@ -27,16 +20,11 @@ WORKDIR /app
 # Copy files to the app.
 COPY . .
 
-# Create user.
-RUN adduser -D dmg_user
+# Install app packages.
+RUN pip install -r production_requirements.txt
 
-# Create alias dirs and set user permission.
-RUN mkdir -p /vol/web/static
-RUN chown _R user:dmg_user
-RUN chmod -R 755 /vol/web
-
-# Switch to user.
-USER dmg_user
+# Remove dev headers and libraries.
+RUN apk del .tmp
 
 # The script to initialize the app.
 ENTRYPOINT [ "sh", "/entrypoint.sh" ]
