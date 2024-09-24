@@ -3,11 +3,15 @@ services:
     image: mysql
     container_name: 'dmg_mysql_cont'
     environment:
-      - MYSQL_ROOT_PASSWORD=S@ilth3wave$
-      - MYSQL_DATABASE=discount_my_groceries
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_HOST=${DB_HOST}
+      - MYSQL_USER=${DB_USER}
     volumes:
       - /var/lib/mysql:/var/lib/mysql_cont
-    restart: always
+    ports:
+      - 3360:3306
+    
   dmg_gunicorn:
     volumes:
       - ./static:/static
@@ -17,15 +21,17 @@ services:
       context: .
     container_name: 'dmg_gunicorn_cont'
     ports:
-      - 8001:8001
+      - 8000:8000
     depends_on:
       - db
+
   nginx:
     build: ./nginx
     container_name: 'dmg_nginx_cont'
     volumes:
       - ./static:/static
     ports:
-      - 8080:8080
+      - 81:81
     depends_on:
       - dmg_gunicorn
+  

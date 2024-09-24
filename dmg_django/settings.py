@@ -21,16 +21,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DMG_KEY')
+SECRET_KEY = os.getenv('DMG_KEY')
 
 # Google Maps API Key.
-GOOGLE_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
+GOOGLE_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,19 +79,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dmg_django.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+
 
 DATABASES = {  
     'default': {  
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'discount_my_groceries',  
-        'USER': 'root',  
-        'PASSWORD': 'S@ilth3wave$',  
-        'SOCKET': '/var/run/mysqld/mysqlx.sock',  
-        'PORT': '3306',    
-        'OPTIONS': {  
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),  
+        'PASSWORD': os.getenv('DB_PASSWORD'),  
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'PROTOCOL': os.getenv('DB_PROTOCOL'),  
+        'OPTIONS': { 
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'isolation_level': 'read committed'  
         }  
