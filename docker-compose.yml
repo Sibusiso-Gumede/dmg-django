@@ -2,28 +2,35 @@ services:
   db:
     image: mysql
     container_name: 'dmg_mysql_cont'
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_HOST=${DB_HOST}
-      - MYSQL_USER=${DB_USER}
+      - MYSQL_PROTOCOL=${DB_PROTOCOL}
     volumes:
       - /var/lib/mysql:/var/lib/mysql_cont
     ports:
       - 3360:3306
-    
-  dmg_gunicorn:
+    healthcheck:
+      test: ['CMD', 'mysql', '--user=root', '--password=S@ilth3wave$', '--host=172.18.0.2', '--port=3306', '--protocol=TCP']
+      interval: 10s
+      retries: 2
+      timeout: 5s
+
+  dmg_app:
     volumes:
       - ./static:/static
     env_file:
       - .env
     build:
       context: .
-    container_name: 'dmg_gunicorn_cont'
+    container_name: 'dmg_app_cont'
     ports:
-      - 8000:8000
+      - 8001:8001
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   nginx:
     build: ./nginx
@@ -33,5 +40,4 @@ services:
     ports:
       - 81:81
     depends_on:
-      - dmg_gunicorn
-  
+      - dmg_app

@@ -5,6 +5,5 @@ django-moderation
 asgiref
 gunicorn
 Pillow
-PyMySQL
+mysqlclient
 whitenoise
-mod-wsgi

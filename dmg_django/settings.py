@@ -26,12 +26,10 @@ SECRET_KEY = os.getenv('DMG_KEY')
 # Google Maps API Key.
 GOOGLE_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -81,8 +79,6 @@ WSGI_APPLICATION = 'dmg_django.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-
 
 DATABASES = {  
     'default': {  
