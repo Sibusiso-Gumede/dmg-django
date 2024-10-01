@@ -9,7 +9,7 @@ services:
       - MYSQL_HOST=${DB_HOST}
       - MYSQL_PROTOCOL=${DB_PROTOCOL}
     volumes:
-      - /var/lib/mysql:/var/lib/mysql_cont
+      - database:/var/lib/mysql_cont
     ports:
       - 3360:3306
     healthcheck:
@@ -20,7 +20,7 @@ services:
 
   dmg_app:
     volumes:
-      - ./static:/static
+      - static:/app/static/
     env_file:
       - .env
     build:
@@ -36,8 +36,12 @@ services:
     build: ./nginx
     container_name: 'dmg_nginx_cont'
     volumes:
-      - ./static:/static
+      - static:/static/
     ports:
       - 81:81
     depends_on:
       - dmg_app
+
+volumes:
+  static:
+  database:
