@@ -29,7 +29,7 @@ GOOGLE_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.244.236.46', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -128,7 +128,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL =  '/static/'
-STATIC_ROOT = f'{BASE_DIR.as_posix()}/static/'
+STATIC_ROOT = os.path.join(BASE_DIR.as_posix(), 'static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
