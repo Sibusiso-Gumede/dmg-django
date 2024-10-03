@@ -87,8 +87,7 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),  
         'PASSWORD': os.getenv('DB_PASSWORD'),  
         'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
-        'PROTOCOL': os.getenv('DB_PROTOCOL'),  
+        'PORT': os.getenv('DB_PORT'),  
         'OPTIONS': { 
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'isolation_level': 'read committed'  
