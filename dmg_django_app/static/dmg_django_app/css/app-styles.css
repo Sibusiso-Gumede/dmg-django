@@ -15,12 +15,7 @@
 .list-group button:hover {
     background-color: #0d6efd;
 }
-#app-logo {
-    object-fit: contain;
-    height: 100%;
-    width: 100%;
-}
-#chart {
+#app-logo, #chart {
     object-fit: contain;
     height: 100%;
     width: 100%;
@@ -44,10 +39,13 @@
     }
     .chart-wrapper {
         width: 750px;
-        height: 500px;
+        height: 750px;
     }
     .app-logo-container {
         width: 350px;
         height: 300px;
+    }
+    .footer-text-2, .footer-text-3 {
+        display: inline;
     }
 }
