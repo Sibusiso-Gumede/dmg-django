@@ -45,4 +45,7 @@
         width: 350px;
         height: 300px;
     }
+    .footer-text-2, .footer-text-3 {
+        display: inline;
+    }
 }
