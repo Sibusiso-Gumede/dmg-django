@@ -27,9 +27,9 @@ SECRET_KEY = os.getenv('DMG_KEY')
 GOOGLE_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.getenv('DMG_APP_DEBUG_MODE')))
 
-ALLOWED_HOSTS = ['13.244.236.46', '127.0.0.1']
+ALLOWED_HOSTS = [os.getenv('APP_HOST')]
 
 # Application definition
 INSTALLED_APPS = [
