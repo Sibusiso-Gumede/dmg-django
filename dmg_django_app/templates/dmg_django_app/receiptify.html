@@ -294,7 +294,7 @@
             info["quantity"] = quantity;
             info["total_price"] = entry.querySelector(".total-price").innerText;
             if(quantity != '1')
-                info["cost_of_item"] = selected_items.get(entry.className);
+                info["cost_of_item"] = selected_items.get(entry.className).price;
             items[entry.className] = info;
         }
 
