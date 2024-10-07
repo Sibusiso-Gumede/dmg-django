@@ -9,27 +9,33 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
-from pathlib import Path
+import environ
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env(
+    # Set casting, default value.
+    DEBUG=(bool, False)
+)
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
+# Read environment variables from .env file.
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DMG_KEY')
+SECRET_KEY = env('DMG_KEY')
 
 # Google Maps API Key.
-GOOGLE_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+GOOGLE_API_KEY = env('GOOGLE_MAPS_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.getenv('DMG_APP_DEBUG_MODE')))
+DEBUG = bool(env('DMG_APP_DEBUG_MODE'))
 
-ALLOWED_HOSTS = [os.getenv('APP_HOST')]
+ALLOWED_HOSTS = [env('APP_HOST')]
 
 # Application definition
 INSTALLED_APPS = [
@@ -80,19 +86,19 @@ WSGI_APPLICATION = 'dmg_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {  
-    'default': {  
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),  
-        'PASSWORD': os.getenv('DB_PASSWORD'),  
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),  
-        'OPTIONS': { 
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
+        'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'isolation_level': 'read committed'  
-        }  
-    }  
+            'isolation_level': 'read committed'
+        }
+    }
 }
 
 # Password validation
@@ -128,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL =  '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR.as_posix(), 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
