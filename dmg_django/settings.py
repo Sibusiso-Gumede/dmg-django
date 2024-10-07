@@ -36,6 +36,8 @@ GOOGLE_API_KEY = env('GOOGLE_MAPS_API_KEY')
 DEBUG = bool(env('DMG_APP_DEBUG_MODE'))
 
 ALLOWED_HOSTS = [env('APP_HOST')]
+if DEBUG:
+    ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 INSTALLED_APPS = [

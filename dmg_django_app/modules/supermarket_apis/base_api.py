@@ -3,7 +3,7 @@ from dmg_django.settings import BASE_DIR
 
 class BaseSupermarket(ABC):
     """The base class for all supermarket classes."""
-    RESOURCES_PATH = f'{BASE_DIR.as_posix()}/dmg_django_app/resources'
+    RESOURCES_PATH = f'{BASE_DIR}/dmg_django_app/resources'
 
     @classmethod
     def __init__(self):
