@@ -4,10 +4,10 @@ from dmg_django.settings import BASE_DIR
 import base64
 
 class ReceiptRenderer():
-    
+
     def __init__(self, _items: dict[str]):
         # Properties and settings.
-        self.resources_dir = f'{BASE_DIR.as_posix()}/dmg_django_app/resources'
+        self.resources_dir = f'{BASE_DIR}/dmg_django_app/resources'
         self.items: dict[str] = {}
         self.black_ink = (0,0,0)
         self.y_spacing = 30                             # vertical space between the entries.
@@ -63,7 +63,7 @@ class ReceiptRenderer():
         for (name, data) in self.items.items():
             if count > 0:
                 self.__move_cursor(self.grouped_entries_space, "is")
-            
+
             # item quantity and name.
             self.edit.text((self.body_lm_rm[0], self.vertical_cursor), name, self.black_ink, self.text_font, align='left', direction='ltr')
             if data.get('quantity') != '1':
@@ -89,7 +89,7 @@ class ReceiptRenderer():
         self.__move_cursor(self.y_spacing, "is")
         tax_inv_divider = '-----------------TAX INVOICE----------------'
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), tax_inv_divider, self.black_ink, self.text_font, align='center', direction='ltr')
-        
+
         # Calculate tax.
         self.__move_cursor(self.grouped_entries_space, "is")
         vat_value = round(total_amount * 0.15, 2)
@@ -104,14 +104,14 @@ class ReceiptRenderer():
         if self.vertical_cursor > self.items_limit:
             self.__reset_cursor()
             self.__create_new_canvas()
-        
+
         # Footer divider.
         self.__move_cursor(self.y_spacing, "fs")
         self.edit.text((self.body_lm_rm[0], self.vertical_cursor), self.divider, self.black_ink, self.text_font, align='center', direction='ltr')
-        
+
         # Footer.
-        self.__move_cursor(self.grouped_entries_space, "fs")    
-        
+        self.__move_cursor(self.grouped_entries_space, "fs")
+
         # Barcode.
         barcode_lm: int = 10
         barcode = Image.open(f"{self.resources_dir}/barcode.png").resize((int(220), self.barcode_height))
@@ -120,7 +120,7 @@ class ReceiptRenderer():
         # Credits.
         self.__move_cursor(self.barcode_height+5)
         credits_top_border = self.vertical_cursor
-        footer_text = 'CREATED BY\nSIBUSISO J. GUMEDE'        
+        footer_text = 'CREATED BY\nSIBUSISO J. GUMEDE'
         self.edit.multiline_text((self.footer_lm, credits_top_border), footer_text, self.black_ink, self.text_font, spacing=4, align='center', direction='ltr')
 
     def __move_cursor(self, amount: float, area: str = None):
@@ -155,20 +155,20 @@ class ReceiptRenderer():
         elif units == 5:
             price_margin -= 10
         return price_margin
-    
+
     def __shorten_string(self, s:str) -> str:
         '''Returns a shorter version of a string provided the maximum
             length.'''
         formatted: str = ""
         count: int = 0
-        
+
         # find the position of the first digit in the string.
         while count < len(s):
             if s[count].isdigit():
                 break
             count += 1
 
-        # remove the rest of the string starting from the first 
+        # remove the rest of the string starting from the first
         # digit found.
         formatted = s[:count]
 
@@ -182,16 +182,16 @@ class ReceiptRenderer():
 
         # find the last term of the formatted string.
         # ascertain that it meets the required format constraints.
-        # the constraints are: a string should not end with a 
+        # the constraints are: a string should not end with a
         # prepostion or it's last term should not be partial.
         while True:
             if (formatted_terms[-1] in restricted) or (not (formatted_terms[-1] == s.split(' ')[len(formatted_terms)-1])):
                 formatted_terms.pop()
                 formatted = ' '.join(formatted_terms)
             else:
-                break            
+                break
         return formatted
-    
+
     def __encode_images(self) -> dict[str]:
         encoded_images:dict[str] = {}
         count:int = 1
@@ -199,7 +199,7 @@ class ReceiptRenderer():
             encoded_images.update({count: base64.b64encode(image).decode('ascii')})
             count += 1
         return encoded_images
-    
+
     def __test_area(self):
         if self.vertical_cursor > self.items_limit:
             self.__reset_cursor()
