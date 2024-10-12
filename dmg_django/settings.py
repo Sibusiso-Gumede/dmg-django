@@ -35,7 +35,7 @@ GOOGLE_API_KEY = env('GOOGLE_MAPS_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = env('DMG_APP_DEBUG_MODE')
 
-ALLOWED_HOSTS = [env('APP_HOST')]
+ALLOWED_HOSTS = [env('APP_HOST'), 'discountmygroceries.today']
 
 # Application definition
 INSTALLED_APPS = [
