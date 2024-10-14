@@ -258,10 +258,10 @@
         }
 
         if(selected_items.size === 0) {
-            if(!(get_receipt_button.classList.contains('invisible')))
+            if(!(get_receipt_button.classList.contains('invisible') || (table.classList.contains('invisible')))) {
                 get_receipt_button.classList.toggle('invisible');
-            if(!(table.classList.contains('invisible')))
                 table.classList.toggle('invisible');
+            }
         }
     }
 
