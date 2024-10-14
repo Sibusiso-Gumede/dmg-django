@@ -15,10 +15,11 @@
 .list-group button:hover {
     background-color: #0d6efd;
 }
-#app-logo, #chart {
+#app-logo {
     object-fit: contain;
     height: 100%;
     width: 100%;
+    background-color: #fff;
 }
 @media only screen and (min-width: 350px) {
     .supermarkets-container {
