@@ -15,11 +15,18 @@
 .list-group button:hover {
     background-color: #0d6efd;
 }
-#app-logo {
+.chart-wrapper {
+    box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+    margin-top: 1.6em;
+    margin-bottom: 0.9em;
+    overflow: hidden;
+    border-radius: 8px;
+    will-change: transform;
+}
+#app-logo, #chart {
     object-fit: contain;
     height: 100%;
     width: 100%;
-    background-color: #fff;
 }
 @media only screen and (min-width: 350px) {
     .supermarkets-container {
@@ -33,14 +40,18 @@
         width: 200px;
         height: 150px;
     }
+    .map-wrapper {
+        width: 350px;
+        height: 350px;
+    }
 }
 @media only screen and (min-width: 996px) {
     .supermarkets-container {
         min-height: 700px;
     }
     .chart-wrapper {
-        width: 750px;
-        height: 750px;
+        width: 665px;
+        height: 500px;
     }
     .app-logo-container {
         width: 350px;
@@ -48,5 +59,9 @@
     }
     .footer-text-2, .footer-text-3 {
         display: inline;
+    }
+    .map-wrapper {
+        width: 750px;
+        height: 750px;
     }
 }
