@@ -66,6 +66,7 @@ class Scraper():
 
         if (self.supermarket_name == Supermarkets.MAKRO) and (not self.home_page) and self.last_product:
             products = products[products.index(self.last_product)+1:]
+            products[0].location_once_scrolled_into_view
 
         for product in products:
             prod_count += 1
