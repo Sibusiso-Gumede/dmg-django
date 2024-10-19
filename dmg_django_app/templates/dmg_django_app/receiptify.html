@@ -161,7 +161,7 @@
             }
         }
         else {
-            autosuggestion_body.appendChild(document.createTextNode("No item found."));
+            autosuggestion_body.appendChild(document.createTextNode("No item(s) found."));
         }
         autosuggestion.className = "collapse show";
     }
@@ -198,7 +198,7 @@
             item_delete_button_field.append(item_delete_button);
 
             let item_quantity_wrapper = document.createElement("div");
-            item_quantity_wrapper.setAttribute("class", "item-quantity d-inline-flex");
+            item_quantity_wrapper.setAttribute("class", "item-quantity d-inline-flex border border-black");
             item_quantity_wrapper.setAttribute("style", "width:130px");
             
             let item_quantity_minus_button = document.createElement("button");
@@ -221,11 +221,30 @@
             item_quantity_plus_button.setAttribute("type", "button"); 
             item_quantity_plus_button.setAttribute("style", "width:40px");
             item_quantity_plus_button.setAttribute("onclick", "change_product_quantity(this)");
-            item_quantity_plus_button.innerText = "+";           
+            item_quantity_plus_button.innerText = "+";
 
             item_quantity_wrapper.append(item_quantity_minus_button);
             item_quantity_wrapper.append(item_quantity_input);
             item_quantity_wrapper.append(item_quantity_plus_button);
+
+            if(selected_items.get(item.innerText).promo != null) {
+                let product_promotion = selected_items.get(item.innerText).promo.replace(' (Smart Price)');
+                if(product_promotion.contains('Buy ')) {
+                    if(product_promotion.contains('Buy Any ')) {
+                        product_promotion = product_promotion.replace('Buy Any ', '');
+                    }
+                    else {
+                        product_promotion = product_promotion.replace('Buy ', '');
+                    }
+                }
+
+                let promotion_container = document.createElement('div');
+                promotion_container.setAttribute('class', 'promotion-container');
+                promotion_container.innerText = product_promotion;
+                promotion_container.setAttribute('style', 'justify-text: center; text-color: green; width: 100%');
+
+                item_quantity_wrapper.append(promotion_container);
+            }
             
             let item_quantity_field = document.createElement("td");
             item_quantity_field.append(item_quantity_wrapper);
@@ -267,7 +286,7 @@
 
     function change_product_quantity(button) {
         if(button.className.includes("minus")) {
-            const quantity = Number(button.nextSibling.value);
+            let quantity = Number(button.nextSibling.value);
             if(quantity > 1) {
                 button.nextSibling.value = quantity - 1;
                 change_total_price(button.nextSibling);
@@ -282,6 +301,9 @@
     function change_total_price(node) {
         let price = node.parentNode.parentNode.nextSibling;
         price.innerText = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2);
+        if(node.parentNode.querySelector('.promotion-container') != null) {
+            node.parentNode.querySelector('.promotion-container') //continue...
+        }
     }
 
     async function get_receipt() {
