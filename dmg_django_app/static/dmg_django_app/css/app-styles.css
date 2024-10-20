@@ -1,20 +1,25 @@
 .text-small {
     font-size: 85%;
 }
+
 .form-control-dark {
     border-color: var(--bs-gray);
 }
+
 .form-control-dark:focus {
     border-color: #fff;
     box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
 }
+
 .list-group button:focus {
     background-color: #0d6efd;
     outline: none;
 }
+
 .list-group button:hover {
     background-color: #0d6efd;
 }
+
 .chart-wrapper {
     box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
     margin-top: 1.6em;
@@ -23,11 +28,13 @@
     border-radius: 8px;
     will-change: transform;
 }
+
 #app-logo, #chart {
     object-fit: contain;
     height: 100%;
     width: 100%;
 }
+
 @media only screen and (min-width: 350px) {
     .supermarkets-container {
         min-height: 500px;
@@ -45,6 +52,7 @@
         height: 350px;
     }
 }
+
 @media only screen and (min-width: 996px) {
     .supermarkets-container {
         min-height: 700px;
@@ -64,4 +72,13 @@
         width: 750px;
         height: 750px;
     }
+    .item-quantity-wrapper {
+        padding-left: 30%;
+    }
+}
+
+.promotion-container {
+    text-align: center;
+    color: green;
+    width: 100%';
 }

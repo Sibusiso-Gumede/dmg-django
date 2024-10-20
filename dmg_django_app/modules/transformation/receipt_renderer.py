@@ -71,8 +71,13 @@ class ReceiptRenderer():
                 self.edit.text((80.00, self.vertical_cursor), f"{data.get('quantity')} @ {data.get('cost_of_item')}", self.black_ink, self.text_font, align='center', direction='ltr')
 
             # item price.
-            self.edit.text((self.__get_price_margin(data.get('total_price')), self.vertical_cursor), data.get('total_price'), self.black_ink, self.text_font, align='right', direction='ltr')
-            total_amount += float(data.get('total_price')[1:]) # remove R
+            total_price:str = data.get('total_price')
+            # if there are two prices then use the less one.
+            if total_price.count('R') > 1:
+                total_price = total_price[total_price.rfind('R'):]
+            self.edit.text((self.__get_price_margin(total_price), self.vertical_cursor), total_price, self.black_ink, self.text_font, align='right', direction='ltr')
+            
+            total_amount += float(total_price[1:]) # remove R
             count += 1
 
         # Total cost.

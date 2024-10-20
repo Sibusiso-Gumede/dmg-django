@@ -198,8 +198,8 @@
             item_delete_button_field.append(item_delete_button);
 
             let item_quantity_wrapper = document.createElement("div");
-            item_quantity_wrapper.setAttribute("class", "item-quantity d-inline-flex border border-black");
-            item_quantity_wrapper.setAttribute("style", "width:130px");
+            item_quantity_wrapper.setAttribute("class", "item-quantity-wrapper d-inline-flex");
+            item_quantity_wrapper.setAttribute("style", "min-width:130px");
             
             let item_quantity_minus_button = document.createElement("button");
             item_quantity_minus_button.setAttribute("class", "minus-btn btn btn-danger");
@@ -227,27 +227,29 @@
             item_quantity_wrapper.append(item_quantity_input);
             item_quantity_wrapper.append(item_quantity_plus_button);
 
+            let item_quantity_field = document.createElement("td");
+            item_quantity_field.setAttribute('class', 'item-quantity-field');
+            item_quantity_field.append(item_quantity_wrapper);
+
             if(selected_items.get(item.innerText).promo != null) {
-                let product_promotion = String(selected_items.get(item.innerText).promo.replace(' (Smart Price)', ''));
-                if(product_promotion.includes('Buy ')) {
+                let product_promotion = String(selected_items.get(item.innerText).promo);
+                if(product_promotion.includes('For ')) {
+                    product_promotion = product_promotion.replace(' (Smart Price)', '');
+
                     if(product_promotion.includes('Buy Any ')) {
                         product_promotion = product_promotion.replace('Buy Any ', '');
                     }
                     else {
                         product_promotion = product_promotion.replace('Buy ', '');
                     }
+
+                    let promotion_container = document.createElement('p');
+                    promotion_container.setAttribute('class', 'promotion-container');
+                    promotion_container.innerText = product_promotion;
+
+                    item_quantity_field.append(promotion_container);
                 }
-
-                let promotion_container = document.createElement('div');
-                promotion_container.setAttribute('class', 'promotion-container');
-                promotion_container.innerText = product_promotion;
-                promotion_container.setAttribute('style', 'justify-text: center; text-color: green; width: 100%');
-
-                item_quantity_wrapper.append(promotion_container);
             }
-            
-            let item_quantity_field = document.createElement("td");
-            item_quantity_field.append(item_quantity_wrapper);
 
             item_row.append(item_number_field);
             item_row.append(item_name_field);
@@ -300,14 +302,20 @@
 
     function change_total_price(node) {
         let price = node.parentNode.parentNode.nextSibling;
+        let price_buffer = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2);
+    
+        if(node.parentNode.parentNode.querySelector('.promotion-container') != null) {
+            let promotion = node.parentNode.parentNode.querySelector('.promotion-container').innerText;
 
-        if(node.parentNode.querySelector('.promotion-container') != null) {
-            let promotion = node.parentNode.querySelector('.promotion-container').innerText;
-            if(promotion[0] === node.value)
-                price.innerHTML = '<strike>' + price.innerHTML + '</strike>' + '<br/>' + promotion.slice(6);
+            if((promotion[0] === node.value) && (!price.innerHTML.includes('<strike>')))
+                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion.slice(6);
+            else if((promotion[0] === node.value) && (price.innerHTML.includes('<strike>')))
+                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion.slice(6);
+            else
+                price.innerHTML = price_buffer;
         }
         else
-            price.innerHTML = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2); 
+            price.innerHTML = price_buffer; 
     }
 
     async function get_receipt() {
