@@ -186,7 +186,7 @@
 
             let item_total_price_field = document.createElement("td");
             item_total_price_field.className = "total-price";
-            item_total_price_field.innerText = selected_items.get(item.innerText).price;
+            item_total_price_field.innerHTML = selected_items.get(item.innerText).price;
 
             let item_delete_button = document.createElement("button");
             item_delete_button.setAttribute("class", "btn-close");
@@ -228,9 +228,9 @@
             item_quantity_wrapper.append(item_quantity_plus_button);
 
             if(selected_items.get(item.innerText).promo != null) {
-                let product_promotion = selected_items.get(item.innerText).promo.replace(' (Smart Price)');
-                if(product_promotion.contains('Buy ')) {
-                    if(product_promotion.contains('Buy Any ')) {
+                let product_promotion = String(selected_items.get(item.innerText).promo.replace(' (Smart Price)', ''));
+                if(product_promotion.includes('Buy ')) {
+                    if(product_promotion.includes('Buy Any ')) {
                         product_promotion = product_promotion.replace('Buy Any ', '');
                     }
                     else {
@@ -300,10 +300,14 @@
 
     function change_total_price(node) {
         let price = node.parentNode.parentNode.nextSibling;
-        price.innerText = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2);
+
         if(node.parentNode.querySelector('.promotion-container') != null) {
-            node.parentNode.querySelector('.promotion-container') //continue...
+            let promotion = node.parentNode.querySelector('.promotion-container').innerText;
+            if(promotion[0] === node.value)
+                price.innerHTML = '<strike>' + price.innerHTML + '</strike>' + '<br/>' + promotion.slice(6);
         }
+        else
+            price.innerHTML = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2); 
     }
 
     async function get_receipt() {
