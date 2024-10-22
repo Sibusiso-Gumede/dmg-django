@@ -184,11 +184,10 @@ def clean_data(s) -> None:
                         promo = data['promo']
                 else:
                     price = data['price']
-                if ((data['image'] != None) and (data['image'] != "")) and ('home' in data['image']):
-                    img = Image.open(data['image'].replace('Development Environment/', ''))
-                    array_bytes = BytesIO()
-                    img.save(array_bytes, 'png')
-                    image = base64.b64encode(array_bytes.getvalue()).decode('ascii')
+                if data['image'] == None:
+                    image = Common.objects.get(name='Default Product Image').value
+                else:
+                    image = data['image']
                 buffer.update({name: {'price': price, 'discounted_price': discounted, 'promo': promo,
                                         'image': image}})
             json.dump(buffer, file)

@@ -11,7 +11,7 @@ class PicknPay(BaseSupermarket):
 		super().__init__()
 		self.identifier = 30
 		self.__query_page = 'https://www.pnp.co.za/search/item'
-		self.__home_page = 'https://www.pnp.co.za/c/pnpbase?currentPage=8'
+		self.__home_page = 'https://www.pnp.co.za/c/pnpbase?currentPage=11'
 		self.__name = 'PicknPay'
 		self.__page_selectors = {
 			'product_list': 'div.cx-product-container > div > ui-product-grid-item[class="ng-star-inserted"]',
