@@ -240,7 +240,7 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                         buffer2.update({p.name: {'price': price, 'image': image, 'promo': promotion}})
                 if buffer2:
                     buffer.update({s.name: buffer2})
-        return buffer        
+        return find_best_match(buffer)        
     else:
         return dict()
     
@@ -275,3 +275,39 @@ def check_for_bargain(promotion: str) -> bool:
         if sub in promotion:
             return True
     return False
+
+def find_best_match(matches: dict[dict[str]]) -> dict[dict[str]]:
+    '''Returns a refined dictionary of products that match a query.'''
+    # Compare each product entry of a supermarket to the rest of the 
+    # other supermarket product entries in order to find the best match
+    # for the query.
+    best_matches = dict(dict[str])
+    buffer = matches # Make a copy of the container for comparison.
+    checked_entries = {}
+    mostly_occuring = '' # The product with the most occurences accross the different supermarkets.
+    highest = 0
+    for supermarket_name, products in matches.items():
+        buffer.pop(supermarket_name)
+        for product in products.keys():
+            if checked_entries.get(product) != None:
+                continue # If the product is already checked, skip it.
+            total_occurences = 1
+            # Check if the current product is in the other supermarkets.
+            for buffered_supermarket_name, buffered_products in buffer.items():           
+                if product in list(buffered_products.keys()):
+                    total_occurences += 1
+            checked_entries.update({product: total_occurences})
+        buffer.update({supermarket_name: products})
+    
+    # Assign the one with the highest occurences. 
+    for name, number in checked_entries.items():
+        if number > highest:
+            mostly_occuring = name
+            highest = number
+    
+    # Filter products.
+    for s_name, prods in matches.items():
+        if mostly_occuring in prods.keys():
+            best_matches.update({s_name: {mostly_occuring: prods.get(mostly_occuring)}})
+
+    return best_matches

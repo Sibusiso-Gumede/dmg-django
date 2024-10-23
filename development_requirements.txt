@@ -12,8 +12,6 @@ django-bootstrap-v5
 django-environ
 django-moderation
 fonttools
-googlemaps
-gunicorn
 idna
 kiwisolver
 lxml
@@ -47,4 +45,3 @@ typing_extensions
 tzdata
 urllib3
 webdriver-manager
-whitenoise
