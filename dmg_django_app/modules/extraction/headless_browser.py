@@ -20,7 +20,7 @@ class Scraper():
         self.chromeOptions = webdriver.ChromeOptions()
         prefs = {"profile.default_content_setting_values.geolocation": 2}
         self.chromeOptions.add_experimental_option('prefs', prefs)
-        #self.chromeOptions.add_argument('--headless')
+        self.chromeOptions.add_argument('--headless')
         self.chromeOptions.add_argument('--no-sandbox')
         self.chromeOptions.page_load_strategy = 'normal'
  
@@ -175,12 +175,12 @@ class Scraper():
             if self.home_page:
                 if (self.supermarket_name == Supermarkets.WOOLIES) or (self.supermarket_name == Supermarkets.MAKRO):
                     # Read urls in ascending order.
-                    self.driver.get(self.urls[len(self.urls)-self.url_count])
+                    self.driver.get(self.urls[self.url_count-1])
                     self.url_count -= 1
                     sleep(2.5)
                 elif not((self.supermarket_name == Supermarkets.WOOLIES) or (self.supermarket_name == Supermarkets.MAKRO)):
                     self.driver.get(self.supermarket.get_home_page_url())
-                    sleep(5)
+                    sleep(2.5)
                     if not((self.supermarket_name == Supermarkets.CHECKERS) or (self.supermarket_name == Supermarkets.SHOPRITE)):
                         try:
                             self.driver.execute_script('arguments[0].click();',
@@ -237,7 +237,7 @@ class Scraper():
                     self.home_page = True
                     page_number = 0
 
-            sleep(2)
+            sleep(1)
 
             # Update products list.
             if not(self.supermarket_name == Supermarkets.MAKRO) or ((self.supermarket_name == Supermarkets.MAKRO) and (not self.home_page)):
@@ -258,6 +258,6 @@ class Scraper():
     def __scroll_page(self, amount):
         i = 0
         while i < amount:
-            sleep(5)
+            sleep(2.5)
             self.driver.execute_script("window.scrollBy(0,1000);")
             i += 1

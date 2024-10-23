@@ -11,7 +11,7 @@ class Checkers(BaseSupermarket):
 		super().__init__()
 		self.identifier = 10
 		self.__query_page = 'https://www.checkers.co.za'
-		self.__home_page = 'https://www.checkers.co.za/c-2256/All-Departments'
+		self.__home_page = 'https://www.checkers.co.za/c-2256/All-Departments?q=%3Arelevance%3AbrowseAllStoresFacetOff%3AbrowseAllStoresFacetOff&page=53'
 		self.__name = 'Checkers'
 		self.__page_selectors = {
 			'product_list': 'div.item-product',
