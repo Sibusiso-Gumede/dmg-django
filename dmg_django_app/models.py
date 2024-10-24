@@ -23,7 +23,7 @@ class Product(models.Model):
     """A product entity.""" 
     id = models.PositiveIntegerField(primary_key=True,
         unique=True, help_text="Product ID")
-    name = models.CharField(max_length=150, help_text="The name of each product.")
+    name = models.CharField(max_length=500, help_text="The name of each product.")
     price = models.CharField(max_length=50, default=None)
     discounted_price = models.CharField(max_length=10, default=None, null=True)
     promotion = models.CharField(max_length=100, default=None, null=True)

@@ -139,7 +139,11 @@ class ReceiptRenderer():
             self.supermarket_logo = name.upper()
             for (title, data) in products.items():
                 if(not(len(title) <= self.TITLE_LENGTH)):
-                    self.items.update({self.__shorten_string(title): data})
+                    str_buf = self.__shorten_string(title)
+                    if str_buf not in self.items:
+                        self.items.update({str_buf: data})
+                    else:
+                        self.items.update({str_buf+'_': data})
                 else:
                     self.items.update({title: data})
 
