@@ -43,7 +43,7 @@ class DMGTestCase(TestCase):
 
     def models_test(self):
         q = input('Type item:\n>>>')
-        print(query_items(q))
+        print(query_items(q, 'Shoprite'))
 
     def receiptify_test(self):
         receipt(self.data)

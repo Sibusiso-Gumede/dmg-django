@@ -83,10 +83,16 @@ def resize_image(image: Image):
     return image.crop((width/2, 0.5, width, height))
 
 def store_supermarket_records(supermarkets: list) -> None:
-    import shutil
     for supermarket in supermarkets:
         _name = supermarket.get_supermarket_name().lower()
         print(f"Storing {_name.capitalize()} fixtures in database.")
+
+        products: dict = {}
+        for file_name in listdir(f'{supermarket.RESOURCES_PATH}/{_name}/'):
+            if('http' in file_name):
+                _file = open(f'{supermarket.RESOURCES_PATH}/{_name}/{file_name}', 'r')
+                products.update(dict(json.load(_file)))
+                _file.close()
         
         print("Storing supermarket record...", end="")
         supermarket_record = SupermarketModel(id=supermarket.identifier,
@@ -94,18 +100,6 @@ def store_supermarket_records(supermarkets: list) -> None:
                                             num_of_products=len(products))
         supermarket_record.save()
         print("Done.")
-        
-        products: dict = {}
-        for file_name in listdir(f'{supermarket.RESOURCES_PATH}/{_name}/'):
-            if('http' in file_name):
-                _file = open(f'{supermarket.RESOURCES_PATH}/{_name}/{file_name}', 'r')
-                products.update(dict(json.load(_file)))
-                _file.close()
-                
-                # Store fixtures in old fixtures folder.
-                if not path.isdir('./old_fixtures'):
-                    makedirs('./old_fixtures')
-                shutil.move(f'./{file_name}', './old_fixtures/')
 
         print("Storing product records...", end="")
         supermarket_record = SupermarketModel.objects.get(name=_name.capitalize())
@@ -147,10 +141,18 @@ def separate_prices(price: str) -> list[str]:
     return prices
 
 def organize_prices(_list:list[str]) -> dict[str]:
-    if float(_list[0].removeprefix('R')) < float(_list[1].removeprefix('R')):
-        return {"discounted":_list[0], "price": _list[1]}
+    price1 = _list[0]
+    price2 = _list[1]
+    
+    if price1.count(','):
+        price1 = price1.replace(',','')
+    if price2.count(','):
+        price2 = price2.replace(',','')
+
+    if float(price1.removeprefix('R')) < float(price2.removeprefix('R')):
+        return {"discounted":price1, "price": price2}
     else:
-        return {"discounted":_list[1], "price": _list[0]}
+        return {"discounted":price2, "price": price1}
 
 def clean_data(s) -> None:
     _name = s.get_supermarket_name().lower()
@@ -184,11 +186,10 @@ def clean_data(s) -> None:
                         promo = data['promo']
                 else:
                     price = data['price']
-                if ((data['image'] != None) and (data['image'] != "")) and ('home' in data['image']):
-                    img = Image.open(data['image'].replace('Development Environment/', ''))
-                    array_bytes = BytesIO()
-                    img.save(array_bytes, 'png')
-                    image = base64.b64encode(array_bytes.getvalue()).decode('ascii')
+                if data['image'] == None:
+                    image = Common.objects.get(name='Default Product Image').value
+                else:
+                    image = data['image']
                 buffer.update({name: {'price': price, 'discounted_price': discounted, 'promo': promo,
                                         'image': image}})
             json.dump(buffer, file)
@@ -198,14 +199,17 @@ def clean_data(s) -> None:
 def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     products = Product.objects
     supermarket = SupermarketModel.objects
+    _query = f'%{query}%'
 
     if supermarket_name:
-        supermarket = supermarket.get(name__icontains=supermarket_name)   
-        products = products.filter(supermarket_id=supermarket.id)
-    products = products.filter(name__icontains=query)        
+        supermarket = supermarket.get(name__icontains=supermarket_name)
+        products = products.raw("SELECT id, name FROM Products WHERE name LIKE %s AND id LIKE %s LIMIT 5", [_query, f'{supermarket.id}%'])
+    else:
+        products = products.raw("SELECT id, name FROM Products WHERE name LIKE %s LIMIT 5", [_query])
     
-    if products: 
+    if products:
         buffer: dict[str] = {}
+        promotion = None
         # product autosuggestion.
         if supermarket_name:
             for p in products:
@@ -213,11 +217,10 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                     price = p.discounted_price
                 else:
                     price = p.price
+                    
                 if p.promotion:
                     if check_for_bargain(p.promotion):
                         promotion = p.promotion
-                else:
-                    promotion = None
                 buffer.update({p.name: {'price': price, 'promo': promotion}})
         # discounted products.
         else:
@@ -232,8 +235,7 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                         if p.promotion:
                             if check_for_bargain(p.promotion):
                                 promotion = p.promotion
-                        else:
-                            promotion = None
+
                         if p.image:
                             image = p.image
                         else:
@@ -241,7 +243,7 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                         buffer2.update({p.name: {'price': price, 'image': image, 'promo': promotion}})
                 if buffer2:
                     buffer.update({s.name: buffer2})
-        return buffer        
+        return buffer       
     else:
         return dict()
     
@@ -276,3 +278,39 @@ def check_for_bargain(promotion: str) -> bool:
         if sub in promotion:
             return True
     return False
+
+def find_best_match(matches: dict[dict[str]]) -> dict[dict[str]]:
+    '''Returns a refined dictionary of products that match a query.'''
+    # Compare each product entry of a supermarket to the rest of the 
+    # other supermarket product entries in order to find the best match
+    # for the query.
+    best_matches = {}
+    buffer = matches # Make a copy of the container for comparison.
+    checked_entries = {}
+    mostly_occuring = '' # The product with the most occurences accross the different supermarkets.
+    highest = 0
+    for supermarket_name, products in matches.items():
+        buffer.pop(supermarket_name)
+        for product in products.keys():
+            if checked_entries.get(product) != None:
+                continue # If the product is already checked, skip it.
+            total_occurences = 1
+            # Check if the current product is in the other supermarkets.
+            for buffered_supermarket_name, buffered_products in buffer.items():           
+                if product in list(buffered_products.keys()):
+                    total_occurences += 1
+            checked_entries.update({product: total_occurences})
+        buffer.update({supermarket_name: products})
+    
+    # Assign the one with the highest occurences. 
+    for name, number in checked_entries.items():
+        if number > highest:
+            mostly_occuring = name
+            highest = number
+    
+    # Filter products.
+    for s_name, prods in matches.items():
+        if mostly_occuring in prods.keys():
+            best_matches.update({s_name: {mostly_occuring: prods.get(mostly_occuring)}})
+
+    return best_matches
