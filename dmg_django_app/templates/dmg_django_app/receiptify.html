@@ -233,21 +233,23 @@
 
             if(selected_items.get(item.innerText).promo != null) {
                 let product_promotion = String(selected_items.get(item.innerText).promo);
-                if(product_promotion.includes('For ')) {
-                    product_promotion = product_promotion.replace(' (Smart Price)', '');
+                if(current_choice === 'PicknPay' || current_choice === 'Woolworths') {
+                    if(product_promotion.includes('For ') || product_promotion.includes('FOR ')) {
+                        product_promotion = product_promotion.replace(' (Smart Price)', '');
 
-                    if(product_promotion.includes('Buy Any ')) {
-                        product_promotion = product_promotion.replace('Buy Any ', '');
+                        if(product_promotion.includes('Buy Any ')) {
+                            product_promotion = product_promotion.replace('Buy Any ', '');
+                        }
+                        else {
+                            product_promotion = product_promotion.replace('Buy ', '');
+                        }
+
+                        let promotion_container = document.createElement('p');
+                        promotion_container.setAttribute('class', 'promotion-container');
+                        promotion_container.innerText = product_promotion;
+
+                        item_quantity_field.append(promotion_container);
                     }
-                    else {
-                        product_promotion = product_promotion.replace('Buy ', '');
-                    }
-
-                    let promotion_container = document.createElement('p');
-                    promotion_container.setAttribute('class', 'promotion-container');
-                    promotion_container.innerText = product_promotion;
-
-                    item_quantity_field.append(promotion_container);
                 }
             }
 

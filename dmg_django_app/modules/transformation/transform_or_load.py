@@ -199,13 +199,16 @@ def clean_data(s) -> None:
 def query_items(query: str, supermarket_name: str = None) -> dict[str]:
     products = Product.objects
     supermarket = SupermarketModel.objects
-    _query = f'%{query}%'
+    substrings = [f'%{query}%', f'{query}%', f'%{query}']
+    raw_query = """SELECT id, name FROM Products WHERE ((name LIKE %s)
+                OR (name LIKE %s) OR (name LIKE %s) discounted) LIMIT 5"""
 
     if supermarket_name:
         supermarket = supermarket.get(name__icontains=supermarket_name)
-        products = products.raw("SELECT id, name FROM Products WHERE name LIKE %s AND id LIKE %s LIMIT 5", [_query, f'{supermarket.id}%'])
+        substrings.append(f'{supermarket.id}%')
+        products = products.raw(raw_query.replace('discounted', 'AND (id LIKE %s)'), substrings)
     else:
-        products = products.raw("SELECT id, name FROM Products WHERE name LIKE %s LIMIT 5", [_query])
+        products = products.raw(raw_query.replace(' discounted', ''), substrings)
     
     if products:
         buffer: dict[str] = {}
