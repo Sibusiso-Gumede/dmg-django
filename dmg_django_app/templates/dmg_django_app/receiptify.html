@@ -37,7 +37,7 @@
                     {{ s_name }}<br>
             {% if s_name == "Shoprite" %}
                     <input class="form-check-input border border-dark" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" checked onclick="update_choice(event, this)">
-            {% else %}    
+            {% else %}
                     <input class="form-check-input border border-dark" type="radio" value="{{ s_name }}" id="{{ s_name }}" name="supermarket-choice" onclick="update_choice(event, this)">    
             {% endif %}
                 </div>
@@ -233,24 +233,42 @@
 
             if(selected_items.get(item.innerText).promo != null) {
                 let product_promotion = String(selected_items.get(item.innerText).promo);
-                if(current_choice === 'PicknPay' || current_choice === 'Woolworths') {
-                    if(product_promotion.includes('For ') || product_promotion.includes('FOR ')) {
+                if(current_choice === 'PicknPay') {
+                    if(product_promotion.includes('(Smart Price)')) {
                         product_promotion = product_promotion.replace(' (Smart Price)', '');
 
                         if(product_promotion.includes('Buy Any ')) {
                             product_promotion = product_promotion.replace('Buy Any ', '');
+                            if(product_promotion.includes('Cheapest')) {
+                                
+                            }
                         }
                         else {
                             product_promotion = product_promotion.replace('Buy ', '');
                         }
+                    }
+                    else if('Smart Price:') {
+                        product_promotion = product_promotion.replace('Smart Price: ', '');
 
-                        let promotion_container = document.createElement('p');
-                        promotion_container.setAttribute('class', 'promotion-container');
-                        promotion_container.innerText = product_promotion;
-
-                        item_quantity_field.append(promotion_container);
                     }
                 }
+                else if(current_choice === 'Woolworths') {
+                    if(product_promotion.includes('PAY FOR')) {
+
+                    }
+                    else if(product_promotion.includes('FOR ') && product_promotion.includes('ANY')) {
+
+                    }
+                    else if(product_promotion.includes('SAVE')) {
+                        
+                    }
+                }
+                
+                let promotion_container = document.createElement('p');
+                promotion_container.setAttribute('class', 'promotion-container');
+                promotion_container.innerText = product_promotion;
+
+                item_quantity_field.append(promotion_container);
             }
 
             item_row.append(item_number_field);
@@ -317,7 +335,7 @@
                 price.innerHTML = price_buffer;
         }
         else
-            price.innerHTML = price_buffer; 
+            price.innerHTML = price_buffer;
     }
 
     async function get_receipt() {

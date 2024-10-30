@@ -276,7 +276,7 @@ def from_base64String_to_png(filename: str, resources_dir: str) -> None:
         json.dump(file_buffer, file)
 
 def check_for_bargain(promotion: str) -> bool:
-    bargain_substrings = ['FOR', 'Buy', 'BUY', 'for', 'Any', 'any']
+    bargain_substrings = ['FOR', 'Buy', 'BUY', 'for', 'Any', 'any', 'ANY']
     for sub in bargain_substrings:
         if sub in promotion:
             return True
