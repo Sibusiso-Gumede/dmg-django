@@ -222,8 +222,7 @@ def query_items(query: str, supermarket_name: str = None) -> dict[str]:
                     price = p.price
                     
                 if p.promotion:
-                    if check_for_bargain(p.promotion):
-                        promotion = p.promotion
+                    promotion = p.promotion
                 buffer.update({p.name: {'price': price, 'promo': promotion}})
         # discounted products.
         else:

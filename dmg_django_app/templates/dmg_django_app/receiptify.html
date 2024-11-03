@@ -231,26 +231,36 @@
             item_quantity_field.setAttribute('class', 'item-quantity-field');
             item_quantity_field.append(item_quantity_wrapper);
 
+            // Setup promotion label for each promoted product in the grocery list.
             if(selected_items.get(item.innerText).promo != null) {
                 let product_promotion = String(selected_items.get(item.innerText).promo);
+
                 if(current_choice === 'PicknPay') {
                     if(product_promotion.includes('(Smart Price)')) {
                         product_promotion = product_promotion.replace(' (Smart Price)', '');
-
+                        let product_price = Number(selected_items.get(item.innerText).price.slice(1));
                         if(product_promotion.includes('Buy Any ')) {
                             product_promotion = product_promotion.replace('Buy Any ', '');
-                            if(product_promotion.includes('Cheapest')) {
-                                
+                            let promotion_quantity = Number(product_promotion[0]);
+                            // Buy x for the price of x - 1.
+                            if(product_promotion.includes('Cheapest'))
+                                product_promotion = product_promotion.replace(', Get Cheapest Free', ' for R' + (((promotion_quantity - 1) * product_price).toFixed(2)));
+                            // Buy x save y%.
+                            else if(product_promotion.includes('Save')) {
+                                // Total price without discount = (promotion quantity x product price)
+                                // Calculate y% of total price and substract it from total price.
+                                const total_price = promotion_quantity * product_price;
+                                const discounted_price = total_price - (total_price * Number('0.' + product_promotion.slice(-2, -5)).toFixed(2));
+                                product_promotion = product_promotion.replace(product_promotion.slice(product_promotion.indexOf(',')), 'R' + discounted_price);
                             }
                         }
-                        else {
+                        else
                             product_promotion = product_promotion.replace('Buy ', '');
-                        }
                     }
-                    else if('Smart Price:') {
-                        product_promotion = product_promotion.replace('Smart Price: ', '');
+                    //else if('Smart Price:') {
+                    //    product_promotion = product_promotion.replace('Smart Price: ', '');
 
-                    }
+                    //}
                 }
                 else if(current_choice === 'Woolworths') {
                     if(product_promotion.includes('PAY FOR')) {
@@ -263,9 +273,14 @@
                         
                     }
                 }
+                else if(current_choice === 'Makro') {
+                    if(product_promotion.includes('for'))
+                        product_promotion.trim();
+                }
                 
                 let promotion_container = document.createElement('p');
                 promotion_container.setAttribute('class', 'promotion-container');
+                
                 promotion_container.innerText = product_promotion;
 
                 item_quantity_field.append(promotion_container);
@@ -323,14 +338,24 @@
     function change_total_price(node) {
         let price = node.parentNode.parentNode.nextSibling;
         let price_buffer = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2);
-    
+        let product_quantity = node.value;
+
         if(node.parentNode.parentNode.querySelector('.promotion-container') != null) {
             let promotion = node.parentNode.parentNode.querySelector('.promotion-container').innerText;
 
-            if((promotion[0] === node.value) && (!price.innerHTML.includes('<strike>')))
-                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion.slice(6);
-            else if((promotion[0] === node.value) && (price.innerHTML.includes('<strike>')))
-                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion.slice(6);
+            if(promotion.includes('Smart Price:')) {
+                promotion = 'R' + (Number(promotion.slice(promotion.lastIndexOf('R') + 1)) * Number(product_quantity)).toFixed(2);
+                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion;
+            }
+            else if((promotion[0] === product_quantity) && (!price.innerHTML.includes('<strike>'))) {
+                if(current_choice === 'Makro')
+                    promotion = promotion.slice(6).replace(' ', '');
+                else
+                    promotion = promotion.slice(6);
+                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion;
+            }
+            //else if((promotion[0] === node.value) && (price.innerHTML.includes('<strike>')))
+            //    price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion.slice(6);
             else
                 price.innerHTML = price_buffer;
         }
