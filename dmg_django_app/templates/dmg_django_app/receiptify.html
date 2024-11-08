@@ -237,9 +237,12 @@
 
                 if(current_choice === 'PicknPay') {
                     if(product_promotion.includes('(Smart Price)')) {
+                        // Remove redundant string.
                         product_promotion = product_promotion.replace(' (Smart Price)', '');
                         let product_price = Number(selected_items.get(item.innerText).price.slice(1));
+                        // x for Rxx.xx or x save y% block.
                         if(product_promotion.includes('Buy Any ')) {
+                            // Remove redundant string.
                             product_promotion = product_promotion.replace('Buy Any ', '');
                             let promotion_quantity = Number(product_promotion[0]);
                             // Buy x for the price of x - 1.
@@ -257,10 +260,11 @@
                         else
                             product_promotion = product_promotion.replace('Buy ', '');
                     }
-                    //else if('Smart Price:') {
-                    //    product_promotion = product_promotion.replace('Smart Price: ', '');
-
-                    //}
+                    else if(product_promotion.includes('Smart Price:')) {                       
+                        // Append discounted price to the item price field.
+                        let promotion_price = 'R' + Number(promotion.slice(promotion.lastIndexOf('R') + 1)).toFixed(2);
+                        item_total_price_field.innerHTML = '<strike>' + selected_items.get(item.innerText).price + '</strike>' + '<br/>' + promotion_price;
+                    }
                 }
                 else if(current_choice === 'Woolworths') {
                     if(product_promotion.includes('PAY FOR')) {
@@ -278,11 +282,13 @@
                         product_promotion.trim();
                 }
                 
+                // Create paragraph element for the promotion label.
                 let promotion_container = document.createElement('p');
                 promotion_container.setAttribute('class', 'promotion-container');
                 
                 promotion_container.innerText = product_promotion;
 
+                // Append the promotion label below the quantity container.
                 item_quantity_field.append(promotion_container);
             }
 
