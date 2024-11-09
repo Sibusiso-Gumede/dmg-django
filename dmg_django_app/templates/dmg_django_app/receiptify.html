@@ -257,12 +257,14 @@
                                 product_promotion = product_promotion.replace(product_promotion.slice(product_promotion.indexOf(',')), 'R' + discounted_price);
                             }
                         }
-                        else
-                            product_promotion = product_promotion.replace('Buy ', '');
+                        else if(product_promotion.includes('Buy &')) {
+                            product_promotion = product_promotion.replace('Buy & ', '');
+                            
+                        }
                     }
                     else if(product_promotion.includes('Smart Price:')) {                       
                         // Append discounted price to the item price field.
-                        let promotion_price = 'R' + Number(promotion.slice(promotion.lastIndexOf('R') + 1)).toFixed(2);
+                        let promotion_price = 'R' + Number(product_promotion.slice(product_promotion.lastIndexOf('R') + 1)).toFixed(2);
                         item_total_price_field.innerHTML = '<strike>' + selected_items.get(item.innerText).price + '</strike>' + '<br/>' + promotion_price;
                     }
                 }
