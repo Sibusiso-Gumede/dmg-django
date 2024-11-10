@@ -246,11 +246,13 @@
                             // Remove redundant string.
                             product_promotion = product_promotion.replace('Buy Any ', '');
                             let promotion_quantity = Number(product_promotion[0]);
+                            
                             // Buy x for the price of x - 1.
                             if(product_promotion.includes('Cheapest'))
                                 product_promotion = product_promotion.replace(', Get Cheapest Free', ' for R' + (((promotion_quantity - 1) * product_price).toFixed(2)));
                             // Buy x save y%.
                             else if(product_promotion.includes('Save')) {
+                                product_promotion = product_promotion.replace(',', '');
                                 // Total price without discount = (promotion quantity x product price)
                                 // Calculate y% of total price and substract it from total price.
                                 const total_price = Number(promotion_quantity * product_price).toFixed(2);
@@ -272,9 +274,9 @@
                         item_total_price_field.innerHTML = '<strike>' + product_price + '</strike>' + '<br/>' + promotion_price;
                     }
 
-                    if(percentage_discounted_items.get(item.innerText) != undefined) {
+                    // If the promotion is not quantity based, proceed to append the discounted price in the price field.
+                    if((percentage_discounted_items.get(item.innerText) != undefined) && !Number(product_promotion[0]))
                         item_total_price_field.innerHTML = '<strike>' + product_price + '</strike>' + '<br/>' + 'R' + percentage_discounted_items.get(item.innerText);
-                    }
                 }
                 else if(current_choice === 'Woolworths') {
                     if(product_promotion.includes('PAY FOR')) {
@@ -369,15 +371,24 @@
                 promotion = 'R' + (Number(promotion.slice(promotion.lastIndexOf('R') + 1)) * Number(product_quantity)).toFixed(2);
                 price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion;
             }
-            else if((promotion[0] === product_quantity) && (!price.innerHTML.includes('<strike>'))) {
+            else if((promotion[0] === product_quantity) && (!price.innerHTML.includes('<strike>')) && (percentage_discounted_items.get(item_name) === undefined)) {
                 if(current_choice === 'Makro')
                     promotion = promotion.slice(6).replace(' ', '');
                 else
                     promotion = promotion.slice(6);
                 price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion;
             }
-            else if(percentage_discounted_items.get(item_name) != undefined)
-                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + 'R' + percentage_discounted_items.get(item_name);
+            else if(percentage_discounted_items.get(item_name) != undefined) {
+                // In the case where the promotion is quantity based,
+                // only display the discounted price when the value in the quantity field
+                // matches the promotion quantity.
+                if(promotion[0] === product_quantity)
+                    price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + 'R' + percentage_discounted_items.get(item_name);
+                else if(Number(promotion[0]) && (price.innerHTML.includes('<strike>') || !price.innerHTML.includes('<strike>')))
+                    price.innerHTML = price_buffer;
+                else
+                    price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>'+ 'R' + (Number(product_quantity) * Number(percentage_discounted_items.get(item_name))).toFixed(2);
+            }
             else
                 price.innerHTML = price_buffer;
         }
