@@ -86,6 +86,7 @@
     var cart = document.querySelector('.grocery-list-wrapper');
     var suggested_items = new Map();
     var selected_items = new Map();
+    var percentage_discounted_items = new Map();
 
     type_to_add.addEventListener("keydown", function(event) {
         if(event.key === "Enter")
@@ -234,12 +235,12 @@
             // Setup promotion label for each promoted product in the grocery list.
             if(selected_items.get(item.innerText).promo != null) {
                 let product_promotion = String(selected_items.get(item.innerText).promo);
+                let product_price = Number(selected_items.get(item.innerText).price.slice(1));
 
                 if(current_choice === 'PicknPay') {
                     if(product_promotion.includes('(Smart Price)')) {
                         // Remove redundant string.
                         product_promotion = product_promotion.replace(' (Smart Price)', '');
-                        let product_price = Number(selected_items.get(item.innerText).price.slice(1));
                         // x for Rxx.xx or x save y% block.
                         if(product_promotion.includes('Buy Any ')) {
                             // Remove redundant string.
@@ -252,20 +253,27 @@
                             else if(product_promotion.includes('Save')) {
                                 // Total price without discount = (promotion quantity x product price)
                                 // Calculate y% of total price and substract it from total price.
-                                const total_price = promotion_quantity * product_price;
-                                const discounted_price = total_price - (total_price * Number('0.' + product_promotion.slice(-2, -5)).toFixed(2));
-                                product_promotion = product_promotion.replace(product_promotion.slice(product_promotion.indexOf(',')), 'R' + discounted_price);
+                                const total_price = Number(promotion_quantity * product_price).toFixed(2);
+                                const percentage_discount = Number('0.' + product_promotion.slice(product_promotion.lastIndexOf(' ')+1, -1)).toFixed(2);
+                                const discounted_price = Number(total_price - (total_price * percentage_discount)).toFixed(2);
+                                percentage_discounted_items.set(item.innerText, discounted_price);
                             }
                         }
                         else if(product_promotion.includes('Buy &')) {
                             product_promotion = product_promotion.replace('Buy & ', '');
-                            
+                            const percentage_discount = Number('0.' + product_promotion.slice(product_promotion.lastIndexOf(' ')+1, -1)).toFixed(2);
+                            const discounted_price = Number(product_price - (product_price * percentage_discount)).toFixed(2);
+                            percentage_discounted_items.set(item.innerText, discounted_price);
                         }
                     }
                     else if(product_promotion.includes('Smart Price:')) {                       
                         // Append discounted price to the item price field.
                         let promotion_price = 'R' + Number(product_promotion.slice(product_promotion.lastIndexOf('R') + 1)).toFixed(2);
-                        item_total_price_field.innerHTML = '<strike>' + selected_items.get(item.innerText).price + '</strike>' + '<br/>' + promotion_price;
+                        item_total_price_field.innerHTML = '<strike>' + product_price + '</strike>' + '<br/>' + promotion_price;
+                    }
+
+                    if(percentage_discounted_items.get(item.innerText) != undefined) {
+                        item_total_price_field.innerHTML = '<strike>' + product_price + '</strike>' + '<br/>' + 'R' + percentage_discounted_items.get(item.innerText);
                     }
                 }
                 else if(current_choice === 'Woolworths') {
@@ -308,23 +316,28 @@
     }
 
     function remove_item(item) {
-        let parent = item.parentNode.parentNode;
+        let item_entry = item.parentNode.parentNode;
         
-        selected_items.delete(parent.className);
-        parent.remove();
+        // Delete item from the list of selected products.
+        selected_items.delete(item_entry.className);
+        // Remove item from the cart.
+        item_entry.remove();
 
         let number_fields = document.querySelectorAll('th[scope="row"]');
         let count = 0;
 
+        // Update corresponding item number fields.
         for(let num_field of number_fields) {
             count = count + 1;
             num_field.innerText = count;
         }
 
+        // Toggle cart and receiptify button if there are no items selected.
         if(selected_items.size === 0) {
             if(!(get_receipt_button.classList.contains('invisible') || (table.classList.contains('invisible')))) {
                 get_receipt_button.classList.toggle('invisible');
                 table.classList.toggle('invisible');
+                percentage_discounted_items.clear();
             }
         }
     }
@@ -345,8 +358,9 @@
 
     function change_total_price(node) {
         let price = node.parentNode.parentNode.nextSibling;
-        let price_buffer = "R" + (Number(String(selected_items.get(price.parentNode.className).price).slice(1)) * Number(node.value)).toFixed(2);
         let product_quantity = node.value;
+        let item_name = price.parentNode.className;
+        let price_buffer = "R" + (Number(String(selected_items.get(item_name).price).slice(1)) * Number(product_quantity)).toFixed(2);
 
         if(node.parentNode.parentNode.querySelector('.promotion-container') != null) {
             let promotion = node.parentNode.parentNode.querySelector('.promotion-container').innerText;
@@ -362,8 +376,8 @@
                     promotion = promotion.slice(6);
                 price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion;
             }
-            //else if((promotion[0] === node.value) && (price.innerHTML.includes('<strike>')))
-            //    price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + promotion.slice(6);
+            else if(percentage_discounted_items.get(item_name) != undefined)
+                price.innerHTML = '<strike>' + price_buffer + '</strike>' + '<br/>' + 'R' + percentage_discounted_items.get(item_name);
             else
                 price.innerHTML = price_buffer;
         }
