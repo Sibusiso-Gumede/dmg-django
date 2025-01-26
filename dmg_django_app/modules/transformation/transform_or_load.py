@@ -3,7 +3,7 @@
 import json
 from io import BytesIO
 from PIL import Image, UnidentifiedImageError
-from os import path, listdir, makedirs
+from os import path, listdir
 from .receipt_renderer import ReceiptRenderer, base64
 from ...models import Supermarket as SupermarketModel, Product, Common
 
@@ -51,7 +51,7 @@ def store_image(img: bytes, image_path: str) -> bool:
         print("Image not found or is invalid.")
     else:
         with open(image_path, "xb") as file:
-            image.save(file) 
+            image.save(file)
 
     return path.isfile(image_path)
 
