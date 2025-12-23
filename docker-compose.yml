@@ -12,11 +12,6 @@ services:
       - database:/var/lib/mysql_cont
     ports:
       - 3360:3306
-    healthcheck:
-      test: ['CMD', 'mysql', '--user=root', '--password=S@ilth3wave$', '--host=172.18.0.2', '--port=3306', '--protocol=TCP']
-      interval: 10s
-      retries: 2
-      timeout: 5s
 
   dmg_app:
     volumes:
