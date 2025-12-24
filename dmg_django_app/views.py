@@ -33,6 +33,11 @@ def near_me(request):
     for supermarket in context.get('supermarket_names'):
         query_substring += supermarket + '+'
     query_substring = query_substring[:-2] #remove trailing plus sign.
+    
+    # I have included the API Key as part of the frontend script and
+    # actively working on a solution that will provide the same frontend functionality
+    # without exposing the API Key publicly.
+    # However, the current workaround is benign because API Restrictions are utilized.
     return render(request, 'dmg_django_app/near_me.html', {"source": f"https://www.google.com/maps/embed/v1/search?key={GOOGLE_API_KEY}&q={query_substring}"})
 
 def get_receipt(request):
