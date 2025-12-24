@@ -1,8 +1,8 @@
 # Discount My Groceries
 
-Instead of scouring product catalogues and grocery websites to find the cheapest price of a grocery product, a shopper can easily access product prices from different supermarkets, on a single platform. Isn't that convenient?
+With this app a shopper can easily access product prices from different supermarkets on a single platform, instead of scouring product catalogues and grocery websites to find the cheapest price of a grocery product.
 
-This is currently the web app implementation of the DMG App. Of which I'm currently in the process of having it available as a mobile application using Dart and Flutter. The application components include a Supermarket Scraper that scrapes product promotion data from multiple supermarket websites and stores it in a MySQL database. The <b>Backend</b> is developed using Python/Django and the <b>Frontend</b> using HTML, CSS and Vanilla JavaScript.
+This is currently the web app implementation of the DMG App, of which I'm currently in the process of having it available as a mobile application using Dart and Flutter. The application components include a Supermarket Scraper that scrapes product promotion data from multiple supermarket websites and stores it in a MySQL database. The <b>Backend</b> is developed using Python/Django and the <b>Frontend</b> using HTML, CSS and Vanilla JavaScript.
 
 Deployed on an EC2 Linux instance running Nginx/Gunicorn.
 
@@ -24,4 +24,5 @@ Deployed on an EC2 Linux instance running Nginx/Gunicorn.
 - Pillow
 
 - BytesIO
+
 
